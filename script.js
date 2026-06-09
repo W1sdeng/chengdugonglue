@@ -178,7 +178,7 @@
         };
         img.onerror = function() { img.onerror = null; slide.classList.remove('loading'); };
         img.src = src;
-        delete img.dataset.src;
+        img.removeAttribute('data-src');
       }
 
       let currentIndex = 0;
@@ -307,7 +307,7 @@
       slides.forEach((slide, idx) => {
         slide.addEventListener('click', function(e) {
           if (_touchMoved) { _touchMoved = false; return; }
-          openModal(Array.from(images).map(img => img.getAttribute('src')), idx);
+          openModal(Array.from(images).map(img => img.getAttribute('src') || img.dataset.src || ''), idx);
         });
       });
     });
