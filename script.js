@@ -166,6 +166,15 @@
         }
       });
 
+      // Force all slider images to start loading immediately
+      // (bypass browser native lazy-load that may not trigger inside overflow:hidden + translateX)
+      images.forEach(function(img) {
+        if (!img.complete) {
+          var p = new Image();
+          p.src = img.src;
+        }
+      });
+
       let currentIndex = 0;
       let autoPlayInterval;
       let isTouching = false;
