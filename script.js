@@ -167,11 +167,13 @@
       });
 
       // Force all slider images to start loading immediately
-      // (bypass browser native lazy-load that may not trigger inside overflow:hidden + translateX)
+      // Keep refs to prevent GC from cancelling the loads
+      if (!slider._preloadImages) slider._preloadImages = [];
       images.forEach(function(img) {
         if (!img.complete) {
           var p = new Image();
           p.src = img.src;
+          slider._preloadImages.push(p);
         }
       });
 
