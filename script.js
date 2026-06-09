@@ -154,18 +154,32 @@
 
       slides.forEach(function(slide, si) {
         var img = slide.querySelector('img');
-        if (img) {
-          if (img.complete) {
-            img.setAttribute('data-loaded', '');
-          } else {
-            slide.classList.add('loading');
-            img.addEventListener('load', function() {
-              img.setAttribute('data-loaded', '');
-              slide.classList.remove('loading');
-            });
-          }
+        if (!img) return;
+        if (si === 0) {
+          loadSlideImage(slide, img);
+        } else {
+          img.dataset.src = img.src;
+          img.removeAttribute('src');
         }
       });
+
+      function loadSlideImage(slide, img) {
+        var src = img.dataset.src || img.src;
+        if (!src) return;
+        if (img.complete && img.getAttribute('src')) {
+          img.setAttribute('data-loaded', '');
+          return;
+        }
+        slide.classList.add('loading');
+        img.onload = function() {
+          img.setAttribute('data-loaded', '');
+          slide.classList.remove('loading');
+          img.onload = null;
+        };
+        img.onerror = function() { img.onerror = null; slide.classList.remove('loading'); };
+        img.src = src;
+        delete img.dataset.src;
+      }
 
       let currentIndex = 0;
       let autoPlayInterval;
@@ -183,10 +197,20 @@
         });
       }
 
+      function loadAt(idx) {
+        var slide = slides[idx];
+        if (!slide) return;
+        var img = slide.querySelector('img');
+        if (img && img.dataset.src) loadSlideImage(slide, img);
+      }
+
       function updateSlider(index) {
         track.style.transform = `translateX(-${index * 100}%)`;
         dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         currentIndex = index;
+        loadAt(index);
+        loadAt(index - 1);
+        loadAt(index + 1);
         preloadAdjacent(index);
       }
 
@@ -345,11 +369,12 @@
     let touchStartX = 0, touchStartY = 0;
     const pages = ['home','day1','day2','day3','day4','day5','budget'];
     document.addEventListener('touchstart', e => {
-      if (e.target.closest('.image-slider, .modal, .slider-dots, .slider-track')) return;
+      if (e.target.closest('.image-slider, .modal, .slider-dots, .slider-track')) { touchStartX = 0; return; }
       touchStartX = e.changedTouches[0].screenX;
       touchStartY = e.changedTouches[0].screenY;
     }, { passive: true });
     document.addEventListener('touchend', e => {
+      if (touchStartX === 0) return;
       const diffX = touchStartX - e.changedTouches[0].screenX;
       const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
       const activeIdx = Array.from(document.querySelectorAll('.nav a')).findIndex(a => a.classList.contains('active'));

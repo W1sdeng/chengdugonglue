@@ -668,7 +668,15 @@
     .nav a { min-height: 36px; }
     .nav a:hover { color: var(--text-secondary); }
     .slider-dots .dot { width: 7px; height: 7px; }
+    .slider-btn { display: none; }
   }
+
+  .modal-close,
+  .modal-nav,
+  .modal-counter { transition: opacity 0.2s ease; }
+  .modal:not(.active) .modal-close,
+  .modal:not(.active) .modal-nav,
+  .modal:not(.active) .modal-counter { opacity: 0; }
 
   /* 鈹€鈹€鈹€ Modal zoom 鈹€鈹€鈹€ */
   .modal-content.zoomed { object-fit: none; cursor: move; }
