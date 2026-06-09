@@ -215,6 +215,7 @@
       }
 
       function startAutoPlay() {
+        stopAutoPlay();
         if (images.length <= 1) return;
         autoPlayInterval = setInterval(() => {
           if (!isTouching) {
@@ -270,11 +271,12 @@
       obs.observe(slider);
       slider.dataset.observer = obs;
 
-      // Desktop prev/next arrows
-      if (images.length > 1 && !slider.querySelector('.slider-btn')) {
+      // Desktop prev/next arrows (not on touch devices)
+      if (images.length > 1 && !slider.querySelector('.slider-btn') && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         var prevBtn = document.createElement('button');
         prevBtn.className = 'slider-btn slider-prev';
         prevBtn.innerHTML = '&#10094;';
+        prevBtn.setAttribute('aria-label', '上一张');
         prevBtn.addEventListener('click', function(e) {
           e.stopPropagation();
           updateSlider((currentIndex - 1 + images.length) % images.length);
@@ -284,6 +286,7 @@
         var nextBtn = document.createElement('button');
         nextBtn.className = 'slider-btn slider-next';
         nextBtn.innerHTML = '&#10095;';
+        nextBtn.setAttribute('aria-label', '下一张');
         nextBtn.addEventListener('click', function(e) {
           e.stopPropagation();
           updateSlider((currentIndex + 1) % images.length);
