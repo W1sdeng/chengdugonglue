@@ -224,16 +224,19 @@
   .route-map {
     display: flex; align-items: flex-start; justify-content: space-between;
     padding: 20px 8px 12px; margin-bottom: 16px; position: relative;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .route-map::-webkit-scrollbar { display: none; }
   .route-map::before {
     content: ''; position: absolute;
     top: 32px; left: 20px; right: 20px; height: 1px;
     background: var(--border);
   }
-  .rm-stop { display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; z-index: 1; flex: 1; min-width: 0; }
+  .rm-stop { display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; z-index: 1; flex: 0 0 auto; min-width: 0; }
   .rm-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-  .rm-name { font-size: 15px; color: var(--text); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
-  .rm-label { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.4px; }
+  .rm-name { font-size: 15px; color: var(--text); text-align: center; white-space: nowrap; }
+  .rm-label { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.4px; white-space: nowrap; }
 
   /* 鈹€鈹€鈹€ Info Banner 鈹€鈹€鈹€ */
   .info-banner {
@@ -358,8 +361,9 @@
     color: var(--text-tertiary);
   }
   @media (max-width: 520px) {
-    .dc-route { grid-template-columns: 65px 1fr 14px 1fr; }
-    .dc-route .d { grid-column: 1 / -1; padding-left: 70px; font-size: 12px; }
+    .dc-route { grid-template-columns: 60px auto 14px 1fr; }
+    .dc-route .d { grid-column: 1 / -1; padding-left: 64px; font-size: 12px; padding-top: 0; }
+    .dc-route .to { word-break: break-word; }
   }
 
   .tl-item.done .dc-title,
@@ -603,6 +607,11 @@
     .rt-dot { width: 4px; height: 4px; }
     .route::before { left: 10px; right: 10px; top: 16px; }
     .dc-item { font-size: 13px; }
+    .dc-route { grid-template-columns: 55px 1fr; }
+    .dc-route .a { display: none; }
+    .dc-route .to { grid-column: 2; }
+    .dc-route .t { grid-row: 1; }
+    .dc-route .d { grid-column: 1 / -1; padding-left: 0; font-size: 11px; }
     .rm-name { font-size: 12px; }
     .rm-label { font-size: 10px; }
     .route-map { padding: 10px 2px 4px; }
