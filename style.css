@@ -360,10 +360,12 @@
     font-size: 13px;
     color: var(--text-tertiary);
   }
-  @media (max-width: 520px) {
-    .dc-route { grid-template-columns: 60px auto 14px 1fr; }
-    .dc-route .d { grid-column: 1 / -1; padding-left: 64px; font-size: 12px; padding-top: 0; }
-    .dc-route .to { word-break: break-word; }
+  @media (max-width: 640px) {
+    .dc-route { display: block; margin: 4px 0; }
+    .dc-route .t { display: inline; font-size: 12px; margin-right: 4px; }
+    .dc-route .a { display: inline; font-size: 12px; margin: 0 2px; color: var(--text-tertiary); }
+    .dc-route .to { display: inline; font-size: 14px; }
+    .dc-route .d { display: block; font-size: 12px; padding-left: 0; margin-top: 1px; color: var(--text-tertiary); }
   }
 
   .tl-item.done .dc-title,
@@ -607,11 +609,6 @@
     .rt-dot { width: 4px; height: 4px; }
     .route::before { left: 10px; right: 10px; top: 16px; }
     .dc-item { font-size: 13px; }
-    .dc-route { grid-template-columns: 55px 1fr; }
-    .dc-route .a { display: none; }
-    .dc-route .to { grid-column: 2; }
-    .dc-route .t { grid-row: 1; }
-    .dc-route .d { grid-column: 1 / -1; padding-left: 0; font-size: 11px; }
     .rm-name { font-size: 12px; }
     .rm-label { font-size: 10px; }
     .route-map { padding: 10px 2px 4px; }
