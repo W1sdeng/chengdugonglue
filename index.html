@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>成都五日游 · 详细行程</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .editable { display:inline-block; min-width:30px; text-align:right; border-bottom:1px dashed rgba(200,190,180,0.3); cursor:text; padding:0 2px; transition:background 0.2s; }
+  .editable:hover { background:rgba(187,206,140,0.1); }
+  .editable:focus { outline:none; border-bottom-color:var(--accent); background:rgba(187,206,140,0.15); }
+  .reset-btn { background:transparent; border:1px solid rgba(200,190,180,0.2); color:var(--text-secondary); padding:2px 10px; border-radius:8px; cursor:pointer; font-size:0.8em; vertical-align:middle; margin-left:8px; transition:all 0.2s; }
+  .reset-btn:hover { border-color:var(--accent); color:var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="topNav">
+  <a onclick="showPage('home')" class="active">首页</a>
+  <a onclick="showPage('day1')">Day1</a>
+  <a onclick="showPage('day2')">Day2</a>
+  <a onclick="showPage('day3')">Day3</a>
+  <a onclick="showPage('day4')">Day4</a>
+  <a onclick="showPage('day5')">Day5</a>
+  <a onclick="showPage('budget')">预算</a>
+  <div class="nav-indicator"></div>
+</nav>
+
+<div class="container">
+
+  <!-- ===== HOME ===== -->
+  <div class="page active" id="page-home">
+    <div class="home-header">
+      <div class="date">2026 · 9.5 → 9.9</div>
+      <h1>成都五日游</h1>
+      <p class="sub">黄龙 · 九寨沟 · 三星堆 · 青城山 · 都江堰 · 杜甫草堂</p>
+      <div class="stats">
+        <span>9.5→9.9</span>
+        <span>人均 ¥2,054</span>
+        <span>2-4 人</span>
+      </div>
+    </div>
+
+    <div class="route">
+      <div class="rt-stop">
+        <div class="rt-dot"></div>
+        <div class="rt-name">黄龙</div>
+        <div class="rt-label">Day 1</div>
+      </div>
+      <div class="rt-stop">
+        <div class="rt-dot"></div>
+        <div class="rt-name">九寨沟</div>
+        <div class="rt-label">Day 2</div>
+      </div>
+      <div class="rt-stop">
+        <div class="rt-dot"></div>
+        <div class="rt-name">三星堆</div>
+        <div class="rt-label">Day 3</div>
+      </div>
+      <div class="rt-stop">
+        <div class="rt-dot"></div>
+        <div class="rt-name">青城山</div>
+        <div class="rt-label">Day 4</div>
+      </div>
+      <div class="rt-stop">
+        <div class="rt-dot"></div>
+        <div class="rt-name">成都</div>
+        <div class="rt-label">Day 5</div>
+      </div>
+    </div>
+
+    <div class="start-wrap">
+      <button class="start-btn" onclick="showPage('day1')">
+        开始行程 <span class="start-arrow">→</span>
+      </button>
+    </div>
+
+    <footer>2026 年 9 月 · 祝旅途愉快</footer>
+  </div>
+
+  <!-- ===== DAY 1 ===== -->
+  <div class="page" id="page-day1">
+
+    <!-- Hero -->
+    <div class="day-hero">
+      <div class="h-badge">Day 1 · 9月5日</div>
+      <h2>成都西 → 黄龙 → 九寨沟</h2>
+      <div class="h-meta">
+        <span>海拔 500→3500m</span>
+        <span>预估 ¥656</span>
+      </div>
+    </div>
+
+    <!-- Route Map -->
+    <div class="route-map">
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">成都西站</div><div class="rm-label">出发</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">成都东站</div><div class="rm-label">换乘</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">黄龙九寨站</div><div class="rm-label">1h39min</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">黄龙景区</div><div class="rm-label">5h</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">九寨沟沟口</div><div class="rm-label">住宿</div></div>
+    </div>
+
+    <div class="info-banner">
+      <span><span class="hl">穿衣</span> 短袖+薄外套，黄龙山顶需加外套</span>
+      <span><span class="hl">高反</span> 黄龙海拔 3000-3500m，建议备氧气瓶</span>
+      <span><span class="hl">必备</span> 防滑鞋、防晒、雨衣、水</span>
+    </div>
+
+    <!-- Timeline -->
+    <div class="tl-wrap">
+
+      <div class="tl-item" data-key="d1_check1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">05:49</span>抵达成都西站</div>
+            <div class="dc-item"><span>出站后步行至附近早餐店（推荐：<span class="hl">老街担担面</span> / <span class="hl">陈麻婆豆腐</span> 西站店），用餐约 30min</span></div>
+            <div class="dc-tags"><span>早餐 ¥25-35</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d1_check2">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">06:45</span>地铁前往成都东站</div>
+            <div class="dc-item"><span>成都西站乘坐 <span class="hl">地铁 7号线</span>（崇州方向）至 <span class="hl">三瓦窑站</span> 换乘 <span class="hl">地铁 2号线</span>（龙泉驿方向）至 <span class="hl">成都东客站</span>，全程约 45min</span></div>
+            <div class="dc-item"><span>最晚 <span class="hl">07:10</span> 进站，预留 30min 取票/安检</span></div>
+            <div class="dc-tags"><span>地铁 ¥4</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d1_check3">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">08:12</span>成都东 → 黄龙九寨</div>
+            <div class="dc-item"><span>乘坐 <span class="hl">D8662/D8663</span> 次动车（二等座 ¥143），历时 1h39min</span></div>
+            <div class="dc-tags"><span>高铁 ¥143</span><span>1h39min</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d1_check4">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">10:01</span>抵达黄龙九寨站</div>
+            <div class="dc-item"><span>出站 → 前往游客中心换乘点（约 25min，含取行李/上厕所/买水）</span></div>
+            <div class="dc-tags"><span>换乘准备 25min</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d1_check5">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">10:30</span>大巴前往黄龙景区</div>
+            <div class="dc-item"><span>乘坐景区换乘车至 <span class="hl">黄龙景区游客中心</span>，车程约 35min</span></div>
+            <div class="dc-tags"><span>接驳 ¥28</span><span>约 35min</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d1_check6">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">11:05</span>抵达黄龙游客中心</div>
+            <div class="dc-item"><span>寄存大件行李（¥10/件/天），仅带轻装上山</span></div>
+            <div class="dc-tags"><span>寄存 ¥10/件</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d1_check7">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d1_card7">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">11:30</span>正式游览黄龙景区</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item"><span><span class="hl">门票</span> 全价 ¥170（学生半价 ¥85）</span></div>
+              <div class="dc-item"><span><span class="hl">上行索道</span> ¥80，下行 ¥40（建议单程上行，下山步行约 2h）</span></div>
+              <div class="dc-item"><span><span class="hl">氧气瓶</span> 景区售 ¥20-30（建议成都提前买 ¥15），海拔 3000-3500m 必备</span></div>
+              <div class="dc-item"><span>建议游览 <span class="hl">5h</span>：索道上行 → 五彩池 → 金沙铺地 → 仙子潭 → 步行下山或下行索道</span></div>
+              <div class="dc-item"><span><span class="hl">温馨提示</span>：① 早 11:30 前上山避开高峰 ② 穿防滑鞋/登山杖 ③ 高反者勿强行深入 ④ 垃圾带走 ⑤ 下山前确认末班索道时间（通常 16:30-17:00）</span></div>
+              <div class="dc-tags"><span>门票 ¥85</span><span>索道上行 ¥80</span><span>氧气瓶 ¥20</span><span>游览 5h</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>黄龙景区</div>
+            <div class="image-slider" data-interval="4000">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/huanglong-1.jpg" alt="五彩池全景" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1878" src="chengdu/huanglong-2.jpg" alt="金沙铺地" loading="lazy"></div>
+                <div class="slider-slide"><img width="720" height="1174" src="chengdu/huanglong-3.jpg" alt="仙子潭倒影" loading="lazy"></div>
+                <div class="slider-slide"><img width="1280" height="1686" src="chengdu/huanglong-4.jpg" alt="古寺远眺" loading="lazy"></div>
+                <div class="slider-slide"><img width="1280" height="1578" src="chengdu/huanglong-5.jpg" alt="彩池细节" loading="lazy"></div>
+                <div class="slider-slide"><img width="720" height="1082" src="chengdu/huanglong-6.jpg" alt="山顶俯瞰" loading="lazy"></div>
+              </div>
+              <div class="slider-dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="image-caption">黄龙景区实拍：五彩池、金沙铺地、仙子潭、古寺、山顶俯瞰</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d1_check9">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">16:30</span>结束游览，出景区</div>
+            <div class="dc-item"><span>从出口取回行李，前往停车场乘车</span></div>
+            <div class="dc-tags"><span>16:30 出景区</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d1_check10">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">17:00</span>黄龙 → 汉庭九寨沟游客中心酒店</div>
+            <div class="dc-item"><span>乘车前往 <span class="hl">汉庭酒店·九寨沟游客中心店</span>，车程约 2h</span></div>
+            <div class="dc-item"><span>预计 <span class="hl">19:20</span> 抵达，办理入住，稍作休息</span></div>
+            <div class="dc-tags"><span>接驳 ¥68</span><span>住宿 ¥160</span><span>车程 2h</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d1_check11">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">19:30</span>晚餐：九寨铜锅牦牛肉汤锅</div>
+            <div class="dc-item"><span>特色铜锅炖牦牛肉，汤底浓郁，肉质酥烂，配青稞饼/糌粑</span></div>
+            <div class="dc-item"><span>推荐：酒店周边 <span class="hl">九寨印象</span> / <span class="hl">牦牛肉汤锅专门店</span>，人均 ¥80-100</span></div>
+            <div class="dc-item"><span>汤锅清补不辣，适合高原养胃；可加手工面/青稞面饼</span></div>
+            <div class="dc-tags"><span>晚餐 ¥90</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>牦牛汤锅</div>
+            <div class="image-slider" data-interval="0">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/maoniu-1.jpg" alt="铜锅牦牛肉汤锅" loading="lazy"></div>
+              </div>
+            </div>
+            <div class="image-caption">铜锅牦牛肉汤锅：汤底浓郁，肉质酥烂，配青稞饼/糌粑</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click cost-summary">
+        <div class="tl-dot" style="border-color:var(--warm);"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-cost-row"><span>本日交通合计</span><span class="val">¥231</span></div>
+            <div class="dc-divider"></div>
+            <div class="dc-cost-row"><span>本日总花费（含餐饮 ¥80）</span><span class="val">¥656</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tl-wrap -->
+  </div>
+
+  <!-- ===== DAY 2 ===== -->
+  <div class="page" id="page-day2">
+
+    <div class="day-hero">
+      <div class="h-badge">Day 2 · 9月6日</div>
+      <h2>九寨沟深度游 → 成都</h2>
+      <div class="h-meta">
+        <span>海拔 2000→500m</span>
+        <span>预估 ¥615</span>
+      </div>
+    </div>
+
+    <div class="route-map">
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">九寨沟酒店</div><div class="rm-label">步行</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">九寨沟景区</div><div class="rm-label">9h游玩</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">松潘站</div><div class="rm-label">2h10min</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">成都东站</div><div class="rm-label">高铁1h40min</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">桔子水晶酒店</div><div class="rm-label">地铁</div></div>
+    </div>
+
+    <div class="info-banner">
+      <span><span class="hl">穿衣</span> 九寨沟温差大，薄外套+冲锋衣必备，中午可穿短袖</span>
+      <span><span class="hl">午餐</span> 诺日朗中心有餐厅（¥60-80/人），也可自备干粮</span>
+      <span><span class="hl">拍照</span> 镜海 09:00 前无风倒影最佳；五花海中午色彩最艳</span>
+    </div>
+
+    <div class="tl-wrap">
+
+      <div class="tl-item" data-key="d2_check1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">07:00</span>起床 · 洗漱 · 早饭</div>
+            <div class="dc-item"><span>早起收拾，酒店吃早饭（推荐：青稞饼+酥油茶，补充能量）</span></div>
+            <div class="dc-item"><span>检查装备：防滑鞋、雨衣、防晒霜、充电宝、干粮、水</span></div>
+            <div class="dc-tags"><span>早餐含在房费</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d2_check2">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">08:10</span>步行前往九寨沟景区</div>
+            <div class="dc-item"><span>从酒店步行至九寨沟游客中心，约 15-20min</span></div>
+            <div class="dc-item"><span>提前网上购票，刷身份证直接入园</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d2_check3">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d2_card3">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">08:30-17:30</span>九寨沟 9 小时深度游（所有景点全覆盖）</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item dc-route">
+                <span class="t">08:30-09:00</span>
+                <span>沟口</span>
+                <span class="a">→</span>
+                <span class="to hl">原始森林</span>
+                <span class="d">观光车直达日则沟顶，车程30min</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">09:00-09:40</span>
+                <span>原始森林</span>
+                <span class="a">→</span>
+                <span class="to hl">芳草海</span>
+                <span class="d">步行1.5km，高原森林氧吧，游览+拍照30min</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">09:40-09:55</span>
+                <span>芳草海</span>
+                <span class="a">→</span>
+                <span class="to hl">天鹅海</span>
+                <span class="d">乘车5min，湖面如镜，游览10min</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">09:55-10:25</span>
+                <span>天鹅海</span>
+                <span class="a">→</span>
+                <span class="to hl">箭竹海</span>
+                <span class="d">乘车15min+游览15min，箭竹海瀑布超美</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">10:25-10:50</span>
+                <span>箭竹海</span>
+                <span class="a">→</span>
+                <span class="to hl">熊猫海</span>
+                <span class="d">乘车10min+游览15min，熊猫海瀑布壮观</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">10:50-11:20</span>
+                <span>熊猫海</span>
+                <span class="a">→</span>
+                <span class="to hl">五花海</span>
+                <span class="d">乘车10min+游览20min，九寨沟最精华</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">11:20-11:50</span>
+                <span>五花海</span>
+                <span class="a">→</span>
+                <span class="to hl">珍珠滩瀑布</span>
+                <span class="d">步行800m，86版西游记取景地</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">11:50-12:10</span>
+                <span>珍珠滩</span>
+                <span class="a">→</span>
+                <span class="to hl">镜海</span>
+                <span class="d">乘车10min+游览10min，正午看倒影</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">12:10-13:00</span>
+                <span>镜海</span>
+                <span class="a">→</span>
+                <span class="to hl">诺日朗中心站</span>
+                <span class="d">午餐休息，可看诺日朗瀑布</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">13:00-13:40</span>
+                <span>诺日朗</span>
+                <span class="a">→</span>
+                <span class="to hl">长海</span>
+                <span class="d">乘车30min，九寨沟最高点3100m，拍全景</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">13:40-14:00</span>
+                <span>长海</span>
+                <span class="a">→</span>
+                <span class="to hl">五彩池</span>
+                <span class="d">步行15min+游览5min，最小却最艳丽的池子</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">14:00-14:40</span>
+                <span>五彩池</span>
+                <span class="a">→</span>
+                <span class="to hl">犀牛海</span>
+                <span class="d">乘车30min+游览10min</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">14:40-15:00</span>
+                <span>犀牛海</span>
+                <span class="a">→</span>
+                <span class="to hl">老虎海</span>
+                <span class="d"></span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">15:00-15:20</span>
+                <span>老虎海</span>
+                <span class="a">→</span>
+                <span class="to hl">树正瀑布</span>
+                <span class="d"></span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">15:20-15:40</span>
+                <span>树正瀑布</span>
+                <span class="a">→</span>
+                <span class="to hl">树正群海</span>
+                <span class="d">步行游览树正沟上部</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">15:40-16:00</span>
+                <span>树正群海</span>
+                <span class="a">→</span>
+                <span class="to hl">卧龙海</span>
+                <span class="d"></span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">16:00-16:15</span>
+                <span>卧龙海</span>
+                <span class="a">→</span>
+                <span class="to hl">火花海</span>
+                <span class="d"></span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">16:15-16:30</span>
+                <span>火花海</span>
+                <span class="a">→</span>
+                <span class="to hl">双龙海</span>
+                <span class="d">步行游览树正沟下部</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">16:30-17:00</span>
+                <span>双龙海</span>
+                <span class="a">→</span>
+                <span class="to hl">芦苇海</span>
+                <span class="d">乘车+拍照，金色芦苇超美</span>
+              </div>
+              <div class="dc-item dc-route">
+                <span class="t">17:00-17:30</span>
+                <span>盆景滩</span>
+                <span class="a">→</span>
+                <span class="to hl">沟口</span>
+                <span class="d">乘车15min出园</span>
+              </div>
+
+              <div class="dc-item" style="margin-top:8px;"><span>门票 ¥185（含观光车）</span></div>
+              <div class="dc-item"><span><span class="hl">温馨提示</span>：① 镜海 09:00 前无风倒影最清晰 ② 五花海是必打卡NO.1 ③ 树正沟下午光线柔和适合拍照 ④ 穿防滑鞋，带雨衣</span></div>
+              <div class="dc-tags"><span>门票 ¥185</span><span>游览 9h</span><span>3条沟全覆盖</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>九寨沟景区</div>
+            <div class="image-slider" data-interval="4000">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="1440" height="960" src="chengdu/jiuzhaigou-1.jpg" alt="九寨沟全景" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/jiuzhaigou-2.jpg" alt="五花海" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/jiuzhaigou-3.jpg" alt="镜海倒影" loading="lazy"></div>
+                <div class="slider-slide"><img width="1280" height="1668" src="chengdu/jiuzhaigou-4.jpg" alt="珍珠滩瀑布" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1080" src="chengdu/jiuzhaigou-5.jpg" alt="长海" loading="lazy"></div>
+                <div class="slider-slide"><img width="720" height="1280" src="chengdu/jiuzhaigou-6.jpg" alt="五彩池" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/jiuzhaigou-7.jpg" alt="诺日朗瀑布" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/jiuzhaigou-8.jpg" alt="树正群海" loading="lazy"></div>
+              </div>
+              <div class="slider-dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="image-caption">九寨沟景区：五花海、镜海、珍珠滩瀑布、长海、诺日朗瀑布、树正群海</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d2_check5">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">17:30</span>出园 → 前往松潘站</div>
+            <div class="dc-item"><span>17:30 出园取行李，步行至景区直通车乘车点</span></div>
+            <div class="dc-item"><span><span class="hl">18:10 前</span> 乘坐景区直通车前往 <span class="hl">松潘站</span>，车程约 2h10min</span></div>
+            <div class="dc-tags"><span>接驳 ¥70</span><span>约 2h10min</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d2_check6">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">20:40-22:20</span>松潘站 → 成都东站</div>
+            <div class="dc-item"><span>乘坐高铁从 <span class="hl">松潘站</span> 至 <span class="hl">成都东站</span>，历时 1h40min</span></div>
+            <div class="dc-item"><span>车上可休息/处理照片/充电</span></div>
+            <div class="dc-tags"><span>高铁 ¥135</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d2_check7">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d2_card7">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">22:20</span>入住桔子水晶酒店 · 休息</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item"><span>成都东站乘 <span class="hl">地铁7号线（外环）</span>至 <span class="hl">太平园站</span> 换乘 <span class="hl">3号线</span> 至 <span class="hl">红牌楼站</span>，约 35min，<span class="hl">票价约 ¥5</span>，出站步行至酒店约 600m</span></div>
+              <div class="dc-item"><span>办理入住，桔子水晶酒店（武侯祠红牌楼店）</span></div>
+              <div class="dc-item"><span>洗漱休息，结束充实的一天</span></div>
+              <div class="dc-tags"><span>地铁约 ¥5</span><span>住宿 ¥135</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click cost-summary">
+        <div class="tl-dot" style="border-color:var(--warm);"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-cost-row"><span>接驳九寨沟→松潘站</span><span class="val">¥70</span></div>
+            <div class="dc-cost-row"><span>松潘站→成都东站高铁</span><span class="val">¥135</span></div>
+            <div class="dc-cost-row"><span>成都东站→桔子水晶地铁</span><span class="val">¥5</span></div>
+            <div class="dc-divider"></div>
+            <div class="dc-cost-row"><span>本日交通合计</span><span class="val">¥210</span></div>
+            <div class="dc-cost-row"><span>九寨沟门票</span><span class="val">¥185</span></div>
+            <div class="dc-cost-row"><span>桔子水晶住宿</span><span class="val">¥135</span></div>
+            <div class="dc-cost-row"><span>餐饮（早餐+午餐+晚餐）</span><span class="val">¥80</span></div>
+            <div class="dc-divider"></div>
+            <div class="dc-cost-row"><span>本日总花费</span><span class="val">¥615</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tl-wrap -->
+  </div>
+
+    <!-- ===== DAY 3 ===== -->
+  <div class="page" id="page-day3">
+
+    <div class="day-hero">
+      <div class="h-badge">Day 3 · 9月7日</div>
+      <h2>三星堆 → 武侯祠 → 春熙路</h2>
+      <div class="h-meta">
+        <span>地铁+打车</span>
+        <span>预估 ¥193</span>
+      </div>
+    </div>
+
+    <div class="route-map">
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">成都酒店</div><div class="rm-label">出发</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">三星堆博物馆</div><div class="rm-label">4h</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">武侯祠</div><div class="rm-label">1.5h</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">春熙路</div><div class="rm-label">晚餐逛街</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">回酒店</div><div class="rm-label">休息</div></div>
+    </div>
+
+    <div class="info-banner">
+      <span><span class="hl">三星堆讲解</span> 建议跟讲解团，1h30min深入了解古蜀文明</span>
+      <span><span class="hl">学生优惠</span> 武侯祠学生票半价 ¥25（全日制大学本科及以下）</span>
+      <span><span class="hl">拍照</span> 武侯祠红墙夹道很出片，春熙路夜景必拍</span>
+    </div>
+
+    <div class="tl-wrap">
+
+      <div class="tl-item" data-key="d3_check1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">09:00</span>起床 · 洗漱 · 酒店早餐</div>
+            <div class="dc-item"><span>早起收拾，在酒店吃好早餐，补充能量</span></div>
+            <div class="dc-item"><span>检查随身物品：学生证、充电宝、水、遮阳帽</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d3_check2">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">10:00</span>出发前往三星堆博物馆</div>
+            <div class="dc-item"><span>从桔子水晶酒店打车/乘车前往<span class="hl">三星堆博物馆</span>，直达约 ¥24，车程约 1.5h</span></div>
+            <div class="dc-tags"><span>交通 ¥24</span><span>车程 1.5h</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d3_check3">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d3_card3">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">11:30</span>抵达三星堆博物馆 · 开始参观</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item"><span><span class="hl">11:30-13:00</span> 听讲解（1h30min，讲解费约 ¥40）</span></div>
+              <div class="dc-item"><span><span class="hl">13:00-15:00</span> 自由游览（2h，深入参观各展厅）</span></div>
+              <div class="dc-item"><span>必看：<span class="hl">青铜神树</span>、<span class="hl">青铜大立人</span>、<span class="hl">黄金面具</span>、<span class="hl">纵目面具</span></span></div>
+              <div class="dc-item"><span>先看综合馆（青铜器、金器）→ 再逛青铜馆，文创店可买纪念品</span></div>
+              <div class="dc-tags"><span>讲解约 ¥40</span><span>参观共 4h</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>三星堆</div>
+            <div class="image-slider" data-interval="4000">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="720" height="1080" src="chengdu/sanxingdui-1.jpg" alt="三星堆博物馆" loading="lazy"></div>
+                <div class="slider-slide"><img width="1000" height="1600" src="chengdu/sanxingdui-2.jpg" alt="青铜神树" loading="lazy"></div>
+                <div class="slider-slide"><img width="1000" height="1600" src="chengdu/sanxingdui-3.jpg" alt="青铜大立人" loading="lazy"></div>
+                <div class="slider-slide"><img width="1242" height="1646" src="chengdu/sanxingdui-4.jpg" alt="黄金面具" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1080" src="chengdu/sanxingdui-5.jpg" alt="纵目面具" loading="lazy"></div>
+              </div>
+              <div class="slider-dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="image-caption">三星堆博物馆：青铜神树、青铜大立人、黄金面具、纵目面具</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d3_check5">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">15:00</span>离开三星堆 → 前往武侯祠</div>
+            <div class="dc-item"><span>从三星堆打车/乘车前往<span class="hl">武侯祠</span>，直达约 ¥24，车程约 1.5h</span></div>
+            <div class="dc-tags"><span>交通 ¥24</span><span>车程 1.5h</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d3_check6">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d3_card6">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">16:30</span>游览武侯祠</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item"><span>游览<span class="hl">武侯祠博物馆</span>（三国文化圣地）</span></div>
+              <div class="dc-item"><span>推荐路线：大门 → 唐碑 → 明碑 → 刘备殿 → 诸葛亮殿 → 三义庙 → 红墙夹道</span></div>
+              <div class="dc-item"><span>红墙夹道是网红打卡点，很出片；游览约 1.5h</span></div>
+              <div class="dc-item"><span>学生票 <span class="hl">¥25</span>（全价 ¥50，全日制大学本科及以下学生半价）</span></div>
+              <div class="dc-tags"><span>学生票 ¥25</span><span>游览 1.5h</span><span>18:30 闭园</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>武侯祠</div>
+            <div class="image-slider" data-interval="4000">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/wuhouci-1.jpg" alt="武侯祠大门" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/wuhouci-2.jpg" alt="诸葛亮殿" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/wuhouci-3.jpg" alt="红墙夹道" loading="lazy"></div>
+              </div>
+              <div class="slider-dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="image-caption">武侯祠：大门、诸葛亮殿、红墙夹道</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d3_check8">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">18:00</span>闭园出景区 → 前往春熙路</div>
+            <div class="dc-item"><span>高升桥站(3号线)→<span class="hl">春熙路站</span>（直达，¥3，15min）</span></div>
+            <div class="dc-tags"><span>地铁 ¥3</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>春熙路商圈</div>
+            <div class="image-slider" data-interval="4000">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/chunxilu-1.jpg" alt="春熙路步行街" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1918" src="chengdu/chunxilu-2.jpg" alt="IFS国际金融中心" loading="lazy"></div>
+                <div class="slider-slide"><img width="1280" height="1920" src="chengdu/chunxilu-3.jpg" alt="太古里" loading="lazy"></div>
+              </div>
+              <div class="slider-dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="image-caption">春熙路：步行街、IFS、太古里</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d3_check10">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">19:00</span>春熙路晚餐 · 逛街</div>
+            <div class="dc-item"><span>在春熙路商圈吃晚饭，推荐：火锅、钵钵鸡、麻辣兔头等成都美食</span></div>
+            <div class="dc-item"><span>逛 IFS、太古里、春熙路步行街，感受成都繁华夜景</span></div>
+            <div class="dc-tags"><span>晚餐 ¥80</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d3_check11">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">21:00</span>返回桔子水晶酒店</div>
+            <div class="dc-item"><span>春熙路站(3号线)→<span class="hl">红牌楼站</span>（直达，¥3，15min）→步行回酒店休息</span></div>
+            <div class="dc-tags"><span>地铁 ¥3</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click cost-summary">
+        <div class="tl-dot" style="border-color:var(--warm);"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-cost-row"><span>红牌楼→三星堆（直达）</span><span class="val">¥24</span></div>
+            <div class="dc-cost-row"><span>三星堆→武侯祠（直达）</span><span class="val">¥24</span></div>
+            <div class="dc-cost-row"><span>三星堆讲解费</span><span class="val">¥40</span></div>
+            <div class="dc-cost-row"><span>武侯祠学生票</span><span class="val">¥25</span></div>
+            <div class="dc-divider"></div>
+            <div class="dc-cost-row"><span>本日总花费（含餐饮 ¥80）</span><span class="val">¥193</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tl-wrap -->
+  </div>
+<!-- ===== DAY 4 ===== -->
+  <div class="page" id="page-day4">
+
+    <div class="day-hero">
+      <div class="h-badge">Day 4 · 9月8日</div>
+      <h2>青城山 → 都江堰</h2>
+      <div class="h-meta">
+        <span>海拔 500→1200m</span>
+        <span>预估 ¥200</span>
+      </div>
+    </div>
+
+    <div class="route-map">
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">成都市区</div><div class="rm-label">出发</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">青城山</div><div class="rm-label">3-4h</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">都江堰</div><div class="rm-label">2-3h</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">蓝眼泪</div><div class="rm-label">20:00</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">成都市区</div><div class="rm-label">返程</div></div>
+    </div>
+
+    <div class="info-banner">
+      <span><span class="hl">学生优惠</span> 青城山学生票¥40（原价¥80），带好学生证验票</span>
+      <span><span class="hl">穿衣</span> 青城山蚊虫多，建议长裤+防蚊液；石阶多，穿防滑鞋</span>
+      <span><span class="hl">天气</span> 山区阵雨频繁，随身带伞</span>
+      <span><span class="hl">蓝眼泪</span> 南桥/天府源廊桥，夏天约 20:00 开灯，免费观赏至 24:00</span>
+    </div>
+
+    <div class="tl-wrap">
+
+      <div class="tl-item" data-key="d4_check1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">07:00</span>起床，酒店早餐</div>
+            <div class="dc-item"><span>酒店享用早餐，提前准备防蚊液、防晒、雨伞</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d4_check2">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">08:00</span>出发前往青城山</div>
+            <div class="dc-item"><span>红牌楼站(3号线)→太平园站(转7号线外环)→一品天下站(转2号线)→<span class="hl">犀浦站</span></span></div>
+            <div class="dc-item"><span>高铁犀浦站→<span class="hl">青城山站</span>（25-35min，¥10）</span></div>
+            <div class="dc-tags"><span>地铁 ¥5</span><span>高铁 ¥10</span><span>全程约 1.5h</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d4_check3">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d4_card3">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">09:00</span>游览青城山前山</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item"><span>青城山站出站后乘景区观光车或打车至<span class="hl">青城山山门</span>（约15min，观光车¥35往返）</span></div>
+              <div class="dc-item"><span>推荐路线：山门 → 天然阁 → 建福宫（30min）→ 月城湖（可乘船¥5）→ 索道上山（¥35单程）→ 上清宫（1h）→ 老君阁（30min，青城最高点，俯瞰群山）→ 步行下山 → 天师洞（1h，道教发源地）→ 回山门</span></div>
+              <div class="dc-item"><span>游览<span class="hl">青城山前山</span>（道教发源地之一，建福宫、天师洞、上清宫、老君阁为四大核心景点）</span></div>
+              <div class="dc-item"><span>体力有限可选索道上下（往返¥60），核心游览上清宫+老君阁+天师洞</span></div>
+              <div class="dc-item"><span>石阶较多，穿防滑鞋；蚊虫多，注意防蚊；建议自带水瓶，山上水贵</span></div>
+              <div class="dc-item"><span>必带：学生证（检票核验）、充电宝、防晒帽、少量零食</span></div>
+              <div class="dc-tags"><span>学生票 ¥40</span><span>索道单程¥35/往返¥60</span><span>游览约 3-4h</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>青城山</div>
+            <div class="image-slider" data-interval="4000">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/qingchengshan-1.jpg" alt="青城山门" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/qingchengshan-2.jpg" alt="建福宫" loading="lazy"></div>
+                <div class="slider-slide"><img width="720" height="1200" src="chengdu/qingchengshan-3.jpg" alt="天师洞" loading="lazy"></div>
+                <div class="slider-slide"><img width="720" height="1082" src="chengdu/qingchengshan-4.jpg" alt="上清宫" loading="lazy"></div>
+              </div>
+              <div class="slider-dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="image-caption">青城山前山：建福宫、天师洞、上清宫</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d4_check5">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">12:00</span>午餐 + 转场都江堰</div>
+            <div class="dc-item"><span>青城山脚下午餐</span></div>
+            <div class="dc-item"><span>高铁青城山站→<span class="hl">离堆公园站</span>（10min）</span></div>
+            <div class="dc-tags"><span>午餐 ¥60</span><span>高铁 ¥10</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d4_check6">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d4_card6">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">14:00</span>游览都江堰</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item"><span>游览<span class="hl">都江堰水利工程</span>（鱼嘴、飞沙堰、宝瓶口）</span></div>
+              <div class="dc-item"><span>推荐路线：景区入口 → 伏龙观 → 宝瓶口 → 飞沙堰 → 鱼嘴 → 安澜索桥 → 二王庙</span></div>
+              <div class="dc-tags"><span>门票 ¥40</span><span>游览约 2-3h</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>都江堰</div>
+            <div class="image-slider" data-interval="4000">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="720" height="1082" src="chengdu/dujiangyan-1.jpg" alt="都江堰全景" loading="lazy"></div>
+                <div class="slider-slide"><img width="720" height="1082" src="chengdu/dujiangyan-2.jpg" alt="鱼嘴" loading="lazy"></div>
+                <div class="slider-slide"><img width="720" height="1032" src="chengdu/dujiangyan-3.jpg" alt="飞沙堰" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1440" src="chengdu/dujiangyan-4.jpg" alt="宝瓶口" loading="lazy"></div>
+              </div>
+              <div class="slider-dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="image-caption">都江堰水利工程：鱼嘴、飞沙堰、宝瓶口</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d4_check8">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">17:00</span>都江堰古镇晚餐</div>
+            <div class="dc-item"><span>逛<span class="hl">西街</span>、<span class="hl">南街</span>，品尝都江堰特色美食</span></div>
+            <div class="dc-item"><span>推荐：太平张醪糟、老号尤兔头、文革葱葱卷</span></div>
+            <div class="dc-tags"><span>晚餐 ¥80</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d4_check9">
+        <div class="tl-dot" style="border-color:var(--accent);"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d4_card9">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">20:00</span>观赏蓝眼泪</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item"><span class="hl">亮灯时间：</span>夏天约 20:00-20:20 开灯（天黑后），亮灯至 24:00</div>
+              <div class="dc-item"><span>最佳观赏点①：<span class="hl">南桥</span> — 经典的蓝眼泪观赏地，夜晚灯光璀璨</span></div>
+              <div class="dc-item"><span>最佳观赏点②：<span class="hl">天府源廊桥</span> — 与南桥平行而立，人相对少，拍照效果好</span></div>
+              <div class="dc-item"><span>建议使用夜景模式拍摄，效果更佳</span></div>
+              <div class="dc-tags"><span>免费观赏</span><span>20:00开灯</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d4_check10">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">21:00</span>返程回桔子水晶酒店</div>
+            <div class="dc-item"><span>离堆公园站→<span class="hl">犀浦站</span>（高铁，约30min，¥10，末班约22:00）</span></div>
+            <div class="dc-item"><span>犀浦站(2号线)→一品天下站(转7号线内环)→太平园站(转3号线)→<span class="hl">红牌楼站</span>（步行回酒店）</span></div>
+            <div class="dc-tags"><span>高铁 ¥10</span><span>地铁 ¥5</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click cost-summary">
+        <div class="tl-dot" style="border-color:var(--warm);"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-cost-row"><span>本日交通合计</span><span class="val">¥40</span></div>
+            <div class="dc-divider"></div>
+            <div class="dc-cost-row"><span>门票</span><span class="val">¥80（青城山学生¥40 + 都江堰¥40）</span></div>
+            <div class="dc-divider"></div>
+            <div class="dc-cost-row"><span>本日总花费（含餐饮 ¥80，不含索道）</span><span class="val">¥200</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tl-wrap -->
+  </div>
+
+  <!-- ===== DAY 5 ===== -->
+  <div class="page" id="page-day5">
+
+    <div class="day-hero">
+      <div class="h-badge">Day 5 · 9月9日</div>
+      <h2>杜甫草堂 → 四川博物院 → 返程</h2>
+      <div class="h-meta">
+        <span>人文之旅</span>
+        <span>预估 ¥150</span>
+      </div>
+    </div>
+
+    <div class="route-map">
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">桔子水晶酒店</div><div class="rm-label">出发</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">杜甫草堂</div><div class="rm-label">1.5h</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">四川博物院</div><div class="rm-label">1.5h</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">回桔子水晶</div><div class="rm-label">取行李</div></div>
+      <div class="rm-stop"><div class="rm-dot"></div><div class="rm-name">成都西站</div><div class="rm-label">19:30发车</div></div>
+    </div>
+
+    <div class="info-banner">
+      <span><span class="hl">学生优惠</span> 杜甫草堂学生票¥25（全价¥50），带好学生证</span>
+      <span><span class="hl">四川博物院</span> 免费参观，需提前在公众号预约，周一闭馆</span>
+      <span><span class="hl">时间</span> 酒店16:00退房→成都西站→19:30火车出发，预留充足时间</span>
+    </div>
+
+    <div class="tl-wrap">
+
+      <div class="tl-item" data-key="d5_check1">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">09:00</span>起床 · 早餐 · 收拾行李</div>
+            <div class="dc-item"><span>酒店享用早餐，收拾行李</span></div>
+            <div class="dc-item"><span>酒店 16:00 退房，行李可先放房间，轻装出门</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d5_check2">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">10:00</span>出发前往杜甫草堂</div>
+            <div class="dc-item"><span>红牌楼打车前往<span class="hl">杜甫草堂</span>（约15min，¥15）</span></div>
+            <div class="dc-tags"><span>打车 ¥15</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d5_check3">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d5_card3">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">10:30</span>游览杜甫草堂</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item"><span>游览<span class="hl">杜甫草堂博物馆</span>——诗圣杜甫流寓成都时的故居</span></div>
+              <div class="dc-item"><span>推荐路线：正门 → 大廨 → 诗史堂 → 柴门 → 工部祠 → 茅屋故居 → 花径 → 红墙影壁</span></div>
+              <div class="dc-item"><span>必看：<span class="hl">茅屋故居</span>（复原茅屋）、<span class="hl">红墙竹影</span>（很出片）、<span class="hl">花径</span>（红墙夹道）</span></div>
+              <div class="dc-item"><span>学生票 <span class="hl">¥25</span>（全价 ¥50，带好学生证）</span></div>
+              <div class="dc-tags"><span>学生票 ¥25</span><span>游览约 1.5h</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>杜甫草堂</div>
+            <div class="image-slider" data-interval="4000">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/dufucaotang-1.jpg" alt="杜甫草堂" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/dufucaotang-2.jpg" alt="草堂茅屋" loading="lazy"></div>
+                <div class="slider-slide"><img width="720" height="1280" src="chengdu/dufucaotang-3.jpg" alt="红墙竹影" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/dufucaotang-4.jpg" alt="草堂内景" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="958" src="chengdu/dufucaotang-5.jpg" alt="诗史堂" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="958" src="chengdu/dufucaotang-6.jpg" alt="花径" loading="lazy"></div>
+              </div>
+              <div class="slider-dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="image-caption">杜甫草堂：茅屋故居、红墙竹影、诗史堂、花径</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d5_check5">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">12:00</span>午餐 · 草堂附近</div>
+            <div class="dc-item"><span>在草堂北路/浣花溪附近午餐，推荐川菜小馆</span></div>
+            <div class="dc-tags"><span>午餐 ¥50</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d5_check6">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card collapsible" data-key="d5_card6">
+            <div class="dc-title" onclick="toggleCollapsible(this, event)"><span class="tag">13:00</span>参观四川博物院</div>
+            <div class="dc-detail-wrap">
+              <div class="dc-item"><span>紧邻杜甫草堂，步行即可到达<span class="hl">四川博物院</span></span></div>
+              <div class="dc-item"><span>常设展览：远古四川、巴蜀青铜馆、汉代陶石馆、万佛寺石刻馆、书画馆</span></div>
+              <div class="dc-item"><span>必看：<span class="hl">巴蜀青铜器</span>、<span class="hl">汉代画像砖</span>、<span class="hl">张大千书画馆</span></span></div>
+              <div class="dc-item"><span>免费参观，需提前在"四川博物院"公众号预约，周一闭馆</span></div>
+              <div class="dc-tags"><span>免费</span><span>需预约</span><span>游览约 1.5h</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">实拍</span>四川博物院</div>
+            <div class="image-slider" data-interval="4000">
+              <div class="slider-track">
+                <div class="slider-slide"><img width="1280" height="1920" src="chengdu/sichuanbowuyuan-1.jpg" alt="四川博物院" loading="lazy"></div>
+                <div class="slider-slide"><img width="1279" height="1706" src="chengdu/sichuanbowuyuan-2.jpg" alt="巴蜀青铜器" loading="lazy"></div>
+                <div class="slider-slide"><img width="1279" height="1706" src="chengdu/sichuanbowuyuan-3.jpg" alt="汉代陶石" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="960" src="chengdu/sichuanbowuyuan-4.jpg" alt="张大千画作" loading="lazy"></div>
+                <div class="slider-slide"><img width="1440" height="960" src="chengdu/sichuanbowuyuan-5.jpg" alt="博物院展厅" loading="lazy"></div>
+              </div>
+              <div class="slider-dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="image-caption">四川博物院：巴蜀青铜器、汉代陶石、张大千书画</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d5_check8">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">15:00</span>返回桔子水晶酒店</div>
+            <div class="dc-item"><span>从博物院打车回<span class="hl">桔子水晶酒店</span>取行李（约15min，¥15）</span></div>
+            <div class="dc-item"><span>回房休息整理，16:00前退房</span></div>
+            <div class="dc-tags"><span>打车 ¥15</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d5_check9">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">16:00</span>退房 → 前往成都西站</div>
+            <div class="dc-item"><span>办理退房，拖着行李出发</span></div>
+            <div class="dc-item"><span>红牌楼站(3号线)→太平园站(转7号线)→<span class="hl">成都西站</span>（约35min，¥5）</span></div>
+            <div class="dc-tags"><span>地铁 ¥5</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item" data-key="d5_check10">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-title"><span class="tag">19:30</span>发车 · 再见成都</div>
+            <div class="dc-item"><span>从<span class="hl">成都西站</span>出发，结束愉快的成都之旅</span></div>
+            <div class="dc-item"><span>提前到站后可取票/候车、买点零食饮料带上车</span></div>
+            <div class="dc-tags"><span>晚餐车上解决约 ¥30</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item tl-no-click cost-summary">
+        <div class="tl-dot" style="border-color:var(--warm);"></div>
+        <div class="tl-content">
+          <div class="day-card">
+            <div class="dc-cost-row"><span>酒店→杜甫草堂</span><span class="val">¥15</span></div>
+            <div class="dc-cost-row"><span>杜甫草堂学生票</span><span class="val">¥25</span></div>
+            <div class="dc-cost-row"><span>博物院→酒店</span><span class="val">¥15</span></div>
+            <div class="dc-cost-row"><span>四川博物院（免费需预约）</span><span class="val">¥0</span></div>
+            <div class="dc-divider"></div>
+            <div class="dc-cost-row"><span>本日总花费（含午餐¥50+车上晚餐¥30）</span><span class="val">¥140</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tl-wrap -->
+  </div>
+
+  <!-- ===== BUDGET ===== -->
+  <div class="page" id="page-budget">
+    <div class="page-head">
+      <div class="info">
+        <h2>费用明细</h2>
+        <p>五天四晚 · 点击金额可编辑 <button class="reset-btn" onclick="budgetReset()"><b><i><u>恢复默认</u></i></b></button></p>
+      </div>
+    </div>
+
+    <div class="budget-total">
+      <div class="big">¥<span id="budget-grand-total">2,054</span></div>
+      <div class="lbl">人均总计（含餐饮）</div>
+    </div>
+
+    <div class="bg-card">
+      <div class="bg-header" id="bg-header-0">
+        <span class="l">住宿</span>
+        <span class="r">¥<span id="bg-total-0">565</span></span>
+      </div>
+      <div class="bg-item"><span>九寨沟汉庭 1晚</span><span class="v"><span class="editable" contenteditable="true" data-key="bh1">160</span></span></div>
+      <div class="bg-item"><span>桔子水晶（武侯祠红牌楼店）3晚</span><span class="v"><span class="editable" contenteditable="true" data-key="bh2">405</span></span></div>
+    </div>
+
+    <div class="bg-card">
+      <div class="bg-header" id="bg-header-1">
+        <span class="l">交通</span>
+        <span class="r">¥<span id="bg-total-1">574</span></span>
+      </div>
+      <div class="bg-item"><span>成都东→黄龙九寨站</span><span class="v"><span class="editable" contenteditable="true" data-key="bt1">145</span></span></div>
+      <div class="bg-item"><span>黄龙九寨站 → 黄龙景区</span><span class="v"><span class="editable" contenteditable="true" data-key="bt2">28</span></span></div>
+      <div class="bg-item"><span>黄龙景区 → 九寨沟沟口</span><span class="v"><span class="editable" contenteditable="true" data-key="bt3">68</span></span></div>
+      <div class="bg-item"><span>接驳九寨沟→松潘站</span><span class="v"><span class="editable" contenteditable="true" data-key="bt4">70</span></span></div>
+      <div class="bg-item"><span>松潘站→成都东站</span><span class="v"><span class="editable" contenteditable="true" data-key="bt5">135</span></span></div>
+      <div class="bg-item"><span>成都东站→红牌楼（桔子水晶）</span><span class="v"><span class="editable" contenteditable="true" data-key="bt6">5</span></span></div>
+      <div class="bg-item"><span>红牌楼→三星堆（直达）</span><span class="v"><span class="editable" contenteditable="true" data-key="bt7">24</span></span></div>
+      <div class="bg-item"><span>三星堆→武侯祠（直达）</span><span class="v"><span class="editable" contenteditable="true" data-key="bt8">24</span></span></div>
+      <div class="bg-item"><span>红牌楼→青城山（地铁+高铁）</span><span class="v"><span class="editable" contenteditable="true" data-key="bt9">15</span></span></div>
+      <div class="bg-item"><span>青城山→都江堰</span><span class="v"><span class="editable" contenteditable="true" data-key="bt10">10</span></span></div>
+      <div class="bg-item"><span>都江堰→红牌楼（高铁+地铁）</span><span class="v"><span class="editable" contenteditable="true" data-key="bt11">15</span></span></div>
+      <div class="bg-item"><span>红牌楼→杜甫草堂</span><span class="v"><span class="editable" contenteditable="true" data-key="bt12">15</span></span></div>
+      <div class="bg-item"><span>博物院→红牌楼</span><span class="v"><span class="editable" contenteditable="true" data-key="bt13">15</span></span></div>
+      <div class="bg-item"><span>红牌楼→成都西站</span><span class="v"><span class="editable" contenteditable="true" data-key="bt14">5</span></span></div>
+    </div>
+
+    <div class="bg-card">
+      <div class="bg-header" id="bg-header-2">
+        <span class="l">门票</span>
+        <span class="r">¥<span id="bg-total-2">415</span></span>
+      </div>
+      <div class="bg-item"><span>九寨沟</span><span class="v"><span class="editable" contenteditable="true" data-key="btk1">185</span></span></div>
+      <div class="bg-item"><span>黄龙景区（学生票）</span><span class="v"><span class="editable" contenteditable="true" data-key="btk2">85</span></span></div>
+      <div class="bg-item"><span>青城山前山（学生票）</span><span class="v"><span class="editable" contenteditable="true" data-key="btk3">40</span></span></div>
+      <div class="bg-item"><span>都江堰</span><span class="v"><span class="editable" contenteditable="true" data-key="btk4">40</span></span></div>
+      <div class="bg-item"><span>三星堆（含讲解）</span><span class="v"><span class="editable" contenteditable="true" data-key="btk5">40</span></span></div>
+      <div class="bg-item"><span>杜甫草堂（学生票）</span><span class="v"><span class="editable" contenteditable="true" data-key="btk6">25</span></span></div>
+    </div>
+
+    <div class="bg-card">
+      <div class="bg-header" id="bg-header-3">
+        <span class="l">索道 &amp; 氧气</span>
+        <span class="r">¥<span id="bg-total-3">100</span></span>
+      </div>
+      <div class="bg-item"><span>黄龙上行索道</span><span class="v"><span class="editable" contenteditable="true" data-key="bso1">80</span></span></div>
+      <div class="bg-item"><span>氧气瓶</span><span class="v"><span class="editable" contenteditable="true" data-key="bso2">20</span></span></div>
+    </div>
+
+    <div class="bg-card">
+      <div class="bg-header" id="bg-header-4">
+        <span class="l">餐饮</span>
+        <span class="r">¥<span id="bg-total-4">400</span></span>
+      </div>
+      <div class="bg-item"><span>5 天餐饮（均 ¥80/天）</span><span class="v"><span class="editable" contenteditable="true" data-key="bf1">400</span></span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Image Modal -->
+<div class="modal" id="imageModal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <span class="modal-nav modal-prev" onclick="changeModal(-1)">&#10094;</span>
+  <img class="modal-content" id="modalImage" src="" alt="大图预览">
+  <span class="modal-nav modal-next" onclick="changeModal(1)">&#10095;</span>
+  <div class="modal-counter" id="modalCounter"></div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+// Budget editable functionality
+(function() {
+  var BUDGET_DEFAULTS = {
+    bh1:160, bh2:405,
+    bt1:145, bt2:28, bt3:68, bt4:70, bt5:135, bt6:5, bt7:24, bt8:24, bt9:15, bt10:10, bt11:15, bt12:15, bt13:15, bt14:5,
+    btk1:185, btk2:85, btk3:40, btk4:40, btk5:40, btk6:25,
+    bso1:80, bso2:20,
+    bf1:400
+  };
+
+  var CATEGORIES = [
+    { keys:['bh1','bh2'], totalId:'bg-total-0', headerId:'bg-header-0' },
+    { keys:['bt1','bt2','bt3','bt4','bt5','bt6','bt7','bt8','bt9','bt10','bt11','bt12','bt13','bt14'], totalId:'bg-total-1', headerId:'bg-header-1' },
+    { keys:['btk1','btk2','btk3','btk4','btk5','btk6'], totalId:'bg-total-2', headerId:'bg-header-2' },
+    { keys:['bso1','bso2'], totalId:'bg-total-3', headerId:'bg-header-3' },
+    { keys:['bf1'], totalId:'bg-total-4', headerId:'bg-header-4' }
+  ];
+
+  function loadBudget() {
+    try { return JSON.parse(localStorage.getItem('cd_budget') || '{}'); } catch(e) { return {}; }
+  }
+  function saveBudget(data) {
+    localStorage.setItem('cd_budget', JSON.stringify(data));
+  }
+
+  function recalc() {
+    var saved = loadBudget();
+    var cats = [];
+    var grandTotal = 0;
+
+    CATEGORIES.forEach(function(cat, idx) {
+      var sum = 0;
+      cat.keys.forEach(function(k) {
+        var el = document.querySelector('[data-key="'+k+'"]');
+        var val = parseInt(el ? el.textContent : '0') || 0;
+        sum += val;
+      });
+      cats.push(sum);
+      grandTotal += sum;
+      var totalEl = document.getElementById(cat.totalId);
+      if (totalEl) totalEl.textContent = sum;
+    });
+
+    // Update grand total
+    var grandEl = document.getElementById('budget-grand-total');
+    if (grandEl) grandEl.textContent = grandTotal.toLocaleString();
+
+    // Update percentages on each bg-header
+    CATEGORIES.forEach(function(cat, idx) {
+      var header = document.getElementById(cat.headerId);
+      if (header) {
+        var pct = grandTotal > 0 ? Math.round(cats[idx] / grandTotal * 100) : 0;
+        header.style.setProperty('--pct', pct);
+      }
+    });
+  }
+
+  function initEditable() {
+    var saved = loadBudget();
+    document.querySelectorAll('.editable[contenteditable]').forEach(function(el) {
+      var key = el.getAttribute('data-key');
+      if (saved[key] !== undefined) {
+        el.textContent = saved[key];
+      }
+      el.addEventListener('blur', function() {
+        this.textContent = this.textContent.replace(/[^\d]/g, '');
+        var val = parseInt(this.textContent) || 0;
+        var data = loadBudget();
+        data[this.getAttribute('data-key')] = val;
+        saveBudget(data);
+        recalc();
+      });
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') { e.preventDefault(); this.blur(); }
+      });
+    });
+    recalc();
+  }
+
+  window.budgetReset = function() {
+    localStorage.removeItem('cd_budget');
+    document.querySelectorAll('.editable[contenteditable]').forEach(function(el) {
+      var key = el.getAttribute('data-key');
+      if (BUDGET_DEFAULTS[key] !== undefined) {
+        el.textContent = BUDGET_DEFAULTS[key];
+      }
+    });
+    recalc();
+  };
+
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initEditable();
+  } else {
+    document.addEventListener('DOMContentLoaded', initEditable);
+  }
+})();
+</script>
+
+<button class="back-top" id="backTop" aria-label="回到顶部">&#8593;</button>
+
+</body>
+
+</html>
