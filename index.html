@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>成都五日游 · 详细行程</title>
+<link rel="preload" href="chengdu/huanglong-1.jpg" as="image">
+<link rel="preload" href="chengdu/huanglong-2.jpg" as="image">
+<link rel="preload" href="chengdu/huanglong-3.jpg" as="image">
+<link rel="preload" href="chengdu/huanglong-4.jpg" as="image">
+<link rel="preload" href="chengdu/huanglong-5.jpg" as="image">
+<link rel="preload" href="chengdu/huanglong-6.jpg" as="image">
 <link rel="stylesheet" href="style.css">
 <style>
   .editable { display:inline-block; min-width:30px; text-align:right; border-bottom:1px dashed rgba(200,190,180,0.3); cursor:text; padding:0 2px; transition:background 0.2s; }
@@ -74,7 +80,7 @@
       <button class="start-btn" onclick="showPage('day1')">
         开始行程 <span class="start-arrow">→</span>
       </button>
-      <div class="load-hint">图片较多，首次加载可能需要几秒钟</div>
+
     </div>
 
     <footer>2026 年 9 月 · 祝旅途愉快</footer>
@@ -202,7 +208,7 @@
             <div class="dc-title"><span class="tag">实拍</span>黄龙景区</div>
             <div class="image-slider" data-interval="4000">
               <div class="slider-track">
-                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/huanglong-1.jpg" alt="五彩池全景" loading="lazy" decoding="async"></div>
+                <div class="slider-slide"><img width="1440" height="1920" src="chengdu/huanglong-1.jpg" alt="五彩池全景" loading="eager" decoding="async" fetchpriority="high"></div>
                 <div class="slider-slide"><img width="1440" height="1878" src="chengdu/huanglong-2.jpg" alt="金沙铺地" loading="lazy" decoding="async"></div>
                 <div class="slider-slide"><img width="720" height="1174" src="chengdu/huanglong-3.jpg" alt="仙子潭倒影" loading="lazy" decoding="async"></div>
                 <div class="slider-slide"><img width="1280" height="1686" src="chengdu/huanglong-4.jpg" alt="古寺远眺" loading="lazy" decoding="async"></div>
