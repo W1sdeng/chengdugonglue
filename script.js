@@ -154,32 +154,18 @@
 
       slides.forEach(function(slide, si) {
         var img = slide.querySelector('img');
-        if (!img) return;
-        if (si === 0) {
-          loadSlideImage(slide, img);
-        } else {
-          img.dataset.src = img.src;
-          img.removeAttribute('src');
+        if (img) {
+          if (img.complete) {
+            img.setAttribute('data-loaded', '');
+          } else {
+            slide.classList.add('loading');
+            img.addEventListener('load', function() {
+              img.setAttribute('data-loaded', '');
+              slide.classList.remove('loading');
+            });
+          }
         }
       });
-
-      function loadSlideImage(slide, img) {
-        var src = img.dataset.src || img.src;
-        if (!src) return;
-        if (img.complete && img.getAttribute('src')) {
-          img.setAttribute('data-loaded', '');
-          return;
-        }
-        slide.classList.add('loading');
-        img.onload = function() {
-          img.setAttribute('data-loaded', '');
-          slide.classList.remove('loading');
-          img.onload = null;
-        };
-        img.onerror = function() { img.onerror = null; slide.classList.remove('loading'); };
-        img.src = src;
-        img.removeAttribute('data-src');
-      }
 
       let currentIndex = 0;
       let autoPlayInterval;
@@ -197,20 +183,10 @@
         });
       }
 
-      function loadAt(idx) {
-        var slide = slides[idx];
-        if (!slide) return;
-        var img = slide.querySelector('img');
-        if (img && img.dataset.src) loadSlideImage(slide, img);
-      }
-
       function updateSlider(index) {
         track.style.transform = `translateX(-${index * 100}%)`;
         dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         currentIndex = index;
-        loadAt(index);
-        loadAt(index - 1);
-        loadAt(index + 1);
         preloadAdjacent(index);
       }
 
@@ -307,7 +283,7 @@
       slides.forEach((slide, idx) => {
         slide.addEventListener('click', function(e) {
           if (_touchMoved) { _touchMoved = false; return; }
-          openModal(Array.from(images).map(img => img.getAttribute('src') || img.dataset.src || ''), idx);
+          openModal(Array.from(images).map(img => img.getAttribute('src')), idx);
         });
       });
     });
