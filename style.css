@@ -361,11 +361,14 @@
     color: var(--text-tertiary);
   }
   @media (max-width: 640px) {
-    .dc-route { display: block; margin: 4px 0; }
-    .dc-route .t { display: inline; font-size: 12px; margin-right: 4px; }
-    .dc-route .a { display: inline; font-size: 12px; margin: 0 2px; color: var(--text-tertiary); }
-    .dc-route .to { display: inline; font-size: 14px; }
-    .dc-route .d { display: block; font-size: 12px; padding-left: 0; margin-top: 1px; color: var(--text-tertiary); }
+    .dc-route {
+      display: block !important;
+      margin: 2px 0 !important; padding: 2px 0 !important;
+    }
+    .dc-route .t { display: inline !important; font-size: 12px; }
+    .dc-route .a { display: inline !important; font-size: 12px; color: var(--text-tertiary); }
+    .dc-route .to { display: inline !important; font-size: 14px; }
+    .dc-route .d { display: block !important; font-size: 12px; color: var(--text-tertiary); padding-left: 0 !important; }
   }
 
   .tl-item.done .dc-title,
