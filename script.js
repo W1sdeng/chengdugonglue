@@ -117,6 +117,19 @@
     indicator.style.width = linkRect.width + 'px';
   }
 
+  function updateNavMask() {
+    var nav = document.querySelector('.nav');
+    if (!nav) return;
+    if (nav.scrollWidth <= nav.clientWidth) { nav.classList.remove('nav-at-left', 'nav-at-right', 'nav-mid'); return; }
+    var atLeft = nav.scrollLeft <= 4;
+    var atRight = nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 4;
+    nav.classList.toggle('nav-at-left', atLeft);
+    nav.classList.toggle('nav-at-right', atRight);
+    nav.classList.toggle('nav-mid', !atLeft && !atRight);
+  }
+  var navEl = document.querySelector('.nav');
+  if (navEl) { navEl.addEventListener('scroll', updateNavMask); setTimeout(updateNavMask, 300); }
+
   var scrollPositions = {};
 
   function showPage(name) {
@@ -128,7 +141,7 @@
     if (target) target.classList.add('active');
     document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
     const navLinks = document.querySelectorAll('.nav a');
-    const idx = ['home','day1','day2','day3','day4','day5','budget'].indexOf(name);
+    const idx = ['home','day1','day2','day3','day4','day5','day6','food','budget'].indexOf(name);
     if (idx >= 0 && navLinks[idx]) { navLinks[idx].classList.add('active'); navLinks[idx].scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' }); }
     updateNavIndicator();
     if (scrollPositions[name] && scrollPositions[name] > 0) {
@@ -300,13 +313,13 @@
     });
   }
 
-  // 鈹€鈹€鈹€ Click to toggle done 鈹€鈹€鈹€
+  // 鈹€鈹€鈹€ Done toggle via tl-dot only 鈹€鈹€鈹€
   function initDoneToggle() {
     document.addEventListener('click', function(e) {
       if (_touchMoved) { _touchMoved = false; return; }
+      if (!e.target.closest('.tl-dot')) return;
       const item = e.target.closest('.tl-item:not(.tl-no-click)');
       if (!item) return;
-      if (e.target.closest('.image-slider, .modal, a, .slider-dots, .dc-title')) return;
       item.classList.toggle('done');
       const key = item.dataset.key;
       if (key) {
@@ -357,7 +370,7 @@
 // Page swipe on mobile 鈹€鈹€鈹€
   function initPageSwipe() {
     let touchStartX = 0, touchStartY = 0;
-    const pages = ['home','day1','day2','day3','day4','day5','budget'];
+    const pages = ['home','day1','day2','day3','day4','day5','day6','food','budget'];
     document.addEventListener('touchstart', e => {
       if (e.target.closest('.image-slider, .modal, .slider-dots, .slider-track')) { touchStartX = 0; return; }
       touchStartX = e.changedTouches[0].screenX;
@@ -417,4 +430,185 @@
       if (e.key === 'ArrowLeft') changeModal(-1);
       if (e.key === 'ArrowRight') changeModal(1);
     });
+
+    // ════════════════════════════════════════
+    // Progress Bar
+    // ════════════════════════════════════════
+    var progressTrack = document.querySelector('.progress-track');
+    if (progressTrack) {
+      var progressBar = document.getElementById('progressBar');
+      function updateProgress() {
+        var activePage = document.querySelector('.page.active');
+        if (!activePage || !progressTrack) return;
+        var id = activePage.id;
+        if (!id || id === 'page-home' || id === 'page-food' || id === 'page-budget') { progressTrack.style.display = 'none'; return; }
+        progressTrack.style.display = '';
+        var scrollTop = window.scrollY;
+        var docHeight = activePage.scrollHeight - window.innerHeight;
+        var pct = docHeight > 0 ? Math.min(scrollTop / docHeight * 100, 100) : 0;
+        if (progressBar) progressBar.style.width = pct + '%';
+      }
+      document.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    }
+
+    // ════════════════════════════════════════
+    // Ripple Effect
+    // ════════════════════════════════════════
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.nav a, .start-btn, .dc-title');
+      if (!btn || btn.closest('.tl-no-click')) return;
+      var ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      var rect = btn.getBoundingClientRect();
+      var size = Math.max(rect.width, rect.height);
+      var x = e.clientX - rect.left - size / 2;
+      var y = e.clientY - rect.top - size / 2;
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      btn.appendChild(ripple);
+      ripple.addEventListener('animationend', function() { ripple.remove(); });
+    });
+
+    // ════════════════════════════════════════
+    // goToFood — cross-page jump to food section
+    // ════════════════════════════════════════
+    window.goToFood = function(id) {
+      var activePage = document.querySelector('.page.active');
+      if (!activePage || activePage.id !== 'page-food') {
+        showPage('food');
+        setTimeout(function() {
+          var el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 350);
+      } else {
+        var el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    // ════════════════════════════════════════
+    // Food nav scroll-spy
+    // ════════════════════════════════════════
+    function observeFoodNav() {
+      var foodPage = document.getElementById('page-food');
+      if (!foodPage) return;
+      var sections = foodPage.querySelectorAll('.food-section');
+      var navLinks = document.querySelectorAll('.food-nav a');
+      if (!sections.length || !navLinks.length) return;
+      navLinks.forEach(function(a, i) { a.setAttribute('data-section', sections[i] ? sections[i].id : ''); });
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.id;
+            navLinks.forEach(function(a) { a.classList.toggle('active', a.getAttribute('data-section') === id); });
+          }
+        });
+      }, { rootMargin: '-60px 0px -60% 0px' });
+      sections.forEach(function(s) { obs.observe(s); });
+    }
+
+    // ════════════════════════════════════════
+    // Timeline IntersectionObserver animation (staggered fadeInUp)
+    // ════════════════════════════════════════
+    var timelineObserver = null;
+    function observeTimeline() {
+      var activePage = document.querySelector('.page.active');
+      if (!activePage) return;
+      if (timelineObserver) { timelineObserver.disconnect(); timelineObserver = null; }
+      var items = activePage.querySelectorAll('.tl-item:not(.show)');
+      if (!items.length) return;
+      timelineObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, i) {
+          if (entry.isIntersecting) {
+            var item = entry.target;
+            setTimeout(function() { item.classList.add('show'); }, i * 50);
+            timelineObserver.unobserve(item);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px 50px 0px' });
+      items.forEach(function(item) { timelineObserver.observe(item); });
+    }
+
+    // ════════════════════════════════════════
+    // Budget Bar — stacked segments + legend
+    // ════════════════════════════════════════
+    window.calcBudgetPct = function() {
+      var totalEl = document.querySelector('.budget-total .big');
+      if (!totalEl) return;
+      var total = parseFloat(totalEl.textContent.replace(/[^\d.]/g,''));
+      var segs = document.querySelectorAll('.budget-bar .seg');
+      var categoryTotals = [];
+      document.querySelectorAll('.bg-card').forEach(function(card) {
+        var r = card.querySelector('.bg-header .r');
+        if (r) categoryTotals.push(parseFloat(r.textContent.replace(/[^\d.]/g,'')) || 0);
+      });
+      updateBudgetBar(categoryTotals, total);
+    };
+    function updateBudgetBar(categoryTotals, total) {
+      var segs = document.querySelectorAll('.budget-bar .seg');
+      var colors = ['#c8dcb0','#a8c888','#88b068','#689048','#487038'];
+      var labels = ['交通','住宿','餐饮','门票','其他'];
+      segs.forEach(function(seg, i) {
+        if (i >= categoryTotals.length) { seg.style.width = '0%'; return; }
+        var pct = total > 0 ? (categoryTotals[i] / total * 100) : 0;
+        seg.style.width = pct + '%';
+        seg.style.background = colors[i % colors.length];
+      });
+      var legendItems = document.querySelectorAll('.budget-legend .leg');
+      legendItems.forEach(function(item, i) {
+        if (i >= categoryTotals.length) { item.style.display = 'none'; return; }
+        var pct = total > 0 ? Math.round(categoryTotals[i] / total * 100) : 0;
+        var pctEl = item.querySelector('.leg-pct');
+        if (pctEl) pctEl.textContent = pct + '%';
+        var dot = item.querySelector('.leg-dot');
+        if (dot) dot.style.background = colors[i % colors.length];
+      });
+    }
+
+    // ════════════════════════════════════════
+    // Modify showPage to update progress/observe/food
+    // ════════════════════════════════════════
+    var origShowPage = window.showPage;
+    if (origShowPage) {
+      window.showPage = function(name) {
+        origShowPage(name);
+        setTimeout(function() {
+          if (name === 'food') { document.querySelectorAll('.food-nav a').forEach(function(a, i) { a.classList.toggle('active', i === 0); }); }
+          if (name === 'budget') { calcBudgetPct(); }
+          observeTimeline();
+          if (progressTrack) {
+            var isDay = name !== 'home' && name !== 'food' && name !== 'budget';
+            progressTrack.style.display = isDay ? '' : 'none';
+          }
+        }, 150);
+      };
+    }
+
+    // ════════════════════════════════════════
+    // Keyboard accessibility for goToFood spans
+    // ════════════════════════════════════════
+    document.querySelectorAll('[onclick*="goToFood"]').forEach(function(el) {
+      if (el.tagName !== 'BUTTON' && el.tagName !== 'A') {
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        var t = e.target.closest('[onclick*="goToFood"]');
+        if (t) { e.preventDefault(); t.click(); }
+      }
+    });
+
+    // Init food nav + budget bar on load
+    setTimeout(observeFoodNav, 300);
+    setTimeout(function() {
+      if (document.getElementById('page-budget')) calcBudgetPct();
+    }, 400);
+
+    // Auto-update footer year
+    var footer = document.querySelector('footer');
+    if (footer) footer.innerHTML = footer.innerHTML.replace(/\d{4}/, new Date().getFullYear());
   });
