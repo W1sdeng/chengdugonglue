@@ -3,9 +3,6 @@
   let isZoomed = false;
   let modalScale = 1;
   let pinchInitialDist = 0;
-  var _touchMoved = false;
-  document.addEventListener('touchstart', function() { _touchMoved = false; }, { passive: true });
-  document.addEventListener('touchmove', function() { _touchMoved = true; }, { passive: true });
 
   function openModal(images, index) {
     modalImages = images;
@@ -306,7 +303,6 @@
       const images = track.querySelectorAll('img');
       slides.forEach((slide, idx) => {
         slide.addEventListener('click', function(e) {
-          if (_touchMoved) { _touchMoved = false; return; }
           openModal(Array.from(images).map(img => img.src), idx);
         });
       });
@@ -316,7 +312,6 @@
   // 鈹€鈹€鈹€ Done toggle via tl-dot only 鈹€鈹€鈹€
   function initDoneToggle() {
     document.addEventListener('click', function(e) {
-      if (_touchMoved) { _touchMoved = false; return; }
       if (!e.target.closest('.tl-dot')) return;
       const item = e.target.closest('.tl-item:not(.tl-no-click)');
       if (!item) return;
@@ -330,7 +325,6 @@
 
   // 鈹€鈹€鈹€ Collapsible Cards 鈹€鈹€鈹€
   function toggleCollapsible(el, event) {
-    if (_touchMoved) { _touchMoved = false; return; }
     if (event) {
       if (event.target.closest('.image-slider, .slider-dots, .slider-track')) return;
     }
