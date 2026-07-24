@@ -360,8 +360,6 @@
       }
     }
   }
-    }, { passive: true });
-  }
 
   document.addEventListener('DOMContentLoaded', () => {
     initSliders();
