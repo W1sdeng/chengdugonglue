@@ -366,25 +366,6 @@
       }
     }
   }
-
-// Page swipe on mobile 鈹€鈹€鈹€
-  function initPageSwipe() {
-    let touchStartX = 0, touchStartY = 0;
-    const pages = ['home','day1','day2','day3','day4','day5','day6','food','budget'];
-    document.addEventListener('touchstart', e => {
-      if (e.target.closest('.image-slider, .modal, .slider-dots, .slider-track')) { touchStartX = 0; return; }
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
-    }, { passive: true });
-    document.addEventListener('touchend', e => {
-      if (touchStartX === 0) return;
-      const diffX = touchStartX - e.changedTouches[0].screenX;
-      const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
-      const activeIdx = Array.from(document.querySelectorAll('.nav a')).findIndex(a => a.classList.contains('active'));
-      if (Math.abs(diffX) > 60 && diffY < Math.abs(diffX) * 0.6) {
-        if (diffX > 0 && activeIdx < pages.length - 1) showPage(pages[activeIdx + 1]);
-        else if (diffX < 0 && activeIdx > 0) showPage(pages[activeIdx - 1]);
-      }
     }, { passive: true });
   }
 
@@ -392,7 +373,6 @@
     initSliders();
     wireSliderClicks();
     initDoneToggle();
-    initPageSwipe();
     restoreDayState('day1');
     restoreDayState('day2');
     restoreDayState('day3');
