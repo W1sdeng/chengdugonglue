@@ -64,12 +64,12 @@
   ::-webkit-scrollbar-thumb { background: var(--text-tertiary); }
   ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
 
-  /* 鈹€鈹€鈹€ Container 鈹€鈹€鈹€ */
+  /* ─── Container ─── */
   .container { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
   @media (min-width: 1024px) { .container { max-width: 720px; padding: 0 32px 100px; } }
   @media (max-width: 640px) { .container { max-width: 100%; padding: 0 16px 56px; } }
 
-  /* 鈹€鈹€鈹€ Nav 鈹€鈹€鈹€ */
+  /* ─── Nav ─── */
   .nav {
     position: sticky; top: 0; z-index: 100;
     display: flex; align-items: center; gap: 2px;
@@ -111,7 +111,7 @@
   }
   .nav-scrolled { border-bottom-color: rgba(200,190,180,0.18); }
 
-  /* 鈹€鈹€鈹€ Pages 鈹€鈹€鈹€ */
+  /* ─── Pages ─── */
   .page { display: none; }
   .page.active { display: block; animation: fadeIn 0.3s ease; }
 
@@ -143,7 +143,7 @@
   }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* 鈹€鈹€鈹€ Home 鈹€鈹€鈹€ */
+  /* ─── Home ─── */
   .home-header { text-align: center; padding: 0; position: relative; z-index: 1; }
   .home-header .date {
     font-family: var(--font-title);
@@ -250,7 +250,7 @@
   .start-btn:hover .start-arrow { animation: none; text-decoration: underline; text-underline-offset: 3px; }
 
 
-  /* 鈹€鈹€鈹€ Page Head 鈹€鈹€鈹€ */
+  /* ─── Page Head ─── */
   .page-head {
     display: flex; align-items: center; gap: 10px;
     margin-bottom: 28px; padding-top: 28px;
@@ -268,7 +268,7 @@
     margin-top: 2px;
   }
 
-  /* 鈹€鈹€鈹€ Day Hero 鈹€鈹€鈹€ */
+  /* ─── Day Hero ─── */
   .day-hero {
     padding: 32px 0 16px; margin-bottom: 4px;
     border-bottom: 1px solid var(--border);
@@ -293,7 +293,7 @@
     font-size: 14px; color: var(--text-secondary);
   }
 
-  /* 鈹€鈹€鈹€ Route Map 鈹€鈹€鈹€ */
+  /* ─── Route Map ─── */
   .route-map {
     display: flex; align-items: flex-start; justify-content: space-between;
     padding: 20px 8px 12px; margin-bottom: 16px; position: relative;
@@ -311,7 +311,7 @@
   .rm-name { font-size: 15px; color: var(--text); text-align: center; white-space: nowrap; }
   .rm-label { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.4px; white-space: nowrap; }
 
-  /* 鈹€鈹€鈹€ Info Banner 鈹€鈹€鈹€ */
+  /* ─── Info Banner ─── */
   .info-banner {
     display: flex; flex-wrap: wrap; gap: 6px 20px;
     padding: 12px 0 16px; margin-bottom: 16px;
@@ -321,7 +321,7 @@
   }
   .info-banner .hl { color: var(--text); font-weight: 500; }
 
-  /* 鈹€鈹€鈹€ Timeline 鈹€鈹€鈹€ */
+  /* ─── Timeline ─── */
   .tl-wrap { position: relative; padding-left: 28px; }
   .tl-wrap::before {
     content: ''; position: absolute;
@@ -349,7 +349,7 @@
   .tl-item.done .tl-dot { background: var(--accent); border-color: var(--accent); transform: scale(1.15); }
   .tl-content { width: 100%; }
 
-  /* 鈹€鈹€鈹€ Day Card 鈹€鈹€鈹€ */
+  /* ─── Day Card ─── */
   .day-card {
     padding: 14px 0;
     border-bottom: 1px solid var(--border);
@@ -408,7 +408,7 @@
   .dc-cost-row.total { padding: 6px 0 0; margin-top: 4px; border-top: 1px solid var(--border); font-size: 15px; color: var(--text); }
   .dc-cost-row.total .val { color: var(--warm); }
 
-  /* 鈹€鈹€鈹€ Route Grid (deep tour alignment) 鈹€鈹€鈹€ */
+  /* ─── Route Grid (deep tour alignment) ─── */
   .dc-route {
     display: grid;
     grid-template-columns: 85px 1fr 18px 1.5fr 1.2fr;
@@ -451,7 +451,7 @@
     transition: opacity 0.3s ease;
   }
 
-  /* 鈹€鈹€鈹€ Collapsible Card 鈹€鈹€鈹€ */
+  /* ─── Collapsible Card ─── */
   .day-card.collapsible .dc-title { cursor: pointer; }
   .day-card.collapsible .dc-title {
     user-select: none;
@@ -469,7 +469,7 @@
   .day-card.collapsible .dc-detail-wrap { overflow: hidden; transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.3s ease; max-height: 3000px; opacity: 1; padding: 4px 0; }
   .day-card.collapsible.collapsed .dc-detail-wrap { max-height: 0; opacity: 0; padding: 0 0; }
 
-  /* 鈹€鈹€鈹€ Budget Page 鈹€鈹€鈹€ */
+  /* ─── Budget Page ─── */
   .budget-total { text-align: center; padding: 36px 0 32px; }
   .budget-total .big {
     font-family: var(--font-title);
@@ -507,7 +507,7 @@
   }
   .bg-item .v { color: var(--text); font-variant-numeric: tabular-nums; }
 
-  /* 鈹€鈹€鈹€ Image Slider 鈹€鈹€鈹€ */
+  /* ─── Image Slider ─── */
   .image-slider {
     position: relative; width: 100%;
     overflow: hidden;
@@ -553,7 +553,7 @@
     line-height: 1.5;
   }
 
-  /* 鈹€鈹€鈹€ Image Modal 鈹€鈹€鈹€ */
+  /* ─── Image Modal ─── */
   .modal {
     display: flex; position: fixed; z-index: 200;
     left: 0; top: 0; width: 100%; height: 100%;
@@ -601,7 +601,7 @@
     z-index: 201;
   }
 
-  /* 鈹€鈹€鈹€ Footer 鈹€鈹€鈹€ */
+  /* ─── Footer ─── */
   footer { text-align: center; padding: 24px 0 0; font-family: var(--font-ui); color: var(--text-tertiary); font-size: 11px; }
   footer::before {
     content: ''; display: block;
@@ -613,7 +613,7 @@
     opacity: 0.35;
   }
 
-  /* 鈹€鈹€鈹€ Tablet 鈹€鈹€鈹€ */
+  /* ─── Tablet ─── */
   @media (min-width: 768px) and (max-width: 1023px) {
     .container { max-width: 660px; padding: 0 32px 80px; }
     .home-header { padding: 20px 0 0; }
@@ -624,7 +624,7 @@
     .budget-total .big { font-size: 42px; }
   }
 
-  /* 鈹€鈹€鈹€ Phone 鈹€鈹€鈹€ */
+  /* ─── Phone ─── */
   @media (max-width: 640px) {
     #page-home.active { padding-top: 20px; }
     #page-home.active::after { width: 100%; border-radius: 0; }
@@ -683,7 +683,7 @@
     .slider-slide { height: 40vh; max-height: 250px; }
   }
 
-  /* 鈹€鈹€鈹€ iOS Liquid Glass 鈹€鈹€鈹€ */
+  /* ─── iOS Liquid Glass ─── */
   .back-top {
     position: fixed; bottom: 32px; right: 32px; z-index: 90;
     width: 46px; height: 46px;
@@ -726,7 +726,7 @@
     .back-top { bottom: 20px; right: 16px; width: 46px; height: 46px; font-size: 20px; }
   }
 
-  /* 鈹€鈹€鈹€ Slider arrows (desktop only) 鈹€鈹€鈹€ */
+  /* ─── Slider arrows (desktop only) ─── */
   @media (hover: hover) and (pointer: fine) {
     .slider-btn {
       position: absolute; top: 50%; transform: translateY(-50%); z-index: 6;
@@ -742,7 +742,7 @@
     .slider-btn:hover { color: rgba(200,190,180,0.8) !important; background: rgba(0,0,0,0.2); }
   }
 
-  /* 鈹€鈹€鈹€ Touch devices 鈹€鈹€鈹€ */
+  /* ─── Touch devices ─── */
   
   /* Cost summary spacing */
   .cost-summary { margin-top: 24px; padding: 12px 0 4px; border-top: 2px solid var(--accent-dim); font-size: 0.9em; background: var(--accent-dim); border-radius: 4px; padding: 10px 14px; }
@@ -772,28 +772,28 @@
   .modal:not(.active) .modal-nav,
   .modal:not(.active) .modal-counter { opacity: 0; }
 
-  /* 鈹€鈹€鈹€ Modal zoom 鈹€鈹€鈹€ */
+  /* ─── Modal zoom ─── */
   .modal-content.zoomed { object-fit: none; cursor: move; }
   .modal.zoomed { overflow: auto; align-items: flex-start; }
   .modal.zoomed .modal-content { max-width: none; max-height: none; }
 
-  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
-     Progress Bar 锟斤拷 only visible on Day pages
-     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
+  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
+     Progress Bar �� only visible on Day pages
+     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
   .progress-track { position: fixed; top: 44px; left: 0; width: 100%; height: 3px; background: transparent; z-index: 99; pointer-events: none; }
   .progress-bar { height: 100%; width: 0%; background: var(--warm); transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
 
-  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
+  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
      Ripple Effect
-     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
+     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
   .ripple { position: absolute; border-radius: 50%; background: rgba(200,190,180,0.3); transform: scale(0); animation: rippleAnim 0.5s ease-out; pointer-events: none; }
   @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
   .nav a, .start-btn, .dc-title { position: relative; overflow: hidden; }
   .tl-no-click .ripple { display: none; }
 
-  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
+  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
      Food Guide Page
-     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
+     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
   .food-nav {
     display: flex; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none; margin: 0 -24px 16px; padding: 10px 24px 12px;
@@ -850,25 +850,25 @@
   /* Food highlight anchor span (goToFood) */
   .food-highlight { color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 
-  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
+  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
      Budget Bar (stacked segments + legend)
-     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
+     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
   .budget-bar { display: flex; height: 18px; border-radius: 0; overflow: hidden; margin: 8px 0 12px; }
   .budget-bar .seg { transition: width 0.4s var(--ease); }
   .budget-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 24px; font-size: 13px; color: var(--text-secondary); }
   .budget-legend .leg { display: inline-flex; align-items: center; gap: 5px; }
   .budget-legend .leg-dot { width: 10px; height: 10px; border-radius: 0; flex-shrink: 0; }
 
-  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
-     Timeline Animation 锟斤拷 fadeInUp staggered
-     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
+  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
+     Timeline Animation �� fadeInUp staggered
+     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
   @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   .tl-item { opacity: 0; transform: translateY(16px); transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); }
   .tl-item.show { opacity: 1; transform: translateY(0); }
 
-  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
-     Improved Done Toggle 锟斤拷 tl-dot ::before tap area + ?
-     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
+  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
+     Improved Done Toggle �� tl-dot ::before tap area + ?
+     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
   .tl-dot { cursor: pointer; position: relative; z-index: 2; }
   .tl-dot::before { content: ''; position: absolute; top: -10px; left: -10px; width: 31px; height: 31px; border-radius: 50%; }
   .tl-item.done .tl-dot { background: var(--accent); border-color: var(--accent); transform: scale(1.15); }
