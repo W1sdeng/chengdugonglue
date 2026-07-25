@@ -3,7 +3,6 @@
   let isZoomed = false;
   let modalScale = 1;
   let pinchInitialDist = 0;
-
   function openModal(images, index) {
     modalImages = images;
     modalIndex = index;
