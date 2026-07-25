@@ -64,18 +64,19 @@
   ::-webkit-scrollbar-thumb { background: var(--text-tertiary); }
   ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
 
-  /* ─── Container ─── */
+  /* 鈹€鈹€鈹€ Container 鈹€鈹€鈹€ */
   .container { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
   @media (min-width: 1024px) { .container { max-width: 720px; padding: 0 32px 100px; } }
   @media (max-width: 640px) { .container { max-width: 100%; padding: 0 16px 56px; } }
 
-  /* ─── Nav ─── */
+  /* 鈹€鈹€鈹€ Nav 鈹€鈹€鈹€ */
   .nav {
     position: sticky; top: 0; z-index: 100;
     display: flex; align-items: center; gap: 2px;
+    justify-content: center;
     padding: 0 16px; height: 44px;
     background: var(--bg);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
     overflow-x: auto; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
@@ -110,7 +111,7 @@
   }
   .nav-scrolled { border-bottom-color: rgba(200,190,180,0.18); }
 
-  /* ─── Pages ─── */
+  /* 鈹€鈹€鈹€ Pages 鈹€鈹€鈹€ */
   .page { display: none; }
   .page.active { display: block; animation: fadeIn 0.3s ease; }
 
@@ -142,7 +143,7 @@
   }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ─── Home ─── */
+  /* 鈹€鈹€鈹€ Home 鈹€鈹€鈹€ */
   .home-header { text-align: center; padding: 0; position: relative; z-index: 1; }
   .home-header .date {
     font-family: var(--font-title);
@@ -249,7 +250,7 @@
   .start-btn:hover .start-arrow { animation: none; text-decoration: underline; text-underline-offset: 3px; }
 
 
-  /* ─── Page Head ─── */
+  /* 鈹€鈹€鈹€ Page Head 鈹€鈹€鈹€ */
   .page-head {
     display: flex; align-items: center; gap: 10px;
     margin-bottom: 28px; padding-top: 28px;
@@ -267,7 +268,7 @@
     margin-top: 2px;
   }
 
-  /* ─── Day Hero ─── */
+  /* 鈹€鈹€鈹€ Day Hero 鈹€鈹€鈹€ */
   .day-hero {
     padding: 32px 0 16px; margin-bottom: 4px;
     border-bottom: 1px solid var(--border);
@@ -292,7 +293,7 @@
     font-size: 14px; color: var(--text-secondary);
   }
 
-  /* ─── Route Map ─── */
+  /* 鈹€鈹€鈹€ Route Map 鈹€鈹€鈹€ */
   .route-map {
     display: flex; align-items: flex-start; justify-content: space-between;
     padding: 20px 8px 12px; margin-bottom: 16px; position: relative;
@@ -310,7 +311,7 @@
   .rm-name { font-size: 15px; color: var(--text); text-align: center; white-space: nowrap; }
   .rm-label { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.4px; white-space: nowrap; }
 
-  /* ─── Info Banner ─── */
+  /* 鈹€鈹€鈹€ Info Banner 鈹€鈹€鈹€ */
   .info-banner {
     display: flex; flex-wrap: wrap; gap: 6px 20px;
     padding: 12px 0 16px; margin-bottom: 16px;
@@ -320,7 +321,7 @@
   }
   .info-banner .hl { color: var(--text); font-weight: 500; }
 
-  /* ─── Timeline ─── */
+  /* 鈹€鈹€鈹€ Timeline 鈹€鈹€鈹€ */
   .tl-wrap { position: relative; padding-left: 28px; }
   .tl-wrap::before {
     content: ''; position: absolute;
@@ -348,7 +349,7 @@
   .tl-item.done .tl-dot { background: var(--accent); border-color: var(--accent); transform: scale(1.15); }
   .tl-content { width: 100%; }
 
-  /* ─── Day Card ─── */
+  /* 鈹€鈹€鈹€ Day Card 鈹€鈹€鈹€ */
   .day-card {
     padding: 14px 0;
     border-bottom: 1px solid var(--border);
@@ -407,7 +408,7 @@
   .dc-cost-row.total { padding: 6px 0 0; margin-top: 4px; border-top: 1px solid var(--border); font-size: 15px; color: var(--text); }
   .dc-cost-row.total .val { color: var(--warm); }
 
-  /* ─── Route Grid (deep tour alignment) ─── */
+  /* 鈹€鈹€鈹€ Route Grid (deep tour alignment) 鈹€鈹€鈹€ */
   .dc-route {
     display: grid;
     grid-template-columns: 85px 1fr 18px 1.5fr 1.2fr;
@@ -450,7 +451,7 @@
     transition: opacity 0.3s ease;
   }
 
-  /* ─── Collapsible Card ─── */
+  /* 鈹€鈹€鈹€ Collapsible Card 鈹€鈹€鈹€ */
   .day-card.collapsible .dc-title { cursor: pointer; }
   .day-card.collapsible .dc-title {
     user-select: none;
@@ -468,7 +469,7 @@
   .day-card.collapsible .dc-detail-wrap { overflow: hidden; transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.3s ease; max-height: 3000px; opacity: 1; padding: 4px 0; }
   .day-card.collapsible.collapsed .dc-detail-wrap { max-height: 0; opacity: 0; padding: 0 0; }
 
-  /* ─── Budget Page ─── */
+  /* 鈹€鈹€鈹€ Budget Page 鈹€鈹€鈹€ */
   .budget-total { text-align: center; padding: 36px 0 32px; }
   .budget-total .big {
     font-family: var(--font-title);
@@ -506,7 +507,7 @@
   }
   .bg-item .v { color: var(--text); font-variant-numeric: tabular-nums; }
 
-  /* ─── Image Slider ─── */
+  /* 鈹€鈹€鈹€ Image Slider 鈹€鈹€鈹€ */
   .image-slider {
     position: relative; width: 100%;
     overflow: hidden;
@@ -552,7 +553,7 @@
     line-height: 1.5;
   }
 
-  /* ─── Image Modal ─── */
+  /* 鈹€鈹€鈹€ Image Modal 鈹€鈹€鈹€ */
   .modal {
     display: flex; position: fixed; z-index: 200;
     left: 0; top: 0; width: 100%; height: 100%;
@@ -600,7 +601,7 @@
     z-index: 201;
   }
 
-  /* ─── Footer ─── */
+  /* 鈹€鈹€鈹€ Footer 鈹€鈹€鈹€ */
   footer { text-align: center; padding: 24px 0 0; font-family: var(--font-ui); color: var(--text-tertiary); font-size: 11px; }
   footer::before {
     content: ''; display: block;
@@ -612,7 +613,7 @@
     opacity: 0.35;
   }
 
-  /* ─── Tablet ─── */
+  /* 鈹€鈹€鈹€ Tablet 鈹€鈹€鈹€ */
   @media (min-width: 768px) and (max-width: 1023px) {
     .container { max-width: 660px; padding: 0 32px 80px; }
     .home-header { padding: 20px 0 0; }
@@ -623,7 +624,7 @@
     .budget-total .big { font-size: 42px; }
   }
 
-  /* ─── Phone ─── */
+  /* 鈹€鈹€鈹€ Phone 鈹€鈹€鈹€ */
   @media (max-width: 640px) {
     #page-home.active { padding-top: 20px; }
     #page-home.active::after { width: 100%; border-radius: 0; }
@@ -682,37 +683,50 @@
     .slider-slide { height: 40vh; max-height: 250px; }
   }
 
-  /* ─── Back to Top ─── */
+  /* 鈹€鈹€鈹€ iOS Liquid Glass 鈹€鈹€鈹€ */
   .back-top {
     position: fixed; bottom: 32px; right: 32px; z-index: 90;
-    width: 44px; height: 44px;
+    width: 46px; height: 46px;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(200,190,180,0.08);
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
-    border: 0.5px solid rgba(200,190,180,0.15);
+    background: rgba(60, 60, 67, 0.35);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     color: var(--text-secondary);
     font-size: 20px; font-family: var(--font-ui);
     cursor: pointer;
     opacity: 0; pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.2s var(--ease), background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.08),
+      inset 0 -1px 3px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.35s ease, transform 0.2s ease, background 0.2s ease;
     line-height: 1;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2), inset 0 0.5px 0.5px rgba(255,255,255,0.06);
     -webkit-tap-highlight-color: transparent;
   }
   .back-top.show { opacity: 1; pointer-events: auto; }
-  .back-top:hover { color: var(--text); background: rgba(200,190,180,0.14); box-shadow: 0 6px 24px rgba(0,0,0,0.25), inset 0 0.5px 0.5px rgba(255,255,255,0.08); }
-  .back-top:active { transform: scale(0.92); }
+  .back-top:hover { color: var(--text); background: rgba(80, 80, 87, 0.45); }
+  .back-top:active { transform: scale(0.92); background: rgba(100, 100, 107, 0.5); }
   @media (prefers-color-scheme: light) {
-    .back-top { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.07); box-shadow: 0 4px 16px rgba(0,0,0,0.06), inset 0 0.5px 0.5px rgba(255,255,255,0.5); }
-    .back-top:hover { background: rgba(0,0,0,0.08); box-shadow: 0 6px 24px rgba(0,0,0,0.1), inset 0 0.5px 0.5px rgba(255,255,255,0.6); }
+    .back-top {
+      background: rgba(255, 255, 255, 0.45);
+      border: 0.5px solid rgba(255, 255, 255, 0.6);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.5),
+        inset 0 -1px 3px rgba(0, 0, 0, 0.04),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+    .back-top:hover { background: rgba(255, 255, 255, 0.55); }
+    .back-top:active { background: rgba(245, 245, 245, 0.6); }
   }
   @media (max-width: 640px) {
-    .back-top { bottom: 20px; right: 16px; width: 44px; height: 44px; font-size: 20px; }
+    .back-top { bottom: 20px; right: 16px; width: 46px; height: 46px; font-size: 20px; }
   }
 
-  /* ─── Slider arrows (desktop only) ─── */
+  /* 鈹€鈹€鈹€ Slider arrows (desktop only) 鈹€鈹€鈹€ */
   @media (hover: hover) and (pointer: fine) {
     .slider-btn {
       position: absolute; top: 50%; transform: translateY(-50%); z-index: 6;
@@ -728,7 +742,7 @@
     .slider-btn:hover { color: rgba(200,190,180,0.8) !important; background: rgba(0,0,0,0.2); }
   }
 
-  /* ─── Touch devices ─── */
+  /* 鈹€鈹€鈹€ Touch devices 鈹€鈹€鈹€ */
   
   /* Cost summary spacing */
   .cost-summary { margin-top: 24px; padding: 12px 0 4px; border-top: 2px solid var(--accent-dim); font-size: 0.9em; background: var(--accent-dim); border-radius: 4px; padding: 10px 14px; }
@@ -758,32 +772,62 @@
   .modal:not(.active) .modal-nav,
   .modal:not(.active) .modal-counter { opacity: 0; }
 
-  /* ─── Modal zoom ─── */
+  /* 鈹€鈹€鈹€ Modal zoom 鈹€鈹€鈹€ */
   .modal-content.zoomed { object-fit: none; cursor: move; }
   .modal.zoomed { overflow: auto; align-items: flex-start; }
   .modal.zoomed .modal-content { max-width: none; max-height: none; }
 
-  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
-     Progress Bar �� only visible on Day pages
-     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
+  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
+     Progress Bar 锟斤拷 only visible on Day pages
+     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
   .progress-track { position: fixed; top: 44px; left: 0; width: 100%; height: 3px; background: transparent; z-index: 99; pointer-events: none; }
   .progress-bar { height: 100%; width: 0%; background: var(--warm); transition: width 0.1s linear; border-radius: 0 2px 2px 0; }
 
-  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
+  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
      Ripple Effect
-     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
+     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
   .ripple { position: absolute; border-radius: 50%; background: rgba(200,190,180,0.3); transform: scale(0); animation: rippleAnim 0.5s ease-out; pointer-events: none; }
   @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
   .nav a, .start-btn, .dc-title { position: relative; overflow: hidden; }
   .tl-no-click .ripple { display: none; }
 
-  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
+  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
      Food Guide Page
-     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
-  .food-nav { display: flex; gap: 4px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin: 0 -24px 16px; padding: 0 24px; position: sticky; top: 44px; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
+  .food-nav {
+    display: flex; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; margin: 0 -24px 16px; padding: 10px 24px 12px;
+    position: sticky; top: 44px; z-index: 50;
+    background: var(--bg);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+  }
   .food-nav::-webkit-scrollbar { display: none; }
-  .food-nav a { flex-shrink: 0; padding: 8px 14px; font-size: 13px; color: var(--text-secondary); text-decoration: none; border-radius: 20px; background: var(--card); border: 1px solid var(--border); white-space: nowrap; cursor: pointer; transition: all 0.2s; }
-  .food-nav a.active { color: var(--text); border-color: var(--accent); background: var(--accent-dim); }
+  .food-nav a {
+    flex-shrink: 0; padding: 7px 16px; font-size: 13px; font-weight: 500;
+    color: var(--text-secondary); text-decoration: none; border-radius: 10px;
+    background: var(--card); border: 0.5px solid var(--border);
+    white-space: nowrap; cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.2, 0, 0.2, 1);
+  }
+  .food-nav a:hover {
+    color: var(--text); background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .food-nav a.active {
+    color: var(--bg); font-weight: 600;
+    background: var(--accent); border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(187, 206, 140, 0.25);
+  }
+  @media (prefers-color-scheme: light) {
+    .food-nav {
+      background: var(--bg);
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+    }
+    .food-nav a.active {
+      color: #fff; background: var(--accent); border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(122, 154, 90, 0.3);
+    }
+  }
   .food-section { padding-top: 12px; }
   .food-section h3 { font-family: var(--font-title); font-size: 18px; font-weight: 600; margin: 24px 0 8px; color: var(--text); }
   .food-section h3:first-child { margin-top: 0; }
@@ -801,30 +845,30 @@
   .food-list .food-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 4px; }
   .food-list .food-shop { font-size: 13px; color: var(--text-tertiary); line-height: 1.6; }
   .food-list .food-shop .hl { color: var(--accent); cursor: pointer; }
-  @media (max-width: 640px) { .food-nav { margin: 0 -16px 12px; } .food-nav a { font-size: 11px; padding: 8px 10px; } .food-table { font-size: 12px; width: 100%; min-width: auto; } .food-table th, .food-table td { padding: 6px 8px; } .food-table td:nth-child(1) { white-space: nowrap; min-width: 50px; } .food-table td:nth-child(2) { min-width: 200px; } .food-table td:nth-child(3) { white-space: nowrap; text-align: right; } .food-list .food-icon { font-size: 24px; } .food-list .food-name { font-size: 14px; } .food-list .food-shop { font-size: 12px; } }
+  @media (max-width: 640px) { .food-nav { margin: 0 -16px 12px; padding: 8px 16px 10px; gap: 5px; } .food-nav a { font-size: 12px; padding: 6px 12px; border-radius: 8px; } .food-table { font-size: 12px; width: 100%; min-width: auto; } .food-table th, .food-table td { padding: 6px 8px; } .food-table td:nth-child(1) { white-space: nowrap; min-width: 50px; } .food-table td:nth-child(2) { min-width: 200px; } .food-table td:nth-child(3) { white-space: nowrap; text-align: right; } .food-list .food-icon { font-size: 24px; } .food-list .food-name { font-size: 14px; } .food-list .food-shop { font-size: 12px; } }
 
   /* Food highlight anchor span (goToFood) */
   .food-highlight { color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 
-  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
+  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
      Budget Bar (stacked segments + legend)
-     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
+     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
   .budget-bar { display: flex; height: 18px; border-radius: 0; overflow: hidden; margin: 8px 0 12px; }
   .budget-bar .seg { transition: width 0.4s var(--ease); }
   .budget-legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 24px; font-size: 13px; color: var(--text-secondary); }
   .budget-legend .leg { display: inline-flex; align-items: center; gap: 5px; }
   .budget-legend .leg-dot { width: 10px; height: 10px; border-radius: 0; flex-shrink: 0; }
 
-  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
-     Timeline Animation �� fadeInUp staggered
-     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
+  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
+     Timeline Animation 锟斤拷 fadeInUp staggered
+     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
   @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   .tl-item { opacity: 0; transform: translateY(16px); transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); }
   .tl-item.show { opacity: 1; transform: translateY(0); }
 
-  /* �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T
-     Improved Done Toggle �� tl-dot ::before tap area + ?
-     �T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T�T */
+  /* 锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋
+     Improved Done Toggle 锟斤拷 tl-dot ::before tap area + ?
+     锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋锟絋 */
   .tl-dot { cursor: pointer; position: relative; z-index: 2; }
   .tl-dot::before { content: ''; position: absolute; top: -10px; left: -10px; width: 31px; height: 31px; border-radius: 50%; }
   .tl-item.done .tl-dot { background: var(--accent); border-color: var(--accent); transform: scale(1.15); }

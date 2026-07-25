@@ -1,4 +1,4 @@
-﻿let modalImages = [];
+let modalImages = [];
   let modalIndex = 0;
   let isZoomed = false;
   let modalScale = 1;
@@ -381,7 +381,9 @@
     document.addEventListener('scroll', toggleNavShadow, { passive: true });
     toggleNavShadow();
     function checkNavOverflow() {
-      navEl.classList.toggle('nav-overflow', navEl.scrollWidth > navEl.clientWidth);
+      var overflow = navEl.scrollWidth > navEl.clientWidth;
+      navEl.classList.toggle('nav-overflow', overflow);
+      navEl.style.justifyContent = overflow ? 'flex-start' : 'center';
     }
     checkNavOverflow();
     window.addEventListener('resize', checkNavOverflow);
