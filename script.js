@@ -1,4 +1,4 @@
-let modalImages = [];
+﻿let modalImages = [];
   let modalIndex = 0;
   let isZoomed = false;
   let modalScale = 1;
