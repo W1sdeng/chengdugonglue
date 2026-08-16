@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>道德与法治 · 八年级下册 思维导图（节点连线式）</title>
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #faf9f6;
+    --line: #9aa5b1;
+    --u1: #c0392b; --u2: #2980b9; --u3: #27ae60; --u4: #8e44ad; --u5: #d35400;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    background: var(--paper); color: var(--ink);
+  }
+  .page-head { text-align:center; padding: 1.6rem 1rem .8rem; }
+  .page-head h1 { font-size: 1.7rem; letter-spacing: .08em; }
+  .page-head .sub { margin-top:.4rem; color:#666; font-size:.85rem; }
+  .page-head .hint { margin-top:.6rem; font-size:.75rem; color:#999; }
+  .page-head .hint button {
+    background:#fff; border:1px solid #ccc; border-radius:4px;
+    padding:2px 10px; margin-left:6px; cursor:pointer; font-size:.75rem;
+  }
+  /* ===== 画布 ===== */
+  .canvas-wrap { overflow:auto; padding: 1rem; -webkit-overflow-scrolling: touch; }
+  #mm {
+    display:block;
+    margin:0 auto;
+    background: var(--paper);
+  }
+  /* ===== 节点样式（由 JS 注入 rect/text）===== */
+  .mm-root { font-weight:800; fill:#fff; }
+  .mm-node { font-weight:600; }
+  .mm-leaf { font-weight:400; }
+  .mm-text { fill:#1a1a2e; font-size:13px; }
+  .mm-text-root { fill:#fff; font-size:17px; font-weight:800; }
+  .mm-link { fill:none; stroke:#9aa5b1; stroke-width:1.6; }
+  .mm-link.u1 { stroke:var(--u1); } .mm-link.u2 { stroke:var(--u2); }
+  .mm-link.u3 { stroke:var(--u3); } .mm-link.u4 { stroke:var(--u4); } .mm-link.u5 { stroke:var(--u5); }
+  /* 打印 */
+  @media print {
+    body { background:#fff; }
+    .page-head .hint { display:none; }
+    .canvas-wrap { overflow:visible; padding:0; }
+    #mm { max-width:100%; }
+  }
+  @page { size: A4; margin: 10mm; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>道德与法治 · 八年级下册</h1>
+  <div class="sub">五单元思维导图（节点连线式 · 2026新版教材）</div>
+  <div class="hint">💡 节点可点击折叠/展开 · 滚轮或双指缩放平移
+    <button onclick="fitView()">适应窗口</button>
+    <button onclick="expandAll()">全部展开</button>
+    <button onclick="collapseAll()">全部折叠</button>
+  </div>
+</div>
+
+<div class="canvas-wrap">
+  <svg id="mm" width="1600" height="1100"></svg>
+</div>
+
+<script>
+/* ================= 思维导图数据（树形） ================= */
+const TREE = {
+  name: "道德与法治 八下",
+  color: "#23283a",
+  children: [
+    {
+      name: "一、坚持宪法至上", color: "var(--u1)", key: "u1",
+      children: [
+        {
+          name: "第一课 治国安邦的总章程",
+          children: [
+            { name: "第1框 党领导人民制定宪法", leaf: [
+              "宪法是根本法、治国安邦总章程",
+              "党的领导是最本质特征",
+              "一切权力属于人民"
+            ]},
+            { name: "第2框 组织国家机构·规范权力", leaf: [
+              "人大产生国家机构，对其负责受其监督",
+              "根本政治制度：人民代表大会制度",
+              "运行原则：民主集中制"
+            ]}
+          ]
+        },
+        {
+          name: "第二课 维护宪法权威",
+          children: [
+            { name: "第1框 坚持依宪治国", leaf: [
+              "宪法效力最高，一切法律不得抵触",
+              "宪法是公民权利的保障书"
+            ]},
+            { name: "第2框 加强宪法监督", leaf: [
+              "宪法监督保障宪法实施",
+              "学习宪法·认同宪法·践行宪法"
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      name: "二、理解权利义务", color: "var(--u2)", key: "u2",
+      children: [
+        {
+          name: "第三课 公民权利",
+          children: [
+            { name: "第1框 公民基本权利", leaf: [
+              "政治权利和自由",
+              "人身自由不受侵犯",
+              "社会经济文化教育权利"
+            ]},
+            { name: "第2框 依法行使权利", leaf: [
+              "维权途径：协商→调解→仲裁→诉讼",
+              "不得损害他人合法权益"
+            ]}
+          ]
+        },
+        {
+          name: "第四课 公民义务",
+          children: [
+            { name: "第1框 公民基本义务", leaf: [
+              "遵守宪法法律·维护国家统一",
+              "依法服兵役·依法纳税"
+            ]},
+            { name: "第2框 依法履行义务", leaf: [
+              "权利义务相统一",
+              "违反义务须担责"
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      name: "三、认识国家制度", color: "var(--u3)", key: "u3",
+      children: [
+        { name: "第五课 我国的政治制度", leaf: [
+          "根本：人民代表大会制度",
+          "政协协商制度",
+          "民族区域自治制度",
+          "基层群众自治制度"
+        ]},
+        { name: "第六课 基本经济制度", leaf: [
+          "公有制为主体·多种所有制共同发展",
+          "按劳分配为主体·多种分配方式并存",
+          "社会主义市场经济体制"
+        ]}
+      ]
+    },
+    {
+      name: "四、走近国家机构", color: "var(--u4)", key: "u4",
+      children: [
+        { name: "第七课 国家权力机关", leaf: ["全国人大=最高权力机关", "立法权·决定权·任免权·监督权"] },
+        { name: "第八课 国家主席", leaf: ["由全国人大选举产生", "公布法律·任免·外事·荣誉"] },
+        { name: "第九课 国家行政机关", leaf: ["国务院=最高行政机关", "依法行政"] },
+        { name: "第十课 中央军事委员会", leaf: ["最高军事领导机关"] },
+        { name: "第十一课 国家监察机关", leaf: ["监察公职人员·监督调查处置"] },
+        { name: "第十二课 国家司法机关", leaf: ["法院=审判机关", "检察院=法律监督机关"] }
+      ]
+    },
+    {
+      name: "五、建设法治中国", color: "var(--u5)", key: "u5",
+      children: [
+        { name: "第十三课 坚持全面依法治国", leaf: [
+          "科学立法·严格执法·公正司法·全民守法"
+        ]},
+        { name: "第十四课 以法治推进国家治理", leaf: [
+          "法治与改革相互促进",
+          "法治与德治相得益彰",
+          "青少年树立法治信仰"
+        ]}
+      ]
+    }
+  ]
+};
+
+/* ================= 布局与渲染 ================= */
+const svg = document.getElementById('mm');
+const NS = 'http://www.w3.org/2000/svg';
+const NODE_W = 200;   // 节点宽
+const NODE_H = 34;    // 节点高
+const LV_GAP = 60;    // 层级水平间距
+const NODE_GAP = 10;  // 同层节点垂直间距
+let gRoot = null;     // 根 g
+
+function el(name, attrs) {
+  const e = document.createElementNS(NS, name);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  return e;
+}
+
+// 节点对象
+function makeNode(data, depth, color) {
+  return { data, depth, color, children: [], x: 0, y: 0, w: NODE_W, h: NODE_H, collapsed: false, g: null };
+}
+
+// 构建树
+function buildTree(data, depth, color) {
+  const n = makeNode(data, depth, color || '#23283a');
+  if (data.children) {
+    n.children = data.children.map(c => buildTree(c, depth + 1, color || c.color || '#23283a'));
+  } else if (data.leaf) {
+    // 叶子是知识点，作为文字节点（可折成多行）
+    n.leaf = data.leaf;
+  }
+  return n;
+}
+
+// 计算每个子树的宽度（垂直方向总高度）
+function measure(node) {
+  if (node.collapsed || (!node.children || !node.children.length)) {
+    node.subH = node.leaf ? node.leaf.length * 22 + 8 : node.h;
+    return node.subH;
+  }
+  let h = 0;
+  node.children.forEach(c => { h += measure(c) + NODE_GAP; });
+  h -= NODE_GAP;
+  node.subH = Math.max(h, node.h);
+  return node.subH;
+}
+
+// 布局：root 左侧固定，子节点向右展开（树形）
+function layout(node, x, yTop) {
+  node.x = x; node.y = yTop;
+  if (node.collapsed || !node.children || !node.children.length) return;
+  let y = yTop;
+  node.children.forEach(c => {
+    const ch = measure(c);
+    layout(c, x + NODE_W + LV_GAP, y + (ch - c.h) / 2);
+    y += ch + NODE_GAP;
+  });
+}
+
+// 渲染节点与连线
+function renderNode(node) {
+  if (!node.g) {
+    node.g = el('g', { transform: 'translate(' + node.x + ',' + node.y + ')' });
+    // 背景
+    const rect = el('rect', {
+      width: node.w, height: node.h, rx: 7,
+      fill: node.depth === 0 ? '#23283a' : '#fff',
+      stroke: node.depth === 0 ? '#23283a' : node.color,
+      'stroke-width': node.depth === 0 ? 2 : 1.5
+    });
+    node.g.appendChild(rect);
+    // 文字
+    const text = el('text', {
+      x: 10, y: 22,
+      class: node.depth === 0 ? 'mm-text-root' : 'mm-text',
+      fill: node.depth === 0 ? '#fff' : '#1a1a2e'
+    });
+    text.textContent = node.data.name;
+    // 宽度自适应
+    const est = node.data.name.length * (node.depth === 0 ? 17 : 13) + 24;
+    node.g.setAttribute('data-est', est);
+    node.g.appendChild(text);
+    // 折叠标记
+    if (node.children && node.children.length) {
+      const t2 = el('text', { x: node.w - 12, y: 22, 'font-size': 12, fill: '#888' });
+      t2.textContent = node.collapsed ? '＋' : '－';
+      node.g.appendChild(t2);
+    }
+    // 叶子知识点
+    if (node.leaf && !node.collapsed) {
+      // 叶子用单独的浅色框，竖排显示
+      let yy = node.h;
+      node.leaf.forEach((t, i) => {
+        const r2 = el('rect', { x: -4, y: yy, width: node.w + 8, height: 22, rx: 4,
+          fill: '#f4f4f8', stroke: '#ddd' });
+        const t3 = el('text', { x: 8, y: yy + 16, 'font-size': 12, fill: '#555' });
+        t3.textContent = t;
+        node.g.appendChild(r2);
+        node.g.appendChild(t3);
+        yy += 22;
+      });
+      node.subH = yy + 4;
+    }
+    node.g.style.cursor = 'pointer';
+    node.g.addEventListener('click', (ev) => {
+      ev.stopPropagation();
+      if (node.children && node.children.length) {
+        node.collapsed = !node.collapsed;
+        redraw();
+      }
+    });
+    svg.appendChild(node.g);
+  } else {
+    node.g.setAttribute('transform', 'translate(' + node.x + ',' + node.y + ')');
+  }
+}
+
+// 连线（贝塞尔曲线）
+function renderLinks(node) {
+  if (node.collapsed || !node.children || !node.children.length) return;
+  const x1 = node.x + node.w;
+  const y1 = node.y + node.h / 2;
+  node.children.forEach(c => {
+    const x2 = c.x;
+    const y2 = c.y + c.h / 2;
+    const mx = (x1 + x2) / 2;
+    const path = el('path', {
+      d: 'M' + x1 + ',' + y1 + ' C' + mx + ',' + y1 + ' ' + mx + ',' + y2 + ' ' + x2 + ',' + y2,
+      class: 'mm-link ' + (node.color && node.color.indexOf('var') >= 0 ? (node.data.key || '') : '')
+    });
+    svg.insertBefore(path, svg.firstChild);
+    renderLinks(c);
+  });
+}
+
+let scale = 1, tx = 30, ty = 40;
+function redraw() {
+  svg.innerHTML = '';
+  const root = buildTree(TREE, 0);
+  measure(root);
+  layout(root, 20, 20);
+  // 计算总尺寸
+  function maxExtent(node) {
+    let mx = node.x + node.w, my = node.y + node.subH;
+    if (node.children) node.children.forEach(c => {
+      const r = maxExtent(c); mx = Math.max(mx, r.mx); my = Math.max(my, r.my);
+    });
+    return { mx, my };
+  }
+  const ext = maxExtent(root);
+  svg.setAttribute('width', ext.mx + 60);
+  svg.setAttribute('height', ext.my + 60);
+  renderLinks(root);
+  renderNode(root);
+  (function walk(n){ renderNode(n); if(n.children) n.children.forEach(walk); })(root);
+  svg.setAttribute('transform', 'translate(' + tx + ',' + ty + ') scale(' + scale + ')');
+  svg.style.transformOrigin = '0 0';
+}
+
+function fitView() {
+  const root = buildTree(TREE, 0);
+  measure(root);
+  layout(root, 20, 20);
+  function maxExtent(node) {
+    let mx = node.x + node.w, my = node.y + node.subH;
+    if (node.children) node.children.forEach(c => { const r = maxExtent(c); mx = Math.max(mx, r.mx); my = Math.max(my, r.my); });
+    return { mx, my };
+  }
+  const ext = maxExtent(root);
+  const wrap = document.querySelector('.canvas-wrap');
+  const sw = wrap.clientWidth - 20, sh = window.innerHeight - 200;
+  scale = Math.min(sw / ext.mx, sh / ext.my, 1);
+  scale = Math.max(scale, 0.3);
+  tx = 20; ty = 30;
+  svg.setAttribute('transform', 'translate(' + tx + ',' + ty + ') scale(' + scale + ')');
+  svg.setAttribute('width', ext.mx + 40);
+  svg.setAttribute('height', ext.my + 40);
+}
+function expandAll() { (function w(n){ n.collapsed=false; if(n.children)n.children.forEach(w); })(buildTree(TREE,0)); redraw(); }
+function collapseAll() { (function w(n){ if(n.children){ n.collapsed=true; n.children.forEach(w); } })(buildTree(TREE,0)); redraw(); }
+
+redraw();
+fitView();
+</script>
+</body>
+</html>
