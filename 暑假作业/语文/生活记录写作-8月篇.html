@@ -18,10 +18,16 @@
   }
   .sheet {
     width: 210mm; min-height: 297mm; background: var(--paper);
-    margin: 0 auto; padding: 16mm 20mm;
+    margin: 0 auto 12mm; padding: 16mm 20mm;
     box-shadow: 0 2px 14px rgba(0,0,0,.15);
+    page-break-after: always;
   }
+  .sheet:last-child { page-break-after: auto; }
   h1 { text-align:center; font-size: 20pt; letter-spacing: .2em; margin-bottom: 2mm; }
+  .ver-tag {
+    text-align:center; font-size: 11pt; color: var(--accent);
+    margin-bottom: 2mm; letter-spacing: .1em;
+  }
   .meta {
     display:flex; justify-content:space-between;
     font-size: 10.5pt; color:#666; border-bottom: 1.5px solid var(--accent);
@@ -36,10 +42,13 @@
   .notes b { color: var(--accent); }
   @media print {
     body { background:#fff; padding:0; }
-    .sheet { box-shadow:none; width:100%; padding: 14mm 18mm; }
+    .sheet { box-shadow:none; width:100%; padding: 14mm 18mm; margin: 0; }
   }
   @page { size: A4; margin: 0; }
 </style>
+</head>
+<body>
+<a class="backnav-btn" href="../index.html" onclick="if(window.location.protocol.indexOf('file')===0){location.href='../index.html';return false;}window.open('../index.html','_self');return false;">‹ 返回导航</a>
 <style id="backnav-css">
 .backnav-btn {
   position: fixed; top: 10px; left: 10px; z-index: 9999;
@@ -52,34 +61,58 @@
 .backnav-btn:hover { opacity: 1; }
 @media print { .backnav-btn { display: none !important; } }
 </style>
-</head>
-<body>
-<a class="backnav-btn" href="../index.html" onclick="if(window.location.protocol.indexOf('file')===0){location.href='../index.html';return false;}window.open('../index.html','_self');return false;">‹ 返回导航</a>
 
+<!-- ============ A 版（汪曾祺式） ============ -->
 <div class="sheet">
   <h1>暑假生活记录（8月）</h1>
+  <div class="ver-tag">版本 A · 平淡冲和，白描见真</div>
   <div class="meta">
     <span>姓名：__________</span><span>班级：__________</span><span>日期：2026年8月</span>
   </div>
 
   <div class="essay">
 
-<p>八月初，我回了老家浏阳，在外婆家住了差不多二十天。外婆家在浏阳市区，出门不远就是浏阳河。妈妈把我送到就走了，临走前反复叮嘱：作业别落下，补习班按时去。</p>
+<p>八月初去浏阳，在外婆家住了二十天。日子简单，上午去上数学培优，下午闲着，傍晚到浏阳河边走走。</p>
 
-<p>每天上午八点半，我去城区的一家补习班补数学。班里七八个人，讲的是八年级下册的二次根式和一次函数，老师讲得不算快，但我底子一般，经常听着听着就走神了，回过神来黑板已经写满大半。有一回下课被老师单独叫住，说我课上走神，让我把当天的例题回去重做一遍。那天晚上我老老实实坐在书桌前，一道一道算，算到后面居然通了，那种感觉比看一晚上手机强。</p>
+<p>河边总有人。钓鱼的占着一排栏杆，半天不动一下；跳广场舞的在另一头，音乐声隔着半条河都能听见。风从水面上来，带着凉。我找个台阶坐下，看对岸的灯一盏一盏亮起来，倒影在水里，碎成一片，又聚拢，又碎。坐久了，什么都不想，反而觉得心里满当。</p>
 
-<p>傍晚是浏阳河边最热闹的时候。河风吹着，散步的人多，有遛狗的，有跳广场舞的，还有在河边钓鱼的。我跟着外婆沿着河边走，她跟遇见的熟人打招呼，一个接一个，走两百米能停三四回。河对岸的楼亮起灯来，倒影在水里一晃一晃的。我有时候想，浏阳河不大，但傍晚坐在河边吹风，心里是静的。</p>
+<p>也去爬了西湖山。山不高，石阶整齐，走四十分钟到顶。山顶风大，往下看，浏阳城不大，河从中间穿过去，房子密密匝匝的。站了一会儿，心里静下来——这种静，城里难得有。</p>
 
-<p>周末我爬了一趟西湖山。山不高，石阶一路往上，爬了大概四十分钟到山顶。山顶有个小广场，能看到大半个浏阳城，房子密密的，河从中间穿过去。风很大，站在栏杆边往下看，刚才爬过的路都变得很小。外婆说这山她年轻时就来爬，现在膝盖不行了，爬不动了。我说等我下次回来，咱们坐缆车上去。她说哪有什么缆车，我说那就背您上去，她笑，说不正经。</p>
-
-<p>二十天过得挺快。回长沙那天，外婆给我装了一袋子吃的，腊肉、坛子菜、自己做的辣酱，塞得满满当当。车开动的时候，她从窗户里递进来一包薄荷糖，说路上吃，提神。我捏着那包糖，忽然觉得这个暑假的尾巴，其实也没那么糟糕。</p>
+<p>二十天过去得很快。走的时候，回头看了看那条河，它还在那儿流着，不紧不慢的。我忽然觉得，这二十天的日子，也像河水一样，看着平淡，流过的地方，都留下了一点什么。</p>
 
   </div>
 
   <div class="notes">
-    <b>写作说明：</b>本文为「生活记录类写作」范文（8月篇），写暑假在老家浏阳度过的二十天：上午数学补习、傍晚浏阳河边散步、周末爬西湖山，结尾是离开时的细节。全文约 620 字。人名、地点细节可据实调整。<br>
-    <b>老师评价要点参考：</b>① 场景具体（补习班走神、河边打招呼、山顶看城）② 人物对话自然（"那就背您上去"）③ 情感落在物件上（一包薄荷糖），不空喊。
+    <b>写作说明：</b>A 版为「生活记录类写作」范文（8月篇·汪曾祺式），写浏阳二十天：培优班、浏阳河、西湖山，皆以白描带过，主体是主观感受。全文约 380 字。<br>
+    <b>老师评价要点参考：</b>① 白描细节（钓鱼人、广场舞、倒影碎成一片）② 比喻含蓄（日子像河水）③ 情感不外露，靠"心里满当""心里静下来"点出。
   </div>
 </div>
+
+<!-- ============ B 版（沈从文式） ============ -->
+<div class="sheet">
+  <h1>暑假生活记录（8月）</h1>
+  <div class="ver-tag">版本 B · 景物与心境交织，抒情含蓄</div>
+  <div class="meta">
+    <span>姓名：__________</span><span>班级：__________</span><span>日期：2026年8月</span>
+  </div>
+
+  <div class="essay">
+
+<p>八月初去了浏阳，在外婆家住了二十天。那地方傍着浏阳河，河水不算清，却终日地流，从城东到城西，仿佛从不知疲倦。</p>
+
+<p>白天上数学培优，日子过得有规律；到了傍晚，我就去河边。河边的人多，热闹是他们的，我拣个没人的地方坐下，看水。水面上浮着落叶，打着旋，一圈一圈往下游去。看着看着，便觉得日子也是这样，看着看着就过去了。风从河上吹来，凉凉的，带着水汽，也带着一点说不清的滋味。</p>
+
+<p>周末爬西湖山，山顶风大得出奇。往下望，城在脚下，河在城中，弯弯绕绕，像一条没有尽头的路。那一刻忽然觉得，人要走的路，大约也跟这条河一样，看着有方向，走着走着，才知道哪里是岸。</p>
+
+<p>二十天很快。走的那天，我回头看了一眼那条河，它还在流，不紧不慢的，像是送人，也像是不送。</p>
+
+  </div>
+
+  <div class="notes">
+    <b>写作说明：</b>B 版为「生活记录类写作」范文（8月篇·沈从文式），写浏阳二十天的河与山，景物与心境交织，抒情含蓄带怅惘。全文约 340 字。<br>
+    <b>老师评价要点参考：</b>① 拟人（河从不知疲倦、落叶打着旋）② 抒情含蓄（热闹是他们的、哪里是岸）③ 结尾留白（像是送人，也像是不送）。
+  </div>
+</div>
+
 </body>
 </html>
