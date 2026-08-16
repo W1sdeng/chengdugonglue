@@ -1,244 +1,308 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>暑假作业导航 · 初二年级</title>
+<title>暑假作业 · 全科导航</title>
 <style>
   :root {
-    --ink: #1f2a3a;
-    --paper: #f7f5f0;
+    --ink: #23283a;
+    --paper: #f6f4ef;
     --card: #ffffff;
-    --line: #e2dcd0;
-    --green: #3a7d5a;
-    --blue: #3a6ea5;
-    --orange: #c07a2f;
-    --purple: #7a5ca8;
-    --red: #b04848;
-    --gold: #b08a3a;
+    --line: #e3ded2;
+    --muted: #8a8474;
+    --c-yuwen: #c0392b;
+    --c-shuxue: #2563a8;
+    --c-yingyu: #2e7d4f;
+    --c-daofa: #7a4da0;
+    --c-tiyu: #d97706;
+    --c-deyu: #9a7b2f;
+    --c-mingzhu: #4a5a6a;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; }
   body {
-    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
-    background: var(--paper); color: var(--ink); line-height: 1.7;
-    padding: 2.5rem 1rem 4rem;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    background: var(--paper); color: var(--ink);
   }
-  .wrap { max-width: 1000px; margin: 0 auto; }
-  header { text-align:center; margin-bottom: 2.5rem; }
-  header .kicker { font-size:.85rem; letter-spacing:.35em; color:#9a8f7d; }
-  header h1 { font-size: 2.1rem; letter-spacing:.12em; margin:.4rem 0 .3rem; }
-  header p { color:#7a7262; font-size:.95rem; }
-  header .badge {
-    display:inline-block; margin-top:.8rem; padding:.25rem .9rem;
-    border:1px solid var(--gold); color:var(--gold); border-radius:999px;
-    font-size:.8rem;
+  .masthead {
+    background: var(--ink); color: #f2efe6;
+    padding: 14px 16px 12px;
+    position: relative; z-index: 20;
+    display: flex; align-items: center; gap: 12px;
   }
-  /* 使用说明 */
-  .usage {
-    background: #fff8ea; border:1px solid #eeddb8; border-radius:12px;
-    padding: 1.1rem 1.4rem; margin-bottom: 2.2rem; font-size:.9rem; color:#6b5d3f;
+  .masthead .title { flex: 1; min-width: 0; }
+  .masthead h1 { font-size: 18px; letter-spacing: .06em; font-weight: 800; }
+  .masthead .sub { font-size: 11px; color: #b8b2a0; margin-top: 2px; }
+  .masthead .btn-back {
+    display: none;
+    background: rgba(255,255,255,.12); border: none; color: #fff;
+    border-radius: 8px; padding: 7px 14px; font-size: 13px; cursor: pointer;
+    font-family: inherit;
   }
-  .usage b { color:#8a6d2f; }
-  /* 科目区块 */
-  .subject { margin-bottom: 2rem; }
-  .subject h2 {
-    display:flex; align-items:center; gap:.6rem;
-    font-size:1.25rem; margin-bottom:.8rem; padding-bottom:.4rem;
-    border-bottom: 3px solid var(--c, var(--blue));
+  .masthead .btn-back:hover { background: rgba(255,255,255,.22); }
+  .masthead.show-back .btn-back { display: inline-block; }
+  .subject-bar {
+    background: var(--ink);
+    padding: 0 8px 12px;
+    display: flex; gap: 8px; overflow-x: auto;
+    -webkit-overflow-scrolling: touch; position: sticky; top: 0; z-index: 15;
+    scrollbar-width: none;
   }
-  .subject h2 .icon { font-size:1.3rem; }
-  .cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .9rem; }
+  .subject-bar::-webkit-scrollbar { display: none; }
+  .subject-chip {
+    flex: 0 0 auto;
+    border: 1px solid rgba(255,255,255,.22); border-radius: 999px;
+    color: #d8d4c6; background: transparent;
+    padding: 6px 16px; font-size: 13px; cursor: pointer;
+    font-family: inherit; white-space: nowrap; transition: all .15s;
+  }
+  .subject-chip:hover { background: rgba(255,255,255,.08); }
+  .subject-chip.active {
+    background: var(--chip, #fff); border-color: var(--chip, #fff);
+    color: var(--ink); font-weight: 700;
+  }
+  .layout { display: block; }
+  .sidebar {
+    display: none;
+    width: 220px; background: #fff;
+    border-right: 1px solid var(--line);
+    padding: 16px 0; position: sticky; top: 0; height: 100vh;
+    overflow-y: auto;
+  }
+  .sidebar .side-group { margin-bottom: 14px; }
+  .sidebar .side-head {
+    font-size: 11px; letter-spacing: .18em; color: var(--muted);
+    padding: 4px 18px 6px; text-transform: uppercase;
+  }
+  .sidebar .side-item {
+    display: flex; align-items: center; gap: 8px;
+    width: 100%; text-align: left; border: none; background: none;
+    padding: 8px 18px; font-size: 13.5px; cursor: pointer; color: var(--ink);
+    font-family: inherit; border-left: 3px solid transparent;
+  }
+  .sidebar .side-item:hover { background: #f6f4ef; }
+  .sidebar .side-item.active { border-left-color: var(--c, var(--c-yuwen)); background: #faf8f3; font-weight: 700; }
+  .sidebar .side-item .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--c-yuwen)); flex-shrink: 0;
+  }
+  .sidebar .side-item .tag { margin-left: auto; font-size: 10px; color: var(--muted); }
+  .content { padding: 16px; }
+  .cards {
+    display: grid; grid-template-columns: 1fr;
+    gap: 12px; max-width: 780px; margin: 0 auto;
+  }
   .card {
-    background: var(--card); border:1px solid var(--line); border-radius:12px;
-    padding: 1rem 1.2rem; text-decoration:none; color:var(--ink);
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px 18px; cursor: pointer; position: relative;
+    display: flex; flex-direction: column; gap: 6px;
     transition: transform .12s ease, box-shadow .12s ease;
-    display:flex; flex-direction:column; gap:.35rem;
-    border-left: 6px solid var(--c, var(--blue));
+    box-shadow: 0 1px 3px rgba(35,40,58,.05);
   }
-  .card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
-  .card .t { font-weight:700; font-size:1.02rem; }
-  .card .d { font-size:.85rem; color:#7a7262; }
-  .card .tag {
-    align-self:flex-start; font-size:.72rem; padding:.1rem .6rem; border-radius:999px;
-    background:#f0ece3; color:#8a7d63; margin-top:.2rem;
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(35,40,58,.1); }
+  .card::before {
+    content:""; position:absolute; left:0; top:14px; bottom:14px;
+    width: 5px; border-radius: 0 3px 3px 0;
+    background: var(--c, var(--c-yuwen));
   }
-  .card.opt { border-left-color:#b8ad96 !important; }
-  .card.opt .tag { background:#f5f2ea; color:#a09377; }
-  .card .tag.must { background:#fdecec; color:#a84545; }
-  footer {
-    margin-top:3rem; text-align:center; font-size:.8rem; color:#a79c88;
-    border-top:1px solid var(--line); padding-top:1.5rem;
+  .card .c-title { font-size: 16px; font-weight: 700; padding-left: 6px; }
+  .card .c-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; padding-left: 6px; }
+  .card .c-meta { display: flex; gap: 8px; align-items: center; padding-left: 6px; margin-top: 4px; }
+  .pill { font-size: 10.5px; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  .pill.must { background: #fdecec; border-color: #f3c6c6; color: #a84545; font-weight: 600; }
+  .pill.opt  { background: #f2f6f0; border-color: #d4e3d6; color: #4e7a56; }
+  .viewer {
+    display: none;
+    position: fixed; inset: 0; background: #fff;
+    z-index: 30; flex-direction: column;
   }
+  .viewer.show { display: flex; }
+  .viewer-head {
+    background: var(--ink); color: #fff;
+    padding: 10px 12px; display: flex; align-items: center; gap: 10px;
+    flex-shrink: 0;
+  }
+  .viewer-head .v-title { font-size: 14px; font-weight: 600; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .viewer-head button {
+    background: rgba(255,255,255,.14); border: none; color: #fff;
+    border-radius: 8px; padding: 6px 14px; font-size: 13px; cursor: pointer; font-family: inherit;
+  }
+  .viewer-head button:hover { background: rgba(255,255,255,.25); }
+  .viewer iframe { flex: 1; width: 100%; border: none; background: #fff; }
   @media print {
-    body { background:#fff; padding:1rem; }
-    .card { break-inside: avoid; }
-    .usage { display:none; }
+    .masthead, .subject-bar, .sidebar, .content, .viewer-head { display: none !important; }
+    .viewer { position: static; display: flex !important; }
+    .viewer iframe { height: 100vh; }
   }
+  @media (min-width: 900px) {
+    .layout { display: flex; align-items: flex-start; }
+    .sidebar { display: block; }
+    .subject-bar { display: none; }
+    .content { flex: 1; padding: 28px 32px; }
+    .cards { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); max-width: 1100px; }
+  }
+  .empty-tip { text-align: center; color: var(--muted); font-size: 13px; padding: 40px 16px; }
 </style>
 </head>
 <body>
-<div class="wrap">
-
-  <header>
-    <div class="kicker">SUMMER HOMEWORK 2026</div>
-    <h1>暑假作业 · 全科导航</h1>
-    <p>初二年级（2022 课标新版教材）· 必做 + 选做</p>
-    <div class="badge">所有页面支持 A4 打印</div>
-  </header>
-
-  <div class="usage">
-    <b>使用说明：</b>点击任意卡片打开对应作业页面，浏览器中按 <b>Ctrl+P</b> 即可 A4 打印提交。
-    思维导图、打卡表、手抄报等页面打印效果已专门优化。物理作业待课本页码照片提供后补充。
+<div class="masthead" id="masthead">
+  <div class="title">
+    <h1>暑假作业</h1>
+    <div class="sub">全科导航 · 点击查看 / 打印</div>
   </div>
-
-  <!-- 语文 -->
-  <section class="subject" style="--c:var(--red)">
-    <h2><span class="icon">📖</span> 语文</h2>
-    <div class="cards">
-      <a class="card" href="语文/背默篇目清单.html">
-        <span class="t">背默篇目清单</span>
-        <span class="d">七上~九上全部背默篇目，含作者、主旨、已背勾选</span>
-        <span class="tag must">必做①复习+预习</span>
-      </a>
-      <a class="card" href="语文/生活记录写作-7月篇.html">
-        <span class="t">生活记录写作（7月篇）</span>
-        <span class="d">《外婆家的夏天》范文 · 真实细节 · 约560字</span>
-        <span class="tag must">必做④</span>
-      </a>
-      <a class="card" href="语文/生活记录写作-8月篇.html">
-        <span class="t">生活记录写作（8月篇）</span>
-        <span class="d">《学游泳》范文 · 真实经历 · 约570字</span>
-        <span class="tag must">必做④</span>
-      </a>
-      <a class="card" href="语文/观影记录卡.html">
-        <span class="t">观影记录卡（3部）</span>
-        <span class="d">《当幸福来敲门》《摔跤吧！爸爸》《寻梦环游记》</span>
-        <span class="tag must">必做③</span>
-      </a>
-      <a class="card opt" href="语文/选做-练字帖.html">
-        <span class="t">练字帖（选做）</span>
-        <span class="d">3页田字格 · 15个规范汉字 · 描红+临写</span>
-        <span class="tag">选做</span>
-      </a>
-      <a class="card opt" href="语文/选做-阅读记录.html">
-        <span class="t">阅读记录（选做）</span>
-        <span class="d">推荐书单 + 阅读计划表 + 读书笔记模板</span>
-        <span class="tag">选做</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 数学 -->
-  <section class="subject" style="--c:var(--blue)">
-    <h2><span class="icon">📐</span> 数学</h2>
-    <div class="cards">
-      <a class="card" href="数学/知识点梳理-按章节.html">
-        <span class="t">知识点梳理 · 按章节</span>
-        <span class="d">四学期24章 · 每章知识点+公式+2道例题</span>
-        <span class="tag must">必做</span>
-      </a>
-      <a class="card" href="数学/知识点梳理-按知识主线.html">
-        <span class="t">知识点梳理 · 按知识主线</span>
-        <span class="d">四大模块23讲 · 数→式→方程→函数，含156条公式</span>
-        <span class="tag must">必做（另一角度）</span>
-      </a>
-      <a class="card opt" href="数学/选做-小小理财家.html">
-        <span class="t">小小理财家（选做）</span>
-        <span class="d">收支记账表 + 旅游支出示例 + 统计图表</span>
-        <span class="tag">选做</span>
-      </a>
-      <a class="card opt" href="数学/选做-小小建筑师.html">
-        <span class="t">小小建筑师（选做）</span>
-        <span class="d">房间测量 + 平面图网格纸 + 屏幕尺寸勾股计算</span>
-        <span class="tag">选做</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 英语 -->
-  <section class="subject" style="--c:var(--green)">
-    <h2><span class="icon">🗣️</span> 英语</h2>
-    <div class="cards">
-      <a class="card" href="英语/作文集.html">
-        <span class="t">英语作文集（7篇）</span>
-        <span class="d">封面+7篇80-150词范文 · 对应八下8单元话题</span>
-        <span class="tag must">必做②</span>
-      </a>
-      <a class="card" href="英语/听说练习打卡表.html">
-        <span class="t">听说练习打卡表</span>
-        <span class="d">8/15-8/31 练习记录 + 每周小结 + 素材推荐</span>
-        <span class="tag must">必做①</span>
-      </a>
-      <a class="card opt" href="英语/选做-英文小说读书笔记.html">
-        <span class="t">英文小说读书笔记（选做）</span>
-        <span class="d">书虫二三级书目 + 词汇积累卡 + 笔记模板</span>
-        <span class="tag">选做</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 道法 -->
-  <section class="subject" style="--c:var(--purple)">
-    <h2><span class="icon">⚖️</span> 道德与法治</h2>
-    <div class="cards">
-      <a class="card" href="道法/思维导图-总览.html">
-        <span class="t">五单元思维导图 · 总览</span>
-        <span class="d">交互式 · 可折叠展开 · 宪法→法治中国</span>
-        <span class="tag must">必做</span>
-      </a>
-      <a class="card" href="道法/思维导图-每单元一页.html">
-        <span class="t">思维导图 · 每单元一页</span>
-        <span class="d">5张A4 · 每单元独立成页，打印即交</span>
-        <span class="tag must">必做</span>
-      </a>
-      <a class="card opt" href="道法/选做-法治手抄报.html">
-        <span class="t">法治手抄报（选做）</span>
-        <span class="d">A4手抄报版式 · 5大板块 · 含插图位</span>
-        <span class="tag">选做</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 体育 -->
-  <section class="subject" style="--c:var(--orange)">
-    <h2><span class="icon">🏃</span> 体育</h2>
-    <div class="cards">
-      <a class="card" href="体育/打卡记录表.html">
-        <span class="t">体育打卡记录表</span>
-        <span class="d">8/15-8/31 跑步/武术/蛙跳/跳绳 每日记录</span>
-        <span class="tag must">必做+选做</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 德育 -->
-  <section class="subject" style="--c:var(--gold)">
-    <h2><span class="icon">🏅</span> 年级德育作业</h2>
-    <div class="cards">
-      <a class="card" href="德育PPT/我心中的奥运冠军-潘展乐.html">
-        <span class="t">德育 PPT · 我心中的奥运冠军</span>
-        <span class="d">潘展乐 · 12页演示 · 键盘翻页 · 含演讲词备注</span>
-        <span class="tag must">必做（约8分钟）</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 物理 -->
-  <section class="subject" style="--c:#5b7282">
-    <h2><span class="icon">🔬</span> 物理（待补充）</h2>
-    <div class="cards">
-      <div class="card" style="border-left-color:#b8ad96">
-        <span class="t">保底练习（待课本页码）</span>
-        <span class="d">提供物理课本 p17/p37、38/p62/p81、82/p101、102/p122、123 照片后生成参考答案</span>
-        <span class="tag">暂缓 · 等照片</span>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    暑假作业导航 · 初二年级 · 2026年8月 · 如内容与课本有出入，以课本为准
-  </footer>
-
+  <button class="btn-back" onclick="closeViewer()">‹ 返回列表</button>
 </div>
+<nav class="subject-bar" id="subjectBar"></nav>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="content">
+    <div class="cards" id="cards"></div>
+    <div class="empty-tip" id="emptyTip" style="display:none">该科目下暂无作业，点上方科目切换</div>
+  </main>
+</div>
+<div class="viewer" id="viewer">
+  <div class="viewer-head">
+    <span class="v-title" id="viewerTitle"></span>
+    <button onclick="closeViewer()">返回</button>
+  </div>
+  <iframe id="viewerFrame" title="作业内容"></iframe>
+</div>
+<script>
+const SUBJECTS = [
+  {
+    key: 'yuwen', name: '语文', color: 'var(--c-yuwen)',
+    items: [
+      { title: '背默篇目清单', file: '语文/背默篇目清单.html', must: true, desc: '七上~九上全部背默篇目 · 附原文 · 已背勾选' },
+      { title: '生活记录写作 · 7月篇', file: '语文/生活记录写作-7月篇.html', must: true, desc: '《外婆家的夏天》范文 · 真实细节 · 约560字' },
+      { title: '生活记录写作 · 8月篇', file: '语文/生活记录写作-8月篇.html', must: true, desc: '《学游泳》范文 · 真实经历 · 约570字' },
+      { title: '观影记录卡（3部）', file: '语文/观影记录卡.html', must: true, desc: '《当幸福来敲门》《摔跤吧！爸爸》《寻梦环游记》' },
+      { title: '练字帖（选做）', file: '语文/选做-练字帖.html', must: false, desc: '3页田字格 · 15个规范汉字 · 描红+临写' },
+      { title: '阅读记录（选做）', file: '语文/选做-阅读记录.html', must: false, desc: '推荐书单 + 阅读计划表 + 读书笔记模板' }
+    ]
+  },
+  {
+    key: 'mingzhu', name: '名著速读', color: 'var(--c-mingzhu)',
+    items: [
+      { title: '《简·爱》逐章梗概', file: '语文/简爱逐章梗概.html', must: true, desc: '38章详细梗概 · 人物表 · 经典名句 · 中考考点' }
+    ]
+  },
+  {
+    key: 'shuxue', name: '数学', color: 'var(--c-shuxue)',
+    items: [
+      { title: '知识点梳理 · 按章节', file: '数学/知识点梳理-按章节.html', must: true, desc: '四学期24章 · 每章知识点+公式+2道例题' },
+      { title: '知识点梳理 · 按知识主线', file: '数学/知识点梳理-按知识主线.html', must: true, desc: '四大模块23讲 · 156条公式 · 知识脉络' },
+      { title: '小小理财家（选做）', file: '数学/选做-小小理财家.html', must: false, desc: '收支记账表 + 旅游支出示例 + 统计图表' },
+      { title: '小小建筑师（选做）', file: '数学/选做-小小建筑师.html', must: false, desc: '房间测量 + 平面图网格纸 + 屏幕尺寸勾股计算' }
+    ]
+  }
+];
+const SUBJECTS_2 = [
+  {
+    key: 'yingyu', name: '英语', color: 'var(--c-yingyu)',
+    items: [
+      { title: '英语作文集（7篇）', file: '英语/作文集.html', must: true, desc: '封面+7篇80-150词范文 · 对应八下8单元话题' },
+      { title: '听说练习打卡表', file: '英语/听说练习打卡表.html', must: true, desc: '8/15-8/31 练习记录 + 每周小结 + 素材推荐' },
+      { title: '英文小说读书笔记（选做）', file: '英语/选做-英文小说读书笔记.html', must: false, desc: '书虫二三级书目 + 词汇积累卡 + 笔记模板' }
+    ]
+  },
+  {
+    key: 'daofa', name: '道德与法治', color: 'var(--c-daofa)',
+    items: [
+      { title: '五单元思维导图 · 总览', file: '道法/思维导图-总览.html', must: true, desc: '交互式 · 可折叠展开 · 宪法→法治中国' },
+      { title: '思维导图 · 每单元一页', file: '道法/思维导图-每单元一页.html', must: true, desc: '5张A4 · 每单元独立成页，打印即交' },
+      { title: '法治手抄报（选做）', file: '道法/选做-法治手抄报.html', must: false, desc: 'A4手抄报版式 · 5大板块 · 含插图位' }
+    ]
+  },
+  {
+    key: 'tiyu', name: '体育', color: 'var(--c-tiyu)',
+    items: [
+      { title: '体育打卡记录表', file: '体育/打卡记录表.html', must: true, desc: '8/15-8/31 跑步/武术/蛙跳/跳绳 每日记录' }
+    ]
+  },
+  {
+    key: 'deyu', name: '年级德育', color: 'var(--c-deyu)',
+    items: [
+      { title: '德育 PPT · 我心中的奥运冠军', file: '德育PPT/我心中的奥运冠军-潘展乐.html', must: true, desc: '潘展乐 · 12页演示 · 键盘翻页 · 含演讲词备注' }
+    ]
+  }
+];
+SUBJECTS.push(...SUBJECTS_2);
+let currentKey = 'yuwen';
+const bar = document.getElementById('subjectBar');
+const side = document.getElementById('sidebar');
+const cards = document.getElementById('cards');
+const viewer = document.getElementById('viewer');
+const viewerFrame = document.getElementById('viewerFrame');
+const viewerTitle = document.getElementById('viewerTitle');
+const masthead = document.getElementById('masthead');
+
+function renderSubjects() {
+  bar.innerHTML = '';
+  side.innerHTML = '';
+  SUBJECTS.forEach(s => {
+    const chip = document.createElement('button');
+    chip.className = 'subject-chip' + (s.key === currentKey ? ' active' : '');
+    chip.textContent = s.name;
+    chip.style.setProperty('--chip', s.color);
+    chip.onclick = () => { currentKey = s.key; renderSubjects(); };
+    bar.appendChild(chip);
+
+    const grp = document.createElement('div');
+    grp.className = 'side-group';
+    grp.innerHTML = '<div class="side-head">' + s.name + '</div>';
+    s.items.forEach(item => {
+      const btn = document.createElement('button');
+      btn.className = 'side-item';
+      btn.style.setProperty('--c', s.color);
+      btn.innerHTML = '<span class="dot"></span><span>' + item.title + '</span>' +
+        (item.must ? '<span class="tag">必做</span>' : '<span class="tag">选做</span>');
+      btn.onclick = () => openViewer(item, s);
+      grp.appendChild(btn);
+    });
+    side.appendChild(grp);
+  });
+  renderCards();
+}
+
+function renderCards() {
+  const s = SUBJECTS.find(x => x.key === currentKey);
+  cards.innerHTML = '';
+  if (!s) return;
+  s.items.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.setProperty('--c', s.color);
+    card.innerHTML =
+      '<div class="c-title">' + item.title + '</div>' +
+      '<div class="c-desc">' + item.desc + '</div>' +
+      '<div class="c-meta"><span class="pill ' + (item.must ? 'must' : 'opt') + '">' +
+      (item.must ? '必做' : '选做') + '</span></div>';
+    card.onclick = () => openViewer(item, s);
+    cards.appendChild(card);
+  });
+  document.getElementById('emptyTip').style.display = s.items.length ? 'none' : 'block';
+}
+
+function openViewer(item, s) {
+  viewerTitle.textContent = s.name + ' · ' + item.title;
+  viewerFrame.src = item.file;
+  viewer.classList.add('show');
+  masthead.classList.add('show-back');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeViewer() {
+  viewer.classList.remove('show');
+  masthead.classList.remove('show-back');
+  document.body.style.overflow = '';
+  viewerFrame.src = 'about:blank';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeViewer();
+});
+
+renderSubjects();
+</script>
 </body>
 </html>

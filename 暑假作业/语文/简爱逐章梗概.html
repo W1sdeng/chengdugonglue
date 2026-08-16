@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《简·爱》逐章故事梗概（暑假作业·名著速读）</title>
+<style>
+  :root{
+    --ink:#2b2b2b; --muted:#7a6f63; --paper:#fdfbf6; --card:#ffffff;
+    --line:#e8e0d2; --accent:#8a5a44; --accent2:#b08663;
+    --p1:#9a7aa0; --p2:#4f8a8b; --p3:#c0784a; --p4:#6b7f5a; --p5:#a8514a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Songti SC","STSong","SimSun","Noto Serif CJK SC",serif;
+    line-height:1.75; font-size:16px;
+  }
+  .wrap{max-width:860px; margin:0 auto; padding:24px 20px 80px;}
+  header.hero{
+    border-bottom:3px double var(--accent); padding-bottom:18px; margin-bottom:26px;
+  }
+  header.hero h1{font-size:30px; margin:0 0 6px; letter-spacing:1px; color:var(--accent);}
+  header.hero .sub{color:var(--muted); font-size:15px;}
+  h2.sec{
+    font-size:21px; color:var(--accent); margin:38px 0 12px;
+    padding-left:12px; border-left:5px solid var(--accent2);
+  }
+  h3{font-size:17px; color:#444;}
+  p{margin:8px 0;}
+  .box{
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:14px 18px; margin:14px 0;
+  }
+  .intro p{text-align:justify;}
+  .char-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:10px;}
+  .char{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent2); border-radius:8px; padding:8px 12px;}
+  .char b{color:var(--accent);}
+  .phase-bar{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0;}
+  .phase-bar span{font-size:13px; padding:3px 10px; border-radius:20px; color:#fff;}
+  /* ------- 章节折叠 ------- */
+  .toc{
+    background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 18px;
+  }
+  .toc .toc-group{margin:10px 0;}
+  .toc .toc-group .gtitle{font-weight:bold; color:var(--accent); font-size:15px; margin-bottom:6px;}
+  .toc a{
+    display:inline-block; text-decoration:none; color:var(--ink);
+    border:1px solid var(--line); border-radius:6px; padding:2px 8px; margin:2px;
+    font-size:13px; background:#faf7f0;
+  }
+  .toc a:hover{background:var(--accent); color:#fff;}
+  .tocbtns{margin:8px 0;}
+  .tocbtns button{
+    border:1px solid var(--accent); color:var(--accent); background:#fff;
+    border-radius:6px; padding:4px 12px; cursor:pointer; font-size:14px;
+  }
+  .tocbtns button:hover{background:var(--accent); color:#fff;}
+  details.ch{
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    margin:12px 0; overflow:hidden;
+  }
+  details.ch summary{
+    cursor:pointer; list-style:none; padding:12px 16px; font-weight:bold; font-size:17px;
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:8px;
+  }
+  details.ch summary::-webkit-details-marker{display:none;}
+  details.ch summary .ch-no{color:var(--accent);}
+  details.ch summary .phase{font-size:12px; color:#fff; border-radius:4px; padding:1px 7px; font-weight:normal;}
+  details.ch summary::after{content:"＋"; margin-left:auto; color:var(--accent2); font-weight:normal;}
+  details.ch[open] summary::after{content:"－";}
+  details.ch .body{padding:2px 16px 14px; border-top:1px dashed var(--line);}
+  details.ch .body p{margin:10px 0; text-align:justify;}
+  .tags{margin-top:8px;}
+  .tag{
+    display:inline-block; font-size:12px; color:var(--accent); background:#f6ede4;
+    border:1px solid var(--line); border-radius:20px; padding:1px 10px; margin-right:6px;
+  }
+  .ph1{background:var(--p1);} .ph2{background:var(--p2);} .ph3{background:var(--p3);}
+  .ph4{background:var(--p4);} .ph5{background:var(--p5);}
+  /* 默认折叠内容的显示控制 */
+  details.ch:not([open]) > .body{display:none;}
+  /* ------- 总结区 ------- */
+  .theme li,.qa li,.quote li{margin:8px 0;}
+  .quote .en{font-style:italic; color:var(--accent);}
+  .quote .zh{color:#333;}
+  .qa b.q{color:var(--accent);}
+  footer{border-top:1px solid var(--line); margin-top:50px; padding-top:12px; color:var(--muted); font-size:13px; text-align:center;}
+  @media (max-width:640px){
+    header.hero h1{font-size:24px;}
+    body{font-size:15px;}
+    .char-grid{grid-template-columns:1fr;}
+  }
+  @media print{
+    body{background:#fff; font-size:13px;}
+    .wrap{max-width:100%; padding:0;}
+    details.ch{break-inside:avoid; border:1px solid #ccc;}
+    details.ch:not([open]) > .body, details.ch > .body{display:block !important;}
+    details.ch summary::after{content:"";}
+    .tocbtns,.toc{display:none;}
+    a{color:#000; text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>《简·爱》逐章故事梗概</h1>
+  <div class="sub">暑假作业 · 名著速读 · 依据 Charlotte Brontë《Jane Eyre》（1847）原著及多来源资料整理</div>
+</header>
+
+<!-- ============ 作品简介 ============ -->
+<h2 class="sec">一、作品简介</h2>
+<div class="box intro">
+  <p><b>作者：</b>夏洛蒂·勃朗特（Charlotte Brontë，1816—1855），英国维多利亚时代著名小说家，与艾米莉、安妮并称“勃朗特三姐妹”。本书最初以笔名<b>柯勒·贝尔（Currer Bell）</b>于<b>1847年10月</b>在伦敦出版，书名为《简·爱：一部自传》。</p>
+  <p><b>文学地位：</b>《简·爱》是英国乃至世界文学史上最著名的成长小说（自传体小说）之一，也是第一部以女性第一人称写就的成长小说经典。它把“孤女—家庭教师”题材写进文学史，被视为女性主义文学的先声，对后世影响深远。</p>
+  <p><b>一句话主题：</b>一个贫穷、平凡却自尊自强的女性，用一生守护人格的独立与爱情的尊严——“在上帝面前，我们是平等的”。</p>
+</div>
+
+<!-- ============ 主要人物表 ============ -->
+<h2 class="sec">二、主要人物表</h2>
+<div class="char-grid">
+  <div class="char"><b>简·爱</b>——本书主人公。从小是孤女，历经磨难仍不低头，成长为一个独立、自尊、有思想的女性，后到桑菲尔德做家庭教师。</div>
+  <div class="char"><b>爱德华·罗切斯特</b>——桑菲尔德庄园的主人，阅历丰富、性格深沉，背负着一段不为人知的婚姻秘密。</div>
+  <div class="char"><b>里德太太</b>——盖茨黑德府的女主人，简·爱的监护人，待简刻薄冷淡。</div>
+  <div class="char"><b>约翰·里德</b>——里德家的孩子，骄横暴戾，常常欺侮简，后自毁前程，英年早逝。</div>
+  <div class="char"><b>伊丽莎、乔治亚娜·里德</b>——里德家的两位小姐，一个冷漠功利，一个虚荣任性。</div>
+  <div class="char"><b>贝茜</b>——盖茨黑德府的女仆，是简童年时代唯一对她友善的人。</div>
+  <div class="char"><b>海伦·彭斯</b>——洛伍德学校的学生，简最知心的朋友，信奉忍耐与宽恕，后来不幸病逝。</div>
+  <div class="char"><b>谭波儿小姐</b>——洛伍德学校的学监，公正善良，对简关怀备至。</div>
+  <div class="char"><b>布罗克赫斯特先生</b>——洛伍德学校的掌管者，表面虔诚、内心伪善。</div>
+  <div class="char"><b>费尔法克斯太太</b>——桑菲尔德庄园的女管家，慈祥诚恳，对简十分照顾。</div>
+  <div class="char"><b>阿黛勒</b>——罗切斯特监护的法国小女孩，简的学生，活泼可爱。</div>
+  <div class="char"><b>格蕾丝·普尔</b>——桑菲尔德三楼的女仆，表面古怪，实际负责看守阁楼里的秘密。</div>
+  <div class="char"><b>伯莎·梅森</b>——被幽禁在桑菲尔德阁楼的女人，罗切斯特名义上的妻子，患有严重的精神疾病。</div>
+  <div class="char"><b>圣约翰·里弗斯</b>——牧师，坚毅而冷漠，立志去印度传教，后来与简相认为亲人。</div>
+  <div class="char"><b>黛安娜、玛丽</b>——里弗斯家的两位女孩，善良博学，对简关怀备至。</div>
+  <div class="char"><b>约翰·艾尔</b>——马德拉岛的富商，简的亲人，留下的遗产改变了简的命运。</div>
+</div>
+
+<!-- ============ 情节主线 ============ -->
+<h2 class="sec">三、全书情节主线</h2>
+<div class="box intro">
+  <p>简·爱自幼父母双亡，寄人篱下受尽虐待，十岁被送进条件恶劣的洛伍德慈善学校，在那里失去了挚友海伦，却学会了知识与自立。十八岁她到桑菲尔德庄园做家庭教师，与主人罗切斯特相爱，却在婚礼当天发现他已有一位被锁在阁楼的疯妻，于是毅然出走。</p>
+  <p>她流浪荒野，被里弗斯一家收留，意外继承两万英镑遗产并认回亲人，却拒绝了没有爱情的求婚。最终她听从心灵的召唤回到罗切斯特身边——桑菲尔德虽已在大火中化为废墟，两人却在芬丁庄园收获了平等而真挚的幸福。</p>
+  <div class="phase-bar">
+    <span class="ph1">盖茨黑德（1—4章）</span>
+    <span class="ph2">洛伍德学校（5—10章）</span>
+    <span class="ph3">桑菲尔德庄园（11—27章）</span>
+    <span class="ph4">沼泽屋·莫顿（28—35章）</span>
+    <span class="ph5">芬丁庄园（36—38章）</span>
+  </div>
+</div>
+
+<!-- ============ 快速阅读提示 ============ -->
+<h2 class="sec">四、快速阅读提示</h2>
+<div class="box">
+  <p>1. 先用顶部“章节目录”扫一遍 38 章的标题和关键词，记住故事骨架。</p>
+  <p>2. 全书写“简·爱”一生，可按五大阶段读：盖茨黑德（1—4）、洛伍德（5—10）、桑菲尔德（11—27）、沼泽屋与莫顿（28—35）、芬丁庄园（36—38）。</p>
+  <p>3. 每读完一章，先在边上用一句话写下“这一章发生了什么”，再对照本资料的梗概查漏补缺。</p>
+  <p>4. 留意伏笔：红房间的阴影、三楼的笑声、被撕碎的面纱、被雷电劈开的栗树——它们都指向桑菲尔德的秘密。</p>
+  <p>5. 最后背熟“经典名句”和“中考常见考点”，写读后感和应付检查都用得上。</p>
+</div>
+
+<!-- ============ 章节目录 ============ -->
+<h2 class="sec">五、章节目录</h2>
+<div class="toc">
+  <div class="tocbtns">
+    <button onclick="toggleAll(true)">全部展开</button>
+    <button onclick="toggleAll(false)">全部收起</button>
+  </div>
+  <div class="toc-group"><div class="gtitle">阶段一 · 盖茨黑德（孤儿岁月）</div>
+    <a href="#ch1" onclick="jumpTo('ch1')">第一章 盖茨黑德的孤儿</a>
+    <a href="#ch2" onclick="jumpTo('ch2')">第二章 红房间的恐怖</a>
+    <a href="#ch3" onclick="jumpTo('ch3')">第三章 劳埃德医生的建议</a>
+    <a href="#ch4" onclick="jumpTo('ch4')">第四章 布罗克赫斯特来访</a>
+  </div>
+  <div class="toc-group"><div class="gtitle">阶段二 · 洛伍德学校（求学岁月）</div>
+    <a href="#ch5" onclick="jumpTo('ch5')">第五章 洛伍德学校</a>
+    <a href="#ch6" onclick="jumpTo('ch6')">第六章 海伦的忍让与简的反抗</a>
+    <a href="#ch7" onclick="jumpTo('ch7')">第七章 伪善的校长</a>
+    <a href="#ch8" onclick="jumpTo('ch8')">第八章 名誉的澄清</a>
+    <a href="#ch9" onclick="jumpTo('ch9')">第九章 海伦之死</a>
+    <a href="#ch10" onclick="jumpTo('ch10')">第十章 八年后的告别</a>
+  </div>
+  <div class="toc-group"><div class="gtitle">阶段三 · 桑菲尔德庄园（爱情与秘密）</div>
+    <a href="#ch11" onclick="jumpTo('ch11')">第十一章 桑菲尔德庄园</a>
+    <a href="#ch12" onclick="jumpTo('ch12')">第十二章 初遇罗切斯特</a>
+    <a href="#ch13" onclick="jumpTo('ch13')">第十三章 炉边的谈话</a>
+    <a href="#ch14" onclick="jumpTo('ch14')">第十四章 灵魂的碰撞</a>
+    <a href="#ch15" onclick="jumpTo('ch15')">第十五章 深夜的火光</a>
+    <a href="#ch16" onclick="jumpTo('ch16')">第十六章 压抑的爱意</a>
+    <a href="#ch17" onclick="jumpTo('ch17')">第十七章 高贵的客人</a>
+    <a href="#ch18" onclick="jumpTo('ch18')">第十八章 梅森到来</a>
+    <a href="#ch19" onclick="jumpTo('ch19')">第十九章 吉卜赛算命</a>
+    <a href="#ch20" onclick="jumpTo('ch20')">第二十章 夜半的惨叫声</a>
+    <a href="#ch21" onclick="jumpTo('ch21')">第二十一章 里德太太之死</a>
+    <a href="#ch22" onclick="jumpTo('ch22')">第二十二章 重返桑菲尔德</a>
+    <a href="#ch23" onclick="jumpTo('ch23')">第二十三章 花园里的求婚</a>
+    <a href="#ch24" onclick="jumpTo('ch24')">第二十四章 订婚后的较量</a>
+    <a href="#ch25" onclick="jumpTo('ch25')">第二十五章 被撕碎的面纱</a>
+    <a href="#ch26" onclick="jumpTo('ch26')">第二十六章 中断的婚礼</a>
+    <a href="#ch27" onclick="jumpTo('ch27')">第二十七章 真相与出走</a>
+  </div>
+  <div class="toc-group"><div class="gtitle">阶段四 · 沼泽屋与莫顿（流浪与认亲）</div>
+    <a href="#ch28" onclick="jumpTo('ch28')">第二十八章 荒野流浪</a>
+    <a href="#ch29" onclick="jumpTo('ch29')">第二十九章 沼泽屋的病中人</a>
+    <a href="#ch30" onclick="jumpTo('ch30')">第三十章 莫顿村的教师</a>
+    <a href="#ch31" onclick="jumpTo('ch31')">第三十一章 简陋的学校</a>
+    <a href="#ch32" onclick="jumpTo('ch32')">第三十二章 蒸蒸日上的学校</a>
+    <a href="#ch33" onclick="jumpTo('ch33')">第三十三章 身世之谜揭晓</a>
+    <a href="#ch34" onclick="jumpTo('ch34')">第三十四章 圣约翰的求婚</a>
+    <a href="#ch35" onclick="jumpTo('ch35')">第三十五章 灵音呼唤</a>
+  </div>
+  <div class="toc-group"><div class="gtitle">阶段五 · 芬丁庄园（团圆结局）</div>
+    <a href="#ch36" onclick="jumpTo('ch36')">第三十六章 化为灰烬的桑菲尔德</a>
+    <a href="#ch37" onclick="jumpTo('ch37')">第三十七章 芬丁庄园的重逢</a>
+    <a href="#ch38" onclick="jumpTo('ch38')">第三十八章 结局</a>
+  </div>
+</div>
+
+<!-- ============ 逐章梗概 ============ -->
+<h2 class="sec">六、38 章逐章梗概</h2>
+
+<details class="ch" id="ch1" open>
+  <summary><span class="ch-no">第一章</span> 盖茨黑德的孤儿 <span class="phase ph1">盖茨黑德</span></summary>
+  <div class="body">
+    <p>十岁的孤女简·爱寄居在监护人里德太太的盖茨黑德府。阴冷的十一月下午，里德太太不许她与家里的三个孩子一起玩，她独自躲进窗台，翻看《英国鸟类史》。骄横的约翰·里德闯进来，骂她是靠人施舍的穷丫头，用书砸破她的头。简第一次奋起反抗，两人扭打起来。里德太太闻声赶来，不由分说，命人把简拖走，锁进红房间。</p>
+    <div class="tags"><span class="tag">孤儿处境</span><span class="tag">约翰·里德欺凌</span><span class="tag">红房间</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch2">
+  <summary><span class="ch-no">第二章</span> 红房间的恐怖 <span class="phase ph1">盖茨黑德</span></summary>
+  <div class="body">
+    <p>红房间是九年前里德先生去世并停灵的房间，平时无人敢进。贝茜和女仆艾博特把简按在凳子上，教训她认清自己是个“吃白饭”的寄养者。天黑之后，简在镜子里看见自己苍白的影子，又瞥见一道游移的亮光，恐惧攫住了她。她扑到门口尖叫求救，里德太太却斥她装模作样，把她重新锁回房里。简心力交瘁，昏了过去。</p>
+    <div class="tags"><span class="tag">红房间</span><span class="tag">恐惧与压抑</span><span class="tag">里德太太的冷酷</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch3">
+  <summary><span class="ch-no">第三章</span> 劳埃德医生的建议 <span class="phase ph1">盖茨黑德</span></summary>
+  <div class="body">
+    <p>简醒来时已回到育儿室，药剂师劳埃德先生守在床前。他问简为什么这么难过，简说出约翰的欺侮和红房间的惊吓，并表示渴望离开盖茨黑德去上学。劳埃德走后向里德太太建议送简进学校。简也从仆人的闲谈里第一次拼出自己的身世：父亲是个穷牧师，母亲为嫁他与娘家决裂，两人婚后一年双双染上伤寒去世。</p>
+    <div class="tags"><span class="tag">劳埃德医生</span><span class="tag">渴望上学</span><span class="tag">身世初露</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch4">
+  <summary><span class="ch-no">第四章</span> 布罗克赫斯特来访 <span class="phase ph1">盖茨黑德</span></summary>
+  <div class="body">
+    <p>几个星期后，洛伍德学校的掌管者布罗克赫斯特先生来访。里德太太当面诬陷简“爱撒谎、品行恶劣”，布罗克赫斯特告诫简进校后要受严格管束。里德太太一离开，简终于爆发，当面痛斥她的虐待，宣称从此与她家再无瓜葛。离别的日子到了，贝茜叮嘱她将来要争气。简带着一腔不平，踏上前往洛伍德学校的马车。</p>
+    <div class="tags"><span class="tag">布罗克赫斯特</span><span class="tag">当面反抗</span><span class="tag">告别盖茨黑德</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch5">
+  <summary><span class="ch-no">第五章</span> 洛伍德学校 <span class="phase ph2">洛伍德</span></summary>
+  <div class="body">
+    <p>一月的一个清晨，简乘马车来到荒僻的洛伍德学校。这是一所慈善孤儿学校，女孩们穿粗糙的制服，吃少而难以下咽的饭食，作息严格得如同军营。学监谭波儿小姐出面改善了伙食，还亲自授课，简对她又敬又爱。午餐时，简结识了独自安静看书的女孩海伦·彭斯，两人一见如故。历史教师斯卡查德小姐却总无故处罚海伦。</p>
+    <div class="tags"><span class="tag">洛伍德学校</span><span class="tag">海伦·彭斯</span><span class="tag">谭波儿小姐</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch6">
+  <summary><span class="ch-no">第六章</span> 海伦的忍让与简的反抗 <span class="phase ph2">洛伍德</span></summary>
+  <div class="body">
+    <p>海伦被斯卡查德小姐罚站，却平静得仿佛无事发生。简愤愤不平，海伦开导她：与其因一时冲动连累别人，不如耐心忍受——“生命太短，不该用来记恨记仇”。简却坚持：无缘无故挨打就该狠狠回击。两个女孩在熄灯后的床边夜谈，海伦还读起《拉塞拉斯》。简第一次从友谊和信仰里得到温暖。</p>
+    <div class="tags"><span class="tag">忍让与反抗</span><span class="tag">真挚友谊</span><span class="tag">信仰启蒙</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch7">
+  <summary><span class="ch-no">第七章</span> 伪善的校长 <span class="phase ph2">洛伍德</span></summary>
+  <div class="body">
+    <p>布罗克赫斯特先生到校视察，先当众剪掉女孩们的鬈发，又宣布把烧糊的早餐扔掉。简的写字板滑落在地，被他当众捉住。他让简站上高凳，当众宣布她是“撒谎的孩子”，叫大家不要理她。全场只有海伦偷偷端来茶点安慰她。事后谭波儿小姐把简和海伦请到房间，听简讲完真相，决定写信向劳埃德医生核实。</p>
+    <div class="tags"><span class="tag">当众羞辱</span><span class="tag">伪善校长</span><span class="tag">谭波儿主持公道</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch8">
+  <summary><span class="ch-no">第八章</span> 名誉的澄清 <span class="phase ph2">洛伍德</span></summary>
+  <div class="body">
+    <p>谭波儿小姐收到劳埃德医生的回信，证实简并未撒谎，并在全校面前为简澄清。简重获尊严，从此发愤读书，成绩名列前茅，还学会了法语和绘画。她与海伦的友谊日益深厚，海伦却咳得越来越厉害，患上了肺痨，脸上仍带着安详。简看着挚友的病容，心中隐隐不安。</p>
+    <div class="tags"><span class="tag">澄清冤屈</span><span class="tag">发愤图强</span><span class="tag">海伦病重</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch9">
+  <summary><span class="ch-no">第九章</span> 海伦之死 <span class="phase ph2">洛伍德</span></summary>
+  <div class="body">
+    <p>春天降临，洛伍德却爆发斑疹伤寒，瘟疫夺走许多孩子的性命，也暴露出学校的恶劣条件。海伦的肺痨急剧恶化，被移进单独的病房。简趁夜悄悄溜进海伦的房间，两人相拥而眠。海伦平静地谈着对天堂的信念，安然入睡。第二天清晨，简醒来时发现海伦已经死去，她抱着挚友的身体，哭得不能自已。</p>
+    <div class="tags"><span class="tag">斑疹伤寒</span><span class="tag">海伦之死</span><span class="tag">生死观</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch10">
+  <summary><span class="ch-no">第十章</span> 八年后的告别 <span class="phase ph2">洛伍德</span></summary>
+  <div class="body">
+    <p>瘟疫过后学校改组，条件大为改善。简在校求学六年、执教两年，正打算出去闯荡，谭波儿小姐却出嫁离去，更让她渴望新生活。她在报上刊登求职广告，很快收到费尔法克斯太太来信，聘请她到桑菲尔德庄园做家庭教师。临行前，贝茜来看望她，带来里德家的消息：约翰·里德挥霍堕落，还说七年前有位名叫约翰·艾尔、在马德拉岛经商的亲戚曾到盖茨黑德找过她。</p>
+    <div class="tags"><span class="tag">告别洛伍德</span><span class="tag">登广告求职</span><span class="tag">约翰·艾尔线索</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch11">
+  <summary><span class="ch-no">第十一章</span> 桑菲尔德庄园 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>傍晚时分，简抵达桑菲尔德庄园。迎接她的费尔法克斯太太和蔼可亲——她只是管家，并非女主人。简见到了学生阿黛勒，一个活泼好动的法国小女孩，是罗切斯特先生监护的孩子。参观中，简被三楼堆积的旧家具和幽暗氛围吸引，忽然听见一阵古怪的笑声。费尔法克斯太太含糊地说，那是女仆格蕾丝·普尔。</p>
+    <div class="tags"><span class="tag">桑菲尔德庄园</span><span class="tag">阿黛勒</span><span class="tag">神秘笑声</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch12">
+  <summary><span class="ch-no">第十二章</span> 初遇罗切斯特 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>一月的一个下午，简步行去邻村寄信，途中遇见一位骑马人连人带马滑倒在结冰的路面上。她上前询问是否受伤，对方却冷淡地谢绝帮助，带着一条大狗（派洛特）走远了。回到庄园简才知道，这位就是庄园主人罗切斯特先生。第一次共进晚餐时，他话不多、目光却很锐利。简还注意到，格蕾丝·普尔仍住在三楼，古怪的笑声依旧时不时传来。</p>
+    <div class="tags"><span class="tag">初遇</span><span class="tag">坠马</span><span class="tag">古怪的主人</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch13">
+  <summary><span class="ch-no">第十三章</span> 炉边的谈话 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>罗切斯特开始每晚请简到客厅谈话。他问起简的经历，得知她在洛伍德长大，十分感兴趣；他也向简讲述阿黛勒的来历：她的母亲塞琳娜·瓦朗是巴黎的歌舞演员，曾是他的情人，如今已去世，他成了阿黛勒的监护人。两人聊绘画、谈人生，发现彼此都很坦率。简觉得这个外表冷硬的男人，内心其实深沉而孤独。</p>
+    <div class="tags"><span class="tag">炉边夜谈</span><span class="tag">阿黛勒身世</span><span class="tag">相互了解</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch14">
+  <summary><span class="ch-no">第十四章</span> 灵魂的碰撞 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>罗切斯特与简争论起平等、自由与婚姻。罗切斯特以主人自居，简不卑不亢地回敬：“您不能仅仅因为比我年长、见过更多世面，就有权命令我。”罗切斯特被她的直率打动，说自己“并不快活”，背着沉甸甸的心事。两人的谈话像刀剑交锋，却让彼此越来越欣赏。简隐隐感到，这个谜一样的男人正把她当成可以倾诉的人。</p>
+    <div class="tags"><span class="tag">平等对话</span><span class="tag">反唇相讥</span><span class="tag">心灵相投</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch15">
+  <summary><span class="ch-no">第十五章</span> 深夜的火光 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>罗切斯特又讲起塞琳娜与阿黛勒的往事，言语间流露出曾被欺骗和背叛的辛酸。当天深夜，简被一股焦糊味惊醒，发现罗切斯特的房间着了火——帷幔正在燃烧，床上却躺着沉睡的主人。简一盆盆地端水，把火浇灭，救了他的性命。罗切斯特千恩万谢，说自己欠简一条命，却坚称火是格蕾丝·普尔失手所致，简半信半疑。</p>
+    <div class="tags"><span class="tag">深夜救火</span><span class="tag">救命之恩</span><span class="tag">格蕾丝·普尔之谜</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch16">
+  <summary><span class="ch-no">第十六章</span> 压抑的爱意 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>第二天罗切斯特却像什么都没发生，动身外出赴乡绅的宴会，说要带一大群客人回来。简彻夜难眠，终于意识到自己已经悄悄爱上了他。为了克制这份感情，她画了两幅像：一幅是想象中的美人布兰奇·英格拉姆，一幅是平凡的自己，题名《家庭教师画像》。她用这样的方式提醒自己，不要痴心妄想。</p>
+    <div class="tags"><span class="tag">暗自相思</span><span class="tag">两幅画像</span><span class="tag">阶级差距</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch17">
+  <summary><span class="ch-no">第十七章</span> 高贵的客人 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>宾客陆续到达，其中最耀眼的是美丽而傲慢的布兰奇·英格拉姆小姐。她在众人面前卖弄风姿，明显在讨好罗切斯特，罗切斯特似乎也乐在其中。简在人群里备受冷落，还被布兰奇奚落挖苦。夜深人静时，简独自垂泪，罗切斯特却忽然出现，对她说了几句冷淡的话便转身离开。简的心更加烦乱。</p>
+    <div class="tags"><span class="tag">布兰奇·英格拉姆</span><span class="tag">豪门舞会</span><span class="tag">身份卑微的酸楚</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch18">
+  <summary><span class="ch-no">第十八章</span> 梅森到来 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>连日来客人们玩哑谜、猜字游戏，兴高采烈，还传说附近来了吉卜赛女巫，要给大家算命。入夜后，一位面色苍白、举止拘谨的先生——梅森先生——从西印度群岛来访。罗切斯特见到他时脸色骤变，异常不安，叮嘱简多加留意。简隐隐觉得，这位梅森的到来，似乎触动了罗切斯特极力掩藏的心事。</p>
+    <div class="tags"><span class="tag">梅森先生到来</span><span class="tag">罗切斯特的不安</span><span class="tag">吉卜赛传闻</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch19">
+  <summary><span class="ch-no">第十九章</span> 吉卜赛算命 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>客人们争相去找吉卜赛女巫算命。轮到简时，那“女巫”竟能准确说出她的心事，说她心里有感情也有火焰，却被压得太低，还说她“不好看，却有自己独特的价值”。最后“女巫”摘下帽子——竟是罗切斯特假扮的。他承认这是试探，随即又命简去打听梅森的消息，还把梅森安顿在楼上的房间。简又惊又疑，满腹问号。</p>
+    <div class="tags"><span class="tag">假扮吉卜赛</span><span class="tag">试探真心</span><span class="tag">梅森的秘密</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch20">
+  <summary><span class="ch-no">第二十章</span> 夜半的惨叫声 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>深夜，一声撕心裂肺的惨叫惊醒全宅。罗切斯特吩咐众人各自回房，却悄悄叫上简，来到三楼梅森的房间——梅森浑身是血倒在地上，肩头被咬伤、抓伤。简帮他包扎伤口，罗切斯特在天亮前把昏迷的梅森秘密送走。两人心照不宣，谁也不提凶手。简心中的疑问越来越深：这幢宅子三楼，到底藏着什么？</p>
+    <div class="tags"><span class="tag">夜半惨叫</span><span class="tag">梅森受伤</span><span class="tag">阁楼的秘密</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch21">
+  <summary><span class="ch-no">第二十一章</span> 里德太太之死 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>简收到消息：约翰·里德自毁身体后死去，里德太太受刺激中风，临终前要见简。简赶回盖茨黑德，里德太太向她忏悔两件错事：一是待她刻薄，二是当年写信骗约翰·艾尔说简已死。简宽恕了她。数日后里德太太去世，简料理完丧事，见乔治亚娜将去伦敦、伊丽莎准备进修道院，便动身返回桑菲尔德。</p>
+    <div class="tags"><span class="tag">里德太太临终</span><span class="tag">约翰·艾尔受骗之谜</span><span class="tag">宽容</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch22">
+  <summary><span class="ch-no">第二十二章</span> 重返桑菲尔德 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>简在盖茨黑德逗留了一个多月才返回，罗切斯特在路口迎接她，责备她不该去这么久。他握着简的手走进庄园，两人都按捺着激动。罗切斯特说：“我有时觉得，我左肋下有一根心弦，和你的某根心弦紧紧相连。”简的心怦怦直跳，却又想起他即将迎娶布兰奇，心头顿时一沉。</p>
+    <div class="tags"><span class="tag">重逢</span><span class="tag">心弦之语</span><span class="tag">进退两难</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch23">
+  <summary><span class="ch-no">第二十三章</span> 花园里的求婚 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>罗切斯特谎称已与布兰奇订婚，还说已为简在爱尔兰找好新职位。简强忍泪水，激动地喊道：“你以为我是没有感情的机器吗？我不是鸟，也没有罗网能困住我——我是有独立意志的自由人！”罗切斯特这才坦白：他从没打算娶布兰奇，这一切都是试探。他深情地向简求婚，简又惊又喜，含泪应允。当夜，雷电劈开了花园里两人坐过的老栗树。</p>
+    <div class="tags"><span class="tag">求婚</span><span class="tag">平等宣言</span><span class="tag">雷劈栗树</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch24">
+  <summary><span class="ch-no">第二十四章</span> 订婚后的较量 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>订婚后，罗切斯特想把简打扮成贵妇人，给她买珠宝绸缎，简坚决拒绝，说宁愿做原来那个简。他逗她喊“简·罗切斯特”，她只是微笑。简还坚持继续教阿黛勒，不愿立刻搬离。她一面享受爱情的甜蜜，一面保持清醒：“我不是天使，我要做我自己。”两人在调侃中，一点点确认着彼此的心意。</p>
+    <div class="tags"><span class="tag">珠宝与自尊</span><span class="tag">保持自我</span><span class="tag">甜蜜与清醒</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch25">
+  <summary><span class="ch-no">第二十五章</span> 被撕碎的面纱 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>婚礼前一个月，罗切斯特外出办事。一天夜里，简被响动惊醒，看见一个长发披散、面目狰狞的女人凑到床边，试戴她的婚纱，然后一把将面纱撕成两半。简以为又是格蕾丝·普尔，罗切斯特回来后却闪烁其词，只叫她不必担心。那一夜，简又梦见自己抱着婴儿流浪。不祥的预感像乌云一样罩住了她。</p>
+    <div class="tags"><span class="tag">神秘女人</span><span class="tag">撕毁面纱</span><span class="tag">不祥预感</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch26">
+  <summary><span class="ch-no">第二十六章</span> 中断的婚礼 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>婚礼当天，简在教堂门口遇见两个陌生男人。行礼时，一位自称伦敦律师布里格斯先生的男人当众宣布：罗切斯特已有妻子。另一位正是梅森，他证实伯莎·梅森十五年前在牙买加嫁给了罗切斯特。罗切斯特只得带众人回到庄园，打开三楼密室——里面锁着一个披头散发的疯女人：伯莎。简如坠冰窟，回到房里失声痛哭、跪地祈祷。</p>
+    <div class="tags"><span class="tag">婚礼受阻</span><span class="tag">伯莎·梅森现身</span><span class="tag">阁楼疯妻</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch27">
+  <summary><span class="ch-no">第二十七章</span> 真相与出走 <span class="phase ph3">桑菲尔德</span></summary>
+  <div class="body">
+    <p>罗切斯特哀求简原谅，坦白了全部真相：当年父亲为保住家产，骗他娶了西印度群岛的富家女伯莎，婚后才发现她遗传了疯病，只能把她锁在阁楼，由格蕾丝·普尔看管。他恳求简随他去法国同居，简却斩钉截铁地回答：“我越是孤独、越是无依无靠，就越要尊重自己——我绝不能做你的情妇！”夜里她梦见母亲警告她逃离诱惑。黎明前，简悄悄离开了桑菲尔德。</p>
+    <div class="tags"><span class="tag">伯莎真相</span><span class="tag">拒绝做情妇</span><span class="tag">不辞而别</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch28">
+  <summary><span class="ch-no">第二十八章</span> 荒野流浪 <span class="phase ph4">沼泽屋</span></summary>
+  <div class="body">
+    <p>简身无分文地流浪了整整两天，干粮吃尽，在荒原里露宿，冷饿交加。她到村庄里讨饭，却遭到冷遇和怀疑。就在她几乎绝望时，荒原深处出现了一户人家——沼泽屋。女仆汉娜起初不肯收留，两位小姐却执意让她进门。简喝下牛奶、吃下面包，在温暖的壁炉边昏睡过去。</p>
+    <div class="tags"><span class="tag">流浪乞食</span><span class="tag">绝处逢生</span><span class="tag">沼泽屋收留</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch29">
+  <summary><span class="ch-no">第二十九章</span> 沼泽屋的病中人 <span class="phase ph4">沼泽屋</span></summary>
+  <div class="body">
+    <p>简在沼泽屋病倒，昏睡了整整三天。汉娜为自己的误会道了歉。简得知，收留她的是里弗斯家的三个人：圣约翰、黛安娜和玛丽。圣约翰是位牧师，严肃寡言，他盘问简的来历。简不愿说出真名，只说自己叫“简·艾略特”，曾在富人家做家庭教师，如今一无所有。圣约翰安排她到莫顿村的一所乡村学校教书。</p>
+    <div class="tags"><span class="tag">病愈</span><span class="tag">化名简·艾略特</span><span class="tag">乡村教师之约</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch30">
+  <summary><span class="ch-no">第三十章</span> 莫顿村的教师 <span class="phase ph4">莫顿</span></summary>
+  <div class="body">
+    <p>简在莫顿村安顿下来，开学前独自住在简陋的村舍里。黛安娜和玛丽要去富人家做家庭教师，依依不舍地与简告别。简渐渐了解圣约翰：他博学、坚毅，却冷得让人不敢靠近。村里富家小姐罗莎蒙德·奥利弗常来找他，他似乎也欣赏她，却总是回避她的示好。简不解其中的缘由。</p>
+    <div class="tags"><span class="tag">莫顿村</span><span class="tag">圣约翰的冷漠</span><span class="tag">罗莎蒙德</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch31">
+  <summary><span class="ch-no">第三十一章</span> 简陋的学校 <span class="phase ph4">莫顿</span></summary>
+  <div class="body">
+    <p>简开始给二十个穷苦的乡村女孩上课。她们大多目不识丁，简从字母教起，慢慢爱上了这份工作。圣约翰偶尔来访，罗莎蒙德也来参观，对简的绘画赞不绝口。圣约翰却告诉简：他将来要去印度传教，罗莎蒙德虽然可爱，却不是能吃苦的传教士妻子。简望着荒原，心中涌起对远方和未知的渴望。</p>
+    <div class="tags"><span class="tag">乡村课堂</span><span class="tag">圣约翰的志向</span><span class="tag">罗莎蒙德来访</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch32">
+  <summary><span class="ch-no">第三十二章</span> 蒸蒸日上的学校 <span class="phase ph4">莫顿</span></summary>
+  <div class="body">
+    <p>一个月后，简的学校办得有声有色，学生的进步让她欣慰。罗莎蒙德常来做客，简为她画了肖像。圣约翰端详画像时，竟随手撕下一角纸带走——那上面写着简的名字。他对简的来历越来越好奇，话里话外都在试探。简隐隐觉得，这位牧师心里，正酝酿着一个更大的打算。</p>
+    <div class="tags"><span class="tag">学校兴办</span><span class="tag">罗莎蒙德画像</span><span class="tag">圣约翰起疑</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch33">
+  <summary><span class="ch-no">第三十三章</span> 身世之谜揭晓 <span class="phase ph4">莫顿</span></summary>
+  <div class="body">
+    <p>一个雪夜，圣约翰冒雪来访，讲了一个让简目瞪口呆的故事：她在马德拉岛经商的亲人约翰·艾尔已经去世，留给她两万英镑的遗产。因为找不到她，圣约翰多方查访，才认出“简·艾略特”就是简·爱。原来圣约翰家的长辈出自简的父系家族，里弗斯家正是简失散多年的亲人。简喜极而泣，决定把遗产与三位亲人平分。</p>
+    <div class="tags"><span class="tag">两万英镑遗产</span><span class="tag">认回亲人</span><span class="tag">遗产均分</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch34">
+  <summary><span class="ch-no">第三十四章</span> 圣约翰的求婚 <span class="phase ph4">莫顿</span></summary>
+  <div class="body">
+    <p>简搬进沼泽屋，与黛安娜、玛丽团聚，一起读书学习，日子温暖而充实。圣约翰却开始教她印度斯坦语，声称要她做传教士的妻子，一同去印度。简明白他并不爱她，只是看中她能吃苦、有条理。她拒绝说：没有爱情的婚姻是亵渎。圣约翰一次次逼迫，简被夹在亲情、良知和自我之间，几乎动摇。</p>
+    <div class="tags"><span class="tag">圣约翰求婚</span><span class="tag">传教士之妻</span><span class="tag">爱与职责的挣扎</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch35">
+  <summary><span class="ch-no">第三十五章</span> 灵音呼唤 <span class="phase ph4">莫顿</span></summary>
+  <div class="body">
+    <p>圣约翰下了最后通牒，简几乎就要答应时，忽然听见一个声音在呼唤：“简！简！简！”——那分明是罗切斯特的声音，仿佛来自千里之外。简不由自主地回答“我来了”。她认定这是心灵的感应，断定罗切斯特遭遇了危险，决心立刻回桑菲尔德。第二天一早，她给圣约翰留下信，动身南下，连夜赶路。</p>
+    <div class="tags"><span class="tag">心灵感应</span><span class="tag">罗切斯特的呼唤</span><span class="tag">决心南下</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch36">
+  <summary><span class="ch-no">第三十六章</span> 化为灰烬的桑菲尔德 <span class="phase ph5">芬丁</span></summary>
+  <div class="body">
+    <p>简日夜兼程赶回桑菲尔德，却只看到一片断壁残垣。客栈老板告诉她：一天深夜，伯莎·梅森纵火点燃整座庄园，随后从屋顶跳下身亡；罗切斯特为救仆人和妻子，被倒塌的房梁砸伤，双目失明，还失去了一只手。简心急如焚，打听到他住在三十英里外的芬丁庄园，立即雇车赶去。</p>
+    <div class="tags"><span class="tag">大火焚宅</span><span class="tag">伯莎之死</span><span class="tag">罗切斯特残废</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch37">
+  <summary><span class="ch-no">第三十七章</span> 芬丁庄园的重逢 <span class="phase ph5">芬丁</span></summary>
+  <div class="body">
+    <p>简赶到幽林深处的芬丁庄园，罗切斯特双目失明、左手被截去，正独自待在寂静的宅子里。他以为简只是出于怜悯，喃喃地问：“简，你真的是人吗？”简握住他的手，告诉他：我回来了，不是过客，是要和你一起生活的人。她讲完自己的经历，两人相拥而泣，互诉衷肠，决定结婚。</p>
+    <div class="tags"><span class="tag">重逢</span><span class="tag">瞎眼的罗切斯特</span><span class="tag">破镜重圆</span></div>
+  </div>
+</details>
+
+<details class="ch" id="ch38">
+  <summary><span class="ch-no">第三十八章</span> 结局 <span class="phase ph5">芬丁</span></summary>
+  <div class="body">
+    <p>“读者啊，我嫁给了他。”婚礼十分安静，只有牧师和执事在场。婚后头两年罗切斯特仍双目失明，简成了他的眼睛和右手；后来他赴伦敦就医，一只眼睛重见光明，终于看见了他们的长子——那孩子长着和他一样乌黑明亮的大眼睛。黛安娜、玛丽先后出嫁，阿黛勒也在更好的学校里快乐成长。圣约翰远赴印度传教，终生未娶，把一生奉献给了他的信仰。</p>
+    <div class="tags"><span class="tag">婚礼</span><span class="tag">重见光明</span><span class="tag">圣约翰的归宿</span></div>
+  </div>
+</details>
+
+<!-- ============ 主题归纳 ============ -->
+<h2 class="sec">七、全书主题归纳</h2>
+<div class="box">
+  <ol class="theme">
+    <li><b>独立与平等：</b>“在上帝面前我们是平等的”——贫穷卑微的简，始终相信灵魂不分高低贵贱，她靠知识、劳动和良知自立于世间。</li>
+    <li><b>女性的尊严：</b>在爱情与金钱面前，简拒绝被装饰、被支配，宁做“平凡的我”，也不做男人附庸的“贵妇人”。</li>
+    <li><b>爱情与道德：</b>当爱违背良知时，简选择离开；她不肯做情妇，也不肯接受没有爱情的求婚，坚持“爱必须建立在平等与道德之上”。</li>
+    <li><b>善良与宽容：</b>她宽恕临终的里德太太，感激里弗斯一家的收留，并把遗产平分给亲人——磨难没有让她变得刻薄。</li>
+    <li><b>宗教与人性的对照：</b>海伦的忍耐与博爱、布罗克赫斯特的伪善、圣约翰的自我牺牲，三种植根于信仰的人生态度构成鲜明对比，简取其宽容，去其苛酷。</li>
+  </ol>
+</div>
+
+<!-- ============ 经典名句 ============ -->
+<h2 class="sec">八、经典名句摘录（中英对照）</h2>
+<div class="box">
+  <ul class="quote">
+    <li class="quote"><span class="en">“Reader, I married him.”</span><br><span class="zh">“读者啊，我嫁给了他。”（第38章）</span></li>
+    <li class="quote"><span class="en">“Do you think I am an automaton?—a machine without feelings?”</span><br><span class="zh">“你以为我是一台自动机？一台没有感情的机器？”（第23章）</span></li>
+    <li class="quote"><span class="en">“I am no bird; and no net ensnares me; I am a free human being with an independent will.”</span><br><span class="zh">“我不是鸟，也没有罗网能困住我；我是有独立意志的自由人。”（第23章）</span></li>
+    <li class="quote"><span class="en">“It is my spirit that addresses your spirit, just as if both had passed through the grave, and we stood at God's feet, equal—as we are!”</span><br><span class="zh">“是我的灵魂在与你的灵魂对话，就像我们一同穿过坟墓，站在上帝脚下，彼此平等——本来就如此！”（第23章）</span></li>
+    <li class="quote"><span class="en">“I care for myself. The more solitary, the more friendless, the more unsustained I am, the more I will respect myself.”</span><br><span class="zh">“我在乎我自己。我越是孤独、越是无依无靠，就越要尊重自己。”（第27章）</span></li>
+    <li class="quote"><span class="en">“I am not an angel… and I will not be one till I die: I will be myself.”</span><br><span class="zh">“我不是天使……到死都不愿做天使：我要做我自己。”（第24章）</span></li>
+    <li class="quote"><span class="en">“When we are struck at without a reason, we should strike back again very hard.”</span><br><span class="zh">“当我们无缘无故挨打的时候，就应该狠狠地回击。”（第6章，简对海伦说）</span></li>
+    <li class="quote"><span class="en">“Life appears to me too short to be spent in nursing animosity or registering wrongs.”</span><br><span class="zh">“生命对我来说太短了，不该用来记恨和记仇。”（第6章，海伦对简说）</span></li>
+    <li class="quote"><span class="en">“Feeling without judgment is a washy draught indeed; but judgment untempered by feeling is too bitter and husky a morsel for human deglutition.”</span><br><span class="zh">“没有判断力调和的感情淡而无味；而没有感情调和的判断力，又苦涩粗粝得叫人难以下咽。”（第21章）</span></li>
+    <li class="quote"><span class="en">“Conventionality is not morality. Self-righteousness is not religion.”</span><br><span class="zh">“习俗不等于道德，自以为是也不是宗教。”（卷首作者前言）</span></li>
+  </ul>
+</div>
+
+<!-- ============ 中考考点 ============ -->
+<h2 class="sec">九、中考常见考点</h2>
+<div class="box">
+  <ol class="qa">
+    <li><b class="q">Q：简·爱一生经历了哪些重要地点？</b><br>盖茨黑德（童年寄居）→ 洛伍德学校（求学、任教八年）→ 桑菲尔德庄园（做家庭教师，爱上罗切斯特）→ 沼泽屋与莫顿村（流浪、教书、认亲）→ 芬丁庄园（与罗切斯特团聚）。</li>
+    <li><b class="q">Q：简·爱为什么在婚礼当天离开罗切斯特？</b><br>因为婚礼被律师布里格斯打断，发现罗切斯特已有妻子伯莎·梅森。简宁可放弃爱情，也不肯违背道德去做他的情妇，坚持“我越尊重自己，就越不能留下”。</li>
+    <li><b class="q">Q：伯莎·梅森是什么人？她最终怎样了？</b><br>罗切斯特在西印度群岛娶的妻子，患有严重精神疾病，被锁在桑菲尔德阁楼由格蕾丝·普尔看管。她曾深夜撕毁简的面纱，最终纵火烧毁庄园，并从屋顶跳下身亡。</li>
+    <li><b class="q">Q：简·爱为什么拒绝圣约翰的求婚？</b><br>圣约翰并不爱她，只是需要一个能陪他去印度传教的妻子。简认为没有爱情的婚姻是对神圣的亵渎，她宁愿独自生活，也不把自己交付给一桩“宗教任务式”的婚姻。</li>
+    <li><b class="q">Q：《简·爱》的核心主题是什么？</b><br>追求人格的独立与平等，维护女性的尊严和自我价值；爱情必须建立在平等、道德与真诚之上，贫富和容貌都不能贬低人的灵魂。</li>
+    <li><b class="q">Q：罗切斯特为什么双目失明、失去一只手？</b><br>桑菲尔德大火中，他为救出仆人和妻子伯莎，反复冲进摇摇欲坠的建筑，被倒塌的房梁砸伤，一只眼睛失明、一只手被截去。他舍身救人，令人又怜又敬。</li>
+    <li><b class="q">Q：简·爱继承了多少遗产？她是怎么处理的？</b><br>两万英镑（20,000 磅）。她没有独吞，而是主动与里弗斯三兄妹平分，因为他们是她失散多年的亲人——她也因此第一次拥有了亲情的温暖。</li>
+    <li><b class="q">Q：小说采用了怎样的叙事方式？</b><br>以“我”（简·爱）的第一人称自传式叙述，穿插大量心理独白、书信和梦境，并营造了红房间、阁楼笑声、被撕面纱等哥特式神秘氛围，是典型的成长小说写法。</li>
+  </ol>
+</div>
+
+<footer>
+  本资料依据 Charlotte Brontë《Jane Eyre》原著（Project Gutenberg 版）及 LitCharts、SuperSummary 等导读资料整理，供暑期名著阅读与作业参考。祝阅读愉快，读完记得写篇好读后感！
+</footer>
+
+</div>
+
+<script>
+  function jumpTo(id){
+    var d = document.getElementById(id);
+    if(d && !d.open){ d.open = true; }
+  }
+  function toggleAll(open){
+    var list = document.querySelectorAll('details.ch');
+    for(var i=0;i<list.length;i++){ list[i].open = open; }
+  }
+</script>
+</body>
+</html>
