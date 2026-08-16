@@ -113,7 +113,15 @@
 .backnav-btn:hover { opacity: 1; }
 @media print { .backnav-btn { display: none !important; } }
 </style>
-</head>
+<style>
+  .toc-btn {
+    display: inline-block; background: none; border: none; padding: 0;
+    font-family: inherit; font-size: inherit; color: inherit; cursor: pointer;
+    text-decoration: none; margin-right: 12px; line-height: 1.9;
+  }
+  .toc-btn:hover { color: #2a6; text-decoration: underline; }
+  </style>
+  </head>
 <body>
 <a class="backnav-btn" href="../index.html" onclick="if(window.location.protocol.indexOf('file')===0){location.href='../index.html';return false;}window.open('../index.html','_self');return false;">‹ 返回导航</a>
 
@@ -185,52 +193,52 @@
     <button onclick="toggleAll(false)">全部收起</button>
   </div>
   <div class="toc-group"><div class="gtitle">阶段一 · 盖茨黑德（孤儿岁月）</div>
-    <a href="#ch1" onclick="jumpTo('ch1')">第一章 盖茨黑德的孤儿</a>
-    <a href="#ch2" onclick="jumpTo('ch2')">第二章 红房间的恐怖</a>
-    <a href="#ch3" onclick="jumpTo('ch3')">第三章 劳埃德医生的建议</a>
-    <a href="#ch4" onclick="jumpTo('ch4')">第四章 布罗克赫斯特来访</a>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch1')">第一章 盖茨黑德的孤儿</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch2')">第二章 红房间的恐怖</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch3')">第三章 劳埃德医生的建议</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch4')">第四章 布罗克赫斯特来访</button>
   </div>
   <div class="toc-group"><div class="gtitle">阶段二 · 洛伍德学校（求学岁月）</div>
-    <a href="#ch5" onclick="jumpTo('ch5')">第五章 洛伍德学校</a>
-    <a href="#ch6" onclick="jumpTo('ch6')">第六章 海伦的忍让与简的反抗</a>
-    <a href="#ch7" onclick="jumpTo('ch7')">第七章 伪善的校长</a>
-    <a href="#ch8" onclick="jumpTo('ch8')">第八章 名誉的澄清</a>
-    <a href="#ch9" onclick="jumpTo('ch9')">第九章 海伦之死</a>
-    <a href="#ch10" onclick="jumpTo('ch10')">第十章 八年后的告别</a>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch5')">第五章 洛伍德学校</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch6')">第六章 海伦的忍让与简的反抗</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch7')">第七章 伪善的校长</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch8')">第八章 名誉的澄清</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch9')">第九章 海伦之死</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch10')">第十章 八年后的告别</button>
   </div>
   <div class="toc-group"><div class="gtitle">阶段三 · 桑菲尔德庄园（爱情与秘密）</div>
-    <a href="#ch11" onclick="jumpTo('ch11')">第十一章 桑菲尔德庄园</a>
-    <a href="#ch12" onclick="jumpTo('ch12')">第十二章 初遇罗切斯特</a>
-    <a href="#ch13" onclick="jumpTo('ch13')">第十三章 炉边的谈话</a>
-    <a href="#ch14" onclick="jumpTo('ch14')">第十四章 灵魂的碰撞</a>
-    <a href="#ch15" onclick="jumpTo('ch15')">第十五章 深夜的火光</a>
-    <a href="#ch16" onclick="jumpTo('ch16')">第十六章 压抑的爱意</a>
-    <a href="#ch17" onclick="jumpTo('ch17')">第十七章 高贵的客人</a>
-    <a href="#ch18" onclick="jumpTo('ch18')">第十八章 梅森到来</a>
-    <a href="#ch19" onclick="jumpTo('ch19')">第十九章 吉卜赛算命</a>
-    <a href="#ch20" onclick="jumpTo('ch20')">第二十章 夜半的惨叫声</a>
-    <a href="#ch21" onclick="jumpTo('ch21')">第二十一章 里德太太之死</a>
-    <a href="#ch22" onclick="jumpTo('ch22')">第二十二章 重返桑菲尔德</a>
-    <a href="#ch23" onclick="jumpTo('ch23')">第二十三章 花园里的求婚</a>
-    <a href="#ch24" onclick="jumpTo('ch24')">第二十四章 订婚后的较量</a>
-    <a href="#ch25" onclick="jumpTo('ch25')">第二十五章 被撕碎的面纱</a>
-    <a href="#ch26" onclick="jumpTo('ch26')">第二十六章 中断的婚礼</a>
-    <a href="#ch27" onclick="jumpTo('ch27')">第二十七章 真相与出走</a>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch11')">第十一章 桑菲尔德庄园</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch12')">第十二章 初遇罗切斯特</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch13')">第十三章 炉边的谈话</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch14')">第十四章 灵魂的碰撞</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch15')">第十五章 深夜的火光</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch16')">第十六章 压抑的爱意</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch17')">第十七章 高贵的客人</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch18')">第十八章 梅森到来</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch19')">第十九章 吉卜赛算命</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch20')">第二十章 夜半的惨叫声</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch21')">第二十一章 里德太太之死</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch22')">第二十二章 重返桑菲尔德</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch23')">第二十三章 花园里的求婚</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch24')">第二十四章 订婚后的较量</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch25')">第二十五章 被撕碎的面纱</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch26')">第二十六章 中断的婚礼</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch27')">第二十七章 真相与出走</button>
   </div>
   <div class="toc-group"><div class="gtitle">阶段四 · 沼泽屋与莫顿（流浪与认亲）</div>
-    <a href="#ch28" onclick="jumpTo('ch28')">第二十八章 荒野流浪</a>
-    <a href="#ch29" onclick="jumpTo('ch29')">第二十九章 沼泽屋的病中人</a>
-    <a href="#ch30" onclick="jumpTo('ch30')">第三十章 莫顿村的教师</a>
-    <a href="#ch31" onclick="jumpTo('ch31')">第三十一章 简陋的学校</a>
-    <a href="#ch32" onclick="jumpTo('ch32')">第三十二章 蒸蒸日上的学校</a>
-    <a href="#ch33" onclick="jumpTo('ch33')">第三十三章 身世之谜揭晓</a>
-    <a href="#ch34" onclick="jumpTo('ch34')">第三十四章 圣约翰的求婚</a>
-    <a href="#ch35" onclick="jumpTo('ch35')">第三十五章 灵音呼唤</a>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch28')">第二十八章 荒野流浪</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch29')">第二十九章 沼泽屋的病中人</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch30')">第三十章 莫顿村的教师</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch31')">第三十一章 简陋的学校</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch32')">第三十二章 蒸蒸日上的学校</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch33')">第三十三章 身世之谜揭晓</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch34')">第三十四章 圣约翰的求婚</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch35')">第三十五章 灵音呼唤</button>
   </div>
   <div class="toc-group"><div class="gtitle">阶段五 · 芬丁庄园（团圆结局）</div>
-    <a href="#ch36" onclick="jumpTo('ch36')">第三十六章 化为灰烬的桑菲尔德</a>
-    <a href="#ch37" onclick="jumpTo('ch37')">第三十七章 芬丁庄园的重逢</a>
-    <a href="#ch38" onclick="jumpTo('ch38')">第三十八章 结局</a>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch36')">第三十六章 化为灰烬的桑菲尔德</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch37')">第三十七章 芬丁庄园的重逢</button>
+    <button type="button" class="toc-btn" onclick="jumpTo('ch38')">第三十八章 结局</button>
   </div>
 </div>
 
@@ -595,6 +603,8 @@
   function jumpTo(id){
     var d = document.getElementById(id);
     if(d && !d.open){ d.open = true; }
+    if(d && d.scrollIntoView){ d.scrollIntoView({behavior:'smooth', block:'start'}); }
+    else if(d){ window.scrollTo(0, d.offsetTop); }
   }
   function toggleAll(open){
     var list = document.querySelectorAll('details.ch');
