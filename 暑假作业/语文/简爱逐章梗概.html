@@ -101,8 +101,22 @@
     a{color:#000; text-decoration:none;}
   }
 </style>
+<style id="backnav-css">
+.backnav-btn {
+  position: fixed; top: 10px; left: 10px; z-index: 9999;
+  background: #23283a; color: #fff; border: none; border-radius: 20px;
+  padding: 7px 14px; font-size: 13px; cursor: pointer;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25); opacity: .92;
+  text-decoration: none; display: inline-block;
+}
+.backnav-btn:hover { opacity: 1; }
+@media print { .backnav-btn { display: none !important; } }
+</style>
 </head>
 <body>
+<a class="backnav-btn" href="../index.html" onclick="if(window.location.protocol.indexOf('file')===0){location.href='../index.html';return false;}window.open('../index.html','_self');return false;">‹ 返回导航</a>
+
 <div class="wrap">
 
 <header class="hero">
