@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>体育暑假作业 · 打卡记录表</title>
+<style>
+  :root {
+    --ink: #1c2b36;
+    --accent: #e23e3e;
+    --line: #d8dde2;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif; background:#eef1f4; color:var(--ink); padding: 20px 10px; }
+  .sheet {
+    width: 210mm; min-height: 297mm; background:#fff;
+    margin: 0 auto; padding: 14mm 16mm;
+    box-shadow: 0 2px 12px rgba(0,0,0,.12);
+  }
+  h1 { text-align:center; font-size: 20pt; letter-spacing: .1em; }
+  .subtitle { text-align:center; color:#666; font-size: 10pt; margin: 3mm 0 6mm; }
+  .task-box {
+    border: 2px solid var(--accent); border-radius: 4mm;
+    padding: 4mm 5mm; margin-bottom: 6mm; background:#fff7f7;
+  }
+  .task-box h2 { font-size: 12pt; color: var(--accent); margin-bottom: 2mm; }
+  .task-box p { font-size: 10pt; line-height: 1.7; }
+  .task-box b { color: var(--ink); }
+  /* 打卡表 */
+  table {
+    width: 100%; border-collapse: collapse; font-size: 9.5pt;
+  }
+  th, td {
+    border: 1px solid var(--line); padding: 2.6mm 1mm; text-align:center;
+  }
+  th { background: var(--ink); color:#fff; font-weight: 600; }
+  td.date { font-weight: 600; background:#f7f9fa; }
+  tr.weekend td.date { background:#ffecec; color:var(--accent); }
+  .check-cell { height: 9mm; }
+  .legend { margin-top: 4mm; font-size: 9pt; color:#555; line-height: 1.9; }
+  .note { margin-top: 6mm; border-top: 1px dashed #ccc; padding-top: 3mm; font-size: 9pt; color:#666; line-height: 1.8; }
+  @media print {
+    body { background:#fff; padding:0; }
+    .sheet { box-shadow:none; width:100%; padding: 10mm 12mm; }
+    th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @page { size: A4; margin: 0; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>体育暑假作业 · 打卡记录表</h1>
+  <div class="subtitle">初二年级 · 2026 年 8 月 · 家长可签字确认</div>
+
+  <div class="task-box">
+    <h2>📌 作业要求（必做）</h2>
+    <p>
+      ① <b>跑步</b>：800 米 / 1000 米 —— 每周完成一次 2 公里，周末完成一次 3 公里，每三天完成一次跑步，提交计时打卡图片（需有日期）。<br>
+      ② <b>武术</b>：学习中考内容「健身长拳」，7 月 30 日、8 月 25 日提交动作视频。<br>
+      ③ <b>选做</b>：未参加初二体育中考的同学，每周两次 2 公里 + 周末一次 3 公里，隔天跑；每周一组 200 米蛙跳；跳绳 1 分钟计时，每周 3 次、每次 5 组。
+    </p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:16%">日期</th>
+        <th>跑步距离 / 用时</th>
+        <th>健身长拳</th>
+        <th>蛙跳（选做）</th>
+        <th>跳绳（选做）</th>
+        <th style="width:14%">家长签字</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="date">8月15日（六）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月16日（日）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月17日（一）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月18日（二）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月19日（三）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月20日（四）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月21日（五）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="weekend"><td class="date">8月22日（六）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="weekend"><td class="date">8月23日（日）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月24日（一）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月25日（二）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月26日（三）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月27日（四）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月28日（五）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="weekend"><td class="date">8月29日（六）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="weekend"><td class="date">8月30日（日）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="date">8月31日（一）</td><td class="check-cell"></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="legend">
+    <b>填写说明：</b> 跑步栏记「2 公里 / 用时 xx 分」；健身长拳栏打 ✓ 或记练习组数；蛙跳记组数；跳绳记「次数 / 组」。选做栏没做可空着。
+  </div>
+
+  <div class="note">
+    <b>提交提醒：</b> 跑步打卡图片需<b>带日期</b>（可用手机计时 App 截图）；武术视频分别于 7 月 30 日、8 月 25 日提交（若 7 月未打卡，8 月 25 日前补拍完整视频即可）。体育打卡发布节奏：每周三、五发布任务，选做按每周二、四、日发布。
+  </div>
+</div>
+</body>
+</html>

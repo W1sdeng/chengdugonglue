@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法治手抄报 - 弘扬法治精神 建设法治中国</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f4f0e8;
+    font-family: "楷体", "KaiTi", "STKaiti", "华文楷体", serif;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    color: #3a342b;
+  }
+
+  .paper {
+    width: 210mm;
+    min-height: 297mm;
+    background: #fffdf6;
+    position: relative;
+    padding: 14mm 12mm;
+    overflow: hidden;
+  }
+
+  /* 最外层彩色花边 */
+  .paper::before {
+    content: "";
+    position: absolute;
+    top: 5mm; left: 5mm; right: 5mm; bottom: 5mm;
+    border: 3px double #f2748c;
+    border-radius: 8px;
+    pointer-events: none;
+  }
+
+  /* 四角小装饰 */
+  .corner { position: absolute; width: 18px; height: 18px; border-color: #f5a623; border-style: solid; }
+  .corner.tl { top: 5mm; left: 5mm; border-width: 5px 0 0 5px; border-top-left-radius: 8px; }
+  .corner.tr { top: 5mm; right: 5mm; border-width: 5px 5px 0 0; border-top-right-radius: 8px; }
+  .corner.bl { bottom: 5mm; left: 5mm; border-width: 0 0 5px 5px; border-bottom-left-radius: 8px; }
+  .corner.br { bottom: 5mm; right: 5mm; border-width: 0 5px 5px 0; border-bottom-right-radius: 8px; }
+
+  /* ===== 大标题区 ===== */
+  .masthead {
+    text-align: center;
+    padding: 6mm 0 4mm;
+    position: relative;
+  }
+  .masthead h1 {
+    font-size: 40px;
+    font-family: "华文行楷", "STXingkai", "楷体", serif;
+    letter-spacing: 6px;
+    background: linear-gradient(180deg, #e23d58 30%, #b9142f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 0 rgba(242, 116, 140, 0.25);
+    filter: drop-shadow(1px 3px 0 #ffe3e9);
+    transform: rotate(-1.5deg);
+  }
+  .masthead .subtitle {
+    display: inline-block;
+    margin-top: 3mm;
+    padding: 1.5mm 8mm;
+    background: linear-gradient(135deg, #ffd54f, #ffb300);
+    border-radius: 20px;
+    border: 2px solid #e08e00;
+    font-size: 16px;
+    font-weight: bold;
+    color: #7a4b00;
+    transform: rotate(0.8deg);
+    box-shadow: 2px 3px 0 rgba(0,0,0,0.12);
+  }
+  .masthead .info-line {
+    margin-top: 2mm;
+    font-size: 12px;
+    color: #8a7f6a;
+    letter-spacing: 1px;
+  }
+
+  /* 标题两侧的波浪线 */
+  .wave-deco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8mm;
+    margin-top: 1mm;
+  }
+  .wave-deco .line {
+    flex: 1;
+    max-width: 55mm;
+    border-top: 3px wavy #63b7e6;
+  }
+  .wave-deco .star { color: #f5a623; font-size: 18px; }
+
+  /* ===== 手抄报正文网格：三列 ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5mm;
+    margin-top: 5mm;
+  }
+
+  .col { display: flex; flex-direction: column; gap: 5mm; }
+
+  /* ===== 板块通用 ===== */
+  .section {
+    border-radius: 12px;
+    padding: 4mm 4mm 5mm;
+    position: relative;
+    border: 2px solid;
+    box-shadow: 3px 4px 0 rgba(0,0,0,0.08);
+  }
+
+  .section-title {
+    display: inline-block;
+    padding: 1.5mm 5mm;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 2px;
+    transform: rotate(-1deg);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+    margin-bottom: 3mm;
+    font-family: "华文楷体", "STKaiti", serif;
+  }
+
+  .section p { font-size: 13px; line-height: 1.8; text-indent: 2em; }
+  .section .no-indent { text-indent: 0; }
+
+  /* 板块1：宪法小知识 —— 红/金宪法感 */
+  .s1 { background: #fff3f4; border-color: #e8627d; }
+  .s1 .section-title { background: linear-gradient(135deg, #e23d58, #b9142f); }
+
+  .fact-list { list-style: none; }
+  .fact-list li {
+    font-size: 13px;
+    line-height: 1.7;
+    padding: 2mm 0 2mm 7mm;
+    position: relative;
+    border-bottom: 1px dashed #f0b9c4;
+  }
+  .fact-list li:last-child { border-bottom: none; }
+  .fact-list li::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    color: #e8627d;
+    font-size: 12px;
+  }
+  .fact-list b { color: #b9142f; }
+
+  .date-badge {
+    display: inline-block;
+    background: #ffd54f;
+    border: 2px solid #e08e00;
+    border-radius: 50%;
+    width: 30px; height: 30px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: #7a4b00;
+    margin: 0 2px;
+  }
+
+  /* 板块2：权利知多少 —— 天蓝色 */
+  .s2 { background: #eff8ff; border-color: #4aa8e8; }
+  .s2 .section-title { background: linear-gradient(135deg, #2f8fd6, #1b6cb3); }
+
+  .right-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5mm;
+  }
+  .right-tag {
+    flex: 1 1 42%;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    background: #fff;
+    border: 1.5px solid #a8d5f2;
+    border-radius: 8px;
+    padding: 2mm 2.5mm;
+    font-size: 12px;
+    line-height: 1.4;
+    transform: rotate(var(--t, 0deg));
+  }
+  .right-tag:nth-child(odd) { --t: -0.6deg; }
+  .right-tag:nth-child(even) { --t: 0.6deg; }
+  .right-tag .icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* 板块3：义务记心间 —— 绿色 */
+  .s3 { background: #f0faf2; border-color: #5cb85c; }
+  .s3 .section-title { background: linear-gradient(135deg, #4caf50, #2e7d32); }
+
+  .duty-list { list-style: none; }
+  .duty-list li {
+    font-size: 13px;
+    line-height: 1.7;
+    padding: 2mm 0 2mm 7mm;
+    position: relative;
+    border-bottom: 1px dashed #b6ddb8;
+  }
+  .duty-list li:last-child { border-bottom: none; }
+  .duty-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4caf50;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  /* 板块4：法治名言 —— 紫色 */
+  .s4 { background: #faf4ff; border-color: #a56ad9; }
+  .s4 .section-title { background: linear-gradient(135deg, #8e5bc9, #6b3fa8); }
+
+  .quote {
+    font-size: 13.5px;
+    line-height: 1.9;
+    padding: 2.5mm 3mm;
+    margin-bottom: 2.5mm;
+    background: rgba(255,255,255,0.65);
+    border-left: 5px solid #a56ad9;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+  }
+  .quote:last-child { margin-bottom: 0; }
+  .quote .q-mark {
+    font-size: 20px;
+    color: #a56ad9;
+    font-family: serif;
+    margin-right: 2px;
+  }
+  .quote .author {
+    display: block;
+    text-align: right;
+    font-size: 11.5px;
+    color: #7a6a8c;
+    margin-top: 1mm;
+  }
+
+  /* 板块5：我身边的法治 —— 橙色虚线边框留白 */
+  .s5 { background: #fff8ec; border-color: #f0a33e; }
+  .s5 .section-title { background: linear-gradient(135deg, #f5a623, #e08600); }
+  .write-lines {
+    margin-top: 1mm;
+    min-height: 42mm;
+    border-top: 1px solid transparent;
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 27px,
+      #d8c9ad 28px
+    );
+  }
+  .write-hint {
+    text-align: center;
+    font-size: 11.5px;
+    color: #c99d5a;
+    margin-top: 2mm;
+  }
+
+  /* ===== 插图位（虚线框） ===== */
+  .illust {
+    border: 2.5px dashed #8a7f6a;
+    border-radius: 12px;
+    padding: 3mm;
+    text-align: center;
+    background: repeating-linear-gradient(45deg, #faf8f1, #faf8f1 8px, #f2efe4 8px, #f2efe4 16px);
+    position: relative;
+    min-height: 34mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2mm;
+  }
+  .illust.illus-big { min-height: 48mm; }
+  .illust .ill-icon { font-size: 34px; }
+  .illust .ill-label {
+    font-size: 13px;
+    color: #6a6152;
+    font-weight: bold;
+  }
+  .illust .ill-note {
+    font-size: 11px;
+    color: #a99f8c;
+  }
+  .illust::after {
+    content: "✂ 画完后沿虚线外剪下可作装饰";
+    position: absolute;
+    bottom: 2mm;
+    left: 0; right: 0;
+    font-size: 9px;
+    color: #c0b6a1;
+  }
+
+  /* 底部花边 */
+  .footer-line {
+    margin-top: 6mm;
+    text-align: center;
+    font-size: 11px;
+    color: #b0a48d;
+    border-top: 2px dashed #e0d5c0;
+    padding-top: 2mm;
+  }
+
+  /* 打印设置 */
+  @page { size: A4 portrait; margin: 0; }
+  @media print {
+    body { padding: 0; background: #fff; }
+    .paper { box-shadow: none; margin: 0; }
+  }
+
+  @media screen {
+    .paper {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+      border-radius: 6px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="paper">
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <!-- 大标题 -->
+  <header class="masthead">
+    <h1>弘扬法治精神 建设法治中国</h1>
+    <div class="wave-deco">
+      <span class="line"></span>
+      <span class="star">★</span>
+      <span class="line"></span>
+    </div>
+    <div class="subtitle">八年级（下）道德与法治 暑假手抄报</div>
+    <div class="info-line">姓名：＿＿＿＿＿＿＿＿　班级：＿＿＿＿＿＿　日期：＿＿＿＿＿＿</div>
+  </header>
+
+  <!-- 三栏主体 -->
+  <div class="grid">
+    <!-- 左栏 -->
+    <div class="col">
+      <div class="section s1">
+        <span class="section-title">宪法小知识</span>
+        <ul class="fact-list">
+          <li><b>根本法：</b>宪法是国家的根本法，具有最高法律效力，一切法律不得同宪法相抵触。</li>
+          <li><b>国家宪法日：</b>每年 <span class="date-badge">12</span>月<span class="date-badge">4</span> 日，全体公民共同学习宪法、尊崇宪法。</li>
+          <li><b>宪法宣誓：</b>国家工作人员就职时须向宪法宣誓，许下忠于宪法、忠于人民的庄严承诺。</li>
+          <li><b>宪法地位：</b>宪法是治国安邦的总章程，是国家政治生活的根本准则。</li>
+        </ul>
+      </div>
+
+      <div class="illust illus-big">
+        <div class="ill-icon">⚖️</div>
+        <div class="ill-label">此处可画画：法治天平</div>
+        <div class="ill-note">画一架天平，象征公平正义</div>
+      </div>
+    </div>
+
+    <!-- 中栏 -->
+    <div class="col">
+      <div class="section s2">
+        <span class="section-title">权利知多少</span>
+        <p class="no-indent" style="font-size:12.5px;color:#4a6a8c;margin-bottom:2mm;">宪法规定的公民基本权利有：</p>
+        <div class="right-tags">
+          <div class="right-tag"><span class="icon">🗳️</span><span>选举权与被选举权</span></div>
+          <div class="right-tag"><span class="icon">💬</span><span>言论·出版·集会自由</span></div>
+          <div class="right-tag"><span class="icon">🕊️</span><span>宗教信仰自由</span></div>
+          <div class="right-tag"><span class="icon">🔑</span><span>人身自由不受侵犯</span></div>
+          <div class="right-tag"><span class="icon">🏠</span><span>住宅不受侵犯</span></div>
+          <div class="right-tag"><span class="icon">📮</span><span>通信自由和通信秘密</span></div>
+          <div class="right-tag"><span class="icon">📚</span><span>受教育权</span></div>
+          <div class="right-tag"><span class="icon">⚖️</span><span>监督权与申诉权</span></div>
+        </div>
+        <p style="font-size:11.5px;color:#7a94a8;margin-top:2mm;text-indent:0;">—— 权利不是天生的，宪法守护我们的每一天。</p>
+      </div>
+
+      <div class="section s3">
+        <span class="section-title">义务记心间</span>
+        <ul class="duty-list">
+          <li>维护国家统一和全国各民族团结</li>
+          <li>遵守宪法和法律，保守国家秘密</li>
+          <li>维护祖国安全、荣誉和利益</li>
+          <li>依法服兵役、依法纳税</li>
+          <li>爱护公共财产，遵守劳动纪律</li>
+          <li>受教育的义务</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 右栏 -->
+    <div class="col">
+      <div class="section s4">
+        <span class="section-title">法治名言</span>
+        <div class="quote"><span class="q-mark">“</span>法不阿贵，绳不绕曲<span class="q-mark">”</span><span class="author">——《韩非子》</span></div>
+        <div class="quote"><span class="q-mark">“</span>法令行则国治，法令弛则国乱<span class="q-mark">”</span><span class="author">——《潜夫论》</span></div>
+        <div class="quote"><span class="q-mark">“</span>法律面前人人平等<span class="q-mark">”</span><span class="author">——宪法精神</span></div>
+      </div>
+
+      <div class="illust">
+        <div class="ill-icon">📖</div>
+        <div class="ill-label">此处可画画：宪法书</div>
+        <div class="ill-note">画一本《中华人民共和国宪法》</div>
+      </div>
+
+      <div class="section s5">
+        <span class="section-title">我身边的法治</span>
+        <div class="write-lines"></div>
+        <div class="write-hint">✍ 请写下你身边的一个法律现象，说说你的感受……</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="illust">
+    <div class="ill-icon">🔨</div>
+    <div class="ill-label">此处可画画：法槌</div>
+    <div class="ill-note">画一把法槌，代表公正裁判</div>
+  </div>
+
+  <div class="footer-line">★ 遵纪守法，从我做起 ★ 学法 · 知法 · 守法 · 用法 ★</div>
+</div>
+</body>
+</html>

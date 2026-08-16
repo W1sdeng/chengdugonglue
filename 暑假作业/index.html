@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暑假作业导航 · 初二年级</title>
+<style>
+  :root {
+    --ink: #1f2a3a;
+    --paper: #f7f5f0;
+    --card: #ffffff;
+    --line: #e2dcd0;
+    --green: #3a7d5a;
+    --blue: #3a6ea5;
+    --orange: #c07a2f;
+    --purple: #7a5ca8;
+    --red: #b04848;
+    --gold: #b08a3a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    background: var(--paper); color: var(--ink); line-height: 1.7;
+    padding: 2.5rem 1rem 4rem;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; }
+  header { text-align:center; margin-bottom: 2.5rem; }
+  header .kicker { font-size:.85rem; letter-spacing:.35em; color:#9a8f7d; }
+  header h1 { font-size: 2.1rem; letter-spacing:.12em; margin:.4rem 0 .3rem; }
+  header p { color:#7a7262; font-size:.95rem; }
+  header .badge {
+    display:inline-block; margin-top:.8rem; padding:.25rem .9rem;
+    border:1px solid var(--gold); color:var(--gold); border-radius:999px;
+    font-size:.8rem;
+  }
+  /* 使用说明 */
+  .usage {
+    background: #fff8ea; border:1px solid #eeddb8; border-radius:12px;
+    padding: 1.1rem 1.4rem; margin-bottom: 2.2rem; font-size:.9rem; color:#6b5d3f;
+  }
+  .usage b { color:#8a6d2f; }
+  /* 科目区块 */
+  .subject { margin-bottom: 2rem; }
+  .subject h2 {
+    display:flex; align-items:center; gap:.6rem;
+    font-size:1.25rem; margin-bottom:.8rem; padding-bottom:.4rem;
+    border-bottom: 3px solid var(--c, var(--blue));
+  }
+  .subject h2 .icon { font-size:1.3rem; }
+  .cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .9rem; }
+  .card {
+    background: var(--card); border:1px solid var(--line); border-radius:12px;
+    padding: 1rem 1.2rem; text-decoration:none; color:var(--ink);
+    transition: transform .12s ease, box-shadow .12s ease;
+    display:flex; flex-direction:column; gap:.35rem;
+    border-left: 6px solid var(--c, var(--blue));
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
+  .card .t { font-weight:700; font-size:1.02rem; }
+  .card .d { font-size:.85rem; color:#7a7262; }
+  .card .tag {
+    align-self:flex-start; font-size:.72rem; padding:.1rem .6rem; border-radius:999px;
+    background:#f0ece3; color:#8a7d63; margin-top:.2rem;
+  }
+  .card.opt { border-left-color:#b8ad96 !important; }
+  .card.opt .tag { background:#f5f2ea; color:#a09377; }
+  .card .tag.must { background:#fdecec; color:#a84545; }
+  footer {
+    margin-top:3rem; text-align:center; font-size:.8rem; color:#a79c88;
+    border-top:1px solid var(--line); padding-top:1.5rem;
+  }
+  @media print {
+    body { background:#fff; padding:1rem; }
+    .card { break-inside: avoid; }
+    .usage { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">SUMMER HOMEWORK 2026</div>
+    <h1>暑假作业 · 全科导航</h1>
+    <p>初二年级（2022 课标新版教材）· 必做 + 选做</p>
+    <div class="badge">所有页面支持 A4 打印</div>
+  </header>
+
+  <div class="usage">
+    <b>使用说明：</b>点击任意卡片打开对应作业页面，浏览器中按 <b>Ctrl+P</b> 即可 A4 打印提交。
+    思维导图、打卡表、手抄报等页面打印效果已专门优化。物理作业待课本页码照片提供后补充。
+  </div>
+
+  <!-- 语文 -->
+  <section class="subject" style="--c:var(--red)">
+    <h2><span class="icon">📖</span> 语文</h2>
+    <div class="cards">
+      <a class="card" href="语文/背默篇目清单.html">
+        <span class="t">背默篇目清单</span>
+        <span class="d">七上~九上全部背默篇目，含作者、主旨、已背勾选</span>
+        <span class="tag must">必做①复习+预习</span>
+      </a>
+      <a class="card" href="语文/生活记录写作-7月篇.html">
+        <span class="t">生活记录写作（7月篇）</span>
+        <span class="d">《外婆家的夏天》范文 · 真实细节 · 约560字</span>
+        <span class="tag must">必做④</span>
+      </a>
+      <a class="card" href="语文/生活记录写作-8月篇.html">
+        <span class="t">生活记录写作（8月篇）</span>
+        <span class="d">《学游泳》范文 · 真实经历 · 约570字</span>
+        <span class="tag must">必做④</span>
+      </a>
+      <a class="card" href="语文/观影记录卡.html">
+        <span class="t">观影记录卡（3部）</span>
+        <span class="d">《当幸福来敲门》《摔跤吧！爸爸》《寻梦环游记》</span>
+        <span class="tag must">必做③</span>
+      </a>
+      <a class="card opt" href="语文/选做-练字帖.html">
+        <span class="t">练字帖（选做）</span>
+        <span class="d">3页田字格 · 15个规范汉字 · 描红+临写</span>
+        <span class="tag">选做</span>
+      </a>
+      <a class="card opt" href="语文/选做-阅读记录.html">
+        <span class="t">阅读记录（选做）</span>
+        <span class="d">推荐书单 + 阅读计划表 + 读书笔记模板</span>
+        <span class="tag">选做</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 数学 -->
+  <section class="subject" style="--c:var(--blue)">
+    <h2><span class="icon">📐</span> 数学</h2>
+    <div class="cards">
+      <a class="card" href="数学/知识点梳理-按章节.html">
+        <span class="t">知识点梳理 · 按章节</span>
+        <span class="d">四学期24章 · 每章知识点+公式+2道例题</span>
+        <span class="tag must">必做</span>
+      </a>
+      <a class="card" href="数学/知识点梳理-按知识主线.html">
+        <span class="t">知识点梳理 · 按知识主线</span>
+        <span class="d">四大模块23讲 · 数→式→方程→函数，含156条公式</span>
+        <span class="tag must">必做（另一角度）</span>
+      </a>
+      <a class="card opt" href="数学/选做-小小理财家.html">
+        <span class="t">小小理财家（选做）</span>
+        <span class="d">收支记账表 + 旅游支出示例 + 统计图表</span>
+        <span class="tag">选做</span>
+      </a>
+      <a class="card opt" href="数学/选做-小小建筑师.html">
+        <span class="t">小小建筑师（选做）</span>
+        <span class="d">房间测量 + 平面图网格纸 + 屏幕尺寸勾股计算</span>
+        <span class="tag">选做</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 英语 -->
+  <section class="subject" style="--c:var(--green)">
+    <h2><span class="icon">🗣️</span> 英语</h2>
+    <div class="cards">
+      <a class="card" href="英语/作文集.html">
+        <span class="t">英语作文集（7篇）</span>
+        <span class="d">封面+7篇80-150词范文 · 对应八下8单元话题</span>
+        <span class="tag must">必做②</span>
+      </a>
+      <a class="card" href="英语/听说练习打卡表.html">
+        <span class="t">听说练习打卡表</span>
+        <span class="d">8/15-8/31 练习记录 + 每周小结 + 素材推荐</span>
+        <span class="tag must">必做①</span>
+      </a>
+      <a class="card opt" href="英语/选做-英文小说读书笔记.html">
+        <span class="t">英文小说读书笔记（选做）</span>
+        <span class="d">书虫二三级书目 + 词汇积累卡 + 笔记模板</span>
+        <span class="tag">选做</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 道法 -->
+  <section class="subject" style="--c:var(--purple)">
+    <h2><span class="icon">⚖️</span> 道德与法治</h2>
+    <div class="cards">
+      <a class="card" href="道法/思维导图-总览.html">
+        <span class="t">五单元思维导图 · 总览</span>
+        <span class="d">交互式 · 可折叠展开 · 宪法→法治中国</span>
+        <span class="tag must">必做</span>
+      </a>
+      <a class="card" href="道法/思维导图-每单元一页.html">
+        <span class="t">思维导图 · 每单元一页</span>
+        <span class="d">5张A4 · 每单元独立成页，打印即交</span>
+        <span class="tag must">必做</span>
+      </a>
+      <a class="card opt" href="道法/选做-法治手抄报.html">
+        <span class="t">法治手抄报（选做）</span>
+        <span class="d">A4手抄报版式 · 5大板块 · 含插图位</span>
+        <span class="tag">选做</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 体育 -->
+  <section class="subject" style="--c:var(--orange)">
+    <h2><span class="icon">🏃</span> 体育</h2>
+    <div class="cards">
+      <a class="card" href="体育/打卡记录表.html">
+        <span class="t">体育打卡记录表</span>
+        <span class="d">8/15-8/31 跑步/武术/蛙跳/跳绳 每日记录</span>
+        <span class="tag must">必做+选做</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 德育 -->
+  <section class="subject" style="--c:var(--gold)">
+    <h2><span class="icon">🏅</span> 年级德育作业</h2>
+    <div class="cards">
+      <a class="card" href="德育PPT/我心中的奥运冠军-潘展乐.html">
+        <span class="t">德育 PPT · 我心中的奥运冠军</span>
+        <span class="d">潘展乐 · 12页演示 · 键盘翻页 · 含演讲词备注</span>
+        <span class="tag must">必做（约8分钟）</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 物理 -->
+  <section class="subject" style="--c:#5b7282">
+    <h2><span class="icon">🔬</span> 物理（待补充）</h2>
+    <div class="cards">
+      <div class="card" style="border-left-color:#b8ad96">
+        <span class="t">保底练习（待课本页码）</span>
+        <span class="d">提供物理课本 p17/p37、38/p62/p81、82/p101、102/p122、123 照片后生成参考答案</span>
+        <span class="tag">暂缓 · 等照片</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    暑假作业导航 · 初二年级 · 2026年8月 · 如内容与课本有出入，以课本为准
+  </footer>
+
+</div>
+</body>
+</html>

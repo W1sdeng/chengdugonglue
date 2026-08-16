@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我心中的奥运冠军 · 潘展乐的奋斗历程</title>
+<style>
+  :root {
+    --deep: #0b1d33;      /* 深海蓝 */
+    --wave: #1e5a8a;      /* 泳池蓝 */
+    --gold: #f2c14e;      /* 金牌金 */
+    --foam: #eaf4fb;      /* 浪花白 */
+    --red: #d84343;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; }
+  body {
+    font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+    background: var(--deep); color: var(--foam); overflow: hidden;
+  }
+  /* ===== 幻灯片容器 ===== */
+  .deck { width:100vw; height:100vh; position:relative; }
+  .slide {
+    position:absolute; inset:0;
+    display:none; flex-direction:column; justify-content:center;
+    padding: 6vh 8vw;
+    opacity:0; transition: opacity .35s ease;
+  }
+  .slide.active { display:flex; opacity:1; }
+  /* 标题页 */
+  .slide.cover { text-align:center; align-items:center; }
+  .slide.cover h1 {
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    font-weight: 800; letter-spacing: .05em; line-height: 1.3;
+    background: linear-gradient(135deg, var(--gold), #fff6d8, var(--gold));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .slide.cover .sub { margin-top: 1.2rem; font-size: clamp(1rem,2.2vw,1.4rem); color:#c9d9e8; letter-spacing:.15em; }
+  .slide.cover .tag { margin-top: 2.5rem; font-size: .95rem; color:#7d97ad; }
+  /* 内容页 */
+  .kicker {
+    font-size: .85rem; color: var(--gold); letter-spacing: .3em;
+    text-transform: uppercase; margin-bottom: .6rem;
+  }
+  .slide h2 {
+    font-size: clamp(1.6rem, 3.8vw, 2.6rem); margin-bottom: 1.4rem;
+    line-height: 1.35;
+  }
+  .slide p, .slide li {
+    font-size: clamp(.95rem, 1.8vw, 1.3rem); line-height: 1.9; color:#dbe7f2;
+  }
+  .slide ul { list-style:none; }
+  .slide li { padding-left: 1.6rem; position:relative; margin-bottom:.7rem; }
+  .slide li::before { content:"▸"; position:absolute; left:0; color: var(--gold); }
+  .slide b, .slide strong { color: var(--gold); }
+  .big-num {
+    font-size: clamp(3rem, 10vw, 7rem); font-weight: 900;
+    color: var(--gold); line-height: 1.1;
+  }
+  .big-num small { display:block; font-size: .28em; font-weight: 400; color:#9db8cc; margin-top:.2rem; }
+  .quote {
+    border-left: 4px solid var(--gold); padding-left: 1.5rem;
+    font-style: normal; font-size: clamp(1.1rem, 2.4vw, 1.7rem); line-height: 1.8;
+  }
+  .quote .who { display:block; margin-top: .8rem; font-size: .7em; color:#9db8cc; }
+  /* 时间线 */
+  .timeline { display:flex; flex-wrap:wrap; gap: 1.5rem; }
+  .tl-item { flex:1 1 30%; background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 1.2rem 1.3rem; }
+  .tl-item .year { color: var(--gold); font-weight:800; font-size: 1.2rem; margin-bottom:.4rem; }
+  .tl-item p { font-size: .92rem; line-height:1.7; }
+  /* 两栏 */
+  .cols { display:flex; gap: 2.5rem; }
+  .cols > div { flex:1; }
+  /* 底部导航 */
+  .controls {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 10;
+    display:flex; align-items:center; justify-content:center; gap: 1.2rem;
+    padding: .7rem; background: rgba(11,29,51,.75); backdrop-filter: blur(6px);
+    font-size: .8rem; color:#8fa8bb;
+  }
+  .controls .dots { display:flex; gap: .4rem; }
+  .controls .dot { width: 8px; height: 8px; border-radius: 50%; background:#3b5872; cursor:pointer; }
+  .controls .dot.active { background: var(--gold); }
+  .controls button {
+    background:none; border:none; color:#cfe0ee; font-size: 1.1rem;
+    cursor:pointer; padding: 0 .3rem; line-height:1;
+  }
+  .controls button:hover { color: var(--gold); }
+  .controls .page { color:#7d97ad; }
+  /* 演讲词备注 */
+  .notes {
+    position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+    width: 330px; max-width: 32vw; background:#fdfaf3; color:#333;
+    border-radius: 10px 0 0 10px; box-shadow: -4px 4px 20px rgba(0,0,0,.4);
+    padding: 1.2rem 1.4rem; font-size: .82rem; line-height: 1.7;
+    z-index: 20; max-height: 70vh; overflow:auto; display:none;
+  }
+  .notes.show { display:block; }
+  .notes h4 { color: var(--wave); margin-bottom: .5rem; font-size: .9rem; }
+  .notes-btn {
+    position:fixed; right: 1rem; top: 1rem; z-index:30;
+    background: rgba(242,193,78,.15); border: 1px solid var(--gold); color: var(--gold);
+    border-radius: 20px; padding: .3rem .9rem; font-size: .8rem; cursor:pointer;
+  }
+  .notes-btn:hover { background: rgba(242,193,78,.3); }
+  /* 打印 */
+  @media print {
+    body { overflow: visible; }
+    .deck { height: auto; }
+    .slide { position: relative; inset: auto; display:flex !important; opacity:1 !important; page-break-after: always; min-height: 100vh; }
+    .controls, .notes, .notes-btn { display:none !important; }
+  }
+  @page { size: 16:9 landscape; }
+  @page { size: 297mm 167mm landscape; }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- 1 封面 -->
+  <section class="slide cover active">
+    <div class="kicker">德育作业 · 我心中的奥运冠军</div>
+    <h1>潘展乐：<br>游出中国速度</h1>
+    <div class="sub">从默默无闻到打破世界纪录的 46 秒 40</div>
+    <div class="tag">初二年级 · 2026 年暑假</div>
+  </section>
+
+  <!-- 2 他是谁 -->
+  <section class="slide">
+    <div class="kicker">认识他</div>
+    <h2>潘展乐是谁？</h2>
+    <ul>
+      <li><b>2004 年 8 月</b>出生于浙江温州，4 岁开始学游泳</li>
+      <li>主项：<b>男子 100 米自由泳、自由泳接力</b></li>
+      <li>2024 年巴黎奥运会，<b>46 秒 40</b> 打破世界纪录夺得金牌，中国队该小项历史首金</li>
+      <li>同届拿下 4×100 米混合泳接力金牌，<b>打破了美国队 40 年的垄断</b></li>
+    </ul>
+  </section>
+
+  <!-- 3 起点 -->
+  <section class="slide">
+    <div class="kicker">起点</div>
+    <h2>从怕水到下水</h2>
+    <p>潘展乐小时候身体不算壮，家里送他去学游泳，<b>起初见到水就紧张</b>。教练让他在池边练打腿、练憋气，一节课下来常常哭鼻子。</p>
+    <p style="margin-top:1.2rem;">可哭归哭，第二天他还是准时出现在泳池边。<b>训练没有捷径，只有一次一次下水</b>——这是他后来总爱说的那句话。</p>
+  </section>
+
+  <!-- 4 数字 -->
+  <section class="slide">
+    <div class="kicker">数字里的付出</div>
+    <h2>冠军背后</h2>
+    <div class="cols">
+      <div class="big-num">1.5<small>万米——每天训练量（自由泳+打腿+陆上力量）</small></div>
+      <div class="big-num">7<small>年——从入选省队到登顶奥运，期间几乎全年无休</small></div>
+      <div class="big-num">10<small>年+——坚持同一件事：把自己泡在泳池里</small></div>
+    </div>
+  </section>
+
+  <!-- 5 低谷 -->
+  <section class="slide">
+    <div class="kicker">低谷</div>
+    <h2>他也被质疑过</h2>
+    <ul>
+      <li>2023 年世锦赛，100 米自由泳<b>只游到第 4 名</b>，无缘奖牌</li>
+      <li>网上有人说他「上限不高」，教练团队反复调整训练方案</li>
+      <li>他自己回忆：那段时间<b>每天看比赛录像看到凌晨</b>，找每一处打腿、转身的差距</li>
+    </ul>
+  </section>
+
+  <!-- 6 转折 -->
+  <section class="slide">
+    <div class="kicker">转折</div>
+    <h2>把质疑游回水里</h2>
+    <p>他没有回应质疑，而是把每一句话<b>化成训练量</b>：改进出发、强化转身、加大划水效率。</p>
+    <p style="margin-top:1rem;">2024 年多哈世锦赛，他游出 46 秒 80，<b>首次站上世界冠军领奖台</b>——但他说：「这才刚刚开始。」</p>
+  </section>
+
+  <!-- 7 巅峰 -->
+  <section class="slide">
+    <div class="kicker">巅峰</div>
+    <h2>巴黎之夜：46 秒 40</h2>
+    <div class="big-num">46.40<small>秒——巴黎奥运会男子 100 米自由泳决赛成绩，打破世界纪录</small></div>
+    <p style="margin-top:1.2rem;">触壁那一刻，全场沸腾。<b>中国游泳在这个「含金量最高」的项目上，第一次站上最高领奖台。</b></p>
+  </section>
+
+  <!-- 8 团战 -->
+  <section class="slide">
+    <div class="kicker">团队</div>
+    <h2>一个人，也是四个人</h2>
+    <ul>
+      <li>4×100 米混合泳接力，中国队<b>最后一棒</b>由潘展乐出战</li>
+      <li>他从第 3 追到第 1，<b>单棒游出 45 秒 92</b>，历史上首次有人游进 46 秒</li>
+      <li>中国队夺金，<b>终结美国队该项目 40 连冠</b></li>
+    </ul>
+    <p style="margin-top:1rem;">他说：金牌是四个人的，<b>但每一棒都要把最好的自己游出来</b>。</p>
+  </section>
+
+  <!-- 9 他说 -->
+  <section class="slide">
+    <div class="kicker">他说</div>
+    <h2>潘展乐的话</h2>
+    <div class="quote">
+      「纪录就是拿来破的。我现在想做的，就是<b>把我能游到的每一个 46 秒</b>都留在泳池里。」
+      <span class="who">—— 潘展乐，赛后采访</span>
+    </div>
+  </section>
+
+  <!-- 10 时间线 -->
+  <section class="slide">
+    <div class="kicker">成长时间线</div>
+    <h2>十年，一件事</h2>
+    <div class="timeline">
+      <div class="tl-item"><div class="year">2008</div><p>4 岁，温州，第一次下水学游泳</p></div>
+      <div class="tl-item"><div class="year">2014</div><p>入选浙江省队，开始系统训练</p></div>
+      <div class="tl-item"><div class="year">2019</div><p>全国青年纪录，崭露头角</p></div>
+      <div class="tl-item"><div class="year">2023</div><p>世锦赛第 4 名，低谷与质疑</p></div>
+      <div class="tl-item"><div class="year">2024.2</div><p>多哈世锦赛夺冠，破 47 秒</p></div>
+      <div class="tl-item"><div class="year">2024.8</div><p>巴黎奥运 46"40 破世界纪录夺金</p></div>
+    </div>
+  </section>
+
+  <!-- 11 启示 -->
+  <section class="slide">
+    <div class="kicker">给我的启示</div>
+    <h2>平凡人身上的冠军品质</h2>
+    <ul>
+      <li><b>坚持</b>：十年如一日做同一件事，是成功最朴素的前提</li>
+      <li><b>专注</b>：面对质疑，不辩解，把力气花在训练上</li>
+      <li><b>团队</b>：个人荣誉背后，是教练、队友和家人的托举</li>
+      <li><b>平常心</b>：破纪录后他说「这只是开始」——把成功当作新的起点</li>
+    </ul>
+  </section>
+
+  <!-- 12 结尾 -->
+  <section class="slide cover">
+    <div class="kicker">谢谢聆听</div>
+    <h1>我们每个人<br>都可以游出<br>自己的 46 秒 40</h1>
+    <div class="tag">我心中的奥运冠军 · 潘展乐 · 奋斗的艰辛历程</div>
+  </section>
+
+</div>
+
+<!-- 演讲词备注 -->
+<div class="notes" id="notes">
+  <h4>📝 演讲词（第 <span id="notePage">1</span> 页）</h4>
+  <div id="noteText"></div>
+</div>
+<button class="notes-btn" onclick="toggleNotes()">📝 演讲词</button>
+
+<!-- 底部导航 -->
+<div class="controls">
+  <button onclick="nav(-1)">‹</button>
+  <span class="dots" id="dots"></span>
+  <button onclick="nav(1)">›</button>
+  <span class="page" id="pageInfo">1 / 12</span>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const NOTES = [
+    "大家好！今天我给大家介绍的奥运冠军，是巴黎奥运会男子100米自由泳金牌得主——潘展乐。他游出了46秒40，打破世界纪录。今天我想讲一讲，这个纪录背后十年的路。",
+    "潘展乐2004年出生在浙江温州，4岁开始学游泳。他主攻100米自由泳，2024年巴黎奥运会以46秒40打破世界纪录夺金，这是中国队在男子百米自由泳上的历史首金。",
+    "他小时候其实怕水，一进水就紧张，经常练着练着就哭了。但第二天他还会准时到泳池。教练说，这孩子天赋一般，但从不缺席。",
+    "给大家几个数字：他每天训练量约1.5万米，相当于在50米泳池里游300个来回；从进省队到奥运夺冠，七年几乎全年无休。冠军不是一天练出来的。",
+    "他也经历过低谷。2023年世锦赛他只游了第4名，网上有人说他上限不高。那段时间他每天看录像看到凌晨，找自己打腿、转身的每一个差距。",
+    "他没有在网上回击，而是把质疑变成训练量：改出发、练转身、提高划水效率。2024年多哈世锦赛他游出46秒80，第一次成为世界冠军。",
+    "巴黎奥运会决赛，他以46秒40打破世界纪录夺冠。中国游泳队在这个含金量最高的项目上，第一次站上最高领奖台。",
+    "更精彩的是接力：4×100米混合泳最后一棒，他从第三追到第一，单棒游出45秒92，人类第一次游进46秒，也终结了美国队40年的垄断。",
+    "潘展乐自己说过一句话：纪录就是拿来破的。他说想把每一个46秒都留在泳池里。这种把目标放在行动上的态度，特别值得我们学习。",
+    "回顾他的成长：2008年4岁下水，2014年进省队，2023年低谷，2024年2月多哈夺冠，同年8月巴黎破世界纪录。十年，他只做了一件事——游泳。",
+    "从他的故事里我学到四点：坚持，十年如一日；专注，面对质疑不辩解，把力气花在训练上；团队，金牌背后是教练、队友、家人的托举；平常心，破纪录后他说这只是开始。",
+    "最后我想说，我们每个人不一定都能当冠军，但都可以像他一样，找到自己热爱的事，然后认认真真坚持做下去。谢谢大家！"
+  ];
+
+  let idx = 0;
+
+  function render() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+    document.getElementById('pageInfo').textContent = (idx + 1) + ' / ' + slides.length;
+    const dots = document.getElementById('dots');
+    dots.innerHTML = '';
+    slides.forEach((_, i) => {
+      const d = document.createElement('span');
+      d.className = 'dot' + (i === idx ? ' active' : '');
+      d.onclick = () => { idx = i; render(); };
+      dots.appendChild(d);
+    });
+    document.getElementById('notePage').textContent = idx + 1;
+    document.getElementById('noteText').textContent = NOTES[idx] || '';
+  }
+
+  function nav(d) { idx = Math.max(0, Math.min(slides.length - 1, idx + d)); render(); }
+  function toggleNotes() { document.getElementById('notes').classList.toggle('show'); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); nav(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); nav(-1); }
+    if (e.key === 'Home') { idx = 0; render(); }
+    if (e.key === 'End') { idx = slides.length - 1; render(); }
+  });
+
+  // 支持 URL 锚点跳页（如 index.html#3 跳到第3页）
+  function readHash() {
+    const m = location.hash.match(/#(\d+)/);
+    if (m) { idx = Math.max(0, Math.min(slides.length - 1, parseInt(m[1], 10) - 1)); render(); }
+  }
+  window.addEventListener('hashchange', readHash);
+
+  render();
+  readHash();
+</script>
+</body>
+</html>

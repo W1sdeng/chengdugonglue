@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暑期练字帖（选做）</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "KaiTi", "STKaiti", "楷体", serif; background: #e8e8e8; }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    background: #fff;
+    padding: 18mm 16mm 12mm 16mm;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  }
+  header { text-align: center; margin-bottom: 6mm; }
+  header h1 { font-size: 26pt; letter-spacing: 6px; }
+  header .note { font-size: 11pt; color: #444; margin-top: 2mm; }
+  .cell {
+    width: 26mm;
+    height: 26mm;
+    position: relative;
+    border: 0.5px solid #bbb;
+    margin: 0 auto;
+  }
+  .cell::before, .cell::after {
+    content: "";
+    position: absolute;
+    background: rgba(0,0,0,.22);
+  }
+  .cell::before { /* 横中线 */
+    left: 0; right: 0; top: 50%; height: 0.5px; transform: translateY(-50%);
+  }
+  .cell::after { /* 竖中线 */
+    top: 0; bottom: 0; left: 50%; width: 0.5px; transform: translateX(-50%);
+  }
+  .cell.diag::before, .cell.diag::after {
+    width: 1.5px; height: 1.5px; background: none;
+  }
+  .cell.diag { background:
+      linear-gradient(to top right, transparent calc(50% - 0.5px), rgba(0,0,0,.18) calc(50% - 0.5px), rgba(0,0,0,.18) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+      linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(0,0,0,.18) calc(50% - 0.5px), rgba(0,0,0,.18) calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 26mm);
+    justify-content: center;
+    gap: 2mm;
+    margin: 4mm 0 8mm 0;
+  }
+  .char-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sample {
+    width: 26mm; height: 26mm;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52pt;
+    color: rgba(0,0,0,.15);
+  }
+  .empty {
+    width: 26mm; height: 26mm;
+  }
+  .char-label {
+    font-size: 9pt;
+    color: #888;
+    margin-top: 1mm;
+  }
+  footer {
+    margin-top: 8mm;
+    font-size: 12pt;
+    color: #333;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  footer .line { border-bottom: 0.5px solid #333; display: inline-block; width: 40mm; }
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 2mm;
+  }
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ 第一页 ============ -->
+  <div class="page">
+    <header>
+      <h1>暑期练字帖（选做）</h1>
+      <div class="note">每天练写一页，可用楷书 / 行楷临摹。浅色字为描红字样，空行为临写。写一手好字，受益一生。</div>
+    </header>
+
+    <div class="row">
+      <div class="grid">
+        <div class="char-cell"><div class="cell diag"><div class="sample">德</div></div><div class="char-label">德</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">法</div></div><div class="char-label">法</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">律</div></div><div class="char-label">律</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">诚</div></div><div class="char-label">诚</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">信</div></div><div class="char-label">信</div></div>
+      </div>
+      <div class="grid">
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+      </div>
+      <div class="grid">
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+      </div>
+    </div>
+
+    <footer>
+      日期 ________&nbsp;&nbsp;&nbsp;&nbsp;家长签字 ________
+    </footer>
+  </div>
+
+  <!-- ============ 第二页 ============ -->
+  <div class="page">
+    <header>
+      <h1>暑期练字帖（选做）</h1>
+      <div class="note">每天练写一页，可用楷书 / 行楷临摹。浅色字为描红字样，空行为临写。写一手好字，受益一生。</div>
+    </header>
+
+    <div class="row">
+      <div class="grid">
+        <div class="char-cell"><div class="cell diag"><div class="sample">勤</div></div><div class="char-label">勤</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">恒</div></div><div class="char-label">恒</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">思</div></div><div class="char-label">思</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">学</div></div><div class="char-label">学</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">问</div></div><div class="char-label">问</div></div>
+      </div>
+      <div class="grid">
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+      </div>
+      <div class="grid">
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+      </div>
+    </div>
+
+    <footer>
+      日期 ________&nbsp;&nbsp;&nbsp;&nbsp;家长签字 ________
+    </footer>
+  </div>
+
+  <!-- ============ 第三页 ============ -->
+  <div class="page">
+    <header>
+      <h1>暑期练字帖（选做）</h1>
+      <div class="note">每天练写一页，可用楷书 / 行楷临摹。浅色字为描红字样，空行为临写。写一手好字，受益一生。</div>
+    </header>
+
+    <div class="row">
+      <div class="grid">
+        <div class="char-cell"><div class="cell diag"><div class="sample">志</div></div><div class="char-label">志</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">行</div></div><div class="char-label">行</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">真</div></div><div class="char-label">真</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">善</div></div><div class="char-label">善</div></div>
+        <div class="char-cell"><div class="cell diag"><div class="sample">美</div></div><div class="char-label">美</div></div>
+      </div>
+      <div class="grid">
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+      </div>
+      <div class="grid">
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+        <div class="char-cell"><div class="cell"><div class="empty"></div></div><div class="char-label"></div></div>
+      </div>
+    </div>
+
+    <footer>
+      日期 ________&nbsp;&nbsp;&nbsp;&nbsp;家长签字 ________
+    </footer>
+  </div>
+
+</body>
+</html>

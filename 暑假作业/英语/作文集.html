@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>My English Writing Collection 英语作文集</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ink: #33413a;
+  --green: #3d7a5c;
+  --green-d: #2f6046;
+  --green-soft: #e8f1ea;
+  --gold: #b98d4a;
+  --gold-soft: #f7efe0;
+  --cream: #fbf7ec;
+  --line: #d9d2c0;
+}
+html, body { background: #ded9cd; }
+body { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; color: var(--ink); }
+.page {
+  width: 210mm; height: 297mm; margin: 0 auto 24px; background: #ffffff;
+  padding: 15mm 17mm; position: relative; overflow: hidden;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.18);
+  page-break-after: always; break-after: page;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* ---------- 封面 / 封底 ---------- */
+.cover { background: var(--cream); padding: 0; }
+.cover-frame { position: absolute; left: 12mm; top: 12mm; right: 12mm; bottom: 12mm; border: 1.5px solid var(--green); }
+.cover-inner { position: absolute; left: 3mm; top: 3mm; right: 3mm; bottom: 3mm; border: 1px solid var(--gold); border-radius: 2mm; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.cover-eyebrow { display: flex; align-items: center; gap: 6mm; font-family: Georgia, serif; letter-spacing: 2px; font-size: 11px; color: var(--gold); text-transform: uppercase; }
+.cover-eyebrow::before, .cover-eyebrow::after { content: ""; width: 26mm; height: 1px; background: var(--gold); }
+.cover-title { font-family: Georgia, "Times New Roman", serif; font-size: 44px; color: var(--green-d); margin-top: 10mm; line-height: 1.15; letter-spacing: 1px; }
+.cover-sub { margin-top: 5mm; font-size: 14px; color: #8a7f67; letter-spacing: 6px; }
+.cover-badge { margin-top: 9mm; border: 1px solid var(--gold); color: var(--gold); padding: 3mm 9mm; border-radius: 8mm; font-family: Georgia, serif; font-size: 13px; background: #ffffff; }
+.cover-badge b { color: var(--green); }
+.cover-fields { margin-top: 13mm; width: 76%; display: flex; flex-direction: column; gap: 7mm; }
+.field { display: flex; align-items: baseline; font-size: 14px; }
+.field .label { width: 40mm; text-align: right; margin-right: 5mm; color: #7a715d; }
+.field .blank { flex: 1; border-bottom: 1px solid #b7ab8c; }
+.cover-foot { position: absolute; bottom: 7mm; left: 0; right: 0; text-align: center; font-size: 11px; color: #a0947a; }
+.back-quote { font-family: Georgia, "Times New Roman", serif; font-size: 24px; font-style: italic; color: var(--green-d); margin-top: 8mm; }
+.back-quote-sub { margin-top: 6mm; font-size: 13px; color: #8a7f67; letter-spacing: 3px; }
+.back-fields { margin-top: 16mm; width: 60%; display: flex; flex-direction: column; gap: 7mm; }
+
+/* ---------- 作文页 ---------- */
+.essay { background: #ffffff; }
+.essay::before, .essay::after { content: ""; position: absolute; width: 9mm; height: 9mm; }
+.essay::before { top: 6mm; left: 6mm; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.essay::after { bottom: 6mm; right: 6mm; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+.essay-head { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 4mm; border-bottom: 2px solid var(--green); }
+.essay-num { display: inline-block; font-family: Georgia, serif; font-size: 12px; letter-spacing: 1px; color: var(--green); border: 1px solid var(--green); padding: 1.4mm 4.5mm; border-radius: 6mm; }
+.essay-title { font-family: Georgia, "Times New Roman", serif; font-size: 26px; color: var(--green-d); margin-top: 3.2mm; }
+.word-count { font-family: Georgia, serif; font-size: 13px; color: var(--gold); border: 1px dashed var(--gold); padding: 2mm 4.5mm; border-radius: 4mm; background: var(--gold-soft); white-space: nowrap; }
+.essay-meta { margin-top: 3.5mm; font-size: 11.5px; color: #6f6650; line-height: 1.7; }
+.essay-meta b { color: var(--green); font-weight: 600; }
+.tips { margin-top: 5mm; background: var(--green-soft); border-left: 3px solid var(--green); padding: 3.5mm 5mm; border-radius: 1mm; }
+.tips h3 { font-size: 12.5px; color: var(--green-d); margin-bottom: 2mm; letter-spacing: 1px; }
+.tips ul { list-style: none; }
+.tips li { font-size: 11.5px; line-height: 1.75; padding-left: 6mm; position: relative; color: #3d463f; }
+.tips li::before { content: "\2022"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+.content-row { display: flex; gap: 6mm; margin-top: 6mm; }
+.body-col { flex: 1.55; }
+.body-col p { font-family: Georgia, "Times New Roman", serif; font-size: 14.5px; line-height: 1.85; text-align: justify; color: #2b332e; }
+.pic-col { flex: 1; }
+.pic-frame { width: 100%; height: 86mm; border: 1.2px dashed var(--gold); border-radius: 3mm; background: #fdfaf2; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 11px; color: #a3956f; line-height: 2; padding: 4mm; }
+.pic-frame .en { font-family: Georgia, serif; font-size: 13px; color: var(--gold); letter-spacing: 1px; }
+.hl { background: #fdf1d7; border-bottom: 1.5px solid var(--gold); padding: 0 1px; border-radius: 1px; }
+.hl-note { margin-top: 6mm; border: 1px solid var(--line); border-top: 3px solid var(--gold); padding: 3.5mm 5mm; background: #fffdf6; }
+.hl-note h3 { font-size: 12.5px; color: var(--gold); margin-bottom: 2.5mm; letter-spacing: 1px; }
+.hl-note ul { list-style: none; }
+.hl-note li { font-size: 11.5px; line-height: 1.8; color: #4a453a; }
+.hl-note li b { color: var(--green); font-weight: 600; }
+
+@media print {
+  html, body { background: #ffffff; }
+  .page { margin: 0; box-shadow: none; }
+}
+@page { size: A4; margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- 封面 -->
+<section class="page cover">
+  <div class="cover-frame">
+    <div class="cover-inner">
+      <div class="cover-eyebrow">English Writing Collection</div>
+      <h1 class="cover-title">My English<br>Writing Collection</h1>
+      <p class="cover-sub">暑假英语作文集</p>
+      <div class="cover-badge"><b>7</b> Essays &middot; 80-150 words each</div>
+      <div class="cover-fields">
+        <div class="field"><span class="label">姓名 Name</span><span class="blank"></span></div>
+        <div class="field"><span class="label">班级 Class</span><span class="blank"></span></div>
+        <div class="field"><span class="label">日期 Date</span><span class="blank"></span></div>
+      </div>
+      <p class="cover-foot">基于人教版（Go for it!）八年级下册 &middot; 2026 暑假</p>
+    </div>
+  </div>
+</section>
+
+<!-- 作文 1 -->
+<section class="page essay">
+  <header class="essay-head">
+    <div>
+      <span class="essay-num">Essay 1</span>
+      <h2 class="essay-title">My Free Time</h2>
+    </div>
+    <div class="word-count">90 words</div>
+  </header>
+  <p class="essay-meta">对应 <b>Unit 1 Time to Relax</b>（休闲放松）&nbsp;&nbsp;语法重点：动词不定式 <b>like / want to do</b></p>
+  <div class="tips">
+    <h3>写作提示</h3>
+    <ul>
+      <li>想一想你平时放学后和周末都做什么：运动、看电视、读书、画画……</li>
+      <li>用 I like to ... 和 I want to ... 说出自己喜欢和想做的事。</li>
+      <li>写一两句为什么喜欢，或这件事对你的好处。</li>
+      <li>结尾用一句话总结：自由时间很重要。</li>
+    </ul>
+  </div>
+  <div class="content-row">
+    <div class="body-col">
+      <p>Everyone needs free time. After school, <span class="hl">I like to play basketball</span> with my friends. We usually play on the playground for an hour. <span class="hl">I want to be a good player</span>, so I practice every day. Sometimes I like to watch TV, but my mother <span class="hl">doesn't want me to watch</span> too much. She says I need to read books. <span class="hl">I want to learn to play the guitar</span> this summer. It is difficult but fun. Free time makes me happy. <span class="hl">I think it is important to have some free time</span> every day.</p>
+    </div>
+    <div class="pic-col">
+      <div class="pic-frame">
+        <div>Picture Place<br>（可贴照片或自己画图）</div>
+      </div>
+    </div>
+  </div>
+  <div class="hl-note">
+    <h3>亮点句型 Highlighted Sentences</h3>
+    <ul>
+      <li><b>I like to play basketball</b> —— like to do sth. 表达“喜欢做某事”</li>
+      <li><b>I want to be a good player</b> / <b>I want to learn to play the guitar</b> —— want to do sth. 表达“想要做某事”</li>
+      <li><b>my mother doesn't want me to watch too much</b> —— want sb. to do sth. “想让某人做某事”</li>
+      <li><b>It is important to have some free time</b> —— It is + 形容词 + to do sth. 句型</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 作文 2 -->
+<section class="page essay">
+  <header class="essay-head">
+    <div>
+      <span class="essay-num">Essay 2</span>
+      <h2 class="essay-title">How to Stay Healthy</h2>
+    </div>
+    <div class="word-count">103 words</div>
+  </header>
+  <p class="essay-meta">对应 <b>Unit 2 Stay Healthy</b>（保持健康）&nbsp;&nbsp;语法重点：<b>should</b> 提建议 &middot; 反身代词</p>
+  <div class="tips">
+    <h3>写作提示</h3>
+    <ul>
+      <li>先总说健康很重要，再分点写建议：饮食、运动、睡眠、少玩手机。</li>
+      <li>用 should / shouldn't 提出建议。</li>
+      <li>加进反身代词（by myself, ourselves, enjoy themselves）让句子更地道。</li>
+      <li>结尾鼓励大家养成好习惯。</li>
+    </ul>
+  </div>
+  <div class="content-row">
+    <div class="body-col">
+      <p>We all want to stay healthy. Here are my ideas. First, <span class="hl">you should eat healthy food</span>. You should eat more fruit and vegetables, and you should drink milk every day. My mother always tells me to drink milk. Second, you should exercise. I usually run in the morning <span class="hl">by myself</span>. Sometimes <span class="hl">I hurt myself</span>, so I should be careful. Third, you should go to bed early. Don't stay up too late. Also, you shouldn't spend too much time on your phone. <span class="hl">We should take care of ourselves</span>. If you do these things, you will be healthy and strong. <span class="hl">I hope everyone can enjoy themselves</span>.</p>
+    </div>
+    <div class="pic-col">
+      <div class="pic-frame">
+        <div>Picture Place<br>（可贴照片或自己画图）</div>
+      </div>
+    </div>
+  </div>
+  <div class="hl-note">
+    <h3>亮点句型 Highlighted Sentences</h3>
+    <ul>
+      <li><b>you should eat healthy food</b> / <b>you should exercise</b> —— should + 动词原形 提出建议</li>
+      <li><b>I run in the morning by myself</b> —— 反身代词 myself（by oneself 独自）</li>
+      <li><b>I hurt myself</b> —— 反身代词 myself 作宾语</li>
+      <li><b>take care of ourselves</b> / <b>everyone can enjoy themselves</b> —— 反身代词 ourselves / themselves</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 作文 3 -->
+<section class="page essay">
+  <header class="essay-head">
+    <div>
+      <span class="essay-num">Essay 3</span>
+      <h2 class="essay-title">Growing Up</h2>
+    </div>
+    <div class="word-count">111 words</div>
+  </header>
+  <p class="essay-meta">对应 <b>Unit 3 Growing Up</b>（成长）&nbsp;&nbsp;语法重点：代词与<b>不定代词</b></p>
+  <div class="tips">
+    <h3>写作提示</h3>
+    <ul>
+      <li>写成长中的变化：长高了、不再怕黑、能做更多事、学会帮助家人。</li>
+      <li>用 used to 对比“过去”和“现在”。</li>
+      <li>提到父母和老师的帮助，表达感谢。</li>
+      <li>结尾表达自己愿意继续成长的心愿。</li>
+    </ul>
+  </div>
+  <div class="content-row">
+    <div class="body-col">
+      <p>Growing up is not easy, but I have learned a lot. <span class="hl">When I was a child, I was afraid of the dark</span>. I couldn't sleep alone. Now I can do many things <span class="hl">by myself</span>. <span class="hl">I used to be short and thin</span>. Now <span class="hl">I am taller than before</span>. My clothes don't fit me any more. I know more about the world, but I also have more problems. Sometimes <span class="hl">I don't know what to do</span>. But my parents and teachers always help me. They tell me that <span class="hl">everyone has something to learn</span>. I think I am growing up. I want to do something useful for my family. Growing up is a beautiful thing.</p>
+    </div>
+    <div class="pic-col">
+      <div class="pic-frame">
+        <div>Picture Place<br>（可贴照片或自己画图）</div>
+      </div>
+    </div>
+  </div>
+  <div class="hl-note">
+    <h3>亮点句型 Highlighted Sentences</h3>
+    <ul>
+      <li><b>I used to be short and thin</b> —— used to do sth. 表示“过去常常……”</li>
+      <li><b>I am taller than before</b> —— 形容词比较级（taller than）</li>
+      <li><b>everyone has something to learn</b> —— 不定代词 everyone / something</li>
+      <li><b>I don't know what to do</b> —— 疑问词 + 动词不定式（what to do）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 作文 4 -->
+<section class="page essay">
+  <header class="essay-head">
+    <div>
+      <span class="essay-num">Essay 4</span>
+      <h2 class="essay-title">A Wonderful Place</h2>
+    </div>
+    <div class="word-count">98 words</div>
+  </header>
+  <p class="essay-meta">对应 <b>Unit 4 The Wonders of Nature</b>（自然奇观）&nbsp;&nbsp;语法重点：<b>被动语态</b> &middot; 数词</p>
+  <div class="tips">
+    <h3>写作提示</h3>
+    <ul>
+      <li>介绍一处自然景点（桂林 / 黄山 / 长城），说它在哪里、长什么样。</li>
+      <li>重点用被动语态：be covered with / be known as / be visited by。</li>
+      <li>写一件在那里做的事：坐船、爬山、拍照。</li>
+      <li>结尾表达感受，并说“想再去一次”。</li>
+    </ul>
+  </div>
+  <div class="content-row">
+    <div class="body-col">
+      <p>Last summer, I went to Guilin with my parents. Guilin is a wonderful place. <span class="hl">The mountains there are covered with green trees</span>. The water is clean and clear. <span class="hl">Guilin is known as the most beautiful city in China</span>. Every year, <span class="hl">it is visited by thousands of tourists</span>. We took a boat on the Li River. From the boat, we could see many hills. Some of them look like animals. My mother told me that <span class="hl">the mountains were formed many years ago</span>. I took many photos there. I love Guilin, and I want to visit it again some day.</p>
+    </div>
+    <div class="pic-col">
+      <div class="pic-frame">
+        <div>Picture Place<br>（可贴照片或自己画图）</div>
+      </div>
+    </div>
+  </div>
+  <div class="hl-note">
+    <h3>亮点句型 Highlighted Sentences</h3>
+    <ul>
+      <li><b>The mountains are covered with green trees</b> —— 被动语态 be covered with“被……覆盖”</li>
+      <li><b>Guilin is known as the most beautiful city in China</b> —— 被动语态 be known as“以……闻名”</li>
+      <li><b>it is visited by thousands of tourists</b> —— 被动语态 be visited by + 动作发出者</li>
+      <li><b>the mountains were formed many years ago</b> —— 一般过去时的被动语态</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 作文 5 -->
+<section class="page essay">
+  <header class="essay-head">
+    <div>
+      <span class="essay-num">Essay 5</span>
+      <h2 class="essay-title">A Stormy Day</h2>
+    </div>
+    <div class="word-count">116 words</div>
+  </header>
+  <p class="essay-meta">对应 <b>Unit 5 Nature's Temper</b>（自然灾害）&nbsp;&nbsp;语法重点：<b>过去进行时</b> &middot; when / while</p>
+  <div class="tips">
+    <h3>写作提示</h3>
+    <ul>
+      <li>写一次下雨或台风天的经历，全篇用过去时。</li>
+      <li>用过去进行时描述“当时正在做的事”：was/were doing ... when ...</li>
+      <li>用 when / while 把两件事连在一起。</li>
+      <li>写天气的变化和家人的反应，结尾写天气如何好转。</li>
+    </ul>
+  </div>
+  <div class="content-row">
+    <div class="body-col">
+      <p>Last Friday, it was a stormy day. In the afternoon, <span class="hl">I was doing my homework at home when it started to rain</span>. At first, it rained a little. But soon, <span class="hl">the wind was blowing very hard</span>, and <span class="hl">the rain was falling heavily</span>. <span class="hl">While I was looking out of the window, a tree fell down</span> on the road. I was very scared. My mother was cooking dinner in the kitchen. She told me not to be afraid. <span class="hl">While we were eating, the light went out</span>. Everything was dark. We had to eat by candlelight. I thought it was a special dinner. After an hour, the storm stopped. The rain was over, and the sky was clear again.</p>
+    </div>
+    <div class="pic-col">
+      <div class="pic-frame">
+        <div>Picture Place<br>（可贴照片或自己画图）</div>
+      </div>
+    </div>
+  </div>
+  <div class="hl-note">
+    <h3>亮点句型 Highlighted Sentences</h3>
+    <ul>
+      <li><b>I was doing my homework when it started to rain</b> —— 过去进行时 + when + 一般过去时</li>
+      <li><b>The wind was blowing very hard</b> / <b>the rain was falling heavily</b> —— 过去进行时描述当时的情景</li>
+      <li><b>While I was looking out of the window, a tree fell down</b> —— while + 过去进行时</li>
+      <li><b>While we were eating, the light went out</b> —— while 引导的时间状语从句</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 作文 6 -->
+<section class="page essay">
+  <header class="essay-head">
+    <div>
+      <span class="essay-num">Essay 6</span>
+      <h2 class="essay-title">A Good Book</h2>
+    </div>
+    <div class="word-count">117 words</div>
+  </header>
+  <p class="essay-meta">对应 <b>Unit 7 A Good Read</b>（好书阅读）&nbsp;&nbsp;语法重点：介绍与评价书籍的<b>常用句型</b></p>
+  <div class="tips">
+    <h3>写作提示</h3>
+    <ul>
+      <li>选一本读过的书（西游记 / 哈利波特 / 鲁滨逊漂流记），写出书名和主要内容。</li>
+      <li>介绍你最喜欢的角色，并说明为什么喜欢。</li>
+      <li>用 It is called ... / I think it is ... 等句型介绍和评价。</li>
+      <li>结尾写读书的收获和接下来的打算。</li>
+    </ul>
+  </div>
+  <div class="content-row">
+    <div class="body-col">
+      <p>During this summer vacation, I read a very interesting book. <span class="hl">It is called Journey to the West</span>. It tells the story of a monk and his three students. They go to the west to get some Buddhist books. <span class="hl">The Monkey King is my favorite character</span>. He is very clever and brave. He can change into different things, and he can fly. He always protects his master. <span class="hl">When they meet monsters, the Monkey King fights them</span>. Sometimes I read for an hour before I go to bed. <span class="hl">I think the book is exciting and funny</span>. Reading books is good for me. I can learn many new words from it. <span class="hl">I want to read more good books this year</span>.</p>
+    </div>
+    <div class="pic-col">
+      <div class="pic-frame">
+        <div>Picture Place<br>（可贴照片或自己画图）</div>
+      </div>
+    </div>
+  </div>
+  <div class="hl-note">
+    <h3>亮点句型 Highlighted Sentences</h3>
+    <ul>
+      <li><b>It is called Journey to the West</b> —— be called 用于介绍书名</li>
+      <li><b>The Monkey King is my favorite character</b> —— 表达最喜欢的角色</li>
+      <li><b>When they meet monsters, the Monkey King fights them</b> —— when 引导的时间状语从句</li>
+      <li><b>I think the book is exciting and funny</b> —— I think + 宾语从句</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 作文 7 -->
+<section class="page essay">
+  <header class="essay-head">
+    <div>
+      <span class="essay-num">Essay 7</span>
+      <h2 class="essay-title">My Summer Vacation</h2>
+    </div>
+    <div class="word-count">107 words</div>
+  </header>
+  <p class="essay-meta">自拟话题 &nbsp;&nbsp;语法综合：<b>一般过去时</b> + <b>现在完成时</b></p>
+  <div class="tips">
+    <h3>写作提示</h3>
+    <ul>
+      <li>回忆暑假里做过的几件事：旅行、探亲、游泳、读书、写作业。</li>
+      <li>已经完成的事用现在完成时：have / has done。</li>
+      <li>过去某个时间做的具体事用一般过去时。</li>
+      <li>结尾总结这个暑假的收获和心情。</li>
+    </ul>
+  </div>
+  <div class="content-row">
+    <div class="body-col">
+      <p>My summer vacation is almost over. <span class="hl">I have done many interesting things this summer</span>. In July, <span class="hl">I went to my grandma's home in the countryside</span>. I helped her water the vegetables in the garden. The food there was very delicious. <span class="hl">I have eaten a lot this summer</span>, so I am a little heavier now. I also read two books, and <span class="hl">I have finished them</span>. <span class="hl">I have learned to swim</span>, too. At first, I was afraid of water, but now I can swim across the pool. <span class="hl">I haven't done my homework yet</span>, but I will finish it before school starts. <span class="hl">I have enjoyed my summer vacation very much</span>.</p>
+    </div>
+    <div class="pic-col">
+      <div class="pic-frame">
+        <div>Picture Place<br>（可贴照片或自己画图）</div>
+      </div>
+    </div>
+  </div>
+  <div class="hl-note">
+    <h3>亮点句型 Highlighted Sentences</h3>
+    <ul>
+      <li><b>I have done many interesting things this summer</b> —— 现在完成时，强调已经做过</li>
+      <li><b>I went to my grandma's home in the countryside</b> —— 一般过去时，写过去的具体事件</li>
+      <li><b>I have eaten a lot</b> / <b>I have finished them</b> / <b>I have learned to swim</b> —— 现在完成时</li>
+      <li><b>I haven't done my homework yet</b> —— haven't + yet，表示“还没做……”</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 封底 -->
+<section class="page cover">
+  <div class="cover-frame">
+    <div class="cover-inner">
+      <div class="cover-eyebrow">My English Writing Collection</div>
+      <p class="back-quote">Read more. Write more. Speak more.</p>
+      <p class="back-quote-sub">愿每一个字都记录你的成长</p>
+      <div class="back-fields">
+        <div class="field"><span class="label">姓名 Name</span><span class="blank"></span></div>
+        <div class="field"><span class="label">日期 Date</span><span class="blank"></span></div>
+      </div>
+      <p class="cover-foot">基于人教版（Go for it!）八年级下册 &middot; 2026 暑假 &middot; Thanks for reading!</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

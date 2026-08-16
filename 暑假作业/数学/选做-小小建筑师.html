@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>选做作业 · 小小建筑师</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "SimSun", "Songti SC", serif;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 40px 30px;
+    background: #fff;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .page { max-width: 178mm; margin: 0 auto; }
+  header { border-bottom: 3px double #333; padding-bottom: 12px; margin-bottom: 20px; }
+  .badge {
+    display: inline-block;
+    background: #7a4a1f;
+    color: #fff;
+    font-size: 13px;
+    padding: 3px 14px;
+    border-radius: 4px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  h1 { font-size: 26px; margin: 0 0 4px; letter-spacing: 2px; }
+  .sub { color: #555; font-size: 14px; }
+  h2 {
+    font-size: 18px;
+    margin: 28px 0 10px;
+    padding-left: 10px;
+    border-left: 5px solid #7a4a1f;
+  }
+  h3 { font-size: 16px; margin: 18px 0 8px; }
+  p { margin: 6px 0; }
+  .note {
+    background: #fbf7f1;
+    border: 1px solid #e4d5be;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td {
+    border: 1px solid #666;
+    padding: 6px 8px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  th { background: #f0e8dc; font-weight: bold; }
+  .row-title { text-align: left; }
+  .blank-row td { height: 26px; }
+  .grid {
+    background-image:
+      linear-gradient(#ccc 1px, transparent 1px),
+      linear-gradient(90deg, #ccc 1px, transparent 1px);
+    background-size: 16px 16px;
+    background-color: #fff;
+    border: 2px solid #333;
+    height: 180mm;
+    margin: 12px 0;
+    position: relative;
+  }
+  .grid-label {
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    color: #888;
+    font-size: 12px;
+    background: #fff;
+    padding: 2px 6px;
+    border: 1px solid #ddd;
+  }
+  .calc { font-family: "Consolas", monospace; background: #f4f4f4; padding: 8px 12px; border-radius: 4px; }
+  .screen-row { margin: 10px 0; }
+  .q { margin: 12px 0; padding: 8px 12px; border: 1px dashed #999; background: #fafafa; }
+  .q span.q-no { font-weight: bold; color: #7a4a1f; }
+  .write-line { border-bottom: 1px solid #999; height: 28px; margin-top: 4px; }
+  footer { margin-top: 30px; text-align: center; color: #999; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <span class="badge">选做作业 · 生活实际</span>
+  <h1>小小建筑师</h1>
+  <div class="sub">生活中的数学（选做）——度量长宽比 · 画平面结构图 · 电子产品屏幕大小</div>
+</header>
+
+<p><b>作业要求：</b>测量家中某个房间（或物品）的长和宽，计算长宽比，画出平面结构图；研究手机、平板、电视屏幕"尺寸"背后的数学，把理论计算值与产品介绍的实际数值作对比。</p>
+
+<h2>一、项目简介</h2>
+<p>建筑师的图纸里藏着数学！我要当一回小小建筑师：拿起卷尺，量一量我家房间的长和宽，算出面积和长宽比，把房间的平面图画到网格纸上；再研究电子产品屏幕为什么用"英寸"表示大小，用勾股定理算一算屏幕到底有多宽、多高，并和产品介绍对比，看数学算得准不准。</p>
+
+<h2>二、测量记录表</h2>
+<p>用卷尺测量，长度单位记"米（m）"；面积 = 长 × 宽；长宽比 = 长 ÷ 宽（结果保留两位小数）。</p>
+<table>
+  <tr><th style="width:110px">房间名</th><th>长（m）</th><th>宽（m）</th><th>面积（m²）</th><th>长宽比</th></tr>
+  <tr class="blank-row"><td>客厅</td><td></td><td></td><td></td><td></td></tr>
+  <tr class="blank-row"><td>卧室</td><td></td><td></td><td></td><td></td></tr>
+  <tr class="blank-row"><td>厨房</td><td></td><td></td><td></td><td></td></tr>
+  <tr class="blank-row"><td>书房 / 卫生间</td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<h2>三、平面结构图</h2>
+<p>把测量结果按比例画到下面的网格纸上（1 小格 = 0.5 m × 0.5 m），标出门、窗、家具的位置。</p>
+<div class="grid">
+  <span class="grid-label">A4 网格纸 · 1 小格 = 0.5 m × 0.5 m</span>
+</div>
+
+<h2>四、电子产品屏幕案例</h2>
+<div class="note">
+  <b>知识：</b>手机、平板、电视的屏幕"尺寸"指屏幕<b>对角线的长度</b>，单位是<b>英寸（inch）</b>，1 英寸 = 2.54 厘米。<br>
+  屏幕是长方形，由勾股定理得：<b>对角线² = 宽² + 高²</b>，即 对角² = 宽² + 高²。
+</div>
+
+<h3>实例 1：手机（标称 6.7 英寸，长宽比 19.5 : 9）</h3>
+<div class="calc">
+  设高 = 9k，宽 = 19.5k（k 是比例单位）<br>
+  对角² = (19.5k)² + (9k)² = 380.25k² + 81k² = 461.25k²<br>
+  对角 = 6.7 英寸 → 461.25k² = 6.7² = 44.89 → k² ≈ 0.0973 → k ≈ 0.312 英寸<br>
+  宽 ≈ 19.5 × 0.312 ≈ <b>6.08 英寸 ≈ 15.5 cm</b><br>
+  高 ≈ 9 × 0.312 ≈ <b>2.81 英寸 ≈ 7.1 cm</b>
+</div>
+
+<h3>实例 2：平板（标称 10.9 英寸，长宽比 3 : 2）</h3>
+<div class="calc">
+  设高 = 2k，宽 = 3k<br>
+  对角² = (3k)² + (2k)² = 9k² + 4k² = 13k²<br>
+  对角 = 10.9 英寸 → 13k² = 10.9² = 118.81 → k² ≈ 9.139 → k ≈ 3.023 英寸<br>
+  宽 ≈ 3 × 3.023 ≈ <b>9.07 英寸 ≈ 23.0 cm</b><br>
+  高 ≈ 2 × 3.023 ≈ <b>6.05 英寸 ≈ 15.4 cm</b>
+</div>
+
+<h3>实例 3：电视（标称 55 英寸，长宽比 16 : 9）</h3>
+<div class="calc">
+  设高 = 9k，宽 = 16k<br>
+  对角² = (16k)² + (9k)² = 256k² + 81k² = 337k²<br>
+  对角 = 55 英寸 → 337k² = 55² = 3025 → k² ≈ 8.976 → k ≈ 2.996 英寸<br>
+  宽 ≈ 16 × 2.996 ≈ <b>47.9 英寸 ≈ 121.7 cm</b><br>
+  高 ≈ 9 × 2.996 ≈ <b>27.0 英寸 ≈ 68.5 cm</b>
+</div>
+
+<h2>五、对比理论与实际</h2>
+<p>把计算值与产品介绍上的实际数值填入下表：</p>
+<table>
+  <tr><th>产品</th><th>标称尺寸</th><th>理论宽（cm）</th><th>实际宽（cm）</th><th>理论高（cm）</th><th>实际高（cm）</th></tr>
+  <tr class="blank-row"><td class="row-title">手机</td><td>6.7 英寸</td><td>15.5</td><td></td><td>7.1</td><td></td></tr>
+  <tr class="blank-row"><td class="row-title">平板</td><td>10.9 英寸</td><td>23.0</td><td></td><td>15.4</td><td></td></tr>
+  <tr class="blank-row"><td class="row-title">电视</td><td>55 英寸</td><td>121.7</td><td></td><td>68.5</td><td></td></tr>
+</table>
+
+<h2>六、数学知识运用提示</h2>
+<div class="note">
+  <b>1. 度量与单位：</b>会读米尺、换算单位（1 m = 100 cm，1 英寸 = 2.54 cm）。<br>
+  <b>2. 面积计算：</b>长方形面积 = 长 × 宽。<br>
+  <b>3. 比例与比值：</b>长宽比表示图形"扁"还是"方"；按比例画图。<br>
+  <b>4. 勾股定理：</b>直角三角形两直角边（宽、高）的平方和等于斜边（对角线）的平方。<br>
+  <b>5. 估算与开平方：</b>用平方表估算 k 的大小，体会"理论值"与"实际值"的误差。
+</div>
+
+<h2>七、思考题</h2>
+<div class="q">
+  <span class="q-no">思考题 1：</span>为什么手机屏幕用"对角线"的长度表示大小，而不用宽或高？<br>
+  <div class="write-line"></div><div class="write-line"></div>
+</div>
+<div class="q">
+  <span class="q-no">思考题 2：</span>长宽比 19.5 : 9 的手机和长宽比 3 : 2 的平板，同样对角线时谁更"修长"？长宽比对观看影视画面有什么影响？<br>
+  <div class="write-line"></div><div class="write-line"></div>
+</div>
+<div class="q">
+  <span class="q-no">思考题 3：</span>你量出的房间长宽比是多少？和电视机屏幕（16 : 9）比，谁的比值更接近 1？你从中发现什么规律？<br>
+  <div class="write-line"></div><div class="write-line"></div>
+</div>
+
+<footer>—— 数学暑假作业 · 选做 · 小小建筑师 ——</footer>
+</div>
+</body>
+</html>

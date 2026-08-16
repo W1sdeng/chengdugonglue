@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暑假作业：数学知识点梳理（按章节）</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "SimSun", sans-serif;
+    background: #f0f5fb;
+    color: #24344d;
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  a { color: #1a6bc4; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== 顶部标题 ===== */
+  .topbar { background: #eaf2fb; border-bottom: 3px solid #1a6bc4; padding: 18px 24px; }
+  .topbar h1 { font-size: 24px; color: #123a6b; }
+  .topbar p { font-size: 13px; color: #5b7290; margin-top: 6px; }
+
+  /* ===== 学期 Tab ===== */
+  .tabs { background: #fff; border-bottom: 1px solid #d5e2f0; display: flex; flex-wrap: wrap; }
+  .tabs button {
+    flex: 1; min-width: 120px; padding: 12px 8px; border: none; cursor: pointer;
+    background: #fff; color: #48617f; font-size: 15px; font-family: inherit;
+    border-bottom: 3px solid transparent; transition: all .15s;
+  }
+  .tabs button:hover { background: #f2f7fd; }
+  .tabs button.active { color: #1a6bc4; font-weight: 700; border-bottom-color: #1a6bc4; background: #f7fbff; }
+
+  /* ===== 目录导航 ===== */
+  .toc { max-width: 1020px; margin: 18px auto; padding: 0 16px; }
+  .toc .toc-inner {
+    background: #fff; border: 1px solid #d5e2f0; border-radius: 10px; padding: 16px 20px;
+  }
+  .toc h2 { font-size: 16px; color: #123a6b; margin-bottom: 8px; }
+  .toc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .toc li a {
+    display: inline-block; padding: 4px 12px; border-radius: 999px;
+    background: #eaf2fb; color: #1a4e86; font-size: 14px;
+  }
+  .toc li a:hover { background: #d6e6f8; text-decoration: none; }
+
+  /* ===== 主内容 ===== */
+  main { max-width: 1020px; margin: 0 auto; padding: 0 16px 40px; }
+
+  .semester { display: none; }
+  .semester.active { display: block; }
+
+  .sem-head {
+    margin: 22px 0 14px; padding: 14px 20px; border-radius: 10px; color: #fff;
+    background: linear-gradient(135deg, #1a6bc4, #2f8fdd);
+  }
+  .sem-head h2 { font-size: 21px; }
+  .sem-head p { font-size: 13px; opacity: .92; margin-top: 4px; }
+
+  .chapter {
+    background: #fff; border: 1px solid #d5e2f0; border-left: 6px solid #2f8fdd;
+    border-radius: 10px; padding: 18px 22px; margin-bottom: 20px;
+  }
+  .chapter h3 { font-size: 18px; color: #123a6b; margin-bottom: 4px; }
+  .chapter .ch-sub { font-size: 13px; color: #7b8da6; margin-bottom: 12px; }
+
+  .section-title {
+    font-size: 15px; font-weight: 700; color: #1a6bc4; margin: 16px 0 8px;
+    padding-left: 10px; border-left: 4px solid #2f8fdd;
+  }
+  .section-title:first-of-type { margin-top: 4px; }
+
+  .know-list { list-style: none; }
+  .know-list li { padding: 7px 0 7px 6px; border-bottom: 1px dashed #e6eef7; }
+  .know-list li:last-child { border-bottom: none; }
+  .know-list li strong { color: #1a4e86; }
+  .know-list li .expl { color: #33475f; }
+
+  .formula {
+    background: #f2f7fd; border: 1px solid #cfe0f2; border-radius: 8px;
+    padding: 12px 16px; margin: 8px 0; font-size: 15px; color: #123a6b;
+  }
+  .formula .f-line { padding: 3px 0; }
+
+  .example { background: #fbfdfe; border: 1px solid #dce8f5; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+  .example .ex-tag { display: inline-block; font-size: 12px; color: #fff; background: #2f8fdd; border-radius: 4px; padding: 2px 8px; margin-right: 8px; }
+  .example .q { margin: 6px 0; color: #24344d; }
+  .example .a { margin-top: 8px; padding: 10px 14px; background: #f4f8fd; border-left: 3px solid #1a6bc4; border-radius: 6px; color: #33475f; }
+  .example .a .a-step { padding: 2px 0; }
+
+  .remark { font-size: 13px; color: #8a4b1d; background: #fdf4e6; border: 1px solid #f0dcb8; border-radius: 6px; padding: 6px 10px; margin-top: 8px; }
+
+  footer {
+    max-width: 1020px; margin: 0 auto; padding: 16px; text-align: center;
+    font-size: 12px; color: #93a4bc;
+  }
+
+  /* ===== 打印 ===== */
+  @media print {
+    body { background: #fff; font-size: 12pt; }
+    .topbar { border-bottom: 2px solid #1a6bc4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tabs { display: none; }
+    .toc { display: none; }
+    .semester { display: block !important; }
+    .semester { page-break-before: always; }
+    .semester:first-of-type { page-break-before: auto; }
+    .sem-head { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .chapter { border: 1px solid #cfe0f2; page-break-inside: auto; }
+    .example { page-break-inside: avoid; }
+    .formula { page-break-inside: avoid; }
+    footer { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>初中数学知识点梳理（按章节）</h1>
+  <p>人教版（2022课标新版）· 七年级上册 → 七年级下册 → 八年级上册 → 八年级下册 · 暑假作业用</p>
+</div>
+
+<div class="tabs" id="tabs">
+  <button class="active" data-tab="sem7a">七年级上册</button>
+  <button data-tab="sem7b">七年级下册</button>
+  <button data-tab="sem8a">八年级上册</button>
+  <button data-tab="sem8b">八年级下册</button>
+</div>
+
+<!-- ================= 七年级上册 ================= -->
+<nav class="toc">
+  <div class="toc-inner">
+    <h2>📚 七年级上册 · 目录导航</h2>
+    <ul>
+      <li><a href="#ch1">第1章 有理数</a></li>
+      <li><a href="#ch2">第2章 有理数的运算</a></li>
+      <li><a href="#ch3">第3章 代数式</a></li>
+      <li><a href="#ch4">第4章 整式的加减</a></li>
+      <li><a href="#ch5">第5章 一元一次方程</a></li>
+      <li><a href="#ch6">第6章 几何图形初步</a></li>
+    </ul>
+  </div>
+</nav>
+<nav class="toc">
+  <div class="toc-inner">
+    <h2>📚 七年级下册 · 目录导航</h2>
+    <ul>
+      <li><a href="#ch7">第7章 相交线与平行线</a></li>
+      <li><a href="#ch8">第8章 实数</a></li>
+      <li><a href="#ch9">第9章 平面直角坐标系</a></li>
+      <li><a href="#ch10">第10章 二元一次方程组</a></li>
+      <li><a href="#ch11">第11章 不等式与不等式组</a></li>
+      <li><a href="#ch12">第12章 数据的收集、整理与描述</a></li>
+    </ul>
+  </div>
+</nav>
+<nav class="toc">
+  <div class="toc-inner">
+    <h2>📚 八年级上册 · 目录导航</h2>
+    <ul>
+      <li><a href="#ch13">第13章 三角形</a></li>
+      <li><a href="#ch14">第14章 全等三角形</a></li>
+      <li><a href="#ch15">第15章 轴对称</a></li>
+      <li><a href="#ch16">第16章 整式的乘法</a></li>
+      <li><a href="#ch17">第17章 因式分解</a></li>
+      <li><a href="#ch18">第18章 分式</a></li>
+    </ul>
+  </div>
+</nav>
+<nav class="toc">
+  <div class="toc-inner">
+    <h2>📚 八年级下册 · 目录导航</h2>
+    <ul>
+      <li><a href="#ch19">第19章 二次根式</a></li>
+      <li><a href="#ch20">第20章 勾股定理</a></li>
+      <li><a href="#ch21">第21章 平行四边形</a></li>
+      <li><a href="#ch22">第22章 一次函数</a></li>
+      <li><a href="#ch23">第23章 数据的分析</a></li>
+      <li><a href="#ch24">第24章 函数</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!-- ================= 七上 ================= -->
+<section class="semester active" id="sem7a">
+  <div class="sem-head">
+    <h2>七年级上册</h2>
+    <p>第一章～第六章 · 从数到式再到方程，并初步接触几何图形</p>
+  </div>
+
+  <div class="chapter" id="ch1">
+    <h3>第一章 有理数</h3>
+    <div class="ch-sub">1.1 正数和负数　1.2 有理数及其大小比较</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>正数与负数：</strong><span class="expl">用带"+"（通常省略）和带"−"的数来表示具有相反意义的量，例如零上与零下温度、收入与支出、向东与向西。0 既不是正数也不是负数，它是正数与负数的分界，也表示"没有"或某一基准。</span></li>
+      <li><strong>有理数的分类：</strong><span class="expl">整数（正整数、0、负整数）和分数（正分数、负分数）统称有理数。按符号又可分为正有理数、0、负有理数。</span></li>
+      <li><strong>数轴：</strong><span class="expl">规定了原点、正方向和单位长度的直线叫数轴。任何一个有理数都可以用数轴上的一个点来表示。</span></li>
+      <li><strong>相反数：</strong><span class="expl">只有符号不同的两个数互为相反数，a 的相反数是 −a，0 的相反数是 0。在数轴上，互为相反数的两个点位于原点两侧且到原点距离相等。</span></li>
+      <li><strong>绝对值：</strong><span class="expl">数轴上表示数 a 的点到原点的距离，叫做数 a 的绝对值，记作 |a|。距离不可能为负，所以 |a| ≥ 0。</span></li>
+      <li><strong>有理数大小比较：</strong><span class="expl">正数都大于 0，负数都小于 0，正数大于负数；两个负数比较大小，绝对值大的反而小；数轴上右边的点表示的数总比左边的大。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">绝对值：|a| = a（当 a ≥ 0 时）；|a| = −a（当 a &lt; 0 时）</div>
+      <div class="f-line">若 |a| = m（m ≥ 0），则 a = m 或 a = −m</div>
+      <div class="f-line">互为相反数：a + (−a) = 0</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>在数轴上画出表示 −2.5、0、3、−1 的点，并把它们按从大到小排列。</div>
+      <div class="a">
+        <div class="a-step">解：先在数轴上从左到右依次标出这些点：−2.5 在 −3 和 −2 之间，−1 在 0 左侧一个单位，0 在原点，3 在原点右侧三个单位。</div>
+        <div class="a-step">数轴上右边的数比左边的大，所以从大到小为：<strong>3 &gt; 0 &gt; −1 &gt; −2.5</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>求下列各数的绝对值，并比较 −6 与 −7 的大小。</div>
+      <div class="a">
+        <div class="a-step">解：|5| = 5；|−3| = 3；|0| = 0。</div>
+        <div class="a-step">比较 −6 与 −7：|−6| = 6，|−7| = 7。两个负数绝对值大的反而小，因为 7 &gt; 6，所以 <strong>−7 &lt; −6</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch2">
+    <h3>第二章 有理数的运算</h3>
+    <div class="ch-sub">2.1 有理数的加法　2.2 有理数的减法　2.3 有理数的乘法　2.4 有理数的除法　2.5 有理数的乘方　2.6 有理数的混合运算</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>加法法则：</strong><span class="expl">同号两数相加，取相同的符号，并把绝对值相加；异号两数相加，取绝对值较大的加数的符号，并用较大的绝对值减去较小的绝对值；互为相反数的两个数相加得 0；一个数与 0 相加仍得这个数。</span></li>
+      <li><strong>减法法则：</strong><span class="expl">减去一个数，等于加上这个数的相反数，即 a − b = a + (−b)。由此减法统一为加法，再用加法法则计算。</span></li>
+      <li><strong>乘法法则：</strong><span class="expl">两数相乘，同号得正，异号得负，并把绝对值相乘；任何数与 0 相乘都得 0。几个不等于 0 的数相乘，负因数的个数为偶数时积为正，为奇数时积为负。</span></li>
+      <li><strong>除法法则：</strong><span class="expl">除以一个不等于 0 的数，等于乘以这个数的倒数，即 a ÷ b = a × (1/b)。注意：0 不能作除数。</span></li>
+      <li><strong>乘方：</strong><span class="expl">求 n 个相同因数的积的运算叫乘方，记作 aⁿ，a 叫底数，n 叫指数。负数的偶次幂是正数，负数的奇次幂是负数；0 的正整数次幂都是 0。</span></li>
+      <li><strong>运算律：</strong><span class="expl">加法的交换律 a+b=b+a、结合律 (a+b)+c=a+(b+c)；乘法的交换律 ab=ba、结合律 (ab)c=a(bc)、分配律 a(b+c)=ab+ac。灵活运用可简化计算。</span></li>
+      <li><strong>科学记数法与近似数：</strong><span class="expl">把一个大于 10 的数写成 a×10ⁿ 的形式（1 ≤ a &lt; 10），叫科学记数法；近似数通过"四舍五入"取精确到某一位的数。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">a − b = a + (−b)；a ÷ b = a × (1/b)（b ≠ 0）</div>
+      <div class="f-line">(−a)ⁿ：n 为偶数时为正，n 为奇数时为负</div>
+      <div class="f-line">a(b+c) = ab + ac（分配律）</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>计算：(1) −20 + (−14)；(2) −5 − (−9)；(3) (−3)²。</div>
+      <div class="a">
+        <div class="a-step">(1) 同号两数相加，取负号，绝对值相加：−20 + (−14) = −(20+14) = <strong>−34</strong>。</div>
+        <div class="a-step">(2) 减法变加法：−5 − (−9) = −5 + 9。异号两数相加，取符号 9 的（正号），绝对值相减 9−5=4，得 <strong>4</strong>。</div>
+        <div class="a-step">(3) (−3)² = (−3)×(−3)，负负得正：<strong>9</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>用简便方法计算：25 × 47 − 25 × 27。</div>
+      <div class="a">
+        <div class="a-step">解：逆用分配律，把相同的因数 25 提出来：</div>
+        <div class="a-step">原式 = 25 × (47 − 27) = 25 × 20 = <strong>500</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch3">
+    <h3>第三章 代数式</h3>
+    <div class="ch-sub">3.1 代数式　3.2 代数式求值</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>用字母表示数：</strong><span class="expl">字母可以表示任意数，把具体数中反复出现的规律一般化，如长方形的面积 S = ab，这里 a、b 表示长和宽。</span></li>
+      <li><strong>代数式：</strong><span class="expl">用运算符号（+、−、×、÷、乘方等）把数和表示数的字母连接起来的式子叫代数式。单独的一个数或字母也是代数式。代数式中不含等号、不等号。</span></li>
+      <li><strong>代数式的书写规范：</strong><span class="expl">数字与字母相乘时省略乘号并把数字写在前面，如 3a 不写成 a×3 或 a3；除法写成分数形式，如 x÷2 写成 x/2；带分数与字母相乘时应化为假分数。</span></li>
+      <li><strong>代数式的值：</strong><span class="expl">用具体数值代替代数式里的字母，按照代数式中的运算关系计算得出的结果，叫做代数式的值。代入时要注意负数要加括号，如把 x = −2 代入 x²，写成 (−2)²。</span></li>
+      <li><strong>规律探究：</strong><span class="expl">由一组有规律的数或图形，先观察并猜出一般规律，再用含字母的代数式表示出来。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">求值步骤：① 代入（注意加括号）；② 按运算顺序计算；③ 化简结果</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>用代数式表示：(1) x 与 5 的和；(2) a 的平方与 b 的差；(3) 温度由 t ℃ 下降 3 ℃ 后的温度。</div>
+      <div class="a">
+        <div class="a-step">解：(1) <strong>x + 5</strong>；(2) <strong>a² − b</strong>；(3) <strong>(t − 3) ℃</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>当 a = 3，b = −2 时，求代数式 a² − 2b 的值。</div>
+      <div class="a">
+        <div class="a-step">解：把 a = 3，b = −2 代入，注意负数 −2 加括号：</div>
+        <div class="a-step">a² − 2b = 3² − 2×(−2) = 9 + 4 = <strong>13</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch4">
+    <h3>第四章 整式的加减</h3>
+    <div class="ch-sub">4.1 整式的加减（合并同类项、去括号）</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>单项式：</strong><span class="expl">由数与字母的积组成的代数式叫单项式，如 3a、−2x²y。单独一个数或一个字母也是单项式。单项式中的数字因数叫系数（如 −2x²y 的系数是 −2），所有字母的指数和叫次数。</span></li>
+      <li><strong>多项式：</strong><span class="expl">几个单项式的和叫多项式，其中每个单项式叫多项式的项，不含字母的项叫常数项。多项式里次数最高的项的次数就是多项式的次数。</span></li>
+      <li><strong>整式：</strong><span class="expl">单项式和多项式统称整式。判断一个式子是否为整式，看它是不是由数与字母的积或和组成（分母中不能含字母）。</span></li>
+      <li><strong>同类项：</strong><span class="expl">所含字母相同，并且相同字母的指数也分别相同的项叫同类项，如 3x²y 与 −5x²y。几个常数项也是同类项。</span></li>
+      <li><strong>合并同类项：</strong><span class="expl">把多项式中的同类项合并成一项，系数相加（字母和字母的指数不变）。</span></li>
+      <li><strong>去括号法则：</strong><span class="expl">括号前是"+"号，去括号后各项都不变号；括号前是"−"号，去括号后各项都要变号（正变负、负变正）。可以理解为：a + (b−c) = a + b − c；a − (b−c) = a − b + c。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">合并同类项：ma + na = (m+n)a</div>
+      <div class="f-line">去括号：a + (b−c) = a + b − c；a − (b−c) = a − b + c</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>合并同类项：3x² + 2x − 5x² − 4x + 1。</div>
+      <div class="a">
+        <div class="a-step">解：先找出同类项：3x² 与 −5x² 是同类项，2x 与 −4x 是同类项，1 是常数项。</div>
+        <div class="a-step">原式 = (3−5)x² + (2−4)x + 1 = <strong>−2x² − 2x + 1</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>化简：2(x − 3) − 3(x + 1)。</div>
+      <div class="a">
+        <div class="a-step">解：先用分配律去括号（第二个括号前是"−3"，括号内每一项都要乘 −3，符号全变）：</div>
+        <div class="a-step">原式 = 2x − 6 − 3x − 3 = (2x − 3x) + (−6 − 3) = <strong>−x − 9</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch5">
+    <h3>第五章 一元一次方程</h3>
+    <div class="ch-sub">5.1 方程　5.2 解一元一次方程　5.3 一元一次方程的应用</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>方程与一元一次方程：</strong><span class="expl">含有未知数的等式叫方程。只含一个未知数（元），未知数的次数都是 1，且等号两边都是整式的方程叫一元一次方程，一般形式为 ax + b = 0（a ≠ 0）。</span></li>
+      <li><strong>方程的解与解方程：</strong><span class="expl">使方程左右两边相等的未知数的值叫方程的解；解方程就是求出这个解的过程。</span></li>
+      <li><strong>等式的性质：</strong><span class="expl">性质 1：等式两边加（或减）同一个数或式，结果仍相等；性质 2：等式两边乘同一个数，或除以同一个不为 0 的数，结果仍相等。解方程的每一步都依据这两条性质。</span></li>
+      <li><strong>移项：</strong><span class="expl">把方程一边的某一项变号后移到方程另一边，叫做移项。移项的本质是等式性质 1，是"加变减、减变加"的过程，例如 x + 3 = 5 移项得 x = 5 − 3。</span></li>
+      <li><strong>解方程的一般步骤：</strong><span class="expl">①去分母（两边同乘各分母的最小公倍数）；②去括号（用去括号法则）；③移项（变号）；④合并同类项；⑤系数化为 1（两边同除以未知数系数）。</span></li>
+      <li><strong>列方程解应用题：</strong><span class="expl">审题设未知数 → 找等量关系列方程 → 解方程 → 检验并作答。常见类型有：和差倍分问题、行程问题（路程=速度×时间）、工程问题、利润问题（售价−进价=利润）等。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">等式性质 1：若 a = b，则 a ± c = b ± c</div>
+      <div class="f-line">等式性质 2：若 a = b，则 ac = bc；若 a = b 且 c ≠ 0，则 a/c = b/c</div>
+      <div class="f-line">路程 = 速度 × 时间；工作量 = 工作效率 × 时间；利润 = 售价 − 进价</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>解方程：3x + 5 = 2x − 7。</div>
+      <div class="a">
+        <div class="a-step">解：把含 x 的项移到左边，常数项移到右边（移项要变号）：</div>
+        <div class="a-step">3x − 2x = −7 − 5，合并同类项得 <strong>x = −12</strong>。</div>
+        <div class="a-step">检验：把 x = −12 代入，左边 3×(−12)+5 = −31，右边 2×(−12)−7 = −31，相等，所以解正确。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>一辆汽车从甲地开往乙地，每小时行 60 km，4 小时到达。返回时每小时行 80 km，返回需要几小时？</div>
+      <div class="a">
+        <div class="a-step">解：设返回需要 x 小时。去程和返程的路程相等，可列方程：</div>
+        <div class="a-step">60 × 4 = 80x，即 240 = 80x，两边除以 80 得 <strong>x = 3</strong>。</div>
+        <div class="a-step">答：返回需要 3 小时。检验：80×3 = 240，与去程路程相等，正确。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch6">
+    <h3>第六章 几何图形初步</h3>
+    <div class="ch-sub">6.1 几何图形　6.2 直线、射线、线段　6.3 角</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>立体图形与平面图形：</strong><span class="expl">各部分不都在同一平面内的图形是立体图形（如长方体、圆柱、圆锥、球）；各部分都在同一平面内的图形是平面图形（如三角形、圆）。从不同的方向看立体图形得到三视图（正面、左面、上面）。</span></li>
+      <li><strong>点、线、面、体：</strong><span class="expl">几何图形由点、线、面、体组成，点是构成图形的基本元素。点动成线、线动成面、面动成体。</span></li>
+      <li><strong>直线、射线、线段：</strong><span class="expl">直线向两方无限延伸，无端点；射线向一方无限延伸，有一个端点；线段有两个端点。两点确定一条直线；两点之间线段最短（连接两点的所有线中，线段最短），两点的距离就是这条线段的长度。</span></li>
+      <li><strong>线段的中点：</strong><span class="expl">把一条线段分成两条相等线段的点叫线段的中点。若 C 是 AB 的中点，则 AC = CB = AB/2。</span></li>
+      <li><strong>角及其度量：</strong><span class="expl">有公共端点的两条射线组成的图形叫角，也可看作一条射线绕端点旋转形成的图形。角的度量单位是度、分、秒，1° = 60′，1′ = 60″。小于直角的角叫锐角，大于直角小于平角的角叫钝角。</span></li>
+      <li><strong>角的比较与平分：</strong><span class="expl">用量角器可比较角的大小；把一个角分成两个相等的角的射线叫角平分线。OC 平分 ∠AOB，则 ∠AOC = ∠COB = ∠AOB/2。</span></li>
+      <li><strong>余角与补角：</strong><span class="expl">如果两个角的和等于 90°，称这两个角互为余角；和等于 180°，互为补角。同角（或等角）的余角相等，同角（或等角）的补角相等。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">线段中点：AC = CB = AB/2；角平分线：∠AOC = ∠COB = ∠AOB/2</div>
+      <div class="f-line">1° = 60′，1′ = 60″</div>
+      <div class="f-line">同角（等角）的余角相等；同角（等角）的补角相等</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>已知 C 是线段 AB 的中点，AB = 8 cm，求 AC 的长。</div>
+      <div class="a">
+        <div class="a-step">解：因为 C 是 AB 的中点，所以 AC = AB/2 = 8 ÷ 2 = <strong>4 cm</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>一个角是 35°，求它的余角和补角的度数。</div>
+      <div class="a">
+        <div class="a-step">解：余角 = 90° − 35° = <strong>55°</strong>；补角 = 180° − 35° = <strong>145°</strong>。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 七下 ================= -->
+<section class="semester" id="sem7b">
+  <div class="sem-head">
+    <h2>七年级下册</h2>
+    <p>第七章～第十二章 · 几何推理论证入门、实数与坐标系、方程组与不等式、统计初步</p>
+  </div>
+
+  <div class="chapter" id="ch7">
+    <h3>第七章 相交线与平行线</h3>
+    <div class="ch-sub">7.1 相交线　7.2 平行线及其判定　7.3 平行线的性质　7.4 平移　7.5 定义、命题、定理</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>邻补角与对顶角：</strong><span class="expl">两条直线相交，有公共顶点且有一条公共边的两个角互为邻补角（和等于 180°）；有公共顶点但两边分别互为反向延长线的两个角互为对顶角。对顶角相等。</span></li>
+      <li><strong>垂线：</strong><span class="expl">两条直线相交成直角时，叫互相垂直，交点叫垂足。过一点有且只有一条直线与已知直线垂直；垂线段最短（从直线外一点到直线的垂线段的长度叫点到直线的距离）。</span></li>
+      <li><strong>三线八角：</strong><span class="expl">两条直线被第三条直线所截形成八个角：同位角（位置相同，形如"F"）、内错角（交错且在内侧，形如"Z"）、同旁内角（同旁且在内侧，形如"U"）。</span></li>
+      <li><strong>平行线的判定：</strong><span class="expl">①同位角相等，两直线平行；②内错角相等，两直线平行；③同旁内角互补，两直线平行；④平行于同一条直线的两直线平行；⑤同一平面内，垂直于同一条直线的两直线平行。</span></li>
+      <li><strong>平行线的性质：</strong><span class="expl">两条平行线被第三条直线所截，①同位角相等；②内错角相等；③同旁内角互补。注意判定与性质正好"反过来"，要能根据已知条件判断用哪一边。</span></li>
+      <li><strong>平移：</strong><span class="expl">把图形沿某一方向移动一定距离，图形的形状和大小都不变，对应点所连线段平行且相等。</span></li>
+      <li><strong>命题、定理、证明：</strong><span class="expl">判断一件事情的语句叫命题，由题设（已知）和结论组成；经过推理证实的真命题叫定理；证明就是从题设出发，通过推理得出结论的过程。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">对顶角相等；邻补角互补（和为 180°）</div>
+      <div class="f-line">判定：同位角相等 ⇒ 平行；内错角相等 ⇒ 平行；同旁内角互补 ⇒ 平行</div>
+      <div class="f-line">性质：平行 ⇒ 同位角相等；平行 ⇒ 内错角相等；平行 ⇒ 同旁内角互补</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>如图，a ∥ b，∠1 = 70°，求 ∠2、∠3 的度数（∠2 与 ∠1 是同位角，∠3 与 ∠1 是对顶角）。</div>
+      <div class="a">
+        <div class="a-step">解：因为 a ∥ b，同位角相等，所以 ∠2 = ∠1 = <strong>70°</strong>。</div>
+        <div class="a-step">因为对顶角相等，所以 ∠3 = ∠1 = <strong>70°</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>如图，∠1 = 50°，∠2 = 50°，判断直线 a 与 b 是否平行，并说明理由。</div>
+      <div class="a">
+        <div class="a-step">解：因为 ∠1 = ∠2 = 50°，即同位角相等，根据"同位角相等，两直线平行"，所以 <strong>a ∥ b</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch8">
+    <h3>第八章 实数</h3>
+    <div class="ch-sub">8.1 平方根　8.2 立方根　8.3 实数及运算</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>算术平方根：</strong><span class="expl">一般地，如果一个正数 x 的平方等于 a（x² = a，a ≥ 0），那么正数 x 叫做 a 的算术平方根，记作 √a。规定 0 的算术平方根是 0。被开方数 a 必须是非负数。</span></li>
+      <li><strong>平方根：</strong><span class="expl">如果一个数 x 的平方等于 a，那么 x 叫做 a 的平方根。正数有两个平方根，互为相反数（记作 ±√a）；0 的平方根是 0；负数没有平方根。</span></li>
+      <li><strong>立方根：</strong><span class="expl">如果一个数 x 的立方等于 a，那么 x 叫做 a 的立方根，记作 ∛a。正数立方根是正数，负数立方根是负数，0 的立方根是 0。任意实数都有唯一的立方根。</span></li>
+      <li><strong>无理数：</strong><span class="expl">无限不循环小数叫无理数，如 √2、√3、π、0.1010010001…。有理数和无理数统称实数。</span></li>
+      <li><strong>实数的分类：</strong><span class="expl">实数可分为有理数和无理数两大类；也可分为正实数、0、负实数。数轴上的点与实数一一对应。</span></li>
+      <li><strong>实数的运算与比较：</strong><span class="expl">实数的运算顺序和有理数相同（先乘方开方，再乘除，后加减，有括号先算括号）；比较两个正实数可比较它们的平方。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">算术平方根：(√a)² = a（a ≥ 0）；√a² = |a|</div>
+      <div class="f-line">平方根：±√a 满足 (±√a)² = a；立方根：∛a 满足 (∛a)³ = a，∛(−a) = −∛a</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>求下列各数的平方根和算术平方根：(1) 16；(2) 0.09。</div>
+      <div class="a">
+        <div class="a-step">(1) 因为 (±4)² = 16，所以 16 的平方根是 <strong>±4</strong>，算术平方根是 <strong>4</strong>。</div>
+        <div class="a-step">(2) 因为 (±0.3)² = 0.09，所以 0.09 的平方根是 <strong>±0.3</strong>，算术平方根是 <strong>0.3</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>求 √49 和 ∛(−27) 的值。</div>
+      <div class="a">
+        <div class="a-step">解：因为 7² = 49，所以 √49 = <strong>7</strong>；因为 (−3)³ = −27，所以 ∛(−27) = <strong>−3</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch9">
+    <h3>第九章 平面直角坐标系</h3>
+    <div class="ch-sub">9.1 平面直角坐标系　9.2 坐标方法的简单应用</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>平面直角坐标系：</strong><span class="expl">在平面内画两条互相垂直、原点重合的数轴，水平的叫 x 轴（横轴），竖直的叫 y 轴（纵轴），交点叫原点，合称坐标轴。有了坐标系，平面内每一个点都可用一对有序数对 (x, y) 表示，这对数叫点的坐标，其中 x 是横坐标、y 是纵坐标。</span></li>
+      <li><strong>象限：</strong><span class="expl">两条坐标轴把平面分成四个象限（右上为第一象限，按逆时针为第二、三、四象限）。第一象限坐标（+，+），第二象限（−，+），第三象限（−，−），第四象限（+，−）。坐标轴上的点不属于任何象限。</span></li>
+      <li><strong>坐标轴上及特殊位置的点的特点：</strong><span class="expl">x 轴上的点纵坐标为 0（如 (a,0)）；y 轴上的点横坐标为 0（如 (0,b)）；原点 (0,0)。角平分线上的点：一、三象限角平分线上 x = y，二、四象限角平分线上 x = −y。</span></li>
+      <li><strong>用坐标表示地理位置：</strong><span class="expl">建立坐标系、确定单位长度和原点，用坐标表示各点的位置。</span></li>
+      <li><strong>坐标系中的平移：</strong><span class="expl">点 (x, y) 向右平移 a 个单位得 (x+a, y)，向左得 (x−a, y)；向上平移 b 个单位得 (x, y+b)，向下得 (x, y−b)。口诀：右加左减（横坐标）、上加下减（纵坐标）。图形的平移就是所有点按同样的方式平移。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">左右平移：横坐标变（右加左减），纵坐标不变</div>
+      <div class="f-line">上下平移：纵坐标变（上加下减），横坐标不变</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>写出点 (3, −2) 所在的象限。</div>
+      <div class="a">
+        <div class="a-step">解：横坐标 3 &gt; 0，纵坐标 −2 &lt; 0，符号为（+，−），所以点 (3, −2) 在第 <strong>四象限</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>把点 A(2, 3) 先向右平移 4 个单位，再向下平移 2 个单位，求平移后点 A′ 的坐标。</div>
+      <div class="a">
+        <div class="a-step">解：向右平移 4 个单位，横坐标加 4：2 + 4 = 6，得 (6, 3)；</div>
+        <div class="a-step">再向下平移 2 个单位，纵坐标减 2：3 − 2 = 1，得 A′ 坐标为 <strong>(6, 1)</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch10">
+    <h3>第十章 二元一次方程组</h3>
+    <div class="ch-sub">10.1 二元一次方程组　10.2 消元法解二元一次方程组　10.3 方程组的应用</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>二元一次方程：</strong><span class="expl">含有两个未知数，并且含未知数的项的次数都是 1 的整式方程叫二元一次方程，如 x + y = 10。它的解有无数个（二元一次方程的解是一对数值）。</span></li>
+      <li><strong>二元一次方程组：</strong><span class="expl">两个二元一次方程合在一起组成方程组，如 {x + y = 10, x − y = 4}。两个方程的公共解叫方程组的解，只有一个。</span></li>
+      <li><strong>代入消元法：</strong><span class="expl">把一个方程变形为"用一个未知数表示另一个未知数"（如由 x + y = 10 得 x = 10 − y），再代入另一个方程，把二元方程组化为一元一次方程求解。这种方法叫代入消元法。</span></li>
+      <li><strong>加减消元法：</strong><span class="expl">把两个方程左右两边分别相加或相减，消去一个未知数（当两个方程中某个未知数的系数相同或互为相反数时最方便），再解一元一次方程。</span></li>
+      <li><strong>列方程组解应用题：</strong><span class="expl">和列一元一次方程类似，但设两个未知数，找到两个等量关系列出两个方程。常见问题：鸡兔同笼、和差问题、行程相遇追及问题、配套问题等。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">消元思想：把"二元"转化为"一元"，再解一元一次方程</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>用代入法解方程组：{x + y = 10　①；x − y = 4　②。</div>
+      <div class="a">
+        <div class="a-step">解：由 ① 得 x = 10 − y（用一个未知数表示另一个）③。</div>
+        <div class="a-step">把 ③ 代入 ②：(10 − y) − y = 4，即 10 − 2y = 4，移项得 −2y = −6，所以 <strong>y = 3</strong>。</div>
+        <div class="a-step">把 y = 3 代入 ③，x = 10 − 3 = <strong>7</strong>。</div>
+        <div class="a-step">所以方程组的解为 x = 7，y = 3。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>笼中共有鸡和兔 20 个头，54 只脚，问鸡、兔各几只？</div>
+      <div class="a">
+        <div class="a-step">解：设鸡有 x 只，兔有 y 只。由头数得 x + y = 20；由脚数得 2x + 4y = 54。</div>
+        <div class="a-step">由 x + y = 20 得 x = 20 − y，代入 2x + 4y = 54：2(20 − y) + 4y = 54，</div>
+        <div class="a-step">即 40 + 2y = 54，y = <strong>7</strong>，x = 20 − 7 = <strong>13</strong>。</div>
+        <div class="a-step">答：鸡 13 只，兔 7 只。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch11">
+    <h3>第十一章 不等式与不等式组</h3>
+    <div class="ch-sub">11.1 不等式及其解集　11.2 一元一次不等式　11.3 一元一次不等式组</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>不等式与不等式的解集：</strong><span class="expl">用"&gt;、&lt;、≥、≤"表示大小关系的式子叫不等式。不等式的解有无数个，全体解组成的集合叫解集，解集可以在数轴上表示（空心圆圈表示不取该点，实心圆点表示取该点）。</span></li>
+      <li><strong>不等式的性质：</strong><span class="expl">性质 1：不等式两边加（或减）同一个数，不等号方向不变；性质 2：两边乘（或除以）同一个正数，方向不变；性质 3：两边乘（或除以）同一个负数，不等号方向改变（这是与等式最大的不同，最容易出错）。</span></li>
+      <li><strong>解一元一次不等式：</strong><span class="expl">步骤与解方程类似（去分母、去括号、移项、合并、系数化为 1），但系数化为 1 时若除以负数，不等号要改变方向。</span></li>
+      <li><strong>一元一次不等式组：</strong><span class="expl">几个一元一次不等式合在一起组成不等式组，各不等式解集的公共部分就是不等式组的解集。</span></li>
+      <li><strong>求不等式组解集的口诀：</strong><span class="expl">同大取大（都取大的方向，取较大的边界）；同小取小；大小小大取中间（大于小数、小于大数，解集在两数之间）；大大小小无解（大于大数、小于小数，无解）。</span></li>
+      <li><strong>不等式的应用：</strong><span class="expl">列不等式解应用题，抓住"至少""不超过""至多"等关键词确定不等号，如"至少 x 件"表示 x ≥ 某数。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">若 a &gt; b，则 a + c &gt; b + c</div>
+      <div class="f-line">若 a &gt; b，c &gt; 0，则 ac &gt; bc；若 a &gt; b，c &lt; 0，则 ac &lt; bc（方向改变！）</div>
+      <div class="f-line">不等式组解集：同大取大、同小取小、大小小大取中间、大大小小无解</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>解不等式：−2x &lt; 6，并把解集在数轴上表示。</div>
+      <div class="a">
+        <div class="a-step">解：两边除以 −2（负数，不等式方向要改变）：</div>
+        <div class="a-step">−2x &lt; 6 ⇒ x &gt; 6 ÷ (−2) = −3，即解集为 <strong>x &gt; −3</strong>。</div>
+        <div class="a-step">数轴表示：在数轴 −3 处画空心圆圈，向右边画射线。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>求不等式组 {x &gt; 2　①；x ≤ 5　②} 的解集。</div>
+      <div class="a">
+        <div class="a-step">解：①表示大于 2，②表示小于等于 5，属于"大小小大取中间"情形，</div>
+        <div class="a-step">所以解集为 <strong>2 &lt; x ≤ 5</strong>。在数轴上：2 处画空心圆圈，5 处画实心圆点，中间部分涂黑。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch12">
+    <h3>第十二章 数据的收集、整理与描述</h3>
+    <div class="ch-sub">12.1 统计调查　12.2 直方图</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>全面调查与抽样调查：</strong><span class="expl">对全体对象进行调查叫全面调查（普查），适合对象数量少或需要精确结果的场合（如人口普查）；只抽取一部分对象进行调查叫抽样调查，适合对象太多或调查有破坏性的场合（如检查一批灯泡寿命）。</span></li>
+      <li><strong>总体、个体、样本、样本容量：</strong><span class="expl">调查对象的全体叫总体；组成总体的每一个对象叫个体；从总体中抽取的一部分个体组成样本；样本中个体的数目叫样本容量。</span></li>
+      <li><strong>频数与频率：</strong><span class="expl">每个对象（或各组数据）出现的次数叫频数；频数占总数据个数的比例叫频率，频率 = 频数 ÷ 总数，各组频率之和等于 1。</span></li>
+      <li><strong>统计图的选择：</strong><span class="expl">条形图能清楚地表示每组数据的数量（多少）；扇形图能清楚地表示各部分占总体的百分比；折线图能清楚地反映数据的变化趋势。</span></li>
+      <li><strong>直方图：</strong><span class="expl">用于表示数据分布情况，先把数据分组（确定组距和组数），再统计每组频数，画成以组距为底边、以频数为高的直方图。各组频数之和等于数据总数。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">频率 = 频数 ÷ 总数；各组频率之和 = 1；各组频数之和 = 总数</div>
+      <div class="f-line">组数 = 最大值−最小值 / 组距（取整数，一般用"进一法"）</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>要了解全校 2000 名学生的视力情况，从各年级随机抽取了 200 名学生进行调查。指出这里的总体、个体、样本和样本容量。</div>
+      <div class="a">
+        <div class="a-step">解：总体是全校 2000 名学生的视力；个体是每名学生的视力；样本是被抽取的 200 名学生的视力；样本容量是 <strong>200</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>某班 50 名同学中，喜欢数学的有 15 人，求喜欢数学的人数占全班人数的百分比，以及在扇形图中对应的圆心角度数。</div>
+      <div class="a">
+        <div class="a-step">解：百分比 = 15 ÷ 50 = 30%。</div>
+        <div class="a-step">扇形圆心角 = 360° × 30% = <strong>108°</strong>。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 八上 ================= -->
+<section class="semester" id="sem8a">
+  <div class="sem-head">
+    <h2>八年级上册</h2>
+    <p>第十三章～第十八章 · 三角形与全等、轴对称、整式与因式分解、分式</p>
+  </div>
+
+  <div class="chapter" id="ch13">
+    <h3>第十三章 三角形</h3>
+    <div class="ch-sub">13.1 三角形的边角关系　13.2 三角形中的特殊线段　13.3 多边形及其内角和</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>三角形的概念与分类：</strong><span class="expl">由不在同一直线上的三条线段首尾顺次相接组成的图形叫三角形。按边分为等边三角形、等腰三角形（含等边）和一般三角形；按角分为锐角三角形、直角三角形和钝角三角形。</span></li>
+      <li><strong>三边关系：</strong><span class="expl">三角形任意两边之和大于第三边，任意两边之差小于第三边。判断能否组成三角形，只需看"较短两边之和是否大于最长边"。</span></li>
+      <li><strong>三角形的高、中线、角平分线：</strong><span class="expl">高：从顶点向对边作垂线，顶点到垂足的线段；中线：连接顶点与对边中点的线段，三条中线交于一点叫重心；角平分线：平分角的线段，交于内心。中线把三角形分成两个面积相等的三角形。</span></li>
+      <li><strong>三角形的稳定性：</strong><span class="expl">三角形三边确定后形状不会改变，具有稳定性，广泛用于建筑和桥梁结构。</span></li>
+      <li><strong>内角和定理：</strong><span class="expl">三角形三个内角的和等于 180°。直角三角形的两个锐角互余。</span></li>
+      <li><strong>外角：</strong><span class="expl">三角形一边与另一边的延长线组成的角叫外角。三角形的一个外角等于与它不相邻的两个内角之和；外角大于任何一个与它不相邻的内角。三角形外角和为 360°。</span></li>
+      <li><strong>多边形内角与外角和：</strong><span class="expl">n 边形内角和 = (n − 2) × 180°；任意多边形的外角和都等于 360°。多边形的对角线总条数 = n(n−3)/2。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">任意两边之和大于第三边；任意两边之差小于第三边</div>
+      <div class="f-line">三角形内角和 = 180°；三角形外角和 = 360°</div>
+      <div class="f-line">n 边形内角和 = (n − 2) × 180°；n 边形对角线条数 = n(n−3)/2</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>已知三角形两边长分别为 3 和 8，求第三边长的取值范围。</div>
+      <div class="a">
+        <div class="a-step">解：设第三边为 x。根据三边关系，两边之差 &lt; 第三边 &lt; 两边之和：</div>
+        <div class="a-step">8 − 3 &lt; x &lt; 8 + 3，即 <strong>5 &lt; x &lt; 11</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>求十边形的内角和。</div>
+      <div class="a">
+        <div class="a-step">解：十边形 n = 10，内角和 = (10 − 2) × 180° = 8 × 180° = <strong>1440°</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch14">
+    <h3>第十四章 全等三角形</h3>
+    <div class="ch-sub">14.1 全等三角形　14.2 三角形全等的判定　14.3 角的平分线</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>全等形与全等三角形：</strong><span class="expl">能够完全重合的两个图形叫全等形；完全重合的两个三角形叫全等三角形，用"≌"表示。互相重合的顶点、边、角分别叫对应顶点、对应边、对应角。</span></li>
+      <li><strong>全等三角形的性质：</strong><span class="expl">对应边相等，对应角相等，周长相等，面积相等。</span></li>
+      <li><strong>SSS：</strong><span class="expl">三边分别相等的两个三角形全等（边边边）。只要三条边确定，三角形形状就唯一确定。</span></li>
+      <li><strong>SAS：</strong><span class="expl">两边和它们的夹角分别相等的两个三角形全等（边角边）。注意必须是"夹角"，不是任意角。</span></li>
+      <li><strong>ASA：</strong><span class="expl">两角和它们的夹边分别相等的两个三角形全等（角边角）。</span></li>
+      <li><strong>AAS：</strong><span class="expl">两角分别相等且其中一组等角的对边也相等的两个三角形全等（角角边）。由三角形内角和为 180° 可知 AAS 与 ASA 等价。</span></li>
+      <li><strong>HL（直角三角形专用）：</strong><span class="expl">斜边和一条直角边分别相等的两个直角三角形全等。</span></li>
+      <li><strong>角平分线的性质与判定：</strong><span class="expl">角平分线上的点到角两边的距离相等；反过来，角的内部到角两边距离相等的点在角平分线上。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">全等判定口诀：SSS、SAS（夹角）、ASA（夹边）、AAS、HL（直角三角形）</div>
+      <div class="f-line">角平分线性质：点 P 在 ∠AOB 平分线上 ⇒ P 到 OA、OB 距离相等</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>如图，已知 AB = DE，AC = DF，BC = EF，说明 △ABC ≌ △DEF 的理由。</div>
+      <div class="a">
+        <div class="a-step">解：三边分别相等，根据 SSS，可得 <strong>△ABC ≌ △DEF</strong>。</div>
+        <div class="a-step">由全等对应边相等，还可以推出 AB = DE、AC = DF、BC = EF 等结论。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>如图，∠AOB 的平分线为 OC，点 P 在 OC 上，PM ⊥ OA 于 M，PM = 5 cm，求点 P 到 OB 的距离。</div>
+      <div class="a">
+        <div class="a-step">解：根据"角平分线上的点到角两边的距离相等"，点 P 到 OB 的距离等于点 P 到 OA 的距离，</div>
+        <div class="a-step">所以 P 到 OB 的距离 = <strong>5 cm</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch15">
+    <h3>第十五章 轴对称</h3>
+    <div class="ch-sub">15.1 图形的轴对称　15.2 画轴对称图形　15.3 等腰三角形</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>轴对称与轴对称图形：</strong><span class="expl">把一个图形沿某条直线折叠，如果它能与另一个图形重合，则两个图形关于这条直线轴对称（轴对称）；如果一个图形沿一条直线折叠后直线两旁的部分能互相重合，这个图形叫轴对称图形（如等腰三角形、圆）。两者的共同点是都有对称轴。</span></li>
+      <li><strong>轴对称的性质：</strong><span class="expl">关于某条直线对称的两个图形全等；对称轴是任何一对对应点所连线段的垂直平分线；对应点连线被对称轴垂直平分。</span></li>
+      <li><strong>线段垂直平分线：</strong><span class="expl">垂直于一条线段并且平分这条线段的直线叫垂直平分线。性质：垂直平分线上的点到线段两端点的距离相等；判定：到线段两端点距离相等的点在这条线段的垂直平分线上。</span></li>
+      <li><strong>关于坐标轴对称的点的坐标：</strong><span class="expl">点 (x, y) 关于 x 轴对称的点的坐标是 (x, −y)（横坐标不变，纵坐标变号）；关于 y 轴对称的点的坐标是 (−x, y)（纵坐标不变，横坐标变号）。</span></li>
+      <li><strong>等腰三角形的性质：</strong><span class="expl">两腰相等；两底角相等（等边对等角）；三线合一——顶角平分线、底边上的中线、底边上的高互相重合；是轴对称图形，对称轴为底边上的中线所在直线。</span></li>
+      <li><strong>等腰三角形的判定：</strong><span class="expl">如果一个三角形有两个角相等，那么这两个角所对的边也相等（等角对等边）。</span></li>
+      <li><strong>等边三角形：</strong><span class="expl">三条边都相等，三个内角都等于 60°。有一个角是 60° 的等腰三角形是等边三角形；三边都相等的三角形是等边三角形。每个内角的平分线、中线、高也重合。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">垂直平分线性质：点 P 在 AB 的垂直平分线上 ⇒ PA = PB</div>
+      <div class="f-line">关于 x 轴对称：(x, y) → (x, −y)；关于 y 轴对称：(x, y) → (−x, y)</div>
+      <div class="f-line">等腰三角形：等边对等角；等角对等边；三线合一</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>等腰三角形的一个顶角是 80°，求它的底角度数。</div>
+      <div class="a">
+        <div class="a-step">解：等腰三角形两底角相等，设每个底角为 x°。由内角和定理：</div>
+        <div class="a-step">80° + x + x = 180°，2x = 100°，每个底角 = <strong>50°</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>点 A(3, 5) 关于 x 轴和 y 轴对称的点分别是什么？</div>
+      <div class="a">
+        <div class="a-step">解：关于 x 轴对称，横坐标不变、纵坐标变号，得 <strong>(3, −5)</strong>；</div>
+        <div class="a-step">关于 y 轴对称，纵坐标不变、横坐标变号，得 <strong>(−3, 5)</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch16">
+    <h3>第十六章 整式的乘法</h3>
+    <div class="ch-sub">16.1 幂的运算　16.2 整式的乘法　16.3 乘法公式　16.4 同底数幂的除法</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>同底数幂的乘法：</strong><span class="expl">同底数幂相乘，底数不变，指数相加，即 aᵐ · aⁿ = aᵐ⁺ⁿ。注意底数相同才能直接相加。</span></li>
+      <li><strong>幂的乘方：</strong><span class="expl">底数不变，指数相乘，即 (aᵐ)ⁿ = aᵐⁿ。</span></li>
+      <li><strong>积的乘方：</strong><span class="expl">把积中每个因式分别乘方，再把所得的幂相乘，即 (ab)ⁿ = aⁿbⁿ。</span></li>
+      <li><strong>单项式乘法：</strong><span class="expl">系数与系数相乘，同底数幂相乘，对于只在一个单项式里含有的字母，连同它的指数作为积的一个因式。</span></li>
+      <li><strong>多项式乘法：</strong><span class="expl">用多项式的每一项去乘另一个多项式的每一项，再把所得的积相加，即 (a+b)(c+d) = ac + ad + bc + bd（先乘开再合并同类项）。</span></li>
+      <li><strong>平方差公式：</strong><span class="expl">(a + b)(a − b) = a² − b²，两个数的和与这两个数的差的积等于这两个数的平方差。</span></li>
+      <li><strong>完全平方公式：</strong><span class="expl">(a + b)² = a² + 2ab + b²；(a − b)² = a² − 2ab + b²。口诀：首平方，尾平方，首尾乘积的两倍放中央（符号看中间）。</span></li>
+      <li><strong>同底数幂的除法：</strong><span class="expl">同底数幂相除，底数不变，指数相减，即 aᵐ ÷ aⁿ = aᵐ⁻ⁿ（a ≠ 0）。任何不等于 0 的数的 0 次幂等于 1，即 a⁰ = 1（a ≠ 0）。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">aᵐ · aⁿ = aᵐ⁺ⁿ；(aᵐ)ⁿ = aᵐⁿ；(ab)ⁿ = aⁿbⁿ</div>
+      <div class="f-line">aᵐ ÷ aⁿ = aᵐ⁻ⁿ（a ≠ 0）；a⁰ = 1（a ≠ 0）</div>
+      <div class="f-line">(a+b)(a−b) = a² − b²</div>
+      <div class="f-line">(a±b)² = a² ± 2ab + b²</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>计算：(1) x² · x⁵；(2) (a³)⁴；(3) (2a²b)³。</div>
+      <div class="a">
+        <div class="a-step">(1) 同底数幂相乘，指数相加：x² · x⁵ = x²⁺⁵ = <strong>x⁷</strong>。</div>
+        <div class="a-step">(2) 幂的乘方，指数相乘：(a³)⁴ = a³ˣ⁴ = <strong>a¹²</strong>。</div>
+        <div class="a-step">(3) 积的乘方：(2a²b)³ = 2³ · a⁶ · b³ = <strong>8a⁶b³</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>计算：(1) (3x + 2)(3x − 2)；(2) (x + 5)²。</div>
+      <div class="a">
+        <div class="a-step">(1) 平方差公式：把 3x 看作 a，2 看作 b：(3x + 2)(3x − 2) = (3x)² − 2² = <strong>9x² − 4</strong>。</div>
+        <div class="a-step">(2) 完全平方公式：(x + 5)² = x² + 2·x·5 + 5² = <strong>x² + 10x + 25</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch17">
+    <h3>第十七章 因式分解</h3>
+    <div class="ch-sub">17.1 因式分解　17.2 提公因式法　17.3 公式法</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>因式分解的概念：</strong><span class="expl">把一个多项式化成几个整式的积的形式，叫因式分解，如 x² − 9 = (x + 3)(x − 3)。它与整式乘法是互逆的过程（乘法是"展开"，因式分解是"分解"）。</span></li>
+      <li><strong>提公因式法：</strong><span class="expl">找多项式各项的公因式（各项系数的最大公因数 × 各项都含有的相同字母的最低次幂），把它提出来，如 ma + mb + mc = m(a + b + c)。注意：提完公因式后要看剩余部分是否正确。</span></li>
+      <li><strong>公式法——平方差：</strong><span class="expl">a² − b² = (a + b)(a − b)。能用平方差公式的条件：两项、符号相反、都能写成平方的形式。</span></li>
+      <li><strong>公式法——完全平方：</strong><span class="expl">a² ± 2ab + b² = (a ± b)²。能用完全平方公式的条件：三项、首尾两项是平方且符号相同、中间一项是首尾乘积的 2 倍（可正可负）。</span></li>
+      <li><strong>十字相乘法（拓展）：</strong><span class="expl">对二次三项式 x² + (p+q)x + pq = (x + p)(x + q)，找两个数，它们的和等于一次项系数、积等于常数项。</span></li>
+      <li><strong>因式分解的一般步骤：</strong><span class="expl">一提（提公因式）→ 二套（套公式）→ 三检查（每个因式都不能再分解，分解要彻底）。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">ma + mb + mc = m(a + b + c)</div>
+      <div class="f-line">a² − b² = (a + b)(a − b)</div>
+      <div class="f-line">a² ± 2ab + b² = (a ± b)²</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>因式分解：(1) 6a²b − 9ab²；(2) x² − 16。</div>
+      <div class="a">
+        <div class="a-step">(1) 公因式为 3ab：6a²b − 9ab² = 3ab(2a − 3b)。检验：3ab·2a = 6a²b，3ab·(−3b) = −9ab²，正确。</div>
+        <div class="a-step">(2) 平方差公式：x² − 16 = x² − 4² = <strong>(x + 4)(x − 4)</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>因式分解：x² + 6x + 9。</div>
+      <div class="a">
+        <div class="a-step">解：首项 x² 是平方，末项 9 = 3²，中间项 6x = 2·x·3，满足完全平方公式：</div>
+        <div class="a-step">x² + 6x + 9 = <strong>(x + 3)²</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch18">
+    <h3>第十八章 分式</h3>
+    <div class="ch-sub">18.1 分式的概念与基本性质　18.2 分式的运算　18.3 分式方程</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>分式的概念：</strong><span class="expl">如果 A、B 表示两个整式，并且 B 中含有字母，那么式子 A/B 叫分式。分式的值是整式还是分式，关键看分母中是否含有字母。</span></li>
+      <li><strong>分式有意义的条件：</strong><span class="expl">分母不能为 0，即 B ≠ 0 时分式有意义；分母为 0 时无意义；当分子为 0 且分母不为 0 时，分式的值为 0。</span></li>
+      <li><strong>分式的基本性质：</strong><span class="expl">分式的分子、分母同乘（或除以）同一个不等于 0 的整式，分式的值不变，即 A/B = (A×C)/(B×C)（C ≠ 0）。这是约分和通分的依据。</span></li>
+      <li><strong>约分与最简分式：</strong><span class="expl">把分式中分子分母的公因式约去叫约分；分子和分母没有公因式的分式叫最简分式。</span></li>
+      <li><strong>分式的运算：</strong><span class="expl">同分母分式相加减，分母不变分子相加减；异分母先通分再加减。分式乘分式，分子相乘作分子、分母相乘作分母；分式除以分式，等于乘以除式的倒数。乘方时分子分母分别乘方。最后结果要约成最简分式。</span></li>
+      <li><strong>分式方程：</strong><span class="expl">分母中含有未知数的方程叫分式方程。解法：两边同乘最简公分母，化为整式方程求解。</span></li>
+      <li><strong>增根与检验：</strong><span class="expl">化为整式方程时两边乘了含未知数的式子，可能产生使分母为 0 的根（增根），所以解完必须代入最简公分母检验：若为 0，则舍去，该方程无解；不为 0，才是原方程的根。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">A/B 有意义 ⟺ B ≠ 0；A/B = 0 ⟺ A = 0 且 B ≠ 0</div>
+      <div class="f-line">A/B = (A×C)/(B×C)，A/B = (A÷C)/(B÷C)（C ≠ 0）</div>
+      <div class="f-line">分式方程必须验根：代入最简公分母，为 0 是增根要舍去</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>当 x 为何值时，分式 3/(x − 2) 有意义？当 x 为何值时，分式的值为 0？</div>
+      <div class="a">
+        <div class="a-step">解：分母不为 0 时分式有意义，即 x − 2 ≠ 0，所以 <strong>x ≠ 2</strong> 时有意义。</div>
+        <div class="a-step">本题分子 3 恒不为 0，所以不存在使分式值为 0 的 x。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>解分式方程：1/x + 1/(x+2) = 1。</div>
+      <div class="a">
+        <div class="a-step">解：最简公分母为 x(x+2)，两边同乘：</div>
+        <div class="a-step">(x + 2) + x = x(x + 2)，整理得 x² + 2x − 2x − 2 = 0，即 x² = 2，x = ±√2。</div>
+        <div class="a-step">检验：把 x = ±√2 代入最简公分母 x(x+2)，均不为 0，所以原方程的解为 <strong>x = √2 或 x = −√2</strong>。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 八下 ================= -->
+<section class="semester" id="sem8b">
+  <div class="sem-head">
+    <h2>八年级下册</h2>
+    <p>第十九章～第二十四章 · 二次根式、勾股定理、平行四边形、一次函数、数据分析与函数</p>
+  </div>
+
+  <div class="chapter" id="ch19">
+    <h3>第十九章 二次根式</h3>
+    <div class="ch-sub">19.1 二次根式及其性质　19.2 二次根式的乘法与除法　19.3 二次根式的加减</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>二次根式的概念：</strong><span class="expl">形如 √a（a ≥ 0）的式子叫二次根式，其中 a 是被开方数。被开方数必须是非负数（a ≥ 0），这是二次根式有意义的条件。</span></li>
+      <li><strong>二次根式的性质：</strong><span class="expl">①(√a)² = a（a ≥ 0）；②√a² = |a|，即当 a ≥ 0 时 √a² = a，当 a &lt; 0 时 √a² = −a。性质②是关键，化简时一定要先看 a 的符号。</span></li>
+      <li><strong>二次根式的乘法：</strong><span class="expl">√a · √b = √(ab)（a ≥ 0，b ≥ 0）。反过来可把 √(ab) 拆成 √a · √b 用于化简。</span></li>
+      <li><strong>二次根式的除法：</strong><span class="expl">√a ÷ √b = √(a/b)（a ≥ 0，b &gt; 0）。分母中不含根号的化简叫分母有理化，如 1/√2 = √2/2。</span></li>
+      <li><strong>最简二次根式：</strong><span class="expl">满足两个条件：被开方数不含分母；被开方数中不含能开得尽方的因数（因式）。如 √12 化简为 2√3。</span></li>
+      <li><strong>二次根式的加减：</strong><span class="expl">先把各二次根式化成最简二次根式，再把被开方数相同的二次根式合并（系数相加减，根号部分不变），类似合并同类项。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">有意义条件：√a 中 a ≥ 0</div>
+      <div class="f-line">(√a)² = a（a ≥ 0）；√a² = |a|</div>
+      <div class="f-line">√a · √b = √(ab)；√a ÷ √b = √(a/b)</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>化简：(1) √12；(2) √50；(3) √(−3)²。</div>
+      <div class="a">
+        <div class="a-step">(1) √12 = √(4×3) = √4 × √3 = <strong>2√3</strong>。</div>
+        <div class="a-step">(2) √50 = √(25×2) = √25 × √2 = <strong>5√2</strong>。</div>
+        <div class="a-step">(3) 用性质 √a² = |a|：√(−3)² = |−3| = <strong>3</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>计算：√8 + √18。</div>
+      <div class="a">
+        <div class="a-step">解：先化为最简二次根式：√8 = 2√2，√18 = 3√2，</div>
+        <div class="a-step">再合并（系数相加）：2√2 + 3√2 = <strong>5√2</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch20">
+    <h3>第二十章 勾股定理</h3>
+    <div class="ch-sub">20.1 勾股定理　20.2 勾股定理的逆定理　20.3 勾股定理的应用</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>勾股定理：</strong><span class="expl">如果直角三角形的两条直角边分别为 a、b，斜边为 c，那么 a² + b² = c²，即两直角边的平方和等于斜边的平方。这是直角三角形最重要的性质。</span></li>
+      <li><strong>勾股定理的应用：</strong><span class="expl">已知直角三角形的两边，可求第三边：c = √(a²+b²)，a = √(c²−b²)。常用于求线段长度、最短路径（把立体图形展开成平面再求直线距离）等问题。</span></li>
+      <li><strong>勾股定理的逆定理：</strong><span class="expl">如果三角形的三边长 a、b、c 满足 a² + b² = c²，那么这个三角形是直角三角形（c 为斜边）。它是判断直角三角形（尤其知道三边长度时）的有力工具。</span></li>
+      <li><strong>勾股数：</strong><span class="expl">满足 a² + b² = c² 的三个正整数叫勾股数，如 3、4、5；5、12、13；6、8、10；8、15、17；7、24、25。勾股数的整数倍仍是勾股数。</span></li>
+      <li><strong>两点间距离（网格中）：</strong><span class="expl">在坐标系或网格中，两点间的距离可用勾股定理计算：横坐标差、纵坐标差分别为两直角边，斜边即距离。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">直角三角形：a² + b² = c²（c 为斜边）</div>
+      <div class="f-line">逆定理：若 a² + b² = c²，则三角形为直角三角形</div>
+      <div class="f-line">常用勾股数：3-4-5、5-12-13、6-8-10、7-24-25、8-15-17</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>直角三角形两直角边分别为 3 和 4，求斜边长。</div>
+      <div class="a">
+        <div class="a-step">解：由勾股定理 c² = 3² + 4² = 9 + 16 = 25，所以 c = √25 = <strong>5</strong>。</div>
+        <div class="a-step">（这也说明 3、4、5 是一组勾股数。）</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>判断三边长为 6、8、10 的三角形是不是直角三角形。</div>
+      <div class="a">
+        <div class="a-step">解：最长边为 10。检验：6² + 8² = 36 + 64 = 100 = 10²，满足勾股定理的逆定理，</div>
+        <div class="a-step">所以这个三角形是 <strong>直角三角形</strong>，10 是斜边。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch21">
+    <h3>第二十一章 平行四边形</h3>
+    <div class="ch-sub">21.1 平行四边形的性质　21.2 平行四边形的判定　21.3 矩形、菱形、正方形　21.4 三角形的中位线</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>平行四边形的定义与性质：</strong><span class="expl">两组对边分别平行的四边形叫平行四边形。性质：对边相等且平行；对角相等；对角线互相平分；它是中心对称图形，对称中心是两条对角线的交点。</span></li>
+      <li><strong>平行四边形的判定：</strong><span class="expl">①两组对边分别平行；②两组对边分别相等；③一组对边平行且相等；④两组对角分别相等；⑤对角线互相平分。满足任一条即可判定为平行四边形。</span></li>
+      <li><strong>矩形：</strong><span class="expl">有一个角是直角的平行四边形叫矩形。性质：四个角都是直角；对角线相等。判定：有三个角是直角的四边形；有一个角是直角的平行四边形；对角线相等的平行四边形。</span></li>
+      <li><strong>菱形：</strong><span class="expl">有一组邻边相等的平行四边形叫菱形。性质：四条边都相等；对角线互相垂直且每条对角线平分一组对角。面积 = 对角线乘积的一半。判定：四条边都相等的四边形；有一组邻边相等的平行四边形；对角线互相垂直的平行四边形。</span></li>
+      <li><strong>正方形：</strong><span class="expl">四条边都相等且四个角都是直角的四边形叫正方形，它既是矩形又是菱形，具有它们所有的性质。对角线相等、互相垂直且平分。</span></li>
+      <li><strong>三角形的中位线：</strong><span class="expl">连接三角形两边中点的线段叫中位线。定理：三角形的中位线平行于第三边，且等于第三边的一半。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">平行四边形：对边平行且相等；对角相等；对角线互相平分</div>
+      <div class="f-line">矩形对角线相等；菱形对角线互相垂直；正方形兼具二者</div>
+      <div class="f-line">中位线定理：DE 是 △ABC 中位线 ⇒ DE ∥ BC 且 DE = BC/2</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>平行四边形 ABCD 的周长为 30，一边 AB = 8，求相邻边 BC 的长。</div>
+      <div class="a">
+        <div class="a-step">解：平行四边形对边相等，AB = CD = 8，BC = AD。周长 = 2(AB + BC) = 30，</div>
+        <div class="a-step">所以 AB + BC = 15，BC = 15 − 8 = <strong>7</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>菱形两条对角线长分别为 6 和 8，求它的面积和边长。</div>
+      <div class="a">
+        <div class="a-step">解：面积 = 对角线乘积的一半 = 6 × 8 ÷ 2 = <strong>24</strong>。</div>
+        <div class="a-step">菱形对角线互相垂直平分，边长 = √(3² + 4²) = √25 = <strong>5</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch22">
+    <h3>第二十二章 一次函数</h3>
+    <div class="ch-sub">22.1 变量与函数　22.2 一次函数　22.3 一次函数的图象与性质　22.4 待定系数法　22.5 一次函数与方程、不等式</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>变量与常量：</strong><span class="expl">在一个变化过程中，数值发生变化的量叫变量，数值始终不变的量叫常量。例如汽车行驶中，时间、路程是变量，速度（匀速时）是常量。</span></li>
+      <li><strong>函数的概念：</strong><span class="expl">一般地，在一个变化过程中有两个变量 x 和 y，如果对于 x 的每一个确定的值，y 都有唯一确定的值与之对应，那么 y 是 x 的函数，x 叫自变量，y 叫因变量。</span></li>
+      <li><strong>一次函数与正比例函数：</strong><span class="expl">形如 y = kx + b（k、b 是常数，k ≠ 0）的函数叫一次函数；当 b = 0 时 y = kx 叫正比例函数，它是特殊的一次函数。注意 k ≠ 0 才是一次函数。</span></li>
+      <li><strong>一次函数的图象：</strong><span class="expl">一次函数 y = kx + b 的图象是一条直线，可由两点确定（常取与 x 轴、y 轴的交点）。正比例函数 y = kx 的图象是经过原点的直线。</span></li>
+      <li><strong>k、b 的意义：</strong><span class="expl">k 决定直线的走向（k &gt; 0 时 y 随 x 增大而增大，直线从左下到右上；k &lt; 0 时 y 随 x 增大而减小，直线从左上到右下），|k| 越大直线越陡；b 是直线与 y 轴交点的纵坐标（y 轴截距），b &gt; 0 交于 y 轴正半轴，b &lt; 0 交于负半轴。</span></li>
+      <li><strong>待定系数法：</strong><span class="expl">先设一次函数为 y = kx + b，把图象经过的点的坐标代入，得到关于 k、b 的方程组，解出 k、b 从而确定函数解析式。步骤：设 → 代 → 解 → 写。</span></li>
+      <li><strong>一次函数与方程、不等式的关系：</strong><span class="expl">y = kx + b 的图象与 x 轴交点的横坐标就是方程 kx + b = 0 的解；图象在 x 轴上方（或下方）的部分对应的 x 范围就是不等式 kx + b &gt; 0（或 &lt; 0）的解集。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">一次函数：y = kx + b（k ≠ 0）；正比例函数：y = kx（k ≠ 0）</div>
+      <div class="f-line">k &gt; 0 递增、过一三象限；k &lt; 0 递减、过二四象限</div>
+      <div class="f-line">kx + b = 0 的解 = 图象与 x 轴交点的横坐标</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>已知一次函数的图象经过点 (0, 3) 和 (2, 7)，求这个一次函数的解析式。</div>
+      <div class="a">
+        <div class="a-step">解：设 y = kx + b。把 (0, 3) 代入得 b = 3；把 (2, 7) 代入得 2k + 3 = 7，</div>
+        <div class="a-step">解得 k = 2。所以解析式为 <strong>y = 2x + 3</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>一次函数 y = −2x + 4 与 x 轴、y 轴的交点坐标分别是什么？</div>
+      <div class="a">
+        <div class="a-step">解：与 y 轴交点：令 x = 0，得 y = 4，交点为 <strong>(0, 4)</strong>；</div>
+        <div class="a-step">与 x 轴交点：令 y = 0，得 −2x + 4 = 0，x = 2，交点为 <strong>(2, 0)</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch23">
+    <h3>第二十三章 数据的分析</h3>
+    <div class="ch-sub">23.1 平均数　23.2 中位数与众数　23.3 方差　23.4 四分位数</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>算术平均数：</strong><span class="expl">n 个数 x₁、x₂、…、xₙ 的和除以 n，即 x̄ = (x₁ + x₂ + … + xₙ)/n。平均数反映数据的平均水平，但受极端值影响大。</span></li>
+      <li><strong>加权平均数：</strong><span class="expl">当数据的重要程度不同时，用加权平均数：x̄ = (x₁w₁ + x₂w₂ + … + xₙwₙ)/(w₁ + w₂ + … + wₙ)，其中 w 叫权，权越大该项对平均数影响越大。比如平时、期中、期末按 3:3:4 加权算总评。</span></li>
+      <li><strong>中位数：</strong><span class="expl">把一组数据按从小到大排列后，位于最中间位置的数叫中位数。若数据个数为奇数，中位数是正中间那个数；若为偶数，是中间两个数的平均数。中位数不受极端值影响。</span></li>
+      <li><strong>众数：</strong><span class="expl">一组数据中出现次数最多的数叫众数。一组数据可能有多个众数，也可能没有众数（每个数据出现次数一样时）。</span></li>
+      <li><strong>方差：</strong><span class="expl">方差衡量数据的波动（离散）程度，s² = [(x₁−x̄)² + (x₂−x̄)² + … + (xₙ−x̄)²]/n。方差越小，数据越稳定、波动越小；方差越大，波动越大。比较两个运动员成绩的稳定性就用方差。</span></li>
+      <li><strong>四分位数：</strong><span class="expl">把数据按大小排好后分成四等份的三个分界点：下四分位数（第一四分位数 Q1，前 25% 的分界）、中位数（Q2）、上四分位数（第三四分位数 Q3，前 75% 的分界）。它反映数据的分布位置，比极值更抗干扰。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">平均数 x̄ = (x₁ + x₂ + … + xₙ)/n；加权平均 x̄ = Σ(xᵢwᵢ)/Σwᵢ</div>
+      <div class="f-line">方差 s² = [(x₁−x̄)² + (x₂−x̄)² + … + (xₙ−x̄)²]/n</div>
+      <div class="f-line">方差越小，数据越稳定</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>求数据 3, 5, 5, 7, 8, 10 的平均数、中位数和众数。</div>
+      <div class="a">
+        <div class="a-step">平均数 x̄ = (3+5+5+7+8+10)/6 = 38/6 = <strong>19/3</strong>（约 6.33）。</div>
+        <div class="a-step">中位数：共 6 个数据（偶数个），排好后中间两个数是 5 和 7，中位数 = (5+7)/2 = <strong>6</strong>。</div>
+        <div class="a-step">众数：5 出现 2 次最多，所以众数是 <strong>5</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>甲、乙两人各射击 5 次，甲的成绩：8, 9, 10, 9, 9；乙的成绩：7, 10, 9, 8, 10。谁的成绩更稳定？</div>
+      <div class="a">
+        <div class="a-step">解：两人平均数都是 9。</div>
+        <div class="a-step">甲方差 = [(8−9)²+(9−9)²+(10−9)²+(9−9)²+(9−9)²]/5 = (1+0+1+0+0)/5 = 0.4。</div>
+        <div class="a-step">乙方差 = [(7−9)²+(10−9)²+(9−9)²+(8−9)²+(10−9)²]/5 = (4+1+0+1+1)/5 = 1.4。</div>
+        <div class="a-step">甲的方差 0.4 &lt; 乙的方差 1.4，所以 <strong>甲的成绩更稳定</strong>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch24">
+    <h3>第二十四章 函数（初步认识）</h3>
+    <div class="ch-sub">24.1 变量与常量　24.2 函数的概念与表示　24.3 函数的图象</div>
+
+    <div class="section-title">核心知识点</div>
+    <ul class="know-list">
+      <li><strong>变量与常量（回顾加深）：</strong><span class="expl">在一个变化过程中数值会变的量叫变量，不变的叫常量。判断一个量是变量还是常量，要看它在所研究的问题中是否发生变化。</span></li>
+      <li><strong>函数的概念：</strong><span class="expl">有两个变量 x、y，对于 x 的每一个确定的值，y 都有唯一确定的值与之对应，则 y 是 x 的函数，x 是自变量，y 是因变量。判断的关键是"一一对应、唯一确定"。</span></li>
+      <li><strong>函数的表示方法：</strong><span class="expl">三种常用方法：解析式法（用含自变量的式子表示，如 y = 2x + 1）；列表法（列出自变量与函数值的对应表）；图象法（用坐标系中的图象表示对应关系）。</span></li>
+      <li><strong>自变量的取值范围：</strong><span class="expl">使函数解析式有意义、符合实际意义的所有 x 的取值。整式型的取全体实数；分式型分母不能为 0；二次根式型被开方数 ≥ 0；实际问题还要考虑实际背景。</span></li>
+      <li><strong>函数的图象：</strong><span class="expl">把自变量与函数值的每一对值作为点的坐标，描出对应的点，这些点组成的图形就是函数图象。画图步骤：列表 → 描点 → 连线。从图象上可以直观看出函数的变化趋势。</span></li>
+    </ul>
+
+    <div class="section-title">重要公式 / 定理</div>
+    <div class="formula">
+      <div class="f-line">函数判断标准：对 x 的每个确定值，y 有唯一确定值对应</div>
+      <div class="f-line">自变量的取值范围：分母 ≠ 0；被开方数（偶次根式）≥ 0</div>
+      <div class="f-line">图象画法：列表 → 描点 → 连线</div>
+    </div>
+
+    <div class="section-title">典型例题</div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 1</span>求函数 y = 1/(x − 3) 的自变量 x 的取值范围。</div>
+      <div class="a">
+        <div class="a-step">解：分母不能为 0，即 x − 3 ≠ 0，所以 <strong>x ≠ 3</strong>。</div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="q"><span class="ex-tag">例 2</span>已知函数 y = 2x − 1，当 x = 3 时，求 y 的值；当 y = 5 时，求 x 的值。</div>
+      <div class="a">
+        <div class="a-step">解：x = 3 时，y = 2×3 − 1 = <strong>5</strong>；</div>
+        <div class="a-step">y = 5 时，5 = 2x − 1，解得 <strong>x = 3</strong>。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>※ 章节名称以课本目录为准（其中第二十四章内容为按常见教材安排的梳理，具体以实际课本为准）。</p>
+  <p>本资料供暑假复习使用，仅离线自用，无外部库、无 CDN。</p>
+</footer>
+
+<script>
+  var tabs = document.querySelectorAll('#tabs button');
+  var sems = document.querySelectorAll('.semester');
+
+  function activate(name) {
+    sems.forEach(function (s) {
+      s.classList.toggle('active', s.id === name);
+    });
+    tabs.forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-tab') === name);
+    });
+    document.querySelector('.toc').scrollIntoView({ block: 'start', behavior: 'smooth' });
+  }
+
+  tabs.forEach(function (b) {
+    b.addEventListener('click', function () {
+      activate(b.getAttribute('data-tab'));
+    });
+  });
+
+  document.querySelectorAll('.toc li a, #tabs a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      setTimeout(function () {
+        var t = document.querySelector(this.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
+      }.bind(this), 30);
+    });
+  });
+</script>
+
+</body>
+</html>

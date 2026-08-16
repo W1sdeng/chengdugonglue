@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暑假语文背默篇目清单（七、八年级复习 + 九年级上册预习）</title>
+<style>
+  :root {
+    --ink: #2b3138;
+    --sub: #6b7280;
+    --line: #e5e7eb;
+    --card: #ffffff;
+    --bg: #f5f7fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 24px 20px 64px; }
+
+  /* ---------- 头部 ---------- */
+  header.hero {
+    background: linear-gradient(135deg, #4f6ef7, #7c5cf0);
+    color: #fff;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 20px;
+  }
+  header.hero h1 { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+  header.hero p { margin-top: 6px; font-size: 13px; opacity: .92; }
+  header.hero .meta { margin-top: 10px; font-size: 12px; opacity: .85; }
+
+  /* ---------- Tab ---------- */
+  .tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tab {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--sub);
+    transition: all .18s ease;
+    min-width: 96px;
+  }
+  .tab:hover { border-color: #c7d2fe; color: #4f6ef7; }
+  .tab.active {
+    background: #4f6ef7;
+    border-color: #4f6ef7;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(79,110,247,.35);
+  }
+  .tab small { display: block; font-size: 11px; font-weight: 400; opacity: .75; margin-top: 2px; }
+
+  .toggle-all { text-align: right; margin: 0 0 14px; }
+  .toggle-all button {
+    font-family: inherit;
+    font-size: 12.5px;
+    color: #4f6ef7;
+    background: #fff;
+    border: 1px solid #c7d2fe;
+    border-radius: 999px;
+    padding: 4px 14px;
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .toggle-all button:hover { background: #eef2ff; }
+
+  /* ---------- 面板 ---------- */
+  .panel { display: none; }
+  .panel.active { display: block; animation: fade .25s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(20,30,60,.06);
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    margin-bottom: 6px;
+    border-bottom: 2px solid var(--line);
+  }
+  .card h2 .badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 999px;
+    padding: 2px 10px;
+  }
+  .c-seven .badge { background: #f59e0b; }
+  .c-eight .badge { background: #10b981; }
+  .c-nine .badge  { background: #ef4444; }
+
+  .card p.note { font-size: 12px; color: var(--sub); margin: 4px 0 10px; }
+
+  /* ---------- 篇目条目 ---------- */
+  .entry { border-bottom: 1px dashed #eef0f3; break-inside: avoid; page-break-inside: avoid; }
+  .entry:last-child { border-bottom: none; }
+  .item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 9px 6px 7px;
+    cursor: pointer;
+  }
+  .item input[type="checkbox"] {
+    flex: none;
+    width: 17px; height: 17px;
+    accent-color: #4f6ef7;
+    cursor: pointer;
+    transform: translateY(2px);
+  }
+  .item .title { font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .item .author { font-size: 13px; color: var(--ink); white-space: nowrap; }
+  .item .desc {
+    font-size: 12.5px;
+    color: #9aa1ab;
+    background: #f3f4f6;
+    border-radius: 6px;
+    padding: 1px 8px;
+    margin-left: auto;
+    flex: none;
+  }
+  .item input:checked ~ .title,
+  .item input:checked ~ .author,
+  .item input:checked ~ .desc { color: #c3c9d1; text-decoration: line-through; }
+
+  .count-line { font-size: 12.5px; color: var(--sub); margin-bottom: 6px; }
+
+  /* ---------- 原文折叠 ---------- */
+  details { margin: 0 6px 12px 33px; }
+  details summary {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    color: #4f6ef7;
+    background: #eef2ff;
+    border: 1px solid #dbe3fe;
+    border-radius: 999px;
+    padding: 2px 12px;
+    user-select: none;
+    transition: all .15s ease;
+  }
+  details summary:hover { background: #e0e7ff; }
+  details[open] summary { background: #4f6ef7; color: #fff; border-color: #4f6ef7; }
+  details .text {
+    margin-top: 8px;
+    padding: 12px 16px;
+    background: #fafbfc;
+    border: 1px solid #eef0f3;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 2;
+    color: #333;
+  }
+  details .text p { margin: 0 0 6px; }
+  details .text p:last-child { margin-bottom: 0; }
+  details .text .pt { font-weight: 600; margin: 10px 0 4px; }
+  details .text .pt:first-child { margin-top: 0; }
+  details .text .src { color: #6b7280; font-size: 12.5px; }
+  details .text .note { color: #9aa1ab; font-size: 12.5px; }
+
+  /* ---------- 脚注 ---------- */
+  footer {
+    margin-top: 26px;
+    font-size: 12px;
+    color: var(--sub);
+    background: #fff8e6;
+    border: 1px solid #f5e3b8;
+    border-radius: 12px;
+    padding: 12px 16px;
+    line-height: 1.8;
+  }
+
+  /* ---------- 打印 ---------- */
+  @page { size: A4; margin: 12mm 10mm; }
+  @media print {
+    body { background: #fff; }
+    .wrap { max-width: none; padding: 0; }
+    header.hero {
+      background: #4f6ef7 !important;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      padding: 18px 20px;
+      border-radius: 8px;
+    }
+    .tabs { display: none !important; }
+    .toggle-all { display: none !important; }
+    .panel { display: none !important; }
+    .panel.active { display: block !important; }
+    .card { box-shadow: none; border: 1px solid #dfe3e8; border-radius: 8px; page-break-inside: auto; }
+    .entry { break-inside: avoid; page-break-inside: avoid; }
+    .desc { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    details { margin: 0 6px 10px 30px; }
+    details summary { display: none; }
+    details > * { display: block !important; }
+    details .text {
+      border: none;
+      background: #fff;
+      padding: 4px 0 10px;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>暑假语文 · 背默篇目清单</h1>
+    <p>七年级、八年级复习 · 九年级上册预习（统编版，2022 课标修订版）</p>
+    <div class="meta">使用方法：按册切换，逐篇背诵后在「已背」框内打勾 ✓；点击篇目下方「查看原文」可展开全文；打印时只打印当前选中的一册，原文会自动展开，可作 A4 背诵单。</div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-target="p-seven-a">七上<small>复习</small></button>
+    <button class="tab" data-target="p-seven-b">七下<small>复习</small></button>
+    <button class="tab" data-target="p-eight-a">八上<small>复习</small></button>
+    <button class="tab" data-target="p-eight-b">八下<small>复习</small></button>
+    <button class="tab" data-target="p-nine-a">九上<small>预习</small></button>
+  </nav>
+
+  <div class="toggle-all"><button id="toggle-all" type="button">展开全部原文</button></div>
+
+  <!-- ==================== 七年级上册 ==================== -->
+  <section class="panel active c-seven" id="p-seven-a">
+    <div class="card">
+      <h2>课外古诗词诵读 <span class="badge">8 首</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">峨眉山月歌</span><span class="author">李白 · 唐</span><span class="desc">思乡念友</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>峨眉山月半轮秋，<br>影入平羌江水流。<br>夜发清溪向三峡，<br>思君不见下渝州。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">江南逢李龟年</span><span class="author">杜甫 · 唐</span><span class="desc">感时伤怀</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>岐王宅里寻常见，<br>崔九堂前几度闻。<br>正是江南好风景，<br>落花时节又逢君。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">行军九日思长安故园</span><span class="author">岑参 · 唐</span><span class="desc">思乡忧国</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>强欲登高去，无人送酒来。<br>遥怜故园菊，应傍战场开。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">夜上受降城闻笛</span><span class="author">李益 · 唐</span><span class="desc">思乡之情</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>回乐烽前沙似雪，<br>受降城外月如霜。<br>不知何处吹芦管，<br>一夜征人尽望乡。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">秋词（其一）</span><span class="author">刘禹锡 · 唐</span><span class="desc">乐观豪迈</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>自古逢秋悲寂寥，<br>我言秋日胜春朝。<br>晴空一鹤排云上，<br>便引诗情到碧霄。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">夜雨寄北</span><span class="author">李商隐 · 唐</span><span class="desc">思念亲友</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>君问归期未有期，<br>巴山夜雨涨秋池。<br>何当共剪西窗烛，<br>却话巴山夜雨时。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">十一月四日风雨大作（其二）</span><span class="author">陆游 · 宋</span><span class="desc">爱国报国</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>僵卧孤村不自哀，<br>尚思为国戍轮台。<br>夜阑卧听风吹雨，<br>铁马冰河入梦来。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">潼关</span><span class="author">谭嗣同 · 清</span><span class="desc">少年意气</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>终古高云簇此城，<br>秋风吹散马蹄声。<br>河流大野犹嫌束，<br>山入潼关不解平。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>课内必背篇目 <span class="badge">10 篇</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《观沧海》</span><span class="author">曹操 · 东汉</span><span class="desc">建功壮志</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>东临碣石，以观沧海。<br>水何澹澹，山岛竦峙。<br>树木丛生，百草丰茂。<br>秋风萧瑟，洪波涌起。<br>日月之行，若出其中；<br>星汉灿烂，若出其里。<br>幸甚至哉，歌以咏志。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《闻王昌龄左迁龙标遥有此寄》</span><span class="author">李白 · 唐</span><span class="desc">思念友人</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>杨花落尽子规啼，<br>闻道龙标过五溪。<br>我寄愁心与明月，<br>随君直到夜郎西。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《次北固山下》</span><span class="author">王湾 · 唐</span><span class="desc">羁旅思乡</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>客路青山外，行舟绿水前。<br>潮平两岸阔，风正一帆悬。<br>海日生残夜，江春入旧年。<br>乡书何处达？归雁洛阳边。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《天净沙·秋思》</span><span class="author">马致远 · 元</span><span class="desc">羁旅思乡</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>枯藤老树昏鸦，<br>小桥流水人家，<br>古道西风瘦马。<br>夕阳西下，<br>断肠人在天涯。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《论语》十二章</span><span class="author">孔子及其弟子 · 春秋</span><span class="desc">学习修身</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p class="pt">第一章</p>
+            <p>子曰：&ldquo;学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？&rdquo; <span class="src">《学而》</span></p>
+            <p class="pt">第二章</p>
+            <p>曾子曰：&ldquo;吾日三省吾身：为人谋而不忠乎？与朋友交而不信乎？传不习乎？&rdquo; <span class="src">《学而》</span></p>
+            <p class="pt">第三章</p>
+            <p>子曰：&ldquo;吾十有五而志于学，三十而立，四十而不惑，五十而知天命，六十而耳顺，七十而从心所欲，不逾矩。&rdquo; <span class="src">《为政》</span></p>
+            <p class="pt">第四章</p>
+            <p>子曰：&ldquo;温故而知新，可以为师矣。&rdquo; <span class="src">《为政》</span></p>
+            <p class="pt">第五章</p>
+            <p>子曰：&ldquo;学而不思则罔，思而不学则殆。&rdquo; <span class="src">《为政》</span></p>
+            <p class="pt">第六章</p>
+            <p>子曰：&ldquo;贤哉，回也！一箪食，一瓢饮，在陋巷，人不堪其忧，回也不改其乐。贤哉，回也！&rdquo; <span class="src">《雍也》</span></p>
+            <p class="pt">第七章</p>
+            <p>子曰：&ldquo;知之者不如好之者，好之者不如乐之者。&rdquo; <span class="src">《雍也》</span></p>
+            <p class="pt">第八章</p>
+            <p>子曰：&ldquo;饭疏食，饮水，曲肱而枕之，乐亦在其中矣。不义而富且贵，于我如浮云。&rdquo; <span class="src">《述而》</span></p>
+            <p class="pt">第九章</p>
+            <p>子曰：&ldquo;三人行，必有我师焉。择其善者而从之，其不善者而改之。&rdquo; <span class="src">《述而》</span></p>
+            <p class="pt">第十章</p>
+            <p>子在川上曰：&ldquo;逝者如斯夫，不舍昼夜。&rdquo; <span class="src">《子罕》</span></p>
+            <p class="pt">第十一章</p>
+            <p>子曰：&ldquo;三军可夺帅也，匹夫不可夺志也。&rdquo; <span class="src">《子罕》</span></p>
+            <p class="pt">第十二章</p>
+            <p>子夏曰：&ldquo;博学而笃志，切问而近思，仁在其中矣。&rdquo; <span class="src">《子张》</span></p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《诫子书》</span><span class="author">诸葛亮 · 三国蜀</span><span class="desc">修身立志</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能治性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《狼》</span><span class="author">蒲松龄 · 清</span><span class="desc">寓言启示</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>一屠晚归，担中肉尽，止有剩骨。途中两狼，缀行甚远。</p>
+            <p>屠惧，投以骨。一狼得骨止，一狼仍从。复投之，后狼止而前狼又至。骨已尽矣，而两狼之并驱如故。</p>
+            <p>屠大窘，恐前后受其敌。顾野有麦场，场主积薪其中，苫蔽成丘。屠乃奔倚其下，弛担持刀。狼不敢前，眈眈相向。</p>
+            <p>少时，一狼径去，其一犬坐于前。久之，目似瞑，意暇甚。屠暴起，以刀劈狼首，又数刀毙之。方欲行，转视积薪后，一狼洞其中，意将隧入以攻其后也。身已半入，止露尻尾。屠自后断其股，亦毙之。乃悟前狼假寐，盖以诱敌。</p>
+            <p>狼亦黠矣，而顷刻两毙，禽兽之变诈几何哉？止增笑耳。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《世说新语》二则</span><span class="author">刘义庆编 · 南朝宋</span><span class="desc">志人记事</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p class="pt">咏雪</p>
+            <p>谢太傅寒雪日内集，与儿女讲论文义。俄而雪骤，公欣然曰：&ldquo;白雪纷纷何所似？&rdquo;兄子胡儿曰：&ldquo;撒盐空中差可拟。&rdquo;兄女曰：&ldquo;未若柳絮因风起。&rdquo;公大笑乐。即公大兄无奕女，左将军王凝之妻也。</p>
+            <p class="pt">陈太丘与友期行</p>
+            <p>陈太丘与友期行，期日中。过中不至，太丘舍去，去后乃至。元方时年七岁，门外戏。客问元方：&ldquo;尊君在不？&rdquo;答曰：&ldquo;待君久不至，已去。&rdquo;友人便怒曰：&ldquo;非人哉！与人期行，相委而去。&rdquo;元方曰：&ldquo;君与家君期日中。日中不至，则是无信；对子骂父，则是无礼。&rdquo;友人惭，下车引之。元方入门不顾。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《春》</span><span class="author">朱自清 · 现代</span><span class="desc">全文背诵·写景抒情</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>盼望着，盼望着，东风来了，春天的脚步近了。</p>
+            <p>一切都像刚睡醒的样子，欣欣然张开了眼。山朗润起来了，水涨起来了，太阳的脸红起来了。</p>
+            <p>小草偷偷地从土里钻出来，嫩嫩的，绿绿的。园子里，田野里，瞧去，一大片一大片满是的。坐着，躺着，打两个滚，踢几脚球，赛几趟跑，捉几回迷藏。风轻悄悄的，草软绵绵的。</p>
+            <p>桃树、杏树、梨树，你不让我，我不让你，都开满了花赶趟儿。红的像火，粉的像霞，白的像雪。花里带着甜味儿；闭了眼，树上仿佛已经满是桃儿、杏儿、梨儿。花下成千成百的蜜蜂嗡嗡地闹着，大小的蝴蝶飞来飞去。野花遍地是：杂样儿，有名字的，没名字的，散在草丛里，像眼睛，像星星，还眨呀眨的。</p>
+            <p>&ldquo;吹面不寒杨柳风&rdquo;，不错的，像母亲的手抚摸着你。风里带来些新翻的泥土的气息，混着青草味儿，还有各种花的香，都在微微润湿的空气里酝酿。鸟儿将巢安在繁花嫩叶当中，高兴起来了，呼朋引伴地卖弄清脆的喉咙，唱出宛转的曲子，与轻风流水应和着。牛背上牧童的短笛，这时候也成天在嘹亮地响。</p>
+            <p>雨是最寻常的，一下就是三两天。可别恼。看，像牛毛，像花针，像细丝，密密地斜织着，人家屋顶上全笼着一层薄烟。树叶儿却绿得发亮，小草儿也青得逼你的眼。傍晚时候，上灯了，一点点黄晕的光，烘托出一片安静而和平的夜。乡下去，小路上，石桥边，有撑起伞慢慢走着的人；地里还有工作的农民，披着蓑戴着笠。他们的房屋，稀稀疏疏的，在雨里静默着。</p>
+            <p>天上的风筝渐渐多了，地上的孩子也多了。城里乡下，家家户户，老老小小，也赶趟儿似的，一个个都出来了。舒活舒活筋骨，抖擞抖擞精神，各做各的一份儿事去。&ldquo;一年之计在于春&rdquo;，刚起头儿，有的是工夫，有的是希望。</p>
+            <p>春天像刚落地的娃娃，从头到脚都是新的，他生长着。</p>
+            <p>春天像小姑娘，花枝招展的，笑着，走着。</p>
+            <p>春天像健壮的青年，有铁一般的胳膊和腰脚，领着我们上前去。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">古代诗歌四首</span><span class="author">即上述四首</span><span class="desc">合计背诵</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p class="note">本条目为七上「古代诗歌四首」单元汇总，即《观沧海》《闻王昌龄左迁龙标遥有此寄》《次北固山下》《天净沙·秋思》四首，原文见上方各篇目，此处不再重复。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 七年级下册 ==================== -->
+  <section class="panel c-seven" id="p-seven-b">
+    <div class="card">
+      <h2>课外古诗词诵读 <span class="badge">8 首</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">竹里馆</span><span class="author">王维 · 唐</span><span class="desc">隐逸闲适</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>独坐幽篁里，<br>弹琴复长啸。<br>深林人不知，<br>明月来相照。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">春夜洛城闻笛</span><span class="author">李白 · 唐</span><span class="desc">思乡怀人</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>谁家玉笛暗飞声，<br>散入春风满洛城。<br>此夜曲中闻折柳，<br>何人不起故园情。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">逢入京使</span><span class="author">岑参 · 唐</span><span class="desc">思乡报国</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>故园东望路漫漫，<br>双袖龙钟泪不干。<br>马上相逢无纸笔，<br>凭君传语报平安。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">晚春</span><span class="author">韩愈 · 唐</span><span class="desc">惜时进取</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>草树知春不久归，<br>百般红紫斗芳菲。<br>杨花榆荚无才思，<br>惟解漫天作雪飞。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">泊秦淮</span><span class="author">杜牧 · 唐</span><span class="desc">借古讽今</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>烟笼寒水月笼沙，<br>夜泊秦淮近酒家。<br>商女不知亡国恨，<br>隔江犹唱后庭花。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">贾生</span><span class="author">李商隐 · 唐</span><span class="desc">怀才不遇</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>宣室求贤访逐臣，<br>贾生才调更无伦。<br>可怜夜半虚前席，<br>不问苍生问鬼神。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">过松源晨炊漆公店（其五）</span><span class="author">杨万里 · 宋</span><span class="desc">生活哲理</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>莫言下岭便无难，<br>赚得行人错喜欢。<br>正入万山圈子里，<br>一山放过一山拦。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">约客</span><span class="author">赵师秀 · 宋</span><span class="desc">闲适等待</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>黄梅时节家家雨，<br>青草池塘处处蛙。<br>有约不来过夜半，<br>闲敲棋子落灯花。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>课内必背篇目 <span class="badge">6 篇</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《孙权劝学》</span><span class="author">《资治通鉴》· 北宋</span><span class="desc">劝学进取</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>初，权谓吕蒙曰：&ldquo;卿今当涂掌事，不可不学！&rdquo;蒙辞以军中多务。权曰：&ldquo;孤岂欲卿治经为博士邪！但当涉猎，见往事耳。卿言多务，孰若孤？孤常读书，自以为大有所益。&rdquo;蒙乃始就学。及鲁肃过寻阳，与蒙论议，大惊曰：&ldquo;卿今者才略，非复吴下阿蒙！&rdquo;蒙曰：&ldquo;士别三日，即更刮目相待，大兄何见事之晚乎！&rdquo;肃遂拜蒙母，结友而别。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《木兰诗》</span><span class="author">北朝民歌</span><span class="desc">巾帼英雄</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>唧唧复唧唧，木兰当户织。不闻机杼声，唯闻女叹息。</p>
+            <p>问女何所思，问女何所忆。女亦无所思，女亦无所忆。昨夜见军帖，可汗大点兵，军书十二卷，卷卷有爷名。阿爷无大儿，木兰无长兄，愿为市鞍马，从此替爷征。</p>
+            <p>东市买骏马，西市买鞍鞯，南市买辔头，北市买长鞭。旦辞爷娘去，暮宿黄河边，不闻爷娘唤女声，但闻黄河流水鸣溅溅。旦辞黄河去，暮至黑山头，不闻爷娘唤女声，但闻燕山胡骑鸣啾啾。</p>
+            <p>万里赴戎机，关山度若飞。朔气传金柝，寒光照铁衣。将军百战死，壮士十年归。</p>
+            <p>归来见天子，天子坐明堂。策勋十二转，赏赐百千强。可汗问所欲，木兰不用尚书郎，愿驰千里足，送儿还故乡。</p>
+            <p>爷娘闻女来，出郭相扶将；阿姊闻妹来，当户理红妆；小弟闻姊来，磨刀霍霍向猪羊。开我东阁门，坐我西阁床，脱我战时袍，著我旧时裳。当窗理云鬓，对镜帖花黄。出门看火伴，火伴皆惊忙：同行十二年，不知木兰是女郎。</p>
+            <p>雄兔脚扑朔，雌兔眼迷离；双兔傍地走，安能辨我是雄雌？</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《卖油翁》</span><span class="author">欧阳修 · 宋</span><span class="desc">熟能生巧</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>陈康肃公善射，当世无双，公亦以此自矜。尝射于家圃，有卖油翁释担而立，睨之久而不去。见其发矢十中八九，但微颔之。</p>
+            <p>康肃问曰：&ldquo;汝亦知射乎？吾射不亦精乎？&rdquo;翁曰：&ldquo;无他，但手熟尔。&rdquo;康肃忿然曰：&ldquo;尔安敢轻吾射！&rdquo;翁曰：&ldquo;以我酌油知之。&rdquo;乃取一葫芦置于地，以钱覆其口，徐以杓酌油沥之，自钱孔入，而钱不湿。因曰：&ldquo;我亦无他，惟手熟尔。&rdquo;康肃笑而遣之。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《陋室铭》</span><span class="author">刘禹锡 · 唐</span><span class="desc">安贫乐道</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>山不在高，有仙则名。水不在深，有龙则灵。斯是陋室，惟吾德馨。苔痕上阶绿，草色入帘青。谈笑有鸿儒，往来无白丁。可以调素琴，阅金经。无丝竹之乱耳，无案牍之劳形。南阳诸葛庐，西蜀子云亭。孔子云：何陋之有？</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《爱莲说》</span><span class="author">周敦颐 · 宋</span><span class="desc">咏物言志</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>水陆草木之花，可爱者甚蕃。晋陶渊明独爱菊。自李唐来，世人甚爱牡丹。予独爱莲之出淤泥而不染，濯清涟而不妖，中通外直，不蔓不枝，香远益清，亭亭净植，可远观而不可亵玩焉。</p>
+            <p>予谓菊，花之隐逸者也；牡丹，花之富贵者也；莲，花之君子者也。噫！菊之爱，陶后鲜有闻。莲之爱，同予者何人？牡丹之爱，宜乎众矣。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《河中石兽》</span><span class="author">纪昀 · 清</span><span class="desc">实践求真</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>沧州南一寺临河干，山门圮于河，二石兽并沉焉。阅十余岁，僧募金重修，求二石兽于水中，竟不可得，以为顺流下矣。棹数小舟，曳铁钯，寻十余里无迹。</p>
+            <p>一讲学家设帐寺中，闻之笑曰：&ldquo;尔辈不能究物理。是非木杮，岂能为暴涨携之去？乃石性坚重，沙性松浮，湮于沙上，渐沉渐深耳。沿河求之，不亦颠乎？&rdquo;众服为确论。</p>
+            <p>一老河兵闻之，又笑曰：&ldquo;凡河中失石，当求之于上流。盖石性坚重，沙性松浮，水不能冲石，其反激之力，必于石下迎水处啮沙为坎穴，渐激渐深，至石之半，石必倒掷坎穴中。如是再啮，石又再转。转转不已，遂反溯流逆上矣。求之下流，固颠；求之地中，不更颠乎？&rdquo;如其言，果得于数里外。然则天下之事，但知其一，不知其二者多矣，可据理臆断欤？</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 八年级上册 ==================== -->
+  <section class="panel c-eight" id="p-eight-a">
+    <div class="card">
+      <h2>课外古诗词诵读 <span class="badge">8 首</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">庭中有奇树</span><span class="author">《古诗十九首》· 汉</span><span class="desc">思念远人</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>庭中有奇树，绿叶发华滋。<br>攀条折其荣，将以遗所思。<br>馨香盈怀袖，路远莫致之。<br>此物何足贵？但感别经时。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">龟虽寿</span><span class="author">曹操 · 东汉</span><span class="desc">老当益壮</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>神龟虽寿，犹有竟时。<br>腾蛇乘雾，终为土灰。<br>老骥伏枥，志在千里。<br>烈士暮年，壮心不已。<br>盈缩之期，不但在天；<br>养怡之福，可得永年。<br>幸甚至哉，歌以咏志。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">赠从弟（其二）</span><span class="author">刘桢 · 汉末</span><span class="desc">咏物言志</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>亭亭山上松，瑟瑟谷中风。<br>风声一何盛，松枝一何劲！<br>冰霜正惨凄，终岁常端正。<br>岂不罹凝寒？松柏有本性。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">梁甫行</span><span class="author">曹植 · 三国魏</span><span class="desc">同情百姓</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>八方各异性，千里殊风雨。<br>剧哉边海民，寄身于草野。<br>妻子象禽兽，行止依林阻。<br>柴门何萧条，狐兔翔我宇。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">浣溪沙（一曲新词酒一杯）</span><span class="author">晏殊 · 宋</span><span class="desc">惜时伤春</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>一曲新词酒一杯，<br>去年天气旧亭台。<br>夕阳西下几时回？</p>
+            <p>无可奈何花落去，<br>似曾相识燕归来。<br>小园香径独徘徊。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">采桑子（轻舟短棹西湖好）</span><span class="author">欧阳修 · 宋</span><span class="desc">西湖美景</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>轻舟短棹西湖好，绿水逶迤，芳草长堤，隐隐笙歌处处随。</p>
+            <p>无风水面琉璃滑，不觉船移，微动涟漪，惊起沙禽掠岸飞。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">相见欢（金陵城上西楼）</span><span class="author">朱敦儒 · 宋</span><span class="desc">忧国伤时</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>金陵城上西楼，倚清秋。<br>万里夕阳垂地，大江流。</p>
+            <p>中原乱，簪缨散，几时收？<br>试倩悲风吹泪，过扬州。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">如梦令（常记溪亭日暮）</span><span class="author">李清照 · 宋</span><span class="desc">回忆闲趣</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>常记溪亭日暮，沉醉不知归路。<br>兴尽晚回舟，误入藕花深处。<br>争渡，争渡，惊起一滩鸥鹭。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>课内必背篇目 <span class="badge">9 篇</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《三峡》</span><span class="author">郦道元 · 北魏</span><span class="desc">山水写景</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>自三峡七百里中，两岸连山，略无阙处。重岩叠嶂，隐天蔽日，自非亭午夜分，不见曦月。</p>
+            <p>至于夏水襄陵，沿溯阻绝。或王命急宣，有时朝发白帝，暮到江陵，其间千二百里，虽乘奔御风，不以疾也。</p>
+            <p>春冬之时，则素湍绿潭，回清倒影，绝巘多生怪柏，悬泉瀑布，飞漱其间，清荣峻茂，良多趣味。</p>
+            <p>每至晴初霜旦，林寒涧肃，常有高猿长啸，属引凄异，空谷传响，哀转久绝。故渔者歌曰：&ldquo;巴东三峡巫峡长，猿鸣三声泪沾裳。&rdquo;</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《答谢中书书》</span><span class="author">陶弘景 · 南朝梁</span><span class="desc">山川之美</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>山川之美，古来共谈。高峰入云，清流见底。两岸石壁，五色交辉。青林翠竹，四时俱备。晓雾将歇，猿鸟乱鸣；夕日欲颓，沉鳞竞跃。实是欲界之仙都。自康乐以来，未复有能与其奇者。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《记承天寺夜游》</span><span class="author">苏轼 · 宋</span><span class="desc">闲适豁达</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>元丰六年十月十二日夜，解衣欲睡，月色入户，欣然起行。念无与为乐者，遂至承天寺寻张怀民。怀民亦未寝，相与步于中庭。庭下如积水空明，水中藻、荇交横，盖竹柏影也。何夜无月？何处无竹柏？但少闲人如吾两人者耳。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《与朱元思书》</span><span class="author">吴均 · 南朝梁</span><span class="desc">山水书信</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>风烟俱净，天山共色。从流飘荡，任意东西。自富阳至桐庐一百许里，奇山异水，天下独绝。</p>
+            <p>水皆缥碧，千丈见底。游鱼细石，直视无碍。急湍甚箭，猛浪若奔。</p>
+            <p>夹岸高山，皆生寒树，负势竞上，互相轩邈，争高直指，千百成峰。泉水激石，泠泠作响；好鸟相鸣，嘤嘤成韵。蝉则千转不穷，猿则百叫无绝。鸢飞戾天者，望峰息心；经纶世务者，窥谷忘反。横柯上蔽，在昼犹昏；疏条交映，有时见日。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">唐诗五首</span><span class="author">野望·使至塞上·渡荆门送别·钱塘湖春行</span><span class="desc">新版删黄鹤楼</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p class="pt">野望（王绩）</p>
+            <p>东皋薄暮望，徙倚欲何依。<br>树树皆秋色，山山唯落晖。<br>牧人驱犊返，猎马带禽归。<br>相顾无相识，长歌怀采薇。</p>
+            <p class="pt">使至塞上（王维）</p>
+            <p>单车欲问边，属国过居延。<br>征蓬出汉塞，归雁入胡天。<br>大漠孤烟直，长河落日圆。<br>萧关逢候骑，都护在燕然。</p>
+            <p class="pt">渡荆门送别（李白）</p>
+            <p>渡远荆门外，来从楚国游。<br>山随平野尽，江入大荒流。<br>月下飞天镜，云生结海楼。<br>仍怜故乡水，万里送行舟。</p>
+            <p class="pt">钱塘湖春行（白居易）</p>
+            <p>孤山寺北贾亭西，水面初平云脚低。<br>几处早莺争暖树，谁家新燕啄春泥。<br>乱花渐欲迷人眼，浅草才能没马蹄。<br>最爱湖东行不足，绿杨阴里白沙堤。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">诗词五首</span><span class="author">饮酒·春望·雁门太守行·赤壁·渔家傲</span><span class="desc">诗词并重</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p class="pt">饮酒（其五）（陶渊明）</p>
+            <p>结庐在人境，而无车马喧。<br>问君何能尔？心远地自偏。<br>采菊东篱下，悠然见南山。<br>山气日夕佳，飞鸟相与还。<br>此中有真意，欲辨已忘言。</p>
+            <p class="pt">春望（杜甫）</p>
+            <p>国破山河在，城春草木深。<br>感时花溅泪，恨别鸟惊心。<br>烽火连三月，家书抵万金。<br>白头搔更短，浑欲不胜簪。</p>
+            <p class="pt">雁门太守行（李贺）</p>
+            <p>黑云压城城欲摧，甲光向日金鳞开。<br>角声满天秋色里，塞上燕脂凝夜紫。<br>半卷红旗临易水，霜重鼓寒声不起。<br>报君黄金台上意，提携玉龙为君死。</p>
+            <p class="pt">赤壁（杜牧）</p>
+            <p>折戟沉沙铁未销，自将磨洗认前朝。<br>东风不与周郎便，铜雀春深锁二乔。</p>
+            <p class="pt">渔家傲（李清照）</p>
+            <p>天接云涛连晓雾，星河欲转千帆舞。<br>仿佛梦魂归帝所，闻天语，殷勤问我归何处。<br>我报路长嗟日暮，学诗谩有惊人句。<br>九万里风鹏正举。风休住，蓬舟吹取三山去！</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《孟子》三章</span><span class="author">孟子 · 战国</span><span class="desc">论辩说理</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p class="pt">得道多助，失道寡助</p>
+            <p>天时不如地利，地利不如人和。三里之城，七里之郭，环而攻之而不胜。夫环而攻之，必有得天时者矣，然而不胜者，是天时不如地利也。城非不高也，池非不深也，兵革非不坚利也，米粟非不多也，委而去之，是地利不如人和也。故曰：域民不以封疆之界，固国不以山溪之险，威天下不以兵革之利。得道者多助，失道者寡助。寡助之至，亲戚畔之；多助之至，天下顺之。以天下之所顺，攻亲戚之所畔，故君子有不战，战必胜矣。</p>
+            <p class="pt">富贵不能淫</p>
+            <p>景春曰：&ldquo;公孙衍、张仪岂不诚大丈夫哉？一怒而诸侯惧，安居而天下熄。&rdquo;</p>
+            <p>孟子曰：&ldquo;是焉得为大丈夫乎？子未学礼乎？丈夫之冠也，父命之；女子之嫁也，母命之，往送之门，戒之曰：&lsquo;往之女家，必敬必戒，无违夫子！&rsquo;以顺为正者，妾妇之道也。居天下之广居，立天下之正位，行天下之大道。得志，与民由之；不得志，独行其道。富贵不能淫，贫贱不能移，威武不能屈，此之谓大丈夫。&rdquo;</p>
+            <p class="pt">生于忧患，死于安乐</p>
+            <p>舜发于畎亩之中，傅说举于版筑之间，胶鬲举于鱼盐之中，管夷吾举于士，孙叔敖举于海，百里奚举于市。故天将降大任于是人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，所以动心忍性，曾益其所不能。</p>
+            <p>人恒过，然后能改；困于心，衡于虑，而后作；征于色，发于声，而后喻。入则无法家拂士，出则无敌国外患者，国恒亡。然后知生于忧患而死于安乐也。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《愚公移山》</span><span class="author">《列子》· 战国</span><span class="desc">坚持不懈</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>太行、王屋二山，方七百里，高万仞，本在冀州之南，河阳之北。</p>
+            <p>北山愚公者，年且九十，面山而居。惩山北之塞，出入之迂也，聚室而谋曰：&ldquo;吾与汝毕力平险，指通豫南，达于汉阴，可乎？&rdquo;杂然相许。其妻献疑曰：&ldquo;以君之力，曾不能损魁父之丘，如太行、王屋何？且焉置土石？&rdquo;杂曰：&ldquo;投诸渤海之尾，隐土之北。&rdquo;遂率子孙荷担者三夫，叩石垦壤，箕畚运于渤海之尾。邻人京城氏之孀妻有遗男，始龀，跳往助之。寒暑易节，始一反焉。</p>
+            <p>河曲智叟笑而止之曰：&ldquo;甚矣，汝之不惠！以残年余力，曾不能毁山之一毛，其如土石何？&rdquo;北山愚公长息曰：&ldquo;汝心之固，固不可彻，曾不若孀妻弱子。虽我之死，有子存焉。子又生孙，孙又生子；子又有子，子又有孙；子子孙孙无穷匮也，而山不加增，何苦而不平？&rdquo;河曲智叟亡以应。</p>
+            <p>操蛇之神闻之，惧其不已也，告之于帝。帝感其诚，命夸娥氏二子负二山，一厝朔东，一厝雍南。自此，冀之南，汉之阴，无陇断焉。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《周亚夫军细柳》</span><span class="author">司马迁 · 西汉</span><span class="desc">治军严明</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>文帝之后六年，匈奴大入边。乃以宗正刘礼为将军，军霸上；祝兹侯徐厉为将军，军棘门；以河内守亚夫为将军，军细柳：以备胡。</p>
+            <p>上自劳军。至霸上及棘门军，直驰入，将以下骑送迎。已而之细柳军，军士吏被甲，锐兵刃，彀弓弩，持满。天子先驱至，不得入。先驱曰：&ldquo;天子且至！&rdquo;军门都尉曰：&ldquo;将军令曰：&lsquo;军中闻将军令，不闻天子之诏。&rsquo;&rdquo;居无何，上至，又不得入。于是上乃使使持节诏将军：&ldquo;吾欲入劳军。&rdquo;亚夫乃传言开壁门。壁门士吏谓从属车骑曰：&ldquo;将军约，军中不得驱驰。&rdquo;于是天子乃按辔徐行。至营，将军亚夫持兵揖曰：&ldquo;介胄之士不拜，请以军礼见。&rdquo;天子为动，改容式车。使人称谢：&ldquo;皇帝敬劳将军。&rdquo;成礼而去。</p>
+            <p>既出军门，群臣皆惊。文帝曰：&ldquo;嗟乎，此真将军矣！曩者霸上、棘门军，若儿戏耳，其将固可袭而虏也。至于亚夫，可得而犯邪！&rdquo;称善者久之。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 八年级下册 ==================== -->
+  <section class="panel c-eight" id="p-eight-b">
+    <div class="card">
+      <h2>课外古诗词诵读 <span class="badge">8 首</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">式微</span><span class="author">《诗经·邶风》</span><span class="desc">苦役怨歌</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>式微式微，胡不归？<br>微君之故，胡为乎中露？</p>
+            <p>式微式微，胡不归？<br>微君之躬，胡为乎泥中？</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">子衿</span><span class="author">《诗经·郑风》</span><span class="desc">思念恋人</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>青青子衿，悠悠我心。<br>纵我不往，子宁不嗣音？</p>
+            <p>青青子佩，悠悠我思。<br>纵我不往，子宁不来？</p>
+            <p>挑兮达兮，在城阙兮。<br>一日不见，如三月兮。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">送杜少府之任蜀州</span><span class="author">王勃 · 唐</span><span class="desc">离别旷达</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>城阙辅三秦，风烟望五津。<br>与君离别意，同是宦游人。<br>海内存知己，天涯若比邻。<br>无为在歧路，儿女共沾巾。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">望洞庭湖赠张丞相</span><span class="author">孟浩然 · 唐</span><span class="desc">干谒求仕</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>八月湖水平，涵虚混太清。<br>气蒸云梦泽，波撼岳阳城。<br>欲济无舟楫，端居耻圣明。<br>坐观垂钓者，徒有羡鱼情。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">题破山寺后禅院</span><span class="author">常建 · 唐</span><span class="desc">山水禅意</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>清晨入古寺，初日照高林。<br>曲径通幽处，禅房花木深。<br>山光悦鸟性，潭影空人心。<br>万籁此都寂，但余钟磬音。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">送友人</span><span class="author">李白 · 唐</span><span class="desc">送别深情</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>青山横北郭，白水绕东城。<br>此地一为别，孤蓬万里征。<br>浮云游子意，落日故人情。<br>挥手自兹去，萧萧班马鸣。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">卜算子·黄州定慧院寓居作</span><span class="author">苏轼 · 宋</span><span class="desc">孤寂高洁</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>缺月挂疏桐，漏断人初静。<br>谁见幽人独往来，缥缈孤鸿影。</p>
+            <p>惊起却回头，有恨无人省。<br>拣尽寒枝不肯栖，寂寞沙洲冷。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">卜算子·咏梅</span><span class="author">陆游 · 宋</span><span class="desc">咏物言志</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>驿外断桥边，寂寞开无主。<br>已是黄昏独自愁，更著风和雨。</p>
+            <p>无意苦争春，一任群芳妒。<br>零落成泥碾作尘，只有香如故。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>课内必背篇目 <span class="badge">10 篇</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《桃花源记》</span><span class="author">陶渊明 · 东晋</span><span class="desc">理想社会</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>晋太元中，武陵人捕鱼为业。缘溪行，忘路之远近。忽逢桃花林，夹岸数百步，中无杂树，芳草鲜美，落英缤纷。渔人甚异之，复前行，欲穷其林。</p>
+            <p>林尽水源，便得一山，山有小口，仿佛若有光。便舍船，从口入。初极狭，才通人。复行数十步，豁然开朗。土地平旷，屋舍俨然，有良田、美池、桑竹之属。阡陌交通，鸡犬相闻。其中往来种作，男女衣着，悉如外人。黄发垂髫，并怡然自乐。</p>
+            <p>见渔人，乃大惊，问所从来。具答之。便要还家，设酒杀鸡作食。村中闻有此人，咸来问讯。自云先世避秦时乱，率妻子邑人来此绝境，不复出焉，遂与外人间隔。问今是何世，乃不知有汉，无论魏晋。此人一一为具言所闻，皆叹惋。余人各复延至其家，皆出酒食。停数日，辞去。此中人语云：&ldquo;不足为外人道也。&rdquo;</p>
+            <p>既出，得其船，便扶向路，处处志之。及郡下，诣太守，说如此。太守即遣人随其往，寻向所志，遂迷，不复得路。</p>
+            <p>南阳刘子骥，高尚士也，闻之，欣然规往。未果，寻病终。后遂无问津者。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《小石潭记》</span><span class="author">柳宗元 · 唐</span><span class="desc">写景抒怀</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>从小丘西行百二十步，隔篁竹，闻水声，如鸣珮环，心乐之。伐竹取道，下见小潭，水尤清冽。全石以为底，近岸，卷石底以出，为坻，为屿，为嵁，为岩。青树翠蔓，蒙络摇缀，参差披拂。</p>
+            <p>潭中鱼可百许头，皆若空游无所依，日光下澈，影布石上。佁然不动，俶尔远逝，往来翕忽。似与游者相乐。</p>
+            <p>潭西南而望，斗折蛇行，明灭可见。其岸势犬牙差互，不可知其源。</p>
+            <p>坐潭上，四面竹树环合，寂寥无人，凄神寒骨，悄怆幽邃。以其境过清，不可久居，乃记之而去。</p>
+            <p>同游者：吴武陵，龚古，余弟宗玄。隶而从者，崔氏二小生：曰恕己，曰奉壹。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《核舟记》</span><span class="author">魏学洢 · 明</span><span class="desc">微雕技艺</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>明有奇巧人曰王叔远，能以径寸之木，为宫室、器皿、人物，以至鸟兽、木石，罔不因势象形，各具情态。尝贻余核舟一，盖大苏泛赤壁云。</p>
+            <p>舟首尾长约八分有奇，高可二黍许。中轩敞者为舱，箬篷覆之。旁开小窗，左右各四，共八扇。启窗而观，雕栏相望焉。闭之，则右刻&ldquo;山高月小，水落石出&rdquo;，左刻&ldquo;清风徐来，水波不兴&rdquo;，石青糁之。</p>
+            <p>船头坐三人，中峨冠而多髯者为东坡，佛印居右，鲁直居左。苏、黄共阅一手卷。东坡右手执卷端，左手抚鲁直背。鲁直左手执卷末，右手指卷，如有所语。东坡现右足，鲁直现左足，各微侧，其两膝相比者，各隐卷底衣褶中。佛印绝类弥勒，袒胸露乳，矫首昂视，神情与苏、黄不属。卧右膝，诎右臂支船，而竖其左膝，左臂挂念珠倚之&mdash;&mdash;珠可历历数也。</p>
+            <p>舟尾横卧一楫。楫左右舟子各一人。居右者椎髻仰面，左手倚一衡木，右手攀右趾，若啸呼状。居左者右手执蒲葵扇，左手抚炉，炉上有壶，其人视端容寂，若听茶声然。</p>
+            <p>其船背稍夷，则题名其上，文曰&ldquo;天启壬戌秋日，虞山王毅叔远甫刻&rdquo;，细若蚊足，钩画了了，其色墨。又用篆章一，文曰&ldquo;初平山人&rdquo;，其色丹。</p>
+            <p>通计一舟，为人五；为窗八；为箬篷，为楫，为炉，为壶，为手卷，为念珠各一；对联、题名并篆文，为字共三十有四。而计其长曾不盈寸。盖简桃核修狭者为之。嘻，技亦灵怪矣哉！</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">关雎</span><span class="author">《诗经·周南》</span><span class="desc">爱情吟咏</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>关关雎鸠，在河之洲。<br>窈窕淑女，君子好逑。</p>
+            <p>参差荇菜，左右流之。<br>窈窕淑女，寤寐求之。<br>求之不得，寤寐思服。<br>悠哉悠哉，辗转反侧。</p>
+            <p>参差荇菜，左右采之。<br>窈窕淑女，琴瑟友之。<br>参差荇菜，左右芼之。<br>窈窕淑女，钟鼓乐之。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">蒹葭</span><span class="author">《诗经·秦风》</span><span class="desc">求而不得</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>蒹葭苍苍，白露为霜。<br>所谓伊人，在水一方。<br>溯洄从之，道阻且长。<br>溯游从之，宛在水中央。</p>
+            <p>蒹葭萋萋，白露未晞。<br>所谓伊人，在水之湄。<br>溯洄从之，道阻且跻。<br>溯游从之，宛在水中坻。</p>
+            <p>蒹葭采采，白露未已。<br>所谓伊人，在水之涘。<br>溯洄从之，道阻且右。<br>溯游从之，宛在水中沚。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《庄子》二则</span><span class="author">庄周 · 战国</span><span class="desc">哲理寓言</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p class="pt">北冥有鱼</p>
+            <p>北冥有鱼，其名为鲲。鲲之大，不知其几千里也；化而为鸟，其名为鹏。鹏之背，不知其几千里也；怒而飞，其翼若垂天之云。是鸟也，海运则将徙于南冥。南冥者，天池也。《齐谐》者，志怪者也。《谐》之言曰：&ldquo;鹏之徙于南冥也，水击三千里，抟扶摇而上者九万里，去以六月息者也。&rdquo;野马也，尘埃也，生物之以息相吹也。天之苍苍，其正色邪？其远而无所至极邪？其视下也，亦若是则已矣。</p>
+            <p>且夫水之积也不厚，则其负大舟也无力。覆杯水于坳堂之上，则芥为之舟；置杯焉则胶，水浅而舟大也。风之积也不厚，则其负大翼也无力。故九万里，则风斯在下矣，而后乃今培风；背负青天而莫之夭阏者，而后乃今将图南。</p>
+            <p class="pt">庄子与惠子游于濠梁之上</p>
+            <p>庄子与惠子游于濠梁之上。庄子曰：&ldquo;鲦鱼出游从容，是鱼之乐也。&rdquo;惠子曰：&ldquo;子非鱼，安知鱼之乐？&rdquo;庄子曰：&ldquo;子非我，安知我不知鱼之乐？&rdquo;惠子曰：&ldquo;我非子，固不知子矣；子固非鱼也，子之不知鱼之乐，全矣！&rdquo;庄子曰：&ldquo;请循其本。子曰&lsquo;汝安知鱼乐&rsquo;云者，既已知吾知之而问我，我知之濠上也。&rdquo;</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《礼记》二则</span><span class="author">戴圣编 · 西汉</span><span class="desc">儒家思想</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p class="pt">虽有嘉肴</p>
+            <p>虽有嘉肴，弗食，不知其旨也；虽有至道，弗学，不知其善也。是故学然后知不足，教然后知困。知不足，然后能自反也；知困，然后能自强也。故曰：教学相长也。《兑命》曰&ldquo;学学半&rdquo;，其此之谓乎！</p>
+            <p class="pt">大道之行也</p>
+            <p>大道之行也，天下为公。选贤与能，讲信修睦。故人不独亲其亲，不独子其子，使老有所终，壮有所用，幼有所长，矜、寡、孤、独、废疾者皆有所养，男有分，女有归。货恶其弃于地也，不必藏于己；力恶其不出于身也，不必为己。是故谋闭而不兴，盗窃乱贼而不作，故外户而不闭。是谓大同。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《马说》</span><span class="author">韩愈 · 唐</span><span class="desc">怀才不遇</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>世有伯乐，然后有千里马。千里马常有，而伯乐不常有。故虽有名马，祗辱于奴隶人之手，骈死于槽枥之间，不以千里称也。</p>
+            <p>马之千里者，一食或尽粟一石。食马者不知其能千里而食也。是马也，虽有千里之能，食不饱，力不足，才美不外见，且欲与常马等不可得，安求其能千里也？</p>
+            <p>策之不以其道，食之不能尽其材，鸣之而不能通其意，执策而临之，曰：&ldquo;天下无马！&rdquo;呜呼！其真无马邪？其真不知马也！</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《茅屋为秋风所破歌》</span><span class="author">杜甫 · 唐</span><span class="desc">忧国忧民</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>八月秋高风怒号，卷我屋上三重茅。<br>茅飞渡江洒江郊，高者挂罥长林梢，下者飘转沉塘坳。</p>
+            <p>南村群童欺我老无力，忍能对面为盗贼。<br>公然抱茅入竹去，唇焦口燥呼不得，归来倚杖自叹息。</p>
+            <p>俄顷风定云墨色，秋天漠漠向昏黑。<br>布衾多年冷似铁，娇儿恶卧踏里裂。<br>床头屋漏无干处，雨脚如麻未断绝。<br>自经丧乱少睡眠，长夜沾湿何由彻！</p>
+            <p>安得广厦千万间，大庇天下寒士俱欢颜！风雨不动安如山。<br>呜呼！何时眼前突兀见此屋，吾庐独破受冻死亦足！</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《卖炭翁》</span><span class="author">白居易 · 唐</span><span class="desc">同情百姓</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>卖炭翁，伐薪烧炭南山中。<br>满面尘灰烟火色，两鬓苍苍十指黑。<br>卖炭得钱何所营？身上衣裳口中食。<br>可怜身上衣正单，心忧炭贱愿天寒。<br>夜来城外一尺雪，晓驾炭车辗冰辙。<br>牛困人饥日已高，市南门外泥中歇。</p>
+            <p>翩翩两骑来是谁？黄衣使者白衫儿。<br>手把文书口称敕，回车叱牛牵向北。<br>一车炭，千余斤，宫使驱将惜不得。<br>半匹红纱一丈绫，系向牛头充炭直。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 九年级上册（预习） ==================== -->
+  <section class="panel c-nine" id="p-nine-a">
+    <div class="card">
+      <h2>课外古诗词诵读 <span class="badge">8 首</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">月夜忆舍弟</span><span class="author">杜甫 · 唐</span><span class="desc">思亲念乡</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>戍鼓断人行，边秋一雁声。<br>露从今夜白，月是故乡明。<br>有弟皆分散，无家问死生。<br>寄书长不达，况乃未休兵。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">长沙过贾谊宅</span><span class="author">刘长卿 · 唐</span><span class="desc">怀古伤己</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>三年谪宦此栖迟，万古惟留楚客悲。<br>秋草独寻人去后，寒林空见日斜时。<br>汉文有道恩犹薄，湘水无情吊岂知。<br>寂寂江山摇落处，怜君何事到天涯。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">左迁至蓝关示侄孙湘</span><span class="author">韩愈 · 唐</span><span class="desc">忠而被贬</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>一封朝奏九重天，夕贬潮州路八千。<br>欲为圣明除弊事，肯将衰朽惜残年！<br>云横秦岭家何在？雪拥蓝关马不前。<br>知汝远来应有意，好收吾骨瘴江边。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">商山早行</span><span class="author">温庭筠 · 唐</span><span class="desc">羁旅思乡</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>晨起动征铎，客行悲故乡。<br>鸡声茅店月，人迹板桥霜。<br>槲叶落山路，枳花明驿墙。<br>因思杜陵梦，凫雁满回塘。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">咸阳城东楼</span><span class="author">许浑 · 唐</span><span class="desc">凭吊怀古</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>一上高城万里愁，蒹葭杨柳似汀洲。<br>溪云初起日沉阁，山雨欲来风满楼。<br>鸟下绿芜秦苑夕，蝉鸣黄叶汉宫秋。<br>行人莫问当年事，故国东来渭水流。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">无题</span><span class="author">李商隐 · 唐</span><span class="desc">爱情执著</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>相见时难别亦难，东风无力百花残。<br>春蚕到死丝方尽，蜡炬成灰泪始干。<br>晓镜但愁云鬓改，夜吟应觉月光寒。<br>蓬山此去无多路，青鸟殷勤为探看。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">行香子（树绕村庄）</span><span class="author">秦观 · 宋</span><span class="desc">田园春色</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>树绕村庄，水满陂塘。<br>倚东风，豪兴徜徉。<br>小园几许，收尽春光。<br>有桃花红，李花白，菜花黄。</p>
+            <p>远远围墙，隐隐茅堂。<br>飏青旗，流水桥旁。<br>偶然乘兴，步过东冈。<br>正莺儿啼，燕儿舞，蝶儿忙。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">丑奴儿·书博山道中壁</span><span class="author">辛弃疾 · 宋</span><span class="desc">识尽愁滋味</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>少年不识愁滋味，爱上层楼。<br>爱上层楼，为赋新词强说愁。</p>
+            <p>而今识尽愁滋味，欲说还休。<br>欲说还休，却道&ldquo;天凉好个秋&rdquo;。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>必背课文 <span class="badge">6 篇</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《岳阳楼记》</span><span class="author">范仲淹 · 北宋</span><span class="desc">先忧后乐</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>庆历四年春，滕子京谪守巴陵郡。越明年，政通人和，百废具兴。乃重修岳阳楼，增其旧制，刻唐贤今人诗赋于其上。属予作文以记之。</p>
+            <p>予观夫巴陵胜状，在洞庭一湖。衔远山，吞长江，浩浩汤汤，横无际涯；朝晖夕阴，气象万千。此则岳阳楼之大观也，前人之述备矣。然则北通巫峡，南极潇湘，迁客骚人，多会于此，览物之情，得无异乎？</p>
+            <p>若夫淫雨霏霏，连月不开，阴风怒号，浊浪排空，日星隐曜，山岳潜形，商旅不行，樯倾楫摧，薄暮冥冥，虎啸猿啼。登斯楼也，则有去国怀乡，忧谗畏讥，满目萧然，感极而悲者矣。</p>
+            <p>至若春和景明，波澜不惊，上下天光，一碧万顷，沙鸥翔集，锦鳞游泳，岸芷汀兰，郁郁青青。而或长烟一空，皓月千里，浮光跃金，静影沉璧，渔歌互答，此乐何极！登斯楼也，则有心旷神怡，宠辱偕忘，把酒临风，其喜洋洋者矣。</p>
+            <p>嗟夫！予尝求古仁人之心，或异二者之为，何哉？不以物喜，不以己悲，居庙堂之高则忧其民，处江湖之远则忧其君。是进亦忧，退亦忧。然则何时而乐耶？其必曰&ldquo;先天下之忧而忧，后天下之乐而乐&rdquo;乎！噫！微斯人，吾谁与归？</p>
+            <p>时六年九月十五日。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《醉翁亭记》</span><span class="author">欧阳修 · 北宋</span><span class="desc">与民同乐</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>环滁皆山也。其西南诸峰，林壑尤美，望之蔚然而深秀者，琅琊也。山行六七里，渐闻水声潺潺，而泻出于两峰之间者，酿泉也。峰回路转，有亭翼然临于泉上者，醉翁亭也。作亭者谁？山之僧智仙也。名之者谁？太守自谓也。太守与客来饮于此，饮少辄醉，而年又最高，故自号曰醉翁也。醉翁之意不在酒，在乎山水之间也。山水之乐，得之心而寓之酒也。</p>
+            <p>若夫日出而林霏开，云归而岩穴暝，晦明变化者，山间之朝暮也。野芳发而幽香，佳木秀而繁阴，风霜高洁，水落而石出者，山间之四时也。朝而往，暮而归，四时之景不同，而乐亦无穷也。</p>
+            <p>至于负者歌于途，行者休于树，前者呼，后者应，伛偻提携，往来而不绝者，滁人游也。临溪而渔，溪深而鱼肥。酿泉为酒，泉香而酒洌；山肴野蔌，杂然而前陈者，太守宴也。宴酣之乐，非丝非竹，射者中，弈者胜，觥筹交错，起坐而喧哗者，众宾欢也。苍颜白发，颓然乎其间者，太守醉也。</p>
+            <p>已而夕阳在山，人影散乱，太守归而宾客从也。树林阴翳，鸣声上下，游人去而禽鸟乐也。然而禽鸟知山林之乐，而不知人之乐；人知从太守游而乐，而不知太守之乐其乐也。醉能同其乐，醒能述以文者，太守也。太守谓谁？庐陵欧阳修也。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《湖心亭看雪》</span><span class="author">张岱 · 明末清初</span><span class="desc">痴情山水</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>崇祯五年十二月，余住西湖。大雪三日，湖中人鸟声俱绝。是日更定矣，余拏一小舟，拥毳衣炉火，独往湖心亭看雪。雾凇沆砀，天与云与山与水，上下一白。湖上影子，惟长堤一痕、湖心亭一点、与余舟一芥、舟中人两三粒而已。</p>
+            <p>到亭上，有两人铺毡对坐，一童子烧酒炉正沸。见余大喜曰：&ldquo;湖中焉得更有此人！&rdquo;拉余同饮。余强饮三大白而别。问其姓氏，是金陵人，客此。及下船，舟子喃喃曰：&ldquo;莫说相公痴，更有痴似相公者！&rdquo;</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《行路难》（其一）</span><span class="author">李白 · 唐</span><span class="desc">自信豁达</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>金樽清酒斗十千，玉盘珍羞直万钱。<br>停杯投箸不能食，拔剑四顾心茫然。<br>欲渡黄河冰塞川，将登太行雪满山。<br>闲来垂钓碧溪上，忽复乘舟梦日边。<br>行路难，行路难，多歧路，今安在？<br>长风破浪会有时，直挂云帆济沧海。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《酬乐天扬州初逢席上见赠》</span><span class="author">刘禹锡 · 唐</span><span class="desc">乐观奋进</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>巴山楚水凄凉地，二十三年弃置身。<br>怀旧空吟闻笛赋，到乡翻似烂柯人。<br>沉舟侧畔千帆过，病树前头万木春。<br>今日听君歌一曲，暂凭杯酒长精神。</p>
+          </div>
+        </details>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《水调歌头·明月几时有》</span><span class="author">苏轼 · 宋</span><span class="desc">旷达祝愿</span></label>
+        <details>
+          <summary>查看原文</summary>
+          <div class="text">
+            <p>丙辰中秋，欢饮达旦，大醉，作此篇，兼怀子由。</p>
+            <p>明月几时有？把酒问青天。<br>不知天上宫阙，今夕是何年。<br>我欲乘风归去，又恐琼楼玉宇，高处不胜寒。<br>起舞弄清影，何似在人间。</p>
+            <p>转朱阁，低绮户，照无眠。<br>不应有恨，何事长向别时圆？<br>人有悲欢离合，月有阴晴圆缺，此事古难全。<br>但愿人长久，千里共婵娟。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>必读名著 <span class="badge">2 部</span></h2>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《简·爱》</span><span class="author">夏洛蒂·勃朗特 · 英国</span><span class="desc">独立自尊</span></label>
+      </div>
+      <div class="entry">
+        <label class="item"><input type="checkbox"><span class="title">《唐诗三百首》</span><span class="author">蘅塘退士编 · 清</span><span class="desc">唐诗精选</span></label>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer>
+    <strong>备注：</strong>本清单依据统编版初中语文教材（2022 课标修订版）整理，个别篇目编排以课本和老师布置为准。古诗文原文逐字核对统编版教材，个别异体字/通假字以课本为准。勾选框为本地记录，浏览器关闭后不保留，建议打印后手写打勾。<br>
+    统计：七上 18 篇 · 七下 14 篇 · 八上 17 篇 · 八下 18 篇 · 九上 16 篇，合计 <strong>83</strong> 项。
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.tab').forEach(function (b) { b.classList.remove('active'); });
+      document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.target).classList.add('active');
+    });
+  });
+
+  var toggleBtn = document.getElementById('toggle-all');
+  var allOpen = false;
+  toggleBtn.addEventListener('click', function () {
+    allOpen = !allOpen;
+    document.querySelectorAll('details').forEach(function (d) { d.open = allOpen; });
+    toggleBtn.textContent = allOpen ? '收起全部原文' : '展开全部原文';
+  });
+
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('details').forEach(function (d) { d.open = true; });
+  });
+</script>
+</body>
+</html>
