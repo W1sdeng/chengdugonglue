@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《唐诗三百首》快速导读（暑假作业·名著速读）</title>
+<style>
+  :root{
+    --ink:#3a2e23;
+    --brown:#8a5a2b;
+    --brown-light:#f5ead9;
+    --bg:#faf6ee;
+    --card:#fffdf8;
+    --accent:#b5651d;
+    --line:#e5d5ba;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Songti SC","STSong","SimSun",serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.8;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:16px;}
+
+  /* 顶部导航占位 */
+  .topbar{
+    display:flex;align-items:center;gap:12px;
+    padding:8px 0 16px;
+  }
+  .back-btn{
+    text-decoration:none;color:var(--brown);
+    border:1px solid var(--line);border-radius:8px;
+    padding:4px 14px;font-size:14px;background:#fff;
+  }
+  .back-btn:hover{background:var(--brown-light);}
+
+  header.hero{
+    text-align:center;
+    background:linear-gradient(135deg,#8a5a2b,#b5651d);
+    color:#fff;border-radius:14px;
+    padding:28px 16px;margin-bottom:20px;
+  }
+  header.hero h1{font-size:26px;letter-spacing:2px;font-weight:700;}
+  header.hero p{margin-top:8px;font-size:14px;opacity:.9;}
+  header.hero .tag{
+    display:inline-block;margin-top:10px;
+    background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);
+    border-radius:20px;padding:2px 14px;font-size:12px;
+  }
+
+  /* 简介 */
+  .intro{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:18px 20px;margin-bottom:22px;
+  }
+  .intro h2{
+    font-size:18px;color:var(--accent);
+    border-left:4px solid var(--accent);padding-left:10px;margin-bottom:10px;
+  }
+  .intro p{font-size:14.5px;color:#5a4a37;margin-bottom:8px;}
+  .intro p:last-child{margin-bottom:0;}
+  .intro b{color:var(--brown);}
+
+  /* 体裁分组 */
+  .genre-group{margin-bottom:26px;}
+  .genre-title{
+    display:flex;align-items:center;gap:10px;
+    font-size:18px;color:var(--brown);margin-bottom:12px;
+  }
+  .genre-title .bar{
+    display:inline-block;width:6px;height:20px;
+    background:var(--accent);border-radius:3px;
+  }
+  .genre-title .count{font-size:13px;color:#a08a6a;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+
+  /* 诗卡片 */
+  .card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:14px 16px;
+    display:flex;flex-direction:column;gap:8px;
+    break-inside:avoid;
+  }
+  .card.read{
+    background:#f3f7f0;border-color:#b9cda8;
+  }
+  .card.read .poem{opacity:.75;}
+  .card-head{display:flex;align-items:center;flex-wrap:wrap;gap:6px;}
+  .card-head .name{
+    font-size:17px;font-weight:700;color:var(--ink);
+    border-bottom:2px solid var(--accent);
+  }
+  .card-head .author{font-size:13px;color:#7a6a52;}
+  .card-head .genre{
+    font-size:11px;color:#fff;background:var(--brown);
+    border-radius:10px;padding:1px 8px;
+  }
+  .card-head .check{
+    margin-left:auto;font-size:12px;color:var(--brown);
+    display:flex;align-items:center;gap:4px;cursor:pointer;
+  }
+  .card-head .check input{accent-color:var(--accent);width:15px;height:15px;cursor:pointer;}
+  .poem{
+    font-size:15px;letter-spacing:1px;color:#2f261b;
+    padding:6px 10px;background:var(--brown-light);border-radius:8px;
+  }
+  .poem .ellipsis{color:#a08a6a;}
+  .meta{font-size:13px;color:#5a4a37;}
+  .meta p{margin-bottom:3px;}
+  .meta .k{color:var(--accent);font-weight:700;}
+
+  /* 进度区 */
+  .progress-box{
+    background:var(--card);border:2px solid var(--accent);
+    border-radius:14px;padding:18px 20px;margin-bottom:22px;
+  }
+  .progress-box h2{font-size:18px;color:var(--accent);margin-bottom:12px;}
+  .bar-track{
+    height:18px;background:#eadfc8;border-radius:10px;overflow:hidden;
+  }
+  .bar-fill{
+    height:100%;width:0%;
+    background:linear-gradient(90deg,#b5651d,#e0a060);
+    border-radius:10px;transition:width .3s;
+  }
+  .progress-num{
+    margin-top:8px;font-size:14px;color:var(--brown);
+  }
+  .progress-num b{font-size:20px;}
+  .date-row{
+    margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    font-size:14px;color:#5a4a37;
+  }
+  .date-row input[type=date]{
+    border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:13px;
+  }
+  .date-row input[type=text]{
+    border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:13px;
+    width:180px;
+  }
+  .btn{
+    background:var(--accent);color:#fff;border:none;border-radius:6px;
+    padding:4px 14px;font-size:13px;cursor:pointer;
+  }
+  .btn:hover{background:#8a4a15;}
+
+  /* 阅读提示 */
+  .tips{
+    background:var(--card);border:1px dashed var(--brown);
+    border-radius:14px;padding:18px 20px;margin-bottom:20px;
+  }
+  .tips h2{font-size:18px;color:var(--accent);margin-bottom:10px;}
+  .tips ol{padding-left:22px;font-size:14.5px;color:#4a3b28;}
+  .tips li{margin-bottom:6px;}
+  .tips b{color:var(--brown);}
+
+  footer{
+    text-align:center;font-size:12px;color:#a08a6a;
+    padding:12px 0 30px;
+  }
+
+  @media print{
+    body{background:#fff;}
+    .wrap{max-width:100%;padding:0;}
+    .back-btn{display:none;}
+    .card{break-inside:avoid;page-break-inside:avoid;}
+    header.hero{background:#8a5a2b !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .card-head .check input{print-color-adjust:exact;}
+  }
+  @page{size:A4;margin:12mm;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="back-btn" href="#">← 返回</a>
+    <span style="font-size:12px;color:#a08a6a;">（返回按钮占位，无需点击）</span>
+  </div>
+
+  <header class="hero">
+    <h1>《唐诗三百首》快速导读</h1>
+    <p>暑假作业 · 名著速读 · 统编版九年级必读</p>
+    <span class="tag">读完它，留下阅读痕迹</span>
+  </header>
+
+  <section class="intro">
+    <h2>一书概览</h2>
+    <p>《唐诗三百首》由清代<b>蘅塘退士（孙洙）</b>编选，收录约 <b>77 位诗人、310 首</b>诗作，按<b>五言古诗、七言古诗、五言律诗、七言律诗、五言绝句、七言绝句、乐府</b>等体裁分类编排，是<b>流传最广、影响最大的唐诗选本</b>。孙洙选诗"取其易诵"，篇目精当，是学习唐诗最好的入门读物。</p>
+    <p>本导读精选 <b>24 首必读篇目</b>，按体裁分组，每首都配有原文、注释、白话译文与一句话赏析，方便快速通读、勾画进度。祝阅读顺利。</p>
+  </section>
+
+  <section class="progress-box" id="progressSection">
+    <h2>📊 阅读进度</h2>
+    <div class="bar-track"><div class="bar-fill" id="barFill"></div></div>
+    <div class="progress-num">已读 <b id="readCount">0</b> / 24 首</div>
+    <div class="date-row">
+      <label>阅读日期：<input type="date" id="readDate"></label>
+      <label>阅读时间：<input type="text" id="readTime" placeholder="如：8月17日 上午 30分钟"></label>
+      <button class="btn" id="btnReset" type="button">重置进度</button>
+    </div>
+  </section>
+
+  <section>
+    <div class="genre-group">
+      <div class="genre-title"><span class="bar"></span>五言绝句 <span class="count">4 首</span></div>
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-head"><span class="name">静夜思</span><span class="author">李白</span><span class="genre">五言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">床前明月光，<br>疑是地上霜。<br>举头望明月，<br>低头思故乡。</div>
+          <div class="meta"><p><span class="k">注释：</span>疑：好像、仿佛；举头：抬头。</p><p><span class="k">译文：</span>皎洁的月光洒在床前，像是地上铺了一层白霜；抬头望月，不禁低头思念起远方的故乡。</p><p><span class="k">赏析：</span>思乡之情，含蓄而动人。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">春晓</span><span class="author">孟浩然</span><span class="genre">五言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">春眠不觉晓，<br>处处闻啼鸟。<br>夜来风雨声，<br>花落知多少。</div>
+          <div class="meta"><p><span class="k">注释：</span>晓：天亮；闻：听到；啼：鸟鸣。</p><p><span class="k">译文：</span>春夜好睡，不知不觉天已大亮，到处传来鸟叫；昨夜风雨声声，不知花儿又落了多少。</p><p><span class="k">赏析：</span>惜春怜春，清淡中含深情。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">登鹳雀楼</span><span class="author">王之涣</span><span class="genre">五言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">白日依山尽，<br>黄河入海流。<br>欲穷千里目，<br>更上一层楼。</div>
+          <div class="meta"><p><span class="k">注释：</span>依：依傍；尽：消失；穷：穷尽；更：再、还要。</p><p><span class="k">译文：</span>夕阳依着群山渐渐沉落，黄河奔流着涌向大海；想看到更远的风光，就要再登上一层楼。</p><p><span class="k">赏析：</span>登高望远，蕴含积极进取的人生哲理。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">相思</span><span class="author">王维</span><span class="genre">五言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">红豆生南国，<br>春来发几枝。<br>愿君多采撷，<br>此物最相思。</div>
+          <div class="meta"><p><span class="k">注释：</span>红豆：又叫"相思子"；采撷：采摘。</p><p><span class="k">译文：</span>红豆生长在南方，春天又发新枝；希望你多多采摘，这红豆最能寄托相思之情。</p><p><span class="k">赏析：</span>托物言情，含蓄隽永。</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="genre-group">
+      <div class="genre-title"><span class="bar"></span>七言绝句 <span class="count">4 首</span></div>
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-head"><span class="name">早发白帝城</span><span class="author">李白</span><span class="genre">七言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">朝辞白帝彩云间，<br>千里江陵一日还。<br>两岸猿声啼不住，<br>轻舟已过万重山。</div>
+          <div class="meta"><p><span class="k">注释：</span>朝：早晨；辞：辞别、离开；重：层层（chóng）。</p><p><span class="k">译文：</span>清晨告别高耸彩云间的白帝城，一日之内就回到了千里之外的江陵；两岸猿声还在耳边回响，轻快的小船已驶过万重高山。</p><p><span class="k">赏析：</span>写景叙事如飞，尽显喜悦畅快之情。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">出塞</span><span class="author">王昌龄</span><span class="genre">七言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">秦时明月汉时关，<br>万里长征人未还。<br>但使龙城飞将在，<br>不教胡马度阴山。</div>
+          <div class="meta"><p><span class="k">注释：</span>但使：只要让；龙城飞将：指汉代名将李广；教：让；度：越过。</p><p><span class="k">译文：</span>还是秦汉时的明月边关，万里征战的将士却不见回还；只要有飞将军那样的良将在，绝不让胡人兵马越过阴山。</p><p><span class="k">赏析：</span>怀古讽今，气象雄浑苍凉。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">九月九日忆山东兄弟</span><span class="author">王维</span><span class="genre">七言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">独在异乡为异客，<br>每逢佳节倍思亲。<br>遥知兄弟登高处，<br>遍插茱萸少一人。</div>
+          <div class="meta"><p><span class="k">注释：</span>异客：在他乡作客的人；倍：加倍；茱萸：一种香草，重阳节佩戴。</p><p><span class="k">译文：</span>独自客居他乡，每逢佳节格外思念亲人；远想家乡兄弟登高插茱萸时，唯独少了我一人。</p><p><span class="k">赏析：</span>"每逢佳节倍思亲"道出天下游子心声。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">凉州词</span><span class="author">王之涣</span><span class="genre">七言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">黄河远上白云间，<br>一片孤城万仞山。<br>羌笛何须怨杨柳，<br>春风不度玉门关。</div>
+          <div class="meta"><p><span class="k">注释：</span>仞：古代长度单位，万仞极言其高；羌笛：羌族乐器；杨柳：指《折杨柳》曲，也暗指离别。</p><p><span class="k">译文：</span>黄河远远伸向白云之间，孤城坐落在万仞高山之中；羌笛何必吹奏《折杨柳》哀怨离愁，春风本就吹不到玉门关外。</p><p><span class="k">赏析：</span>壮阔苍凉中见边塞将士的悲壮。</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="genre-group">
+      <div class="genre-title"><span class="bar"></span>五言律诗 <span class="count">4 首</span></div>
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-head"><span class="name">春望</span><span class="author">杜甫</span><span class="genre">五言律诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">国破山河在，<br>城春草木深。<br>感时花溅泪，<br>恨别鸟惊心。<br>烽火连三月，<br>家书抵万金。<br>白头搔更短，<br>浑欲不胜簪。</div>
+          <div class="meta"><p><span class="k">注释：</span>烽火：战火；抵：值；搔：抓挠（头发）；浑欲：简直要；簪：簪子。</p><p><span class="k">译文：</span>国都沦陷山河依旧，城中春来草木丛生；感伤时事花也溅泪，怅恨离别鸟也惊心。战火连三月，一封家书值万金。白发越搔越短，简直插不住簪子。</p><p><span class="k">赏析：</span>忧国忧民、思家念亲交织一处。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">过故人庄</span><span class="author">孟浩然</span><span class="genre">五言律诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">故人具鸡黍，<br>邀我至田家。<br>绿树村边合，<br>青山郭外斜。<br>开轩面场圃，<br>把酒话桑麻。<br>待到重阳日，<br>还来就菊花。</div>
+          <div class="meta"><p><span class="k">注释：</span>具：准备、备办；鸡黍：杀鸡煮饭，泛指农家饭菜；合：环绕；郭：外城；就：靠近、赴。</p><p><span class="k">译文：</span>老朋友准备了鸡黍饭，邀我到农家做客；绿树环绕村庄，青山横卧城外。开窗面对场圃，把酒闲谈农桑；约定重阳节再来赏菊。</p><p><span class="k">赏析：</span>田园风光与淳朴友情相映成趣。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">山居秋暝</span><span class="author">王维</span><span class="genre">五言律诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">空山新雨后，<br>天气晚来秋。<br>明月松间照，<br>清泉石上流。<br>竹喧归浣女，<br>莲动下渔舟。<br>随意春芳歇，<br>王孙自可留。</div>
+          <div class="meta"><p><span class="k">注释：</span>暝：黄昏；喧：喧闹（竹叶作响）；浣女：洗衣的女子；王孙：原指贵族子弟，这里指诗人自己。</p><p><span class="k">译文：</span>新雨后的空山，傍晚秋意正浓；明月照松间，清泉石上流。竹林中传来喧笑是浣女归来，莲叶晃动是渔舟下行。春芳消歇也无妨，这山中自可留住。</p><p><span class="k">赏析：</span>诗中有画，动静相生，恬淡超逸。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">望岳</span><span class="author">杜甫</span><span class="genre">五言律诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">岱宗夫如何？<br>齐鲁青未了。<br>造化钟神秀，<br>阴阳割昏晓。<br>荡胸生曾云，<br>决眦入归鸟。<br>会当凌绝顶，<br>一览众山小。</div>
+          <div class="meta"><p><span class="k">注释：</span>岱宗：泰山；造化：大自然；钟：聚集；决眦：睁大眼睛；会当：终要、定要；凌：登上。（"曾云"即"层云"，曾通层。）</p><p><span class="k">译文：</span>泰山究竟如何？齐鲁大地青山连绵望不到尽头。大自然聚集神奇秀丽，山南山北分割出昏晓。层云荡起心胸，归鸟尽收眼底。终要登上绝顶，俯瞰群山都显得矮小。</p><p><span class="k">赏析：</span>青年杜甫的豪情壮志，一览无余。</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="genre-group">
+      <div class="genre-title"><span class="bar"></span>七言律诗 <span class="count">4 首</span></div>
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-head"><span class="name">黄鹤楼</span><span class="author">崔颢</span><span class="genre">七言律诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">昔人已乘黄鹤去，<br>此地空余黄鹤楼。<br>黄鹤一去不复返，<br>白云千载空悠悠。<br>晴川历历汉阳树，<br>芳草萋萋鹦鹉洲。<br>日暮乡关何处是？<br>烟波江上使人愁。</div>
+          <div class="meta"><p><span class="k">注释：</span>昔人：指传说中乘黄鹤而去的仙人；历历：清晰可数；萋萋：草木茂盛；乡关：故乡。</p><p><span class="k">译文：</span>仙人已乘黄鹤飞去，这里空余黄鹤楼；黄鹤一去不复返，白云千载空悠悠。晴空下汉阳树历历可数，鹦鹉洲芳草萋萋。日暮时故乡在何处？烟波江上令人发愁。</p><p><span class="k">赏析：</span>登高怀古，乡愁渺远，被赞为唐人七律第一。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">登高</span><span class="author">杜甫</span><span class="genre">七言律诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">风急天高猿啸哀，<br>渚清沙白鸟飞回。<br>无边落木萧萧下，<br>不尽长江滚滚来。<br>万里悲秋常作客，<br>百年多病独登台。<br>艰难苦恨繁霜鬓，<br>潦倒新停浊酒杯。</div>
+          <div class="meta"><p><span class="k">注释：</span>渚：水中小块陆地；落木：落叶；萧萧：风吹落叶声；作客：漂泊他乡；潦倒：困顿失意。</p><p><span class="k">译文：</span>风急天高猿声哀啸，渚清沙白鸟飞盘旋；无边落叶纷纷飘下，不尽长江滚滚而来。万里悲秋常作客，暮年多病独自登台。备尝艰难双鬓尽白，潦倒时近日日因病戒酒。</p><p><span class="k">赏析：</span>句句皆律，字字皆对，人称"古今七律第一"。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">无题</span><span class="author">李商隐</span><span class="genre">七言律诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">相见时难别亦难，<br>东风无力百花残。<br>春蚕到死丝方尽，<br>蜡炬成灰泪始干。<br>晓镜但愁云鬓改，<br>夜吟应觉月光寒。<br>蓬山此去无多路，<br>青鸟殷勤为探看。</div>
+          <div class="meta"><p><span class="k">注释：</span>丝：谐音"思"；蜡炬：蜡烛；云鬓：乌黑的鬓发；蓬山：蓬莱仙山，指所思念之人的住处；青鸟：神话中传递消息的使者。</p><p><span class="k">译文：</span>相见已难，离别更难，何况东风无力百花凋残。春蚕吐丝到死方尽，蜡烛燃成灰烬泪才流干。晨起对镜只愁鬓发变白，夜吟诗章更觉月光清寒。蓬莱山距此并无多远，愿青鸟殷勤为我传信探望。</p><p><span class="k">赏析：</span>缠绵悱恻，至死不渝的深情。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">锦瑟</span><span class="author">李商隐</span><span class="genre">七言律诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">锦瑟无端五十弦，<br>一弦一柱思华年。<br>庄生晓梦迷蝴蝶，<br>望帝春心托杜鹃。<br>沧海月明珠有泪，<br>蓝田日暖玉生烟。<br>此情可待成追忆，<br>只是当时已惘然。</div>
+          <div class="meta"><p><span class="k">注释：</span>无端：无缘无故；华年：青春年华；迷蝴蝶、托杜鹃：用庄周梦蝶、望帝化鹃典故；惘然：迷惘、若有所失。</p><p><span class="k">译文：</span>锦瑟无缘无故有五十弦，一弦一柱都让人追忆青春华年。庄周梦中化作蝴蝶，望帝把春心托付给杜鹃。沧海明月下珍珠如泪，蓝田暖日照耀玉生轻烟。这情思何须等到日后追忆，当时就已经惘然若失。</p><p><span class="k">赏析：</span>意象迷离，追忆华年，历来难解却人人动容。</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="genre-group">
+      <div class="genre-title"><span class="bar"></span>古诗（乐府·长篇节选）<span class="count">4 首</span></div>
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-head"><span class="name">将进酒（节选）</span><span class="author">李白</span><span class="genre">乐府·古诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">君不见黄河之水天上来，<br>奔流到海不复回。<br>君不见高堂明镜悲白发，<br>朝如青丝暮成雪。<br>人生得意须尽欢，<br>莫使金樽空对月。<br>天生我材必有用，<br>千金散尽还复来。<span class="ellipsis"><br>（全诗较长，此为节选）</span></div>
+          <div class="meta"><p><span class="k">注释：</span>君不见：你看不见吗，你可知道；高堂：高大的厅堂；金樽：精美的酒杯。</p><p><span class="k">译文：</span>黄河之水从天而来奔流入海一去不回，人生朝如青丝暮成白发转瞬即逝。得意时要尽情欢乐，别让金杯空对明月；天生我才必有用，千金散尽还能再来。</p><p><span class="k">赏析：</span>豪放洒脱，气势磅礴，"天生我材必有用"千古名句。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">行路难</span><span class="author">李白</span><span class="genre">乐府·古诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">金樽清酒斗十千，<br>玉盘珍羞直万钱。<br>停杯投箸不能食，<br>拔剑四顾心茫然。<br>欲渡黄河冰塞川，<br>将登太行雪满山。<br>闲来垂钓碧溪上，<br>忽复乘舟梦日边。<br>行路难！行路难！<br>多歧路，今安在？<br>长风破浪会有时，<br>直挂云帆济沧海。</div>
+          <div class="meta"><p><span class="k">注释：</span>珍羞：精美的菜肴，"羞"通"馐"；直万钱：值万钱；投箸：放下筷子；垂钓碧溪、乘舟梦日：用姜太公、伊尹的典故；济：渡过。</p><p><span class="k">译文：</span>面对美酒佳肴却停下杯筷，拔剑四顾心中茫然。渡黄河冰塞，登太行雪封。想到姜太公垂钓、伊尹梦日，只要长风破浪，终有一天能挂帆渡过沧海。</p><p><span class="k">赏析：</span>从苦闷中挣脱而出，高唱自信与豪情。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">长恨歌（节选）</span><span class="author">白居易</span><span class="genre">乐府·古诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">汉皇重色思倾国，<br>御宇多年求不得。<br>杨家有女初长成，<br>养在深闺人未识。<br>天生丽质难自弃，<br>一朝选在君王侧。<br>回眸一笑百媚生，<br>六宫粉黛无颜色。<br>春寒赐浴华清池，<br>温泉水滑洗凝脂。<br>侍儿扶起娇无力，<br>始是新承恩泽时。<br>云鬓花颜金步摇，<br>芙蓉帐暖度春宵。<br>春宵苦短日高起，<br>从此君王不早朝。<span class="ellipsis"><br>（全诗较长，此为节选，下接结尾）</span><br>在天愿作比翼鸟，<br>在地愿为连理枝。<br>天长地久有时尽，<br>此恨绵绵无绝期。</div>
+          <div class="meta"><p><span class="k">注释：</span>御宇：统治天下；倾国：形容女子极美；凝脂：形容皮肤白嫩；华清池：华清宫的温泉；此恨绵绵：遗憾绵长无尽。</p><p><span class="k">译文：</span>唐玄宗宠爱绝美的杨贵妃，从此沉溺享乐不理朝政；结尾点明：任凭天长地久终有尽时，这遗憾却绵绵无尽。</p><p><span class="k">赏析：</span>叙事与抒情结合，讥讽中见同情，缠绵哀婉。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">琵琶行（节选）</span><span class="author">白居易</span><span class="genre">乐府·古诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">浔阳江头夜送客，<br>枫叶荻花秋瑟瑟。<br>主人下马客在船，<br>举酒欲饮无管弦。<br>醉不成欢惨将别，<br>别时茫茫江浸月。<br>忽闻水上琵琶声，<br>主人忘归客不发。<br>寻声暗问弹者谁？<br>琵琶声停欲语迟。<br>移船相近邀相见，<br>添酒回灯重开宴。<br>千呼万唤始出来，<br>犹抱琵琶半遮面。<br>转轴拨弦三两声，<br>未成曲调先有情。<br>弦弦掩抑声声思，<br>似诉平生不得志。<br>低眉信手续续弹，<br>说尽心中无限事。<br>大弦嘈嘈如急雨，<br>小弦切切如私语。<br>嘈嘈切切错杂弹，<br>大珠小珠落玉盘。<span class="ellipsis"><br>（全诗较长，此为节选）</span><br>同是天涯沦落人，<br>相逢何必曾相识！</div>
+          <div class="meta"><p><span class="k">注释：</span>瑟瑟：风吹草木之声；管弦：指音乐；暗问：悄悄询问；掩抑：低沉忧郁；霓裳、六幺：唐代乐曲名。</p><p><span class="k">译文：</span>秋夜江头送客，忽闻琵琶之声；弹奏者千呼万唤才出来，犹抱琵琶半遮面。琵琶声如急雨如私语，如珠落玉盘。诗人由此发出"同是天涯沦落人"的感叹。</p><p><span class="k">赏析：</span>音乐描写出神入化，声声入耳，字字关情。</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="genre-group">
+      <div class="genre-title"><span class="bar"></span>其他经典 <span class="count">4 首</span></div>
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-head"><span class="name">送元二使安西</span><span class="author">王维</span><span class="genre">七言绝句·送别</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">渭城朝雨浥轻尘，<br>客舍青青柳色新。<br>劝君更尽一杯酒，<br>西出阳关无故人。</div>
+          <div class="meta"><p><span class="k">注释：</span>浥：湿润；客舍：旅店；柳色：古人折柳送别，柳谐"留"；更尽：再喝完；阳关：出塞必经的关名。</p><p><span class="k">译文：</span>渭城清晨细雨润湿尘土，客舍青青柳色一新；劝你再喝一杯酒，出了阳关就再也见不到老朋友了。</p><p><span class="k">赏析：</span>深情劝酒，千载送别绝唱。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">游子吟</span><span class="author">孟郊</span><span class="genre">乐府·古诗</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">慈母手中线，<br>游子身上衣。<br>临行密密缝，<br>意恐迟迟归。<br>谁言寸草心，<br>报得三春晖。</div>
+          <div class="meta"><p><span class="k">注释：</span>游子：离家远行的人；意恐：担心；寸草心：小草的嫩心，比喻儿女的孝心；三春晖：春天的阳光，比喻母爱。</p><p><span class="k">译文：</span>慈母手中的针线，缝成游子身上的衣裳；临行前密密缝制，怕儿子迟迟不归。谁说小草的心，能报答春天阳光的恩泽呢？</p><p><span class="k">赏析：</span>母爱无言，以小见大，朴素而动人。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">枫桥夜泊</span><span class="author">张继</span><span class="genre">七言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">月落乌啼霜满天，<br>江枫渔火对愁眠。<br>姑苏城外寒山寺，<br>夜半钟声到客船。</div>
+          <div class="meta"><p><span class="k">注释：</span>渔火：渔船上的灯火；对愁眠：面对愁绪难以入眠；姑苏：苏州；寒山寺：苏州名寺。</p><p><span class="k">译文：</span>月落乌啼霜色满天，江枫渔火伴我愁眠；姑苏城外的寒山寺，夜半钟声传到客船。</p><p><span class="k">赏析：</span>以动衬静，羁旅之愁如钟声回荡。</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><span class="name">江雪</span><span class="author">柳宗元</span><span class="genre">五言绝句</span><label class="check"><input type="checkbox" class="poem-check"> 已读✓</label></div>
+          <div class="poem">千山鸟飞绝，<br>万径人踪灭。<br>孤舟蓑笠翁，<br>独钓寒江雪。</div>
+          <div class="meta"><p><span class="k">注释：</span>绝：绝迹；径：小路；踪：脚印；蓑笠翁：披蓑衣戴斗笠的老渔翁。</p><p><span class="k">译文：</span>千山万径不见鸟影人迹，一片死寂中，孤舟上披蓑戴笠的老翁，独自在寒江雪中垂钓。</p><p><span class="k">赏析：</span>一幅清冷孤绝的雪中独钓图，寄托清高孤傲的人格。</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="tips">
+    <h2>💡 快速阅读提示</h2>
+    <ol>
+      <li><b>先精读再通读：</b>把最经典的十首（如静夜思、春望、登高、黄鹤楼、行路难等）读熟背默，其余通读留痕即可。</li>
+      <li><b>按体裁跳读：</b>先读最短的五言绝句找感觉，再读律诗、古诗，由易到难，效率更高。</li>
+      <li><b>边读边勾：</b>每读完一首就勾选"已读"，把当天日期记在进度区，方便向家长汇报、留下阅读痕迹。</li>
+      <li><b>借力译文：</b>先看白话译文了解大意，再回头读原文，比逐字硬啃快得多。</li>
+    </ol>
+  </section>
+
+  <footer>—— 《唐诗三百首》快速导读 · 暑假名著速读 ——</footer>
+</div>
+
+<script>
+(function(){
+  var checks = document.querySelectorAll('.poem-check');
+  var count = document.getElementById('readCount');
+  var fill = document.getElementById('barFill');
+  var btnReset = document.getElementById('btnReset');
+  var readDate = document.getElementById('readDate');
+  var readTime = document.getElementById('readTime');
+  var TOTAL = checks.length;
+
+  var KEY = 'tss300_progress_v1';
+
+  function load(){
+    try{
+      var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+      var done = saved.done || {};
+      checks.forEach(function(c){
+        var k = c.closest('.card').querySelector('.name').textContent;
+        c.checked = !!done[k];
+        c.closest('.card').classList.toggle('read', c.checked);
+      });
+      if(saved.date) readDate.value = saved.date;
+      if(saved.time) readTime.value = saved.time;
+    }catch(e){}
+    update();
+  }
+
+  function save(){
+    var done = {};
+    checks.forEach(function(c){
+      var k = c.closest('.card').querySelector('.name').textContent;
+      done[k] = c.checked;
+    });
+    try{
+      localStorage.setItem(KEY, JSON.stringify({
+        done: done,
+        date: readDate.value,
+        time: readTime.value
+      }));
+    }catch(e){}
+  }
+
+  function update(){
+    var n = 0;
+    checks.forEach(function(c){ if(c.checked) n++; });
+    count.textContent = n;
+    fill.style.width = (n / TOTAL * 100) + '%';
+  }
+
+  checks.forEach(function(c){
+    c.addEventListener('change', function(){
+      c.closest('.card').classList.toggle('read', c.checked);
+      update(); save();
+    });
+  });
+  readDate.addEventListener('change', save);
+  readTime.addEventListener('change', save);
+
+  btnReset.addEventListener('click', function(){
+    if(!confirm('确定要重置所有阅读进度吗？')) return;
+    checks.forEach(function(c){
+      c.checked = false;
+      c.closest('.card').classList.remove('read');
+    });
+    readDate.value = ''; readTime.value = '';
+    update(); save();
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>
